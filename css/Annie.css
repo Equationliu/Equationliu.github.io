@@ -98,7 +98,7 @@ figure {
   display: block;
 }
 html {
-  font-size: 16px;
+  font-size: 18px;
 }
 body {
 /*font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell","Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;*/
@@ -262,13 +262,15 @@ td {
 }
 img,
 video,
+table,
 audio {
   display: block;
   opacity: 1;
-  max-width: 100%;
-  width: 100%;
+  width: 60%;
   height: auto;
   cursor: pointer;
+  margin-left: auto;
+  margin-right: auto;
 }
 code {
   font-family: "Source Code Pro", Consolas, Monaco, Menlo, Consolas, monospace;
@@ -291,14 +293,16 @@ pre code {
   overflow-x: auto;
 }
 img,
+table,
 video {
   display: block;
   opacity: 1;
   max-width: 100%;
-  width: 100%;
+  width: 60%;
   height: auto;
   cursor: pointer;
   margin-bottom: 1rem;
+  align: center;
 }
 .video-container {
   position: relative;
