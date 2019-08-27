@@ -1,0 +1,914 @@
+<!--
+	作者：Sariay
+	时间：2018-09-25
+	描述：There may be a bug, but don't worry, QiLing(器灵) says that it can work normally!
+-->
+<!DOCTYPE html>
+<html class="html-loading">
+		
+
+<head><meta name="generator" content="Hexo 3.9.0">
+	<meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+  <title>
+    
+      Nginx能为前端开发带来什么？ | Equation-Blog
+    
+  </title>
+  <meta name="author" content="Equation">
+  <meta name="keywords" content="equation, equation的博客, 个人网站, 互联网, CS, 机器学习 , Machine Learning, Math, 数学">
+  <meta name="description" content>
+	<!-- favicon -->
+  <link rel="shortcut icon" href="/img/favicon.ico">
+
+  <!-- css -->
+  <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/Annie.css">
+  
+  <!-- jquery -->
+	<script src="/js/jquery.min.js"></script>
+
+  <!-- leancloud -->
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+<script src="/js/leancloud.js"></script>
+</head>
+	<body>
+		<!-- Preloader -->
+
+	<div id="preloader">
+		<div class="pre-container">
+			
+				<div class="spinner">
+					<div class="double-bounce1"></div>
+					<div class="double-bounce2"></div>
+				</div>
+						
+		</div>
+	</div>
+
+
+<!-- header -->
+<header class="fixbackground" data-img-mode="normal" data-normal-src="/img/new-start.jpg" data-random-max="110" data-random-src="https://sariay.github.io/Random-img/">
+	<div class="mask">
+		<!-- Logo and navigation -->
+		<div class="h-header">
+			<div id="logo">
+				<a href="/">
+						
+						<img src="/img/logo.png" alt="Logo">
+					
+				</a>
+			</div>
+			
+			<div id="navigation-show">
+				<ul>
+	
+		<li class="menu-home">
+			<a href="/" class="menu-item-home">主页</a>
+		</li>
+	
+		<li class="menu-archive">
+			<a href="/archives" class="menu-item-archive">归档</a>
+		</li>
+	
+		<li class="menu-categories">
+			<a href="/categories" class="menu-item-categories">分类</a>
+		</li>
+	
+		<li class="menu-tags">
+			<a href="/tags" class="menu-item-tags">标签</a>
+		</li>
+	
+		<li class="menu-about">
+			<a href="/about" class="menu-item-about">关于</a>
+		</li>
+	
+		<li class="menu-gallery">
+			<a href="/gallery" class="menu-item-gallery">相册</a>
+		</li>
+	
+
+	
+</ul>
+			</div>				
+		</div>
+
+		<!-- motto -->
+		<div class="h-body">	
+			
+				<p class="motto"></p>
+			
+		</div>
+		
+		<!-- others: such as time... -->			
+		<div class="h-footer">
+			<a href="javascript:;" id="read-more"><i class="fa fa-angle-double-down" aria-hidden="true"></i>
+			</a>
+
+			
+				<!-- 
+	This is only a demo, please go to "https://time.is" to set your city time! 
+-->
+<style type="text/css">
+	.header-date {
+		font-size: 1.6rem;
+		color: #fff;
+		position: absolute;
+		bottom: 5px;
+		right: 1rem;
+		writing-mode: tb-rl;
+	}	
+	
+	.header-date a {
+		border-bottom: none;
+	}
+
+	@media only screen and (max-width: 768 ) {
+		.header-date {
+			font-size: 1rem;
+		}			
+	}
+</style>
+<div class="header-date">
+	<a href="https://time.is/Beijing" id="time_is_link" rel="nofollow" ></a>
+	<span id="Beijing_z43d"></span>
+</div>
+<script src="//widget.time.is/zh.js"></script>
+<script>
+	time_is_widget.init({
+		Beijing_z43d:{
+			template:"DATE", 
+			date_format:"year年 monthname dnum日"
+		}
+	});
+</script>
+			
+		</div>
+	</div>
+</header>
+
+<div id="navigation-hide">
+	<!-- Progress bar -->
+	<div id="progress-bar"></div>
+
+	<!-- Progress percent -->
+	<div id="progress-percentage"><h1>0.0%</h1></div>
+
+	<div class="toc-switch"><span class="switch-button">目录</span></div>
+
+	<!-- Page title -->
+	<p>
+		
+			当前文章&nbsp;:&nbsp;《Nginx能为前端开发带来什么？》
+		
+	</p>
+
+	<!-- Nav trigger for navigation-H-->
+	<a class="nav-trigger"><span></span></a>
+</div>
+
+<!-- Navigation in div(id="navigation-H") -->
+<nav class="nav-container" id="cd-nav">
+	<div class="nav-header">
+		<h3>Navigation</h3>
+		<a href="javascript:;" class="nav-close"></a>
+	</div>
+	<div class="nav-body">
+		<ul>
+	
+		<li class="menu-home">
+			<a href="/" class="menu-item-home">主页</a>
+		</li>
+	
+		<li class="menu-archive">
+			<a href="/archives" class="menu-item-archive">归档</a>
+		</li>
+	
+		<li class="menu-categories">
+			<a href="/categories" class="menu-item-categories">分类</a>
+		</li>
+	
+		<li class="menu-tags">
+			<a href="/tags" class="menu-item-tags">标签</a>
+		</li>
+	
+		<li class="menu-about">
+			<a href="/about" class="menu-item-about">关于</a>
+		</li>
+	
+		<li class="menu-gallery">
+			<a href="/gallery" class="menu-item-gallery">相册</a>
+		</li>
+	
+
+	
+</ul>
+	</div>
+	<div class="nav-footer">
+		<ul>
+	
+		<li>
+			<a href="https://github.com/Equationliu/Equationliu.github.io" target="_blank">
+				<i class="fa fa-github"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="https://www.zhihu.com/people/equation1998/activities" target="_blank">
+				<i class="fa fa-zhihu"></i>
+			</a>
+		</li>
+			
+</ul>
+
+	</div>
+</nav>
+			
+		<!--main-->
+		<main>
+			<!--
+	时间：2018-11-17
+	描述：
+		插件名称：katelog.min.js
+		插件作者：KELEN
+		插件来源: https://github.com/KELEN/katelog
+-->
+
+	
+		<div class="layout-toc">
+			<div id="layout-toc">
+				<div class="k-catelog-list" id="catelog-list" data-title="文章目录"></div>
+			</div>
+		</div>
+
+		
+		<script src="/plugin/toc/katelog.min.js"></script>
+
+		
+	 
+
+<div class="layout-post">
+	<div id="layout-post">
+	<div class="article-title">
+		<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+		
+	<a href="/nginx-in-fe/" itemprop="url">
+		Nginx能为前端开发带来什么？
+	</a>
+
+	</div>
+
+	<div class="article-meta">
+		<span>
+			<i class="fa fa-calendar"></i>
+			
+
+
+	发布于
+
+	<a href="/nginx-in-fe/" itemprop="url">
+		<time datetime="2015-11-03T13:30:00.000Z" itemprop="datePublished">
+	  		2015-11-03
+	  </time>
+	</a>
+	&nbsp;
+
+
+
+
+
+			
+
+
+
+
+	更新于
+
+	<a href="/nginx-in-fe/" itemprop="url">
+		<time datetime="2015-11-03T13:30:00.000Z" itemprop="dateUpdated">
+	  		2017-07-28
+	  </time>
+	</a> 
+
+
+
+		</span>
+		<span>
+			<i class="fa fa-tags"></i>
+			
+	
+		<a href="/tags/前端/" class=" ">
+			前端
+		</a>
+	
+		
+		</span>
+		
+		
+
+	
+    <span class="leancloud_visitors" id="/nginx-in-fe/_visitors" data-url="/nginx-in-fe/" data-title="Nginx能为前端开发带来什么？">
+       	<i class="fa fa-eye"></i>
+       	热度
+        <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
+    </span>
+    
+
+
+
+	
+    <span class="leancloud_likes" id="/nginx-in-fe/_likes" data-url="/nginx-in-fe/" data-title="Nginx能为前端开发带来什么？" rel="unlike">
+        <i class="fa fa-heart"></i>
+        喜欢
+        <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
+    </span>
+
+	</div>
+
+	<div class="article-content" id="article-content">
+		<p>Nginx那么好，我想去看看。<br>接连逛了两个书城后，我发现并没有Nginx相关的书籍。<br>这就很奇怪！</p>
+<p><img src="/assets/blogImg/nginx0.jpg" alt></p>
+<p>Nginx，一名<strong>网红</strong>（网络服务器红人…），就算没有自传和回忆录，争着介绍它的花边新闻也该有吧。</p>
+<p>后来找到仅有的一两本书籍，也直接深入到“源码剖析”的阶段。写得并不十分满意，况且我还不需要这些。<br>后来发现了原因，大概是因为<strong>“使用太简单了，都不值得出书”</strong>。<br>是的，Nginx把纷繁复杂的功能，浓缩成一份简单的配置，极易上手。<br>当它呈现到你面前时，感觉独具匠心。</p>
+<a id="more"></a>
+
+<h3 id="Nginx与NodeJs"><a href="#Nginx与NodeJs" class="headerlink" title="Nginx与NodeJs"></a>Nginx与NodeJs</h3><p>（这里的标题有点歧义。此处的NodeJs，皆引申为NodeJs所搭建的服务器。）</p>
+<p>有人说，作为一名前端，<strong>我的真爱是NodeJs</strong>。<br>同时也认同，抛去性能之类的比较，单纯从实现的角度，NodeJs编写的服务器也能实现Nginx的各种功能。                </p>
+<p>这些我都赞成，但使用Nginx并不意味着抛弃NodeJs。事实上，它们并不冲突，还可以在一起愉快的玩耍。              </p>
+<p>在业内，这样的模型已很常见：资源转发，反向代理，静态资源处理，负载均衡，这些事情扔给Nginx来处理，只是几行配置的事情；同时在上游，让NodeJs去处理它最擅长的I/O等事情。               </p>
+<p>合理分配各自<strong>擅长</strong>的事情，这样的思路，同样可以运用于前端开发中。                </p>
+<p>以前用NodeJs几百行实现的服务器功能，在npm与github的海洋里花尽心思去寻找的模块，也许在Nginx里是一条成熟的配置。它能帮其分担很多事情，节约了成本。                  </p>
+<h3 id="场景一：环境切换"><a href="#场景一：环境切换" class="headerlink" title="场景一：环境切换"></a>场景一：环境切换</h3><p>前端开发中，经常面临多个部署环境切换的问题。<br>我们通常用配hosts的方式去实现。更优化些，我们将机器的服务绑定了不同的域名：比如正式环境是a.qq.com，测试环境是test.a.qq.com。 </p>
+<p>然而在拓展性和易用性方面，还不足够好。<br>而Nginx作为反向代理，就很容易处理资源转发的问题。                 </p>
+<p>思路很简单：</p>
+<blockquote>
+<ol>
+<li>读取请求里的cookie，如果键名host_id有值，则代理到这个IP地址；</li>
+<li>如果没有，则代理到默认的正式环境（此处举例为1.1.1.1）;</li>
+</ol>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">set $env_id &quot;1.1.1.1&quot;;</span><br><span class="line">if ( $http_cookie ~* &quot;host_id=(\S+)(;.*|$)&quot;) &#123;</span><br><span class="line">    set $env_id $1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location / &#123;</span><br><span class="line">    proxy_set_header Host $host;</span><br><span class="line">    proxy_pass   http://$env_id:80;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>那接下来的事情，就是<strong>怎样用最简便的方式，把IP种在cookie里？</strong><br>我们应用了nginx-http-footer-filter模块，html文件经过代理时，都注入了一小段js代码。</p>
+<p>这段代码，会帮我们展示小菜单，点击某个环境时，则将IP种到cookie里，同时刷新页面，让Nginx完成环境切换。<br><img src="/assets/blogImg/nginx1.jpg" alt></p>
+<p>切换环境，如今只需点击一次。</p>
+<h3 id="场景二：SourceMap"><a href="#场景二：SourceMap" class="headerlink" title="场景二：SourceMap"></a>场景二：SourceMap</h3><p>在线上环境调试Js代码是件麻烦的事情，因为目前合格的前端部署，代码都应经过压缩。性能问题是优化了，debug可不怎么方便。</p>
+<p>而SourceMap正好可以解决此问题。</p>
+<p>在最新的各版本浏览器里，如果满足：</p>
+<ol>
+<li>压缩后的js文件后面有<code>//# sourceMappingURL=xxx.map</code>格式的注释</li>
+<li>浏览器能正常访问到sourceMappingURL</li>
+</ol>
+<p>那么，就能把压缩过的代码还原。<br>要实现这样的功能，就必须：</p>
+<ol>
+<li>现网环境不带以上形式的注释，同时访问不到sourceMap（安全性考虑）</li>
+<li>测试环境带注释，能访问sourceMap</li>
+</ol>
+<p>这样的模型，用<code>反向代理+内容纂改</code>的思路再合适不过。<br>每次构建编译时，我们会把sourceMap文件存放到一台机器（举例为1.1.1.1），命名为js文件名后加<code>.map</code>后缀。随后，使用Nginx，通过这几行配置就能把此功能实现：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">location ~ \.js$ &#123;</span><br><span class="line">    footer &quot;\n//# sourceMappingURL=$request_uri.map&quot;;</span><br><span class="line">    footer_types &quot;*&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>只要经过代理，在chrome里，我们能看到每份被压缩过的js文件，都有一个对应的源码文件。<br>你可以直接使用它来做打断点之类的操作，大大的提升了调试质量。<br><img src="/assets/blogImg/nginx2.jpg" alt></p>
+<h3 id="场景三：内容纂改"><a href="#场景三：内容纂改" class="headerlink" title="场景三：内容纂改"></a>场景三：内容纂改</h3><p>其实在以上两个场景里，都涉及了“内容纂改”。<br>无论是说“纂改”还是“劫持”，大家的印象都不是什么好事情，但另一方面，他们又可以让事情有趣起来。</p>
+<p>统一介绍下，Nginx涉及纂改的模块有：</p>
+<ul>
+<li><a href="https://m.oschina.net/blog/156826" target="_blank" rel="noopener">nginx_http_footer_filter</a>：往文件的底部添加文字，可包含Nginx的内置变量；</li>
+<li><a href="http://nginx.org/en/docs/http/ngx_http_addition_module.html" target="_blank" rel="noopener">nginx_http_addition_module</a>：从一个url去读取内容，将之添加到文件的头部或顶部；</li>
+<li><a href="http://nginx.org/en/docs/http/ngx_http_sub_module.html" target="_blank" rel="noopener">nginx_http_sub_module</a>：替换字符</li>
+</ul>
+<p>除去上面两种场景，合理运用这些模块对应的配置，可以做出许多小工具，这是很有想象力的事情。<br>单单针对移动web前端开发，就可以实现： </p>
+<blockquote>
+<ol>
+<li>将<a href="http://people.apache.org/~pmuellr/weinre-docs/latest/" target="_blank" rel="noopener">weinre</a>脚本插入到html里，让移动web调试更加便捷。</li>
+<li>移动web经常用到localStorage优化首屏，但debug时又会受到干扰，通过一个按钮很方便的清除本地缓存。</li>
+<li>手机APP内嵌页面，很难将其网址分享给另一个人。通过一个按钮就能生成url对应的二维码等</li>
+</ol>
+</blockquote>
+<h3 id="场景四：本地映射"><a href="#场景四：本地映射" class="headerlink" title="场景四：本地映射"></a>场景四：本地映射</h3><p>在Windows下的前端抓包调试，Fiddler+Willow的能力毋庸置疑。<br>而脱离了.NET体系的Linux和Mac，即使有一些代替工具，但某些方面还是略显不足。   </p>
+<p>比如：<strong>线上接口映射到本地文件</strong>。<br>想到Fiddler的本质也是一个代理，而开启一个有这样能力的Nginx服务，并不是太难的事情。           </p>
+<p>而且，我们可以做得更灵活，比如：</p>
+<ul>
+<li>同时支持慢速调试</li>
+<li>同时支持目录层级映射</li>
+<li>同时支持正则匹配</li>
+<li>JSON返回的数据有可能是变化的（比如分页时候），同时支持动态数据</li>
+</ul>
+<p>这些场景，只运用到Nginx里的“<a href="http://www.linuxidc.com/Linux/2014-01/95493.htm" target="_blank" rel="noopener">rewrite规则</a>”。<br>从参考的文档可以大致看到，rewrite规则非常灵活，能完成各种场景的转发。 </p>
+<p>最简单的模型中，我们把所有带<code>cgi-bin</code>路径的请求，rewite到本地的一个服务，同时带上请求的所有参数，<br>仅需这三行配置即可：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">location ~ /cgi-bin/* &#123;</span><br><span class="line">    rewrite ^(.*)$ http://127.0.0.1:8080/cgi-bin/ last;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>后续的事情，可以在本地创建一个cgi-bin文件夹，在里面放置需要映射的文本，并开启服务到8080端口即可。 </p>
+<h3 id="场景五：移动侧调试"><a href="#场景五：移动侧调试" class="headerlink" title="场景五：移动侧调试"></a>场景五：移动侧调试</h3><p><code>Fiddler</code> 有一个勾选项 <code>Allow remote computers to connect</code>，并可以指定 <code>listen port</code> 可以使得手机/其它终端通过将本机设为代理而访问本机环境，与 <code>hosts</code> 配合会很实用。</p>
+<p>这个功能，用Nginx也很容易做到。<br>通过 <code>default_server</code> 作为代理，手机终端通过设置网络代理为本机IP和相应的 <code>listen port</code>，从而可以访问本机的 Web 服务。</p>
+<p>其中也是用到了<a href="http://nginx.org/en/docs/http/ngx_http_proxy_module.html" target="_blank" rel="noopener">ngx_http_proxy_module</a>模块的配置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"> server &#123;</span><br><span class="line">    listen  80 default_server;</span><br><span class="line">    server_name  localhost;</span><br><span class="line">    resolver 8.8.8.8;</span><br><span class="line">    location / &#123;</span><br><span class="line">        proxy_set_header Host $host;</span><br><span class="line">        proxy_set_header X-Real-Ip $remote_addr;</span><br><span class="line">        proxy_set_header X-Forwarded-For $remote_addr;</span><br><span class="line">        proxy_pass http://$host;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">server &#123;</span><br><span class="line">    listen  80;</span><br><span class="line">    server_name  ke.qq.com;</span><br><span class="line">    location / &#123;</span><br><span class="line">        proxy_set_header Host $host;</span><br><span class="line">        proxy_set_header X-Real-Ip $remote_addr;</span><br><span class="line">        proxy_set_header X-Forwarded-For $remote_addr;</span><br><span class="line">        proxy_pass http://127.0.0.1:9091/;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="边角料"><a href="#边角料" class="headerlink" title="边角料"></a>边角料</h3><p>除去特定场景，Nginx的一些配置也跟前端息息相关。以下简单罗列，作为边角材料。</p>
+<p>1.<a href="https://github.com/alibaba/nginx-http-concat" target="_blank" rel="noopener">nginx_http_concat</a><br>资源合并，处理CDN combo。例如通过这样的方式<code>http://example.com/??style1.css,style2.css,foo/style3.css</code>访问合并后的资源。</p>
+<p>2.<a href="http://nginx.org/en/docs/http/ngx_http_image_filter_module.html" target="_blank" rel="noopener">ngx_http_image_filter_module</a><br>图片处理。提供图片缩放，jpg压缩，旋转等特性。</p>
+<p>3.适配PC与移动web<br>总体可运用<a href="http://nginx.org/en/docs/http/ngx_http_proxy_module.html" target="_blank" rel="noopener">ngx_http_proxy_module</a>，去实现路径转发。判断平台类型的Nginx配置，在开源项目<a href="http://detectmobilebrowsers.com/" target="_blank" rel="noopener">detectmobilebrowsers</a>中可以找到。</p>
+<h3 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h3><p>学习Nginx，我本身只是出于开开眼界的目的。而的确发现了一些很有启发性的特质。<br>于前端开发，无论线上线下，熟练掌握基本配置，可以做出许多提高效率的工具。<br><strong>但既然是工具，熟手就好</strong>。 </p>
+<p>比如Fiddler直观，但Nginx更底层，更灵活，应当按照实际选择即可。</p>
+<p>话说回来，后来心情有些惆怅。<br>想起之前，我用NodeJs写过一个八百行的本地调试服务，如今更习惯用Nginx的几行配置。<br>不过我又想，<strong>既然我已经花了时间去写，为什么还要花时间去用？！</strong> </p>
+<p>心情又好起来了。（等等有什么不对，管它呢…）</p>
+<hr>
+<p>END.<br>15.11.03 Litten.</p>
+	
+	</div>
+	
+	<div id="current-post-cover" data-scr="/img/cart_cover.jpg"></div>
+
+	<!-- relate post, comment...-->
+	<div class="investment-container">
+		<div class="investment-header">
+			<div class="investment-title-1">
+				<div class="on">相关文章</div>
+				<div>评论</div>
+				<div>分享</div>
+			</div>
+			<div class="investment-title-2">	            
+				
+	<span>
+		<a href="javascript: window.scrollTo(0, 0);">返回顶部</a>
+		
+			<a href="/the-storied-life-of-aj/" title="从《岛上书店》说开去" rel="prev">
+				&laquo;上一篇
+			</a>
+		
+		
+			<a href="/hack-in-localstorage/" title="作为一个前端，可以如何机智地弄坏一台电脑？" rel="next">
+				下一篇&raquo;
+			</a>
+			
+	</span>
+
+
+      		
+			</div>	
+		</div>
+		
+		<div class="investment-content">
+			<div class="investment-content-list">
+				
+
+<div class="relate-post">
+	
+		<ul>
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/prevent-spiders/" title="反击爬虫，前端工程师的脑洞可以有多大？">
+								反击爬虫，前端工程师的脑洞可以有多大？			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								七月 9日, 2017				
+							</p>
+							<p class="relate-post-content">
+								
+
+—— 同时发表于imweb.io
+1. 前言对于一张网页，我们往往希望它是结构良好，内容清晰的，这样搜索引擎才能准确地认知它。而反过来，又有一些情景，我们不希望内容能被轻易获取，比方说电商网站的交易额，教育网站的题目等。因为这些内...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/prevent-spiders/" title="反击爬虫，前端工程师的脑洞可以有多大？">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg" alt="反击爬虫，前端工程师的脑洞可以有多大？"/>
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/reduce-http-requests/" title="再议减少HTTP请求">
+								再议减少HTTP请求			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								八月 14日, 2014				
+							</p>
+							<p class="relate-post-content">
+								       
+
+最近参加了IMWEB前端技术沙龙活动，有幸能站到讲台上，将性能方面的经验与大家分享。现将“再议减少HTTP请求”部分简单摘剪成文。
+
+
+
+前言:关于web性能，有两个著名论断：              
+
+0.1-...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/reduce-http-requests/" title="再议减少HTTP请求">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg" alt="再议减少HTTP请求"/>
+							</a>
+						</div>
+					</li>											
+			
+			
+		</ul>
+	
+</div>	
+			</div>
+			<div class="investment-content-list">
+				<div class="layout-comment">
+
+	
+
+		
+
+			<!-- gitalk comment -->
+			<!-- show gitalk comment -->
+<div id="gitalk-container"></div>
+
+<!-- gitalk`s css & js -->
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<link rel="stylesheet" href="/css/comment.css">
+<script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script>
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<script type="text/javascript">
+	//Thanks O-R
+	//https://github.com/gitalk/gitalk/issues/102#issuecomment-382970552
+	//去除尾部匹配正则数组的字符串  
+	//Remove redundant characters
+	String.prototype.trimEnd = function(regStr) {
+		var result = this;
+		if(regStr == undefined || regStr == null || regStr == "") {
+			return result;
+		}
+		var array = regStr.split(',');
+
+		if(array.length > 0) {
+
+			var c = array.shift();
+			var str = this;
+			var i = str.length;
+			var rg = new RegExp(c);
+			var matchArr = str.match(rg);
+
+			if(matchArr != undefined && matchArr != null && matchArr.length > 0) {
+				var matchStr = matchArr[0].replace(/\\/g, "\\\\").replace(/\*/g, "\\*")
+					.replace(/\+/g, "\\+").replace(/\|/g, "\\|")
+					.replace(/\{/g, "\\{").replace(/\}/g, "\\}")
+					.replace(/\(/g, "\\(").replace(/\)/g, "\\)")
+					.replace(/\^/g, "\\^").replace(/\$/g, "\\$")
+					.replace(/\[/g, "\\[").replace(/\]/g, "\\]")
+					.replace(/\?/g, "\\?").replace(/\,/g, "\\,")
+					.replace(/\./g, "\\.").replace(/\&/g, "\\&");
+				matchStr = matchStr + '$';
+				result = str.replace(new RegExp(matchStr), "");
+			}
+
+			if(array.length > 0) {
+				return result.trimEnd(array.join())
+			} else {
+				return result;
+			}
+		}
+	};
+
+	//Create gitalk
+	var gitalk = new Gitalk({
+		clientID: 'c5d264006f86829c01b9',
+		clientSecret: '018624f40a5f85ec2cb53656d9dbf28bd16ccd5c',
+		//id: window.location.pathname,
+		//id: decodeURI(window.location.pathname),
+		//id: (window.location.pathname).split("/").pop().substring(0, 49),
+		id: decodeURI( md5( location.href.trimEnd('#.*$,\\?.*$,index.html$') ) ),
+		repo: 'Annie-Gitalk',
+		owner: 'Equationliu',
+		admin: 'Equationliu',
+		distractionFreeMode: 'true',
+	})
+	gitalk.render('gitalk-container');
+</script>
+
+		
+		
+	
+
+</div>
+			</div>
+			<div class="investment-content-list">
+				<div class="layout-share">
+	
+	
+
+		
+			
+			<!-- socialShare share -->
+			<div class="social-share"></div>
+
+<!--  css & js -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+			
+		
+		
+	
+</div>
+
+
+			</div>
+		</div>	
+	</div>
+	</div>
+</div>
+
+
+
+	<!-- leancloud -->
+	<!--
+	时间：2018-11-27
+	描述：
+		文章访问量：visitors
+		文章喜欢量：likes	
+		文章排行榜：topNPost
+		其他得说明：
+			01-Cookie相关的函数 
+				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
+			02-visitors相关的函数 
+				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
+				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
+			03-topNPost相关的函数
+				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
+			04-likes相关的函数，
+				参考了01 & 02进行简单的设计与实现
+-->
+
+
+
+	<script>
+		var appid = '8ldhVpVh39at6Spx628YbPjg-gzGzoHsz',
+            appkey = 'YyLDdeVMVo4fHOPd7b51tIJj';	  
+        AnnieLeancloud(appid, appkey);         
+	</script>
+    
+
+	
+
+
+<!-- show math formula -->
+
+
+
+	 
+	<script src="/plugin/clipboard/clipboard.js"></script>
+	<script>
+		// Copy code !
+	    function codePreprocessing() {
+	        $("#article-content .highlight").each(function() {
+
+	            $(this).wrap('<div id="post-code"></div>');
+
+	        })
+
+	        $("#article-content #post-code").each(function() {
+
+	            $(this).prepend('<nav class="copy-nav"><span><i class="code-language"></i></span></nav>');
+
+	        })
+
+	        $("#article-content .copy-nav").each(function() {
+	            var temp = $(this).next().attr('class'),
+	                language = ((temp.length > 9) && (temp != null)) ? temp.substr(10) : "none"; //why 9? Need to check language?
+
+	            $(this).find('.code-language').text(language);
+
+	            $(this).append('<span class="copy-btn"><i class="fa fa-copy" aria-hidden="true"></i></span>');
+
+	        });
+	    }
+
+		function codeCopy() {
+		    $('#article-content #post-code').each(function(i) {
+		        var codeCopyId = 'codeCopy-' + i;
+
+		        var codeNode = $(this).find('.code'),
+		            copyButton = $(this).find('.copy-btn');
+
+		        codeNode.attr('id', codeCopyId);
+		        copyButton.attr('data-clipboard-target-id', codeCopyId);
+		    })
+
+		    
+			var clipboard = new ClipboardJS('.copy-btn', {
+					target: function(trigger) {
+						return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+					}
+		      	});
+
+			//pure js
+			function showTooltip(elem, msg) {		   
+				elem.setAttribute('aria-label', msg);
+				elem.setAttribute('class', 'copy-btn copy-status');
+				setTimeout(function() {
+					elem.setAttribute('class', 'copy-btn');
+				}, 2000);
+			}
+
+			clipboard.on('success', function(e) {
+			    e.clearSelection();
+			    console.info('Action:', e.action);		   
+			    console.info('Trigger:', e.trigger);
+			    showTooltip(e.trigger, 'Copied!');
+			    
+			});
+			clipboard.on('error', function(e) {
+			    console.error('Action:', e.action);
+			    console.error('Trigger:', e.trigger);
+			});
+		
+
+		}
+
+		if ($('.layout-post').length) {
+		    codePreprocessing();
+		    codeCopy();
+		} 
+	</script>
+
+
+
+
+
+<link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
+<script src="/plugin/fancybox/jquery.fancybox.js"></script>
+
+<script type="text/javascript">
+	var titleID = $('.article-title a'),
+		imageID = $('.article-content img'),
+		videoID = $('.article-content video');
+
+	var postTitle = titleID.text() ? titleID.text() : "No post title!";
+
+	imageID.each(function() {
+		var imgPath = $(this).attr('src'),
+			imgTitle = $(this).attr('alt') ? $(this).attr('alt') : "No image description!";
+
+		//给每个匹配的<img>元素打包, 即添加父元素<a>
+		$(this).wrap('<a data-fancybox="gallery" data-caption=" 《 ' + postTitle + ' 》 ' + imgTitle + ' "  href=" ' + imgPath + ' "> </a>');
+	});
+
+	videoID.each(function() {
+		var videoPath = $(this).attr('src');
+
+		//给每个匹配的<img>元素打包, 即添加父元素<a>
+		$(this).wrap('<a data-fancybox href=" ' + videoPath + ' "> </a>');
+	});
+	//TODO：支持html5 video
+
+	if($('#layout-post').length) {
+		$('[data-fancybox="gallery"]').fancybox({
+			loop: true,
+			buttons: [
+				"zoom",
+				"share",
+				"slideShow",
+				"fullScreen",
+				//"download",
+				"thumbs",
+				"close"
+			],
+			protect: false
+		});
+	}
+</script>
+		</main>
+
+		<!--footer-->
+		<footer>
+	<div class="social">
+		<ul>
+	
+		<li>
+			<a href="https://github.com/Equationliu/Equationliu.github.io" target="_blank">
+				<i class="fa fa-github"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="https://www.zhihu.com/people/equation1998/activities" target="_blank">
+				<i class="fa fa-zhihu"></i>
+			</a>
+		</li>
+			
+</ul>
+
+	</div>
+		
+	<div class="copyright">
+		<p>
+			 
+				&copy;2019, content by Equation. All Rights Reserved.
+			
+			
+			
+
+	<!-- busuanzi -->
+	<!-- busuanzi -->
+
+		
+	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+
+		<span id="busuanzi_container_page_pv">
+	  		本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+		</span>
+
+	
+
+
+
+
+		</p>
+		<p>
+			<a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> Theme <a href="https://github.com/Sariay/hexo-theme-Annie" title="Annie" target="_blank" rel="noopener">Annie</a> by Sariay.
+			<a href="javascript:zh_tran('s');" class="zh_click" id="zh_click_s">简体</a> 
+			<a href="javascript:zh_tran('t');" class="zh_click" id="zh_click_t">繁體</a>				
+		</p>
+	</div>		
+</footer>
+		
+	<!-- set '1' to show motto in all pages! -->
+
+	<script src="/plugin/motto/motto.js"></script>
+	
+	<script type="text/javascript">
+		$(".motto").html( getMingYanContent() );
+	</script>	
+
+
+
+
+
+<!-- love effect -->
+
+	<script src="/plugin/love/love.js"></script>
+
+
+<!-- back to top -->
+
+	
+	<div id="totop">
+  		<a href="javascript:;"  name="TOTOP" class="fa fa-arrow-up" ></a>
+	</div>
+
+
+
+
+<!-- site analysis -->
+
+
+	<!-- site-analysis -->
+	
+<script>
+	var _hmt = _hmt || [];
+	(function() {
+		var hm = document.createElement("script");
+		hm.src = "//hm.baidu.com/hm.js?";
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(hm, s);
+	})();
+</script>
+
+	
+	
+<!-- Google Analytics -->
+<script type="text/javascript">
+	(function(i, s, o, g, r, a, m) {
+		i['GoogleAnalyticsObject'] = r;
+		i[r] = i[r] || function() {
+			(i[r].q = i[r].q || []).push(arguments)
+		}, i[r].l = 1 * new Date();
+		a = s.createElement(o),
+			m = s.getElementsByTagName(o)[0];
+		a.async = 1;
+		a.src = g;
+		m.parentNode.insertBefore(a, m)
+	})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+	ga('create', 'UA-99643860-1', 'auto');
+	ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+	
+	
+ 
+
+<script src="/plugin/vibrant/vibrant.js"></script>
+<script src="/plugin/chinese/chinese.js"></script>
+<script src="/plugin/imgLazyLoader/yall.min.js"></script>
+<script src="/plugin/imgResize/jquery.resizeimagetoparent.min.js"></script>
+<script src="/plugin/nicescroll/jquery.nicescroll.js"></script>
+<script src="/js/resizediv.js"></script>
+<script src="/js/main.js"></script>
+	</body>	
+</html>

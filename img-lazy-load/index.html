@@ -1,0 +1,849 @@
+<!--
+	作者：Sariay
+	时间：2018-09-25
+	描述：There may be a bug, but don't worry, QiLing(器灵) says that it can work normally!
+-->
+<!DOCTYPE html>
+<html class="html-loading">
+		
+
+<head><meta name="generator" content="Hexo 3.9.0">
+	<meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+  <title>
+    
+      说到加载图片，我们可以谈些什么 | Equation-Blog
+    
+  </title>
+  <meta name="author" content="Equation">
+  <meta name="keywords" content="equation, equation的博客, 个人网站, 互联网, CS, 机器学习 , Machine Learning, Math, 数学">
+  <meta name="description" content>
+	<!-- favicon -->
+  <link rel="shortcut icon" href="/img/favicon.ico">
+
+  <!-- css -->
+  <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/Annie.css">
+  
+  <!-- jquery -->
+	<script src="/js/jquery.min.js"></script>
+
+  <!-- leancloud -->
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+<script src="/js/leancloud.js"></script>
+</head>
+	<body>
+		<!-- Preloader -->
+
+	<div id="preloader">
+		<div class="pre-container">
+			
+				<div class="spinner">
+					<div class="double-bounce1"></div>
+					<div class="double-bounce2"></div>
+				</div>
+						
+		</div>
+	</div>
+
+
+<!-- header -->
+<header class="fixbackground" data-img-mode="normal" data-normal-src="/img/new-start.jpg" data-random-max="110" data-random-src="https://sariay.github.io/Random-img/">
+	<div class="mask">
+		<!-- Logo and navigation -->
+		<div class="h-header">
+			<div id="logo">
+				<a href="/">
+						
+						<img src="/img/logo.png" alt="Logo">
+					
+				</a>
+			</div>
+			
+			<div id="navigation-show">
+				<ul>
+	
+		<li class="menu-home">
+			<a href="/" class="menu-item-home">主页</a>
+		</li>
+	
+		<li class="menu-archive">
+			<a href="/archives" class="menu-item-archive">归档</a>
+		</li>
+	
+		<li class="menu-categories">
+			<a href="/categories" class="menu-item-categories">分类</a>
+		</li>
+	
+		<li class="menu-tags">
+			<a href="/tags" class="menu-item-tags">标签</a>
+		</li>
+	
+		<li class="menu-about">
+			<a href="/about" class="menu-item-about">关于</a>
+		</li>
+	
+		<li class="menu-gallery">
+			<a href="/gallery" class="menu-item-gallery">相册</a>
+		</li>
+	
+
+	
+</ul>
+			</div>				
+		</div>
+
+		<!-- motto -->
+		<div class="h-body">	
+			
+				<p class="motto"></p>
+			
+		</div>
+		
+		<!-- others: such as time... -->			
+		<div class="h-footer">
+			<a href="javascript:;" id="read-more"><i class="fa fa-angle-double-down" aria-hidden="true"></i>
+			</a>
+
+			
+				<!-- 
+	This is only a demo, please go to "https://time.is" to set your city time! 
+-->
+<style type="text/css">
+	.header-date {
+		font-size: 1.6rem;
+		color: #fff;
+		position: absolute;
+		bottom: 5px;
+		right: 1rem;
+		writing-mode: tb-rl;
+	}	
+	
+	.header-date a {
+		border-bottom: none;
+	}
+
+	@media only screen and (max-width: 768 ) {
+		.header-date {
+			font-size: 1rem;
+		}			
+	}
+</style>
+<div class="header-date">
+	<a href="https://time.is/Beijing" id="time_is_link" rel="nofollow" ></a>
+	<span id="Beijing_z43d"></span>
+</div>
+<script src="//widget.time.is/zh.js"></script>
+<script>
+	time_is_widget.init({
+		Beijing_z43d:{
+			template:"DATE", 
+			date_format:"year年 monthname dnum日"
+		}
+	});
+</script>
+			
+		</div>
+	</div>
+</header>
+
+<div id="navigation-hide">
+	<!-- Progress bar -->
+	<div id="progress-bar"></div>
+
+	<!-- Progress percent -->
+	<div id="progress-percentage"><h1>0.0%</h1></div>
+
+	<div class="toc-switch"><span class="switch-button">目录</span></div>
+
+	<!-- Page title -->
+	<p>
+		
+			当前文章&nbsp;:&nbsp;《说到加载图片，我们可以谈些什么》
+		
+	</p>
+
+	<!-- Nav trigger for navigation-H-->
+	<a class="nav-trigger"><span></span></a>
+</div>
+
+<!-- Navigation in div(id="navigation-H") -->
+<nav class="nav-container" id="cd-nav">
+	<div class="nav-header">
+		<h3>Navigation</h3>
+		<a href="javascript:;" class="nav-close"></a>
+	</div>
+	<div class="nav-body">
+		<ul>
+	
+		<li class="menu-home">
+			<a href="/" class="menu-item-home">主页</a>
+		</li>
+	
+		<li class="menu-archive">
+			<a href="/archives" class="menu-item-archive">归档</a>
+		</li>
+	
+		<li class="menu-categories">
+			<a href="/categories" class="menu-item-categories">分类</a>
+		</li>
+	
+		<li class="menu-tags">
+			<a href="/tags" class="menu-item-tags">标签</a>
+		</li>
+	
+		<li class="menu-about">
+			<a href="/about" class="menu-item-about">关于</a>
+		</li>
+	
+		<li class="menu-gallery">
+			<a href="/gallery" class="menu-item-gallery">相册</a>
+		</li>
+	
+
+	
+</ul>
+	</div>
+	<div class="nav-footer">
+		<ul>
+	
+		<li>
+			<a href="https://github.com/Equationliu/Equationliu.github.io" target="_blank">
+				<i class="fa fa-github"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="https://www.zhihu.com/people/equation1998/activities" target="_blank">
+				<i class="fa fa-zhihu"></i>
+			</a>
+		</li>
+			
+</ul>
+
+	</div>
+</nav>
+			
+		<!--main-->
+		<main>
+			<!--
+	时间：2018-11-17
+	描述：
+		插件名称：katelog.min.js
+		插件作者：KELEN
+		插件来源: https://github.com/KELEN/katelog
+-->
+	 
+
+<div class="layout-post">
+	<div id="layout-post">
+	<div class="article-title">
+		<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+		
+	<a href="/img-lazy-load/" itemprop="url">
+		说到加载图片，我们可以谈些什么
+	</a>
+
+	</div>
+
+	<div class="article-meta">
+		<span>
+			<i class="fa fa-calendar"></i>
+			
+
+
+	发布于
+
+	<a href="/img-lazy-load/" itemprop="url">
+		<time datetime="2015-04-28T15:54:00.000Z" itemprop="datePublished">
+	  		2015-04-28
+	  </time>
+	</a>
+	&nbsp;
+
+
+
+
+
+			
+
+
+
+
+	更新于
+
+	<a href="/img-lazy-load/" itemprop="url">
+		<time datetime="2015-04-28T15:54:00.000Z" itemprop="dateUpdated">
+	  		2017-07-28
+	  </time>
+	</a> 
+
+
+
+		</span>
+		<span>
+			<i class="fa fa-tags"></i>
+			
+	
+		<a href="/tags/js/" class=" ">
+			js
+		</a>
+	
+		
+		</span>
+		
+		
+
+	
+    <span class="leancloud_visitors" id="/img-lazy-load/_visitors" data-url="/img-lazy-load/" data-title="说到加载图片，我们可以谈些什么">
+       	<i class="fa fa-eye"></i>
+       	热度
+        <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
+    </span>
+    
+
+
+
+	
+    <span class="leancloud_likes" id="/img-lazy-load/_likes" data-url="/img-lazy-load/" data-title="说到加载图片，我们可以谈些什么" rel="unlike">
+        <i class="fa fa-heart"></i>
+        喜欢
+        <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
+    </span>
+
+	</div>
+
+	<div class="article-content" id="article-content">
+		<p><img src="/assets/blogImg/lazyload.jpg" alt="原图 by Denis Perepelenko">    </p>
+<p>其实，一开始让我在网页中加载一张图片，我是，是拒绝的…因为实在太简单了。</p>
+<p><code>&lt;img src=&quot;xx.jpg&quot; /&gt;</code>是每个前端开发都会的技能。然而，如果你想做到极致，事情还没有这么简单。</p>
+<p>最近实现了个图片加载器，用于大型web前端项目中，关于加载图片这一话题，仔细想来可以加许多的特技。</p>
+<a id="more"></a>
+
+<p>###第一步：滚屏加载</p>
+<p>这是最容易想到的点，也是一开始就准备做的。</p>
+<p>随web体验的进步，滚屏加载代替分页加载的情形越来越多。也就是先预留图片位置，而不去加载图片，直到这个预留区域滚动到屏幕中，用户能看见了，才去加载图片。如此一来，有“按需加载”的意味，由于图片加载延后，不抢占带宽，在打开页面的首屏会快很多。我们称之为“懒加载(lazyload)”。</p>
+<p>其实现也很简单，在html里面写<code>&lt;img lazy-src=&quot;xx.jpg&quot; /&gt;</code>，然后用js去判断这个节点是否出现在屏幕中，如果是，则取出<code>lazy-src</code>属性，赋值成<code>&lt;img lazy-src=&quot;xx.jpg&quot; src=&quot;xx.jpg&quot;/&gt;</code>，触发此节点onload，这就实现最简单的滚屏加载了。</p>
+<p>###第二步：特殊状态处理</p>
+<p>特殊状态有两种：加载中与加载失败。这两种情况的处理逻辑相类似，拿加载中的逻辑做例子。</p>
+<p>图片触发加载，到图片加载完成（或失败）之间，肯定会有一段时间。不做处理的话，用户在等待的过程中，就只能看到空白的区域，非常的奇怪。在低网速，以及用户非常快的拉滚动条的情形下，这种现象将更加明显。</p>
+<p>那么在触发onload之前，就需要补一些逻辑，展示对应的loading图。<br>将需要处理的img节点作为参数，调用tempImg函数，克隆一个节点强行插在img之前，用于loading中的展示。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var tempImg = function(target)&#123;</span><br><span class="line">    var w = target.width();</span><br><span class="line">    var h = target.height();</span><br><span class="line">    var tempDom = target.clone().addClass(&quot;lazy-loding&quot;).insertBefore(target);</span><br><span class="line"></span><br><span class="line">    if(w/h == 1)&#123;</span><br><span class="line">        tempDom[0].src = &quot;http://9.url.cn/edu/img/img-loading.png&quot;;</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">        tempDom[0].src = &quot;http://9.url.cn/edu/img/img-loading2.png&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">    target.hide();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>###第三步：上报监控</p>
+<p>这一步在大型前端项目中非常重要，也是经常被忽略的地方。尽管需要简易的后台配合，但不算麻烦的上报监控，能让产品更加稳定和健壮。</p>
+<p>我在两个地方用到了上报。其一是图片加载失败，触发<code>onerror</code>时，这样一来我们能知道每天图片拉取失败的量；其二是图片加载的时间，能够帮助我们分析cdn服务是否异常，分析全国慢速用户比例等等。</p>
+<p>而所谓的上报其实就是一个http请求，我会大概把这些信息带上</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">   log(&#123;</span><br><span class="line">	&apos;type&apos;: &apos;error&apos;,</span><br><span class="line">	&apos;msg&apos;: &apos;lazyload拉取图片失败上报 &apos;,</span><br><span class="line">	&apos;url&apos;: window.location.href,</span><br><span class="line">	&apos;pid&apos;: 414342  //产品对应的id</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>###第四步：居中截取</p>
+<p>这是前端无可避免的一个问题，先来说下此问题的背景。</p>
+<p>由于我们是先用一个空白的img标签占位，再去加载图片，如果图片的高度特别长（比如新浪长微博），加载完成时就会撑开节点，引起滚动条的跳动。由于移动端屏幕较PC窄，一个跳动就可能让你找不到前一秒正在浏览的内容，这种体验尤其严重。在移动端的web设计中，可以看到许多知名互联网公司的产品，也经常忽略这一点。</p>
+<p>因此我们可以限定占位区域的size，以此区域来做居中截取。当占位区域与图片最终展示同宽同高时，就不会引起跳动，而且也保持了视觉的一致性。</p>
+<p>其原理如下，先判断是竖向长型图，还是横向长型图，根据不同的情况，优先让宽或高填充满占位区域，然后通过不同的负margin去实现居中。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">var calSize = function($img) &#123;</span><br><span class="line">    var w = $img.width(), h = $img.height(), width = size[0], height = size[1];</span><br><span class="line">    if(w+h == 0) return;</span><br><span class="line"></span><br><span class="line">    //如果是长型图，优先适配宽度，高度居中截取</span><br><span class="line">    if(w/h &gt; width/height)&#123;</span><br><span class="line">        var newWidth = height * w / h;</span><br><span class="line">        var margin = (width - newWidth)/2;</span><br><span class="line">        $img.height(height).css(&#123;&quot;margin-left&quot;: margin&#125;);</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">        var newHeight = width * h / w;</span><br><span class="line">        var margin = (height - newHeight)/2;</span><br><span class="line">        $img.width(width).css(&#123;&quot;margin-top&quot;: margin&#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>###第五步：支持webp</p>
+<p>webp格式图片是google开发的一种旨在加快图片加载速度的图片格式，压缩提交大概只有jpg的2/3。随chrome的比例越来越多，其实让更多用户体验到webp也是一件好事。</p>
+<p>那么问题来了，怎么去判断用户的浏览器是否支持webp呢？<br>根据ua去判断是个好方法，但不太靠谱，因为chrome中其实也有设置，让它不能去支持webp，而且webkit本身就开源，会衍生出很多你不知道名字的浏览器。</p>
+<p>最终我使用的是特性检测：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">if(!supportedWebPIsLoading) &#123;</span><br><span class="line">    supportedWebPIsLoading = true;</span><br><span class="line">    var images = &#123;</span><br><span class="line">        basic: &quot;data:image/webp;base64,UklGRjIAAABXRUJQVlA4ICYAAACyAgCdASoCAAEALmk0mk0iIiIiIgBoSygABc6zbAAA/v56QAAAAA==&quot;</span><br><span class="line">    &#125;, $img = new Image();</span><br><span class="line">    $img.onload = function () &#123;</span><br><span class="line">        supportedWebPIsLoading = false;</span><br><span class="line">        $.cookie.set(&quot;iswebp&quot; , +supportedWebP);</span><br><span class="line">    &#125;;</span><br><span class="line">    $img.onerror = function () &#123;</span><br><span class="line">        supportedWebP = false;</span><br><span class="line">        supportedWebPIsLoading = false;</span><br><span class="line">        $.cookie.set(&quot;iswebp&quot; , +supportedWebP);</span><br><span class="line">    &#125;;</span><br><span class="line">    $img.src = images.basic;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>我们会让浏览器试着加载一张非常小的base64格式的webp图片，如果能够正常加载，说明是支持webp的。</p>
+<p>并且，会把测试记录在cookie里，所以第二次直接从cookie里读结果，基本不会影响性能。完成了最重要的检查，我们就可以放心让服务器返回不同格式的图片了。</p>
+<p>End.</p>
+	
+	</div>
+	
+	<div id="current-post-cover" data-scr="/img/cart_cover.jpg"></div>
+
+	<!-- relate post, comment...-->
+	<div class="investment-container">
+		<div class="investment-header">
+			<div class="investment-title-1">
+				<div class="on">相关文章</div>
+				<div>评论</div>
+				<div>分享</div>
+			</div>
+			<div class="investment-title-2">	            
+				
+	<span>
+		<a href="javascript: window.scrollTo(0, 0);">返回顶部</a>
+		
+			<a href="/logic-of-chord/" title="和弦推导逻辑简析" rel="prev">
+				&laquo;上一篇
+			</a>
+		
+		
+			<a href="/yilia-on-mobile/" title="hexo主题Yilia在移动端适配的一些事" rel="next">
+				下一篇&raquo;
+			</a>
+			
+	</span>
+
+
+      		
+			</div>	
+		</div>
+		
+		<div class="investment-content">
+			<div class="investment-content-list">
+				
+
+<div class="relate-post">
+	
+		<ul>
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/hack-in-localstorage/" title="作为一个前端，可以如何机智地弄坏一台电脑？">
+								作为一个前端，可以如何机智地弄坏一台电脑？			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								七月 6日, 2015				
+							</p>
+							<p class="relate-post-content">
+								有人说，前端的界限就在浏览器那儿。
+无论你触发了多少bug，最多导致浏览器崩溃，对系统影响不到哪去。这就像二次元各种炫酷的毁灭世界，都不会导致三次元的世界末日。然而，作为一个前端，我发现是有方式打开次元大门的…
+这个实验脑洞较大，动机...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/hack-in-localstorage/" title="作为一个前端，可以如何机智地弄坏一台电脑？">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg" alt="作为一个前端，可以如何机智地弄坏一台电脑？"/>
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/kael-qrcode-info/" title="爱上一匹二维马可我家里没有草原…">
+								爱上一匹二维马可我家里没有草原…			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								八月 1日, 2014				
+							</p>
+							<p class="relate-post-content">
+								#Kael-Qrcode 
+
+基于html5 canvas，灵活轻巧，美观多变的二维码生成库                   
+
+一直觉得二维码长得太单一，抽空做了一个生成库：github here。取名卡尔，缘由dota英雄Ka...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/kael-qrcode-info/" title="爱上一匹二维马可我家里没有草原…">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg" alt="爱上一匹二维马可我家里没有草原…"/>
+							</a>
+						</div>
+					</li>											
+			
+			
+		</ul>
+	
+</div>	
+			</div>
+			<div class="investment-content-list">
+				<div class="layout-comment">
+
+	
+
+		
+
+			<!-- gitalk comment -->
+			<!-- show gitalk comment -->
+<div id="gitalk-container"></div>
+
+<!-- gitalk`s css & js -->
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<link rel="stylesheet" href="/css/comment.css">
+<script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script>
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<script type="text/javascript">
+	//Thanks O-R
+	//https://github.com/gitalk/gitalk/issues/102#issuecomment-382970552
+	//去除尾部匹配正则数组的字符串  
+	//Remove redundant characters
+	String.prototype.trimEnd = function(regStr) {
+		var result = this;
+		if(regStr == undefined || regStr == null || regStr == "") {
+			return result;
+		}
+		var array = regStr.split(',');
+
+		if(array.length > 0) {
+
+			var c = array.shift();
+			var str = this;
+			var i = str.length;
+			var rg = new RegExp(c);
+			var matchArr = str.match(rg);
+
+			if(matchArr != undefined && matchArr != null && matchArr.length > 0) {
+				var matchStr = matchArr[0].replace(/\\/g, "\\\\").replace(/\*/g, "\\*")
+					.replace(/\+/g, "\\+").replace(/\|/g, "\\|")
+					.replace(/\{/g, "\\{").replace(/\}/g, "\\}")
+					.replace(/\(/g, "\\(").replace(/\)/g, "\\)")
+					.replace(/\^/g, "\\^").replace(/\$/g, "\\$")
+					.replace(/\[/g, "\\[").replace(/\]/g, "\\]")
+					.replace(/\?/g, "\\?").replace(/\,/g, "\\,")
+					.replace(/\./g, "\\.").replace(/\&/g, "\\&");
+				matchStr = matchStr + '$';
+				result = str.replace(new RegExp(matchStr), "");
+			}
+
+			if(array.length > 0) {
+				return result.trimEnd(array.join())
+			} else {
+				return result;
+			}
+		}
+	};
+
+	//Create gitalk
+	var gitalk = new Gitalk({
+		clientID: 'c5d264006f86829c01b9',
+		clientSecret: '018624f40a5f85ec2cb53656d9dbf28bd16ccd5c',
+		//id: window.location.pathname,
+		//id: decodeURI(window.location.pathname),
+		//id: (window.location.pathname).split("/").pop().substring(0, 49),
+		id: decodeURI( md5( location.href.trimEnd('#.*$,\\?.*$,index.html$') ) ),
+		repo: 'Annie-Gitalk',
+		owner: 'Equationliu',
+		admin: 'Equationliu',
+		distractionFreeMode: 'true',
+	})
+	gitalk.render('gitalk-container');
+</script>
+
+		
+		
+	
+
+</div>
+			</div>
+			<div class="investment-content-list">
+				<div class="layout-share">
+	
+	
+
+		
+			
+			<!-- socialShare share -->
+			<div class="social-share"></div>
+
+<!--  css & js -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+			
+		
+		
+	
+</div>
+
+
+			</div>
+		</div>	
+	</div>
+	</div>
+</div>
+
+
+
+	<!-- leancloud -->
+	<!--
+	时间：2018-11-27
+	描述：
+		文章访问量：visitors
+		文章喜欢量：likes	
+		文章排行榜：topNPost
+		其他得说明：
+			01-Cookie相关的函数 
+				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
+			02-visitors相关的函数 
+				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
+				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
+			03-topNPost相关的函数
+				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
+			04-likes相关的函数，
+				参考了01 & 02进行简单的设计与实现
+-->
+
+
+
+	<script>
+		var appid = '8ldhVpVh39at6Spx628YbPjg-gzGzoHsz',
+            appkey = 'YyLDdeVMVo4fHOPd7b51tIJj';	  
+        AnnieLeancloud(appid, appkey);         
+	</script>
+    
+
+	
+
+
+<!-- show math formula -->
+
+
+
+	 
+	<script src="/plugin/clipboard/clipboard.js"></script>
+	<script>
+		// Copy code !
+	    function codePreprocessing() {
+	        $("#article-content .highlight").each(function() {
+
+	            $(this).wrap('<div id="post-code"></div>');
+
+	        })
+
+	        $("#article-content #post-code").each(function() {
+
+	            $(this).prepend('<nav class="copy-nav"><span><i class="code-language"></i></span></nav>');
+
+	        })
+
+	        $("#article-content .copy-nav").each(function() {
+	            var temp = $(this).next().attr('class'),
+	                language = ((temp.length > 9) && (temp != null)) ? temp.substr(10) : "none"; //why 9? Need to check language?
+
+	            $(this).find('.code-language').text(language);
+
+	            $(this).append('<span class="copy-btn"><i class="fa fa-copy" aria-hidden="true"></i></span>');
+
+	        });
+	    }
+
+		function codeCopy() {
+		    $('#article-content #post-code').each(function(i) {
+		        var codeCopyId = 'codeCopy-' + i;
+
+		        var codeNode = $(this).find('.code'),
+		            copyButton = $(this).find('.copy-btn');
+
+		        codeNode.attr('id', codeCopyId);
+		        copyButton.attr('data-clipboard-target-id', codeCopyId);
+		    })
+
+		    
+			var clipboard = new ClipboardJS('.copy-btn', {
+					target: function(trigger) {
+						return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+					}
+		      	});
+
+			//pure js
+			function showTooltip(elem, msg) {		   
+				elem.setAttribute('aria-label', msg);
+				elem.setAttribute('class', 'copy-btn copy-status');
+				setTimeout(function() {
+					elem.setAttribute('class', 'copy-btn');
+				}, 2000);
+			}
+
+			clipboard.on('success', function(e) {
+			    e.clearSelection();
+			    console.info('Action:', e.action);		   
+			    console.info('Trigger:', e.trigger);
+			    showTooltip(e.trigger, 'Copied!');
+			    
+			});
+			clipboard.on('error', function(e) {
+			    console.error('Action:', e.action);
+			    console.error('Trigger:', e.trigger);
+			});
+		
+
+		}
+
+		if ($('.layout-post').length) {
+		    codePreprocessing();
+		    codeCopy();
+		} 
+	</script>
+
+
+
+
+
+<link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
+<script src="/plugin/fancybox/jquery.fancybox.js"></script>
+
+<script type="text/javascript">
+	var titleID = $('.article-title a'),
+		imageID = $('.article-content img'),
+		videoID = $('.article-content video');
+
+	var postTitle = titleID.text() ? titleID.text() : "No post title!";
+
+	imageID.each(function() {
+		var imgPath = $(this).attr('src'),
+			imgTitle = $(this).attr('alt') ? $(this).attr('alt') : "No image description!";
+
+		//给每个匹配的<img>元素打包, 即添加父元素<a>
+		$(this).wrap('<a data-fancybox="gallery" data-caption=" 《 ' + postTitle + ' 》 ' + imgTitle + ' "  href=" ' + imgPath + ' "> </a>');
+	});
+
+	videoID.each(function() {
+		var videoPath = $(this).attr('src');
+
+		//给每个匹配的<img>元素打包, 即添加父元素<a>
+		$(this).wrap('<a data-fancybox href=" ' + videoPath + ' "> </a>');
+	});
+	//TODO：支持html5 video
+
+	if($('#layout-post').length) {
+		$('[data-fancybox="gallery"]').fancybox({
+			loop: true,
+			buttons: [
+				"zoom",
+				"share",
+				"slideShow",
+				"fullScreen",
+				//"download",
+				"thumbs",
+				"close"
+			],
+			protect: false
+		});
+	}
+</script>
+		</main>
+
+		<!--footer-->
+		<footer>
+	<div class="social">
+		<ul>
+	
+		<li>
+			<a href="https://github.com/Equationliu/Equationliu.github.io" target="_blank">
+				<i class="fa fa-github"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="https://www.zhihu.com/people/equation1998/activities" target="_blank">
+				<i class="fa fa-zhihu"></i>
+			</a>
+		</li>
+			
+</ul>
+
+	</div>
+		
+	<div class="copyright">
+		<p>
+			 
+				&copy;2019, content by Equation. All Rights Reserved.
+			
+			
+			
+
+	<!-- busuanzi -->
+	<!-- busuanzi -->
+
+		
+	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+
+		<span id="busuanzi_container_page_pv">
+	  		本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+		</span>
+
+	
+
+
+
+
+		</p>
+		<p>
+			<a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> Theme <a href="https://github.com/Sariay/hexo-theme-Annie" title="Annie" target="_blank" rel="noopener">Annie</a> by Sariay.
+			<a href="javascript:zh_tran('s');" class="zh_click" id="zh_click_s">简体</a> 
+			<a href="javascript:zh_tran('t');" class="zh_click" id="zh_click_t">繁體</a>				
+		</p>
+	</div>		
+</footer>
+		
+	<!-- set '1' to show motto in all pages! -->
+
+	<script src="/plugin/motto/motto.js"></script>
+	
+	<script type="text/javascript">
+		$(".motto").html( getMingYanContent() );
+	</script>	
+
+
+
+
+
+<!-- love effect -->
+
+	<script src="/plugin/love/love.js"></script>
+
+
+<!-- back to top -->
+
+	
+	<div id="totop">
+  		<a href="javascript:;"  name="TOTOP" class="fa fa-arrow-up" ></a>
+	</div>
+
+
+
+
+<!-- site analysis -->
+
+
+	<!-- site-analysis -->
+	
+<script>
+	var _hmt = _hmt || [];
+	(function() {
+		var hm = document.createElement("script");
+		hm.src = "//hm.baidu.com/hm.js?";
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(hm, s);
+	})();
+</script>
+
+	
+	
+<!-- Google Analytics -->
+<script type="text/javascript">
+	(function(i, s, o, g, r, a, m) {
+		i['GoogleAnalyticsObject'] = r;
+		i[r] = i[r] || function() {
+			(i[r].q = i[r].q || []).push(arguments)
+		}, i[r].l = 1 * new Date();
+		a = s.createElement(o),
+			m = s.getElementsByTagName(o)[0];
+		a.async = 1;
+		a.src = g;
+		m.parentNode.insertBefore(a, m)
+	})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+	ga('create', 'UA-99643860-1', 'auto');
+	ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+	
+	
+ 
+
+<script src="/plugin/vibrant/vibrant.js"></script>
+<script src="/plugin/chinese/chinese.js"></script>
+<script src="/plugin/imgLazyLoader/yall.min.js"></script>
+<script src="/plugin/imgResize/jquery.resizeimagetoparent.min.js"></script>
+<script src="/plugin/nicescroll/jquery.nicescroll.js"></script>
+<script src="/js/resizediv.js"></script>
+<script src="/js/main.js"></script>
+	</body>	
+</html>
