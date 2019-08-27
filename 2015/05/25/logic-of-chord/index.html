@@ -32,7 +32,7 @@
   <!-- leancloud -->
   <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
 <script src="/js/leancloud.js"></script>
-<link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
+</head>
 	<body>
 		<!-- Preloader -->
 
@@ -209,38 +209,14 @@
 		<ul>
 	
 		<li>
-			<a href="http://github.com/" target="_blank">
+			<a href="https://github.com/Equationliu/Equationliu.github.io" target="_blank">
 				<i class="fa fa-github"></i>
 			</a>
 		</li>
 	
 		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-weibo"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-pinterest"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-instagram"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-twitter"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="/atom.xml" target="_blank">
-				<i class="fa fa-rss"></i>
+			<a href="https://www.zhihu.com/people/equation1998/activities" target="_blank">
+				<i class="fa fa-zhihu"></i>
 			</a>
 		</li>
 			
@@ -319,7 +295,22 @@
 		
 		
 
+	
+    <span class="leancloud_visitors" id="/2015/05/25/logic-of-chord/_visitors" data-url="/2015/05/25/logic-of-chord/" data-title="和弦推导逻辑简析">
+       	<i class="fa fa-eye"></i>
+       	热度
+        <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
+    </span>
+    
 
+
+
+	
+    <span class="leancloud_likes" id="/2015/05/25/logic-of-chord/_likes" data-url="/2015/05/25/logic-of-chord/" data-title="和弦推导逻辑简析" rel="unlike">
+        <i class="fa fa-heart"></i>
+        喜欢
+        <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
+    </span>
 
 	</div>
 
@@ -355,97 +346,37 @@
 <p>通常，应该先规划“最小粒度”。而“半音”刚好是最合适的选择。</p>
 <p>音乐家与程序员的处理方式如出一辙，钢琴上夹在两个白键之间的黑键，吉他相邻品丝之间，都是为了表现出半音。</p>
 <p>如果用程序描述吉他品丝的关系就是：</p>
-<pre><code>var scale = [2, 2, 1, 2, 2, 2, 1];  //3-4是半音，7-1也是半音，相隔1品；其他是全音，相隔2品</code></pre><p>###吉他与尺子</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var scale = [2, 2, 1, 2, 2, 2, 1];  //3-4是半音，7-1也是半音，相隔1品；其他是全音，相隔2品</span><br></pre></td></tr></table></figure>
+
+<p>###吉他与尺子</p>
 <p>知道了这些，我们就好比掌握了<code>一把尺子的刻度</code>。</p>
 <p>在尺子上，如果一个刻度表示1cm，那么从3cm往后推两个格子，就是5cm；<br>把吉他想象成尺子，一个刻度表示半音，和弦之间就可以推导了。</p>
 <p>与众不同的是，这把尺子首尾相连，更像一个循环的圈。</p>
-<pre><code>刻度：    2品       2品       1品       2品       2品       2品       1品       2品       2品
-和弦：C  +----&gt; D  +----&gt; E  +----&gt; F  +----&gt; G  +----&gt; A  +----&gt; B  +----&gt; C  +----&gt; D  +----&gt; ……
-音符：Do +----&gt; Re +----&gt; Me +----&gt; Fa +----&gt; So +----&gt; La +----&gt; Ti +----&gt; Do +----&gt; Re +----&gt; ……
-整数：1  +----&gt; 2  +----&gt; 3  +----&gt; 4  +----&gt; 5  +----&gt; 6  +----&gt; 7  +----&gt; 1  +----&gt; 2  +----&gt; ……</code></pre><p>因而，<code>一个和弦可以有多种方式弹奏</code>。<br>比如C和弦，除了最基础的开放式（不需要用食指横按品丝）指法，我们还可以用A和弦的指法实现：</p>
-<pre><code>C = B + 1品
-  = A + 2品 + 1品
-  = A + 3品</code></pre><p>所以，我们用食指横按住第3品（或者用变调夹夹第3品），然后再加上A和弦的开放式指法，就形成了一个C和弦。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">刻度：    2品       2品       1品       2品       2品       2品       1品       2品       2品</span><br><span class="line">和弦：C  +----&gt; D  +----&gt; E  +----&gt; F  +----&gt; G  +----&gt; A  +----&gt; B  +----&gt; C  +----&gt; D  +----&gt; ……</span><br><span class="line">音符：Do +----&gt; Re +----&gt; Me +----&gt; Fa +----&gt; So +----&gt; La +----&gt; Ti +----&gt; Do +----&gt; Re +----&gt; ……</span><br><span class="line">整数：1  +----&gt; 2  +----&gt; 3  +----&gt; 4  +----&gt; 5  +----&gt; 6  +----&gt; 7  +----&gt; 1  +----&gt; 2  +----&gt; ……</span><br></pre></td></tr></table></figure>
+
+<p>因而，<code>一个和弦可以有多种方式弹奏</code>。<br>比如C和弦，除了最基础的开放式（不需要用食指横按品丝）指法，我们还可以用A和弦的指法实现：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">C = B + 1品</span><br><span class="line">  = A + 2品 + 1品</span><br><span class="line">  = A + 3品</span><br></pre></td></tr></table></figure>
+
+<p>所以，我们用食指横按住第3品（或者用变调夹夹第3品），然后再加上A和弦的开放式指法，就形成了一个C和弦。</p>
 <p>同理也可以用E和弦实现：</p>
-<pre><code>C = B + 1品
-  = A + 2品 + 1品
-  = G + 2品 + 2品 + 1品
-  = F + 2品 + 2品 + 2品 + 1品
-  = E + 1品 + 2品 + 2品 + 2品 + 1品
-  = E + 8品</code></pre><p>横按的位置就在第8品上。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">C = B + 1品</span><br><span class="line">  = A + 2品 + 1品</span><br><span class="line">  = G + 2品 + 2品 + 1品</span><br><span class="line">  = F + 2品 + 2品 + 2品 + 1品</span><br><span class="line">  = E + 1品 + 2品 + 2品 + 2品 + 1品</span><br><span class="line">  = E + 8品</span><br></pre></td></tr></table></figure>
+
+<p>横按的位置就在第8品上。</p>
 <p>其实大部分情况下，我们都是用A，E，Am，Em这四个和弦去推导其他和弦，因为这几个和弦横按与转换比较方便，特别是在扫弦的时候。</p>
 <p>###程序实现</p>
 <p>明确逻辑之后，就差程序实现了。但这之前，我们定了程序的最小粒度是1品，就无可避免遇到一个问题：</p>
 <p>如果<code>A + 2品 = B</code>，那<code>A + 1品 = ？</code></p>
 <p>这个和弦介于A与B之间，人们把它称为<code>升A</code>或<code>降B</code>，对应记法是<code>A#</code>或<code>Bb</code>。</p>
 <p>至此我们可以列出，用E指法和A指法推导的所有和弦的横按位置：</p>
-<pre><code>var positions = {
-    &quot;E&quot;: {
-        &quot;A&quot;:  5,
-        &quot;A#&quot;: 6,
-        &quot;Bb&quot;: 6,
-        &quot;B&quot;:  7,
-        &quot;C&quot;:  8,
-        &quot;C#&quot;: 9,
-        &quot;Db&quot;: 9,
-        &quot;D&quot;:  10,
-        &quot;D#&quot;: 11,
-        &quot;Eb&quot;: 11,
-        &quot;E&quot;:  12,
-        &quot;F&quot;:  1,
-        &quot;F#&quot;: 2,
-        &quot;Gb&quot;: 2,
-        &quot;G&quot;:  3,
-        &quot;G#&quot;: 4,
-        &quot;Ab&quot;: 4
-    },
-    &quot;A&quot;: {
-         &quot;A&quot;:  12,
-         &quot;A#&quot;: 1,
-         &quot;Bb&quot;: 1,
-         &quot;B&quot;:  2,
-         &quot;C&quot;:  3,
-         &quot;C#&quot;: 4,
-         &quot;Db&quot;: 4,
-         &quot;D&quot;:  5,
-         &quot;D#&quot;: 6,
-         &quot;Eb&quot;: 6,
-         &quot;E&quot;:  7,
-         &quot;F&quot;:  8,
-         &quot;F#&quot;: 9,
-         &quot;Gb&quot;: 9,
-         &quot;G&quot;:  10,
-         &quot;G#&quot;: 11,
-         &quot;Ab&quot;: 11
-    }
-  };</code></pre><p>同时，将E、A的开放和弦的指型描述出来：</p>
-<pre><code>    //这里仅列出E、A大小和弦，共四种指法
-    //更详细指法数据结构可参看后面demo
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">var positions = &#123;</span><br><span class="line">    &quot;E&quot;: &#123;</span><br><span class="line">    	&quot;A&quot;:  5,</span><br><span class="line">    	&quot;A#&quot;: 6,</span><br><span class="line">    	&quot;Bb&quot;: 6,</span><br><span class="line">    	&quot;B&quot;:  7,</span><br><span class="line">    	&quot;C&quot;:  8,</span><br><span class="line">    	&quot;C#&quot;: 9,</span><br><span class="line">    	&quot;Db&quot;: 9,</span><br><span class="line">    	&quot;D&quot;:  10,</span><br><span class="line">    	&quot;D#&quot;: 11,</span><br><span class="line">    	&quot;Eb&quot;: 11,</span><br><span class="line">    	&quot;E&quot;:  12,</span><br><span class="line">    	&quot;F&quot;:  1,</span><br><span class="line">    	&quot;F#&quot;: 2,</span><br><span class="line">    	&quot;Gb&quot;: 2,</span><br><span class="line">    	&quot;G&quot;:  3,</span><br><span class="line">    	&quot;G#&quot;: 4,</span><br><span class="line">    	&quot;Ab&quot;: 4</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;A&quot;: &#123;</span><br><span class="line">     	&quot;A&quot;:  12,</span><br><span class="line">     	&quot;A#&quot;: 1,</span><br><span class="line">     	&quot;Bb&quot;: 1,</span><br><span class="line">     	&quot;B&quot;:  2,</span><br><span class="line">     	&quot;C&quot;:  3,</span><br><span class="line">     	&quot;C#&quot;: 4,</span><br><span class="line">     	&quot;Db&quot;: 4,</span><br><span class="line">     	&quot;D&quot;:  5,</span><br><span class="line">     	&quot;D#&quot;: 6,</span><br><span class="line">     	&quot;Eb&quot;: 6,</span><br><span class="line">     	&quot;E&quot;:  7,</span><br><span class="line">     	&quot;F&quot;:  8,</span><br><span class="line">     	&quot;F#&quot;: 9,</span><br><span class="line">     	&quot;Gb&quot;: 9,</span><br><span class="line">     	&quot;G&quot;:  10,</span><br><span class="line">     	&quot;G#&quot;: 11,</span><br><span class="line">     	&quot;Ab&quot;: 11</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br></pre></td></tr></table></figure>
 
-    chord_shapes = {
-          &quot;M E&quot;: {
-            name: &quot;Maj&quot;,
-            chord: [[3, 2], [4, 3], [5, 3]],
-            bars: [{from_string: 6, to_string: 1, fret: 1}]
-          },
-          &quot;m E&quot;: {
-            name: &quot;m&quot;,
-            chord: [[4, 3], [5, 3]],
-            bars: [{from_string: 6, to_string: 1, fret: 1}]
-          },
-          &quot;M A&quot;: {
-            name: &quot;Maj&quot;,
-            chord: [[2, 3], [3, 3], [4, 3], [6, &quot;x&quot;]],
-            bars: [{from_string: 5, to_string: 1, fret: 1}]
-          },
-          &quot;m A&quot;: {
-            name: &quot;m&quot;,
-            chord: [[2, 2], [3, 3], [4, 3], [6, &quot;x&quot;]],
-            bars: [{from_string: 5, to_string: 1, fret: 1}]
-          }
-    };</code></pre><p>分别传递“和弦名”,“指法”，“类型”作为参数，我们就可以很容易的画出和弦：</p>
-<pre><code>createChord(&quot;C&quot;, &quot;A&quot;, &quot;M A&quot;);  \\画出C和弦，用A指法，定义类型是大三和弦(Maj)
-createChord(&quot;D&quot;, &quot;A&quot;, &quot;m A&quot;);  \\画出Dm和弦，用A指法，定义类型是小三和弦(Minor)</code></pre><p>###Demo</p>
+<p>同时，将E、A的开放和弦的指型描述出来：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">//这里仅列出E、A大小和弦，共四种指法</span><br><span class="line">//更详细指法数据结构可参看后面demo</span><br><span class="line"></span><br><span class="line">chord_shapes = &#123;</span><br><span class="line">  	&quot;M E&quot;: &#123;</span><br><span class="line">		name: &quot;Maj&quot;,</span><br><span class="line">		chord: [[3, 2], [4, 3], [5, 3]],</span><br><span class="line">		bars: [&#123;from_string: 6, to_string: 1, fret: 1&#125;]</span><br><span class="line">  	&#125;,</span><br><span class="line">  	&quot;m E&quot;: &#123;</span><br><span class="line">	    name: &quot;m&quot;,</span><br><span class="line">	    chord: [[4, 3], [5, 3]],</span><br><span class="line">	    bars: [&#123;from_string: 6, to_string: 1, fret: 1&#125;]</span><br><span class="line">  	&#125;,</span><br><span class="line">  	&quot;M A&quot;: &#123;</span><br><span class="line">	    name: &quot;Maj&quot;,</span><br><span class="line">	    chord: [[2, 3], [3, 3], [4, 3], [6, &quot;x&quot;]],</span><br><span class="line">	    bars: [&#123;from_string: 5, to_string: 1, fret: 1&#125;]</span><br><span class="line">  	&#125;,</span><br><span class="line">  	&quot;m A&quot;: &#123;</span><br><span class="line">	    name: &quot;m&quot;,</span><br><span class="line">	    chord: [[2, 2], [3, 3], [4, 3], [6, &quot;x&quot;]],</span><br><span class="line">	    bars: [&#123;from_string: 5, to_string: 1, fret: 1&#125;]</span><br><span class="line">  	&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>分别传递“和弦名”,“指法”，“类型”作为参数，我们就可以很容易的画出和弦：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">createChord(&quot;C&quot;, &quot;A&quot;, &quot;M A&quot;);  \\画出C和弦，用A指法，定义类型是大三和弦(Maj)</span><br><span class="line">createChord(&quot;D&quot;, &quot;A&quot;, &quot;m A&quot;);  \\画出Dm和弦，用A指法，定义类型是小三和弦(Minor)</span><br></pre></td></tr></table></figure>
+
+<p>###Demo</p>
 <p>以下是<a href="/assets/demo/chord/index.html">完整Demo</a>，将上述chord_shapes的指型补充得更完整。</p>
 <p>并且尝试用A指型，自动生成了C调的7个常用和弦。</p>
 <p>End. 2015.5.25</p>
@@ -816,6 +747,14 @@ createChord(&quot;D&quot;, &quot;A&quot;, &quot;m A&quot;);  \\画出Dm和弦，
 -->
 
 
+
+	<script>
+		var appid = '8ldhVpVh39at6Spx628YbPjg-gzGzoHsz',
+            appkey = 'YyLDdeVMVo4fHOPd7b51tIJj';	  
+        AnnieLeancloud(appid, appkey);         
+	</script>
+    
+
 	
 
 
@@ -823,7 +762,82 @@ createChord(&quot;D&quot;, &quot;A&quot;, &quot;m A&quot;);  \\画出Dm和弦，
 
 
 
-	
+	 
+	<script src="/plugin/clipboard/clipboard.js"></script>
+	<script>
+		// Copy code !
+	    function codePreprocessing() {
+	        $("#article-content .highlight").each(function() {
+
+	            $(this).wrap('<div id="post-code"></div>');
+
+	        })
+
+	        $("#article-content #post-code").each(function() {
+
+	            $(this).prepend('<nav class="copy-nav"><span><i class="code-language"></i></span></nav>');
+
+	        })
+
+	        $("#article-content .copy-nav").each(function() {
+	            var temp = $(this).next().attr('class'),
+	                language = ((temp.length > 9) && (temp != null)) ? temp.substr(10) : "none"; //why 9? Need to check language?
+
+	            $(this).find('.code-language').text(language);
+
+	            $(this).append('<span class="copy-btn"><i class="fa fa-copy" aria-hidden="true"></i></span>');
+
+	        });
+	    }
+
+		function codeCopy() {
+		    $('#article-content #post-code').each(function(i) {
+		        var codeCopyId = 'codeCopy-' + i;
+
+		        var codeNode = $(this).find('.code'),
+		            copyButton = $(this).find('.copy-btn');
+
+		        codeNode.attr('id', codeCopyId);
+		        copyButton.attr('data-clipboard-target-id', codeCopyId);
+		    })
+
+		    
+			var clipboard = new ClipboardJS('.copy-btn', {
+					target: function(trigger) {
+						return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+					}
+		      	});
+
+			//pure js
+			function showTooltip(elem, msg) {		   
+				elem.setAttribute('aria-label', msg);
+				elem.setAttribute('class', 'copy-btn copy-status');
+				setTimeout(function() {
+					elem.setAttribute('class', 'copy-btn');
+				}, 2000);
+			}
+
+			clipboard.on('success', function(e) {
+			    e.clearSelection();
+			    console.info('Action:', e.action);		   
+			    console.info('Trigger:', e.trigger);
+			    showTooltip(e.trigger, 'Copied!');
+			    
+			});
+			clipboard.on('error', function(e) {
+			    console.error('Action:', e.action);
+			    console.error('Trigger:', e.trigger);
+			});
+		
+
+		}
+
+		if ($('.layout-post').length) {
+		    codePreprocessing();
+		    codeCopy();
+		} 
+	</script>
+
 
 
 
@@ -878,38 +892,14 @@ createChord(&quot;D&quot;, &quot;A&quot;, &quot;m A&quot;);  \\画出Dm和弦，
 		<ul>
 	
 		<li>
-			<a href="http://github.com/" target="_blank">
+			<a href="https://github.com/Equationliu/Equationliu.github.io" target="_blank">
 				<i class="fa fa-github"></i>
 			</a>
 		</li>
 	
 		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-weibo"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-pinterest"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-instagram"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-twitter"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="/atom.xml" target="_blank">
-				<i class="fa fa-rss"></i>
+			<a href="https://www.zhihu.com/people/equation1998/activities" target="_blank">
+				<i class="fa fa-zhihu"></i>
 			</a>
 		</li>
 			
@@ -920,7 +910,7 @@ createChord(&quot;D&quot;, &quot;A&quot;, &quot;m A&quot;);  \\画出Dm和弦，
 	<div class="copyright">
 		<p>
 			 
-				&copy;2017 - 2019, content by Equation. All Rights Reserved.
+				&copy;2019, content by Equation. All Rights Reserved.
 			
 			
 			
@@ -982,8 +972,36 @@ createChord(&quot;D&quot;, &quot;A&quot;, &quot;m A&quot;);  \\画出Dm和弦，
 
 	<!-- site-analysis -->
 	
+<script>
+	var _hmt = _hmt || [];
+	(function() {
+		var hm = document.createElement("script");
+		hm.src = "//hm.baidu.com/hm.js?";
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(hm, s);
+	})();
+</script>
+
 	
 	
+<!-- Google Analytics -->
+<script type="text/javascript">
+	(function(i, s, o, g, r, a, m) {
+		i['GoogleAnalyticsObject'] = r;
+		i[r] = i[r] || function() {
+			(i[r].q = i[r].q || []).push(arguments)
+		}, i[r].l = 1 * new Date();
+		a = s.createElement(o),
+			m = s.getElementsByTagName(o)[0];
+		a.async = 1;
+		a.src = g;
+		m.parentNode.insertBefore(a, m)
+	})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+	ga('create', 'UA-99643860-1', 'auto');
+	ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
 	
 	
  

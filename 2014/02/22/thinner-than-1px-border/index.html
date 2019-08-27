@@ -32,7 +32,7 @@
   <!-- leancloud -->
   <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
 <script src="/js/leancloud.js"></script>
-<link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
+</head>
 	<body>
 		<!-- Preloader -->
 
@@ -209,38 +209,14 @@
 		<ul>
 	
 		<li>
-			<a href="http://github.com/" target="_blank">
+			<a href="https://github.com/Equationliu/Equationliu.github.io" target="_blank">
 				<i class="fa fa-github"></i>
 			</a>
 		</li>
 	
 		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-weibo"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-pinterest"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-instagram"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-twitter"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="/atom.xml" target="_blank">
-				<i class="fa fa-rss"></i>
+			<a href="https://www.zhihu.com/people/equation1998/activities" target="_blank">
+				<i class="fa fa-zhihu"></i>
 			</a>
 		</li>
 			
@@ -323,7 +299,22 @@
 		
 		
 
+	
+    <span class="leancloud_visitors" id="/2014/02/22/thinner-than-1px-border/_visitors" data-url="/2014/02/22/thinner-than-1px-border/" data-title="像素级细节：移动端1px border的实现">
+       	<i class="fa fa-eye"></i>
+       	热度
+        <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
+    </span>
+    
 
+
+
+	
+    <span class="leancloud_likes" id="/2014/02/22/thinner-than-1px-border/_likes" data-url="/2014/02/22/thinner-than-1px-border/" data-title="像素级细节：移动端1px border的实现" rel="unlike">
+        <i class="fa fa-heart"></i>
+        喜欢
+        <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
+    </span>
 
 	</div>
 
@@ -346,45 +337,11 @@
 <p>这样父元素的border其实被缩放了，无疑更细。</p>
 <p>###二、通用方案</p>
 <p>用一个css类去为block元素添加更细的border</p>
-<pre class=" language-css"><code class="language-css">    <span class="token selector"><span class="token class">.border-1px</span></span><span class="token punctuation">{</span>
-      <span class="token selector">position: relative;
-      &amp;<span class="token pseudo-element">:before</span>, &amp;<span class="token pseudo-element">:after</span></span><span class="token punctuation">{</span>
-        <span class="token property">border-top</span><span class="token punctuation">:</span> <span class="token number">1</span>px solid <span class="token hexcode">#c8c7cc</span><span class="token punctuation">;</span>
-        <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">' '</span><span class="token punctuation">;</span>
-        <span class="token property">display</span><span class="token punctuation">:</span> block<span class="token punctuation">;</span>
-        <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">100%</span><span class="token punctuation">;</span>
-        <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
-        <span class="token property">left</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
-      <span class="token punctuation">}</span>
-      <span class="token selector">&amp;<span class="token pseudo-element">:before</span></span><span class="token punctuation">{</span>
-        <span class="token property">top</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
-      <span class="token punctuation">}</span>
-      <span class="token selector">&amp;<span class="token pseudo-element">:after</span></span><span class="token punctuation">{</span>
-        <span class="token property">bottom</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
-      <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span></code></pre>
-<p>适应移动设备：</p>
-<pre class=" language-css"><code class="language-css">    <span class="token atrule"><span class="token rule">@media</span> <span class="token punctuation">(</span><span class="token property">-webkit-min-device-pixel-ratio</span><span class="token punctuation">:</span>1.5<span class="token punctuation">)</span>, <span class="token punctuation">(</span><span class="token property">min-device-pixel-ratio</span><span class="token punctuation">:</span> 1.5<span class="token punctuation">)</span></span><span class="token punctuation">{</span>
-      <span class="token selector"><span class="token class">.border-1px</span></span><span class="token punctuation">{</span>
-        <span class="token selector">&amp;<span class="token pseudo-element">::after</span>, &amp;<span class="token pseudo-element">::before</span></span><span class="token punctuation">{</span>
-          <span class="token property">-webkit-transform</span><span class="token punctuation">:</span> <span class="token function">scaleY</span><span class="token punctuation">(</span><span class="token number">.7</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-          <span class="token property">-webkit-transform-origin</span><span class="token punctuation">:</span> <span class="token number">0</span> <span class="token number">0</span><span class="token punctuation">;</span>
-          <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">scaleY</span><span class="token punctuation">(</span><span class="token number">.7</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-        <span class="token selector">&amp;<span class="token pseudo-element">::after</span></span><span class="token punctuation">{</span>
-          <span class="token property">-webkit-transform-origin</span><span class="token punctuation">:</span> left bottom<span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-      <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.border-1px</span>&#123;</span><br><span class="line">  <span class="attribute">position</span>: relative;</span><br><span class="line">  &amp;:before, &amp;:after&#123;</span><br><span class="line">    <span class="selector-tag">border-top</span>: 1<span class="selector-tag">px</span> <span class="selector-tag">solid</span> <span class="selector-id">#c8c7cc</span>;</span><br><span class="line">    content: ' ';</span><br><span class="line">    <span class="selector-tag">display</span>: <span class="selector-tag">block</span>;</span><br><span class="line">    <span class="selector-tag">width</span>: 100%;</span><br><span class="line">    <span class="selector-tag">position</span>: <span class="selector-tag">absolute</span>;</span><br><span class="line">    <span class="selector-tag">left</span>: 0;</span><br><span class="line">  &#125;</span><br><span class="line">  &amp;<span class="selector-pseudo">:before</span>&#123;</span><br><span class="line">    <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  &amp;<span class="selector-pseudo">:after</span>&#123;</span><br><span class="line">    <span class="attribute">bottom</span>: <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-    <span class="token atrule"><span class="token rule">@media</span> <span class="token punctuation">(</span><span class="token property">-webkit-min-device-pixel-ratio</span><span class="token punctuation">:</span>2<span class="token punctuation">)</span>, <span class="token punctuation">(</span><span class="token property">min-device-pixel-ratio</span><span class="token punctuation">:</span> 2<span class="token punctuation">)</span></span><span class="token punctuation">{</span>
-      <span class="token selector"><span class="token class">.border-1px</span></span><span class="token punctuation">{</span>
-        <span class="token selector">&amp;<span class="token pseudo-element">::after</span>, &amp;<span class="token pseudo-element">::before</span></span><span class="token punctuation">{</span>
-          <span class="token property">-webkit-transform</span><span class="token punctuation">:</span> <span class="token function">scaleY</span><span class="token punctuation">(</span><span class="token number">.5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-          <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">scaleY</span><span class="token punctuation">(</span><span class="token number">.5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-      <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span></code></pre>
+<p>适应移动设备：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">media</span> (-webkit-min-device-pixel-ratio:<span class="number">1.5</span>), (min-device-pixel-ratio: <span class="number">1.5</span>)&#123;</span><br><span class="line">  <span class="selector-class">.border-1px</span>&#123;</span><br><span class="line">    &amp;::after, &amp;::before&#123;</span><br><span class="line">      <span class="selector-tag">-webkit-transform</span>: <span class="selector-tag">scaleY</span>(<span class="selector-class">.7</span>);</span><br><span class="line">      <span class="selector-tag">-webkit-transform-origin</span>: 0 0;</span><br><span class="line">      <span class="selector-tag">transform</span>: <span class="selector-tag">scaleY</span>(<span class="selector-class">.7</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    &amp;<span class="selector-pseudo">::after</span>&#123;</span><br><span class="line">      <span class="attribute">-webkit-transform-origin</span>: left bottom;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@<span class="keyword">media</span> (-webkit-min-device-pixel-ratio:<span class="number">2</span>), (min-device-pixel-ratio: <span class="number">2</span>)&#123;</span><br><span class="line">  <span class="selector-class">.border-1px</span>&#123;</span><br><span class="line">    &amp;::after, &amp;::before&#123;</span><br><span class="line">      <span class="selector-tag">-webkit-transform</span>: <span class="selector-tag">scaleY</span>(<span class="selector-class">.5</span>);</span><br><span class="line">      <span class="selector-tag">transform</span>: <span class="selector-tag">scaleY</span>(<span class="selector-class">.5</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>###三、来个对比</p>
 <p>比如，之前我学日语时，自己搞起了个app，这是50音列表界面，可以明显的看出区别：上图是原生方案，下图是…性感方案<br><img src="/assets/blogImg/border1px.jpg" alt="与原生方案对比">      </p>
 <p>源码小demo，注意要在手机上才能看到效果：<a href="/assets/demo/border1px.html">demo</a>。</p>
@@ -632,7 +589,7 @@ var pjax = pushState + ajax;小时候，小浣熊方便面里面有各种水浒�
 						<div class="relate-post-cover">
 							<a href="/2017/11/24/2017-11-24-horse/" title="基于贪心算法的马踏棋盘哈密顿回路问题">				
 								
-								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg" alt="基于贪心算法的马踏棋盘哈密顿回路问题"/>
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/post-cover/huan.jpg" alt="基于贪心算法的马踏棋盘哈密顿回路问题"/>
 							</a>
 						</div>
 					</li>											
@@ -757,6 +714,14 @@ var pjax = pushState + ajax;小时候，小浣熊方便面里面有各种水浒�
 -->
 
 
+
+	<script>
+		var appid = '8ldhVpVh39at6Spx628YbPjg-gzGzoHsz',
+            appkey = 'YyLDdeVMVo4fHOPd7b51tIJj';	  
+        AnnieLeancloud(appid, appkey);         
+	</script>
+    
+
 	
 
 
@@ -764,7 +729,82 @@ var pjax = pushState + ajax;小时候，小浣熊方便面里面有各种水浒�
 
 
 
-	
+	 
+	<script src="/plugin/clipboard/clipboard.js"></script>
+	<script>
+		// Copy code !
+	    function codePreprocessing() {
+	        $("#article-content .highlight").each(function() {
+
+	            $(this).wrap('<div id="post-code"></div>');
+
+	        })
+
+	        $("#article-content #post-code").each(function() {
+
+	            $(this).prepend('<nav class="copy-nav"><span><i class="code-language"></i></span></nav>');
+
+	        })
+
+	        $("#article-content .copy-nav").each(function() {
+	            var temp = $(this).next().attr('class'),
+	                language = ((temp.length > 9) && (temp != null)) ? temp.substr(10) : "none"; //why 9? Need to check language?
+
+	            $(this).find('.code-language').text(language);
+
+	            $(this).append('<span class="copy-btn"><i class="fa fa-copy" aria-hidden="true"></i></span>');
+
+	        });
+	    }
+
+		function codeCopy() {
+		    $('#article-content #post-code').each(function(i) {
+		        var codeCopyId = 'codeCopy-' + i;
+
+		        var codeNode = $(this).find('.code'),
+		            copyButton = $(this).find('.copy-btn');
+
+		        codeNode.attr('id', codeCopyId);
+		        copyButton.attr('data-clipboard-target-id', codeCopyId);
+		    })
+
+		    
+			var clipboard = new ClipboardJS('.copy-btn', {
+					target: function(trigger) {
+						return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+					}
+		      	});
+
+			//pure js
+			function showTooltip(elem, msg) {		   
+				elem.setAttribute('aria-label', msg);
+				elem.setAttribute('class', 'copy-btn copy-status');
+				setTimeout(function() {
+					elem.setAttribute('class', 'copy-btn');
+				}, 2000);
+			}
+
+			clipboard.on('success', function(e) {
+			    e.clearSelection();
+			    console.info('Action:', e.action);		   
+			    console.info('Trigger:', e.trigger);
+			    showTooltip(e.trigger, 'Copied!');
+			    
+			});
+			clipboard.on('error', function(e) {
+			    console.error('Action:', e.action);
+			    console.error('Trigger:', e.trigger);
+			});
+		
+
+		}
+
+		if ($('.layout-post').length) {
+		    codePreprocessing();
+		    codeCopy();
+		} 
+	</script>
+
 
 
 
@@ -819,38 +859,14 @@ var pjax = pushState + ajax;小时候，小浣熊方便面里面有各种水浒�
 		<ul>
 	
 		<li>
-			<a href="http://github.com/" target="_blank">
+			<a href="https://github.com/Equationliu/Equationliu.github.io" target="_blank">
 				<i class="fa fa-github"></i>
 			</a>
 		</li>
 	
 		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-weibo"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-pinterest"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-instagram"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-twitter"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="/atom.xml" target="_blank">
-				<i class="fa fa-rss"></i>
+			<a href="https://www.zhihu.com/people/equation1998/activities" target="_blank">
+				<i class="fa fa-zhihu"></i>
 			</a>
 		</li>
 			
@@ -861,7 +877,7 @@ var pjax = pushState + ajax;小时候，小浣熊方便面里面有各种水浒�
 	<div class="copyright">
 		<p>
 			 
-				&copy;2017 - 2019, content by Equation. All Rights Reserved.
+				&copy;2019, content by Equation. All Rights Reserved.
 			
 			
 			
@@ -923,8 +939,36 @@ var pjax = pushState + ajax;小时候，小浣熊方便面里面有各种水浒�
 
 	<!-- site-analysis -->
 	
+<script>
+	var _hmt = _hmt || [];
+	(function() {
+		var hm = document.createElement("script");
+		hm.src = "//hm.baidu.com/hm.js?";
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(hm, s);
+	})();
+</script>
+
 	
 	
+<!-- Google Analytics -->
+<script type="text/javascript">
+	(function(i, s, o, g, r, a, m) {
+		i['GoogleAnalyticsObject'] = r;
+		i[r] = i[r] || function() {
+			(i[r].q = i[r].q || []).push(arguments)
+		}, i[r].l = 1 * new Date();
+		a = s.createElement(o),
+			m = s.getElementsByTagName(o)[0];
+		a.async = 1;
+		a.src = g;
+		m.parentNode.insertBefore(a, m)
+	})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+	ga('create', 'UA-99643860-1', 'auto');
+	ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
 	
 	
  

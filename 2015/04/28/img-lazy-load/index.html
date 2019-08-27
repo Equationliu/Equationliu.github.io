@@ -32,7 +32,7 @@
   <!-- leancloud -->
   <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
 <script src="/js/leancloud.js"></script>
-<link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
+</head>
 	<body>
 		<!-- Preloader -->
 
@@ -209,38 +209,14 @@
 		<ul>
 	
 		<li>
-			<a href="http://github.com/" target="_blank">
+			<a href="https://github.com/Equationliu/Equationliu.github.io" target="_blank">
 				<i class="fa fa-github"></i>
 			</a>
 		</li>
 	
 		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-weibo"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-pinterest"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-instagram"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-twitter"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="/atom.xml" target="_blank">
-				<i class="fa fa-rss"></i>
+			<a href="https://www.zhihu.com/people/equation1998/activities" target="_blank">
+				<i class="fa fa-zhihu"></i>
 			</a>
 		</li>
 			
@@ -319,7 +295,22 @@
 		
 		
 
+	
+    <span class="leancloud_visitors" id="/2015/04/28/img-lazy-load/_visitors" data-url="/2015/04/28/img-lazy-load/" data-title="说到加载图片，我们可以谈些什么">
+       	<i class="fa fa-eye"></i>
+       	热度
+        <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
+    </span>
+    
 
+
+
+	
+    <span class="leancloud_likes" id="/2015/04/28/img-lazy-load/_likes" data-url="/2015/04/28/img-lazy-load/" data-title="说到加载图片，我们可以谈些什么" rel="unlike">
+        <i class="fa fa-heart"></i>
+        喜欢
+        <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
+    </span>
 
 	</div>
 
@@ -338,65 +329,28 @@
 <p>特殊状态有两种：加载中与加载失败。这两种情况的处理逻辑相类似，拿加载中的逻辑做例子。</p>
 <p>图片触发加载，到图片加载完成（或失败）之间，肯定会有一段时间。不做处理的话，用户在等待的过程中，就只能看到空白的区域，非常的奇怪。在低网速，以及用户非常快的拉滚动条的情形下，这种现象将更加明显。</p>
 <p>那么在触发onload之前，就需要补一些逻辑，展示对应的loading图。<br>将需要处理的img节点作为参数，调用tempImg函数，克隆一个节点强行插在img之前，用于loading中的展示。</p>
-<pre><code>    var tempImg = function(target){
-        var w = target.width();
-        var h = target.height();
-        var tempDom = target.clone().addClass(&quot;lazy-loding&quot;).insertBefore(target);
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var tempImg = function(target)&#123;</span><br><span class="line">    var w = target.width();</span><br><span class="line">    var h = target.height();</span><br><span class="line">    var tempDom = target.clone().addClass(&quot;lazy-loding&quot;).insertBefore(target);</span><br><span class="line"></span><br><span class="line">    if(w/h == 1)&#123;</span><br><span class="line">        tempDom[0].src = &quot;http://9.url.cn/edu/img/img-loading.png&quot;;</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">        tempDom[0].src = &quot;http://9.url.cn/edu/img/img-loading2.png&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">    target.hide();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-        if(w/h == 1){
-            tempDom[0].src = &quot;http://9.url.cn/edu/img/img-loading.png&quot;;
-        }else{
-            tempDom[0].src = &quot;http://9.url.cn/edu/img/img-loading2.png&quot;;
-        }
-        target.hide();
-    }</code></pre><p>###第三步：上报监控</p>
+<p>###第三步：上报监控</p>
 <p>这一步在大型前端项目中非常重要，也是经常被忽略的地方。尽管需要简易的后台配合，但不算麻烦的上报监控，能让产品更加稳定和健壮。</p>
 <p>我在两个地方用到了上报。其一是图片加载失败，触发<code>onerror</code>时，这样一来我们能知道每天图片拉取失败的量；其二是图片加载的时间，能够帮助我们分析cdn服务是否异常，分析全国慢速用户比例等等。</p>
 <p>而所谓的上报其实就是一个http请求，我会大概把这些信息带上</p>
-<pre><code>    log({
-        &#39;type&#39;: &#39;error&#39;,
-        &#39;msg&#39;: &#39;lazyload拉取图片失败上报 &#39;,
-        &#39;url&#39;: window.location.href,
-        &#39;pid&#39;: 414342  //产品对应的id
-    });</code></pre><p>###第四步：居中截取</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">   log(&#123;</span><br><span class="line">	&apos;type&apos;: &apos;error&apos;,</span><br><span class="line">	&apos;msg&apos;: &apos;lazyload拉取图片失败上报 &apos;,</span><br><span class="line">	&apos;url&apos;: window.location.href,</span><br><span class="line">	&apos;pid&apos;: 414342  //产品对应的id</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>###第四步：居中截取</p>
 <p>这是前端无可避免的一个问题，先来说下此问题的背景。</p>
 <p>由于我们是先用一个空白的img标签占位，再去加载图片，如果图片的高度特别长（比如新浪长微博），加载完成时就会撑开节点，引起滚动条的跳动。由于移动端屏幕较PC窄，一个跳动就可能让你找不到前一秒正在浏览的内容，这种体验尤其严重。在移动端的web设计中，可以看到许多知名互联网公司的产品，也经常忽略这一点。</p>
 <p>因此我们可以限定占位区域的size，以此区域来做居中截取。当占位区域与图片最终展示同宽同高时，就不会引起跳动，而且也保持了视觉的一致性。</p>
 <p>其原理如下，先判断是竖向长型图，还是横向长型图，根据不同的情况，优先让宽或高填充满占位区域，然后通过不同的负margin去实现居中。</p>
-<pre><code>    var calSize = function($img) {
-        var w = $img.width(), h = $img.height(), width = size[0], height = size[1];
-        if(w+h == 0) return;
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">var calSize = function($img) &#123;</span><br><span class="line">    var w = $img.width(), h = $img.height(), width = size[0], height = size[1];</span><br><span class="line">    if(w+h == 0) return;</span><br><span class="line"></span><br><span class="line">    //如果是长型图，优先适配宽度，高度居中截取</span><br><span class="line">    if(w/h &gt; width/height)&#123;</span><br><span class="line">        var newWidth = height * w / h;</span><br><span class="line">        var margin = (width - newWidth)/2;</span><br><span class="line">        $img.height(height).css(&#123;&quot;margin-left&quot;: margin&#125;);</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">        var newHeight = width * h / w;</span><br><span class="line">        var margin = (height - newHeight)/2;</span><br><span class="line">        $img.width(width).css(&#123;&quot;margin-top&quot;: margin&#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-        //如果是长型图，优先适配宽度，高度居中截取
-        if(w/h &gt; width/height){
-            var newWidth = height * w / h;
-            var margin = (width - newWidth)/2;
-            $img.height(height).css({&quot;margin-left&quot;: margin});
-        }else{
-            var newHeight = width * h / w;
-            var margin = (height - newHeight)/2;
-            $img.width(width).css({&quot;margin-top&quot;: margin});
-        }
-    }</code></pre><p>###第五步：支持webp</p>
+<p>###第五步：支持webp</p>
 <p>webp格式图片是google开发的一种旨在加快图片加载速度的图片格式，压缩提交大概只有jpg的2/3。随chrome的比例越来越多，其实让更多用户体验到webp也是一件好事。</p>
 <p>那么问题来了，怎么去判断用户的浏览器是否支持webp呢？<br>根据ua去判断是个好方法，但不太靠谱，因为chrome中其实也有设置，让它不能去支持webp，而且webkit本身就开源，会衍生出很多你不知道名字的浏览器。</p>
 <p>最终我使用的是特性检测：</p>
-<pre><code>    if(!supportedWebPIsLoading) {
-        supportedWebPIsLoading = true;
-        var images = {
-            basic: &quot;data:image/webp;base64,UklGRjIAAABXRUJQVlA4ICYAAACyAgCdASoCAAEALmk0mk0iIiIiIgBoSygABc6zbAAA/v56QAAAAA==&quot;
-        }, $img = new Image();
-        $img.onload = function () {
-            supportedWebPIsLoading = false;
-            $.cookie.set(&quot;iswebp&quot; , +supportedWebP);
-        };
-        $img.onerror = function () {
-            supportedWebP = false;
-            supportedWebPIsLoading = false;
-            $.cookie.set(&quot;iswebp&quot; , +supportedWebP);
-        };
-        $img.src = images.basic;
-    }</code></pre><p>我们会让浏览器试着加载一张非常小的base64格式的webp图片，如果能够正常加载，说明是支持webp的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">if(!supportedWebPIsLoading) &#123;</span><br><span class="line">    supportedWebPIsLoading = true;</span><br><span class="line">    var images = &#123;</span><br><span class="line">        basic: &quot;data:image/webp;base64,UklGRjIAAABXRUJQVlA4ICYAAACyAgCdASoCAAEALmk0mk0iIiIiIgBoSygABc6zbAAA/v56QAAAAA==&quot;</span><br><span class="line">    &#125;, $img = new Image();</span><br><span class="line">    $img.onload = function () &#123;</span><br><span class="line">        supportedWebPIsLoading = false;</span><br><span class="line">        $.cookie.set(&quot;iswebp&quot; , +supportedWebP);</span><br><span class="line">    &#125;;</span><br><span class="line">    $img.onerror = function () &#123;</span><br><span class="line">        supportedWebP = false;</span><br><span class="line">        supportedWebPIsLoading = false;</span><br><span class="line">        $.cookie.set(&quot;iswebp&quot; , +supportedWebP);</span><br><span class="line">    &#125;;</span><br><span class="line">    $img.src = images.basic;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>我们会让浏览器试着加载一张非常小的base64格式的webp图片，如果能够正常加载，说明是支持webp的。</p>
 <p>并且，会把测试记录在cookie里，所以第二次直接从cookie里读结果，基本不会影响性能。完成了最重要的检查，我们就可以放心让服务器返回不同格式的图片了。</p>
 <p>End.</p>
 	
@@ -691,7 +645,7 @@ var pjax = pushState + ajax;小时候，小浣熊方便面里面有各种水浒�
 						<div class="relate-post-cover">
 							<a href="/2017/11/24/2017-11-24-horse/" title="基于贪心算法的马踏棋盘哈密顿回路问题">				
 								
-								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg" alt="基于贪心算法的马踏棋盘哈密顿回路问题"/>
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/post-cover/huan.jpg" alt="基于贪心算法的马踏棋盘哈密顿回路问题"/>
 							</a>
 						</div>
 					</li>											
@@ -765,6 +719,14 @@ var pjax = pushState + ajax;小时候，小浣熊方便面里面有各种水浒�
 -->
 
 
+
+	<script>
+		var appid = '8ldhVpVh39at6Spx628YbPjg-gzGzoHsz',
+            appkey = 'YyLDdeVMVo4fHOPd7b51tIJj';	  
+        AnnieLeancloud(appid, appkey);         
+	</script>
+    
+
 	
 
 
@@ -772,7 +734,82 @@ var pjax = pushState + ajax;小时候，小浣熊方便面里面有各种水浒�
 
 
 
-	
+	 
+	<script src="/plugin/clipboard/clipboard.js"></script>
+	<script>
+		// Copy code !
+	    function codePreprocessing() {
+	        $("#article-content .highlight").each(function() {
+
+	            $(this).wrap('<div id="post-code"></div>');
+
+	        })
+
+	        $("#article-content #post-code").each(function() {
+
+	            $(this).prepend('<nav class="copy-nav"><span><i class="code-language"></i></span></nav>');
+
+	        })
+
+	        $("#article-content .copy-nav").each(function() {
+	            var temp = $(this).next().attr('class'),
+	                language = ((temp.length > 9) && (temp != null)) ? temp.substr(10) : "none"; //why 9? Need to check language?
+
+	            $(this).find('.code-language').text(language);
+
+	            $(this).append('<span class="copy-btn"><i class="fa fa-copy" aria-hidden="true"></i></span>');
+
+	        });
+	    }
+
+		function codeCopy() {
+		    $('#article-content #post-code').each(function(i) {
+		        var codeCopyId = 'codeCopy-' + i;
+
+		        var codeNode = $(this).find('.code'),
+		            copyButton = $(this).find('.copy-btn');
+
+		        codeNode.attr('id', codeCopyId);
+		        copyButton.attr('data-clipboard-target-id', codeCopyId);
+		    })
+
+		    
+			var clipboard = new ClipboardJS('.copy-btn', {
+					target: function(trigger) {
+						return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+					}
+		      	});
+
+			//pure js
+			function showTooltip(elem, msg) {		   
+				elem.setAttribute('aria-label', msg);
+				elem.setAttribute('class', 'copy-btn copy-status');
+				setTimeout(function() {
+					elem.setAttribute('class', 'copy-btn');
+				}, 2000);
+			}
+
+			clipboard.on('success', function(e) {
+			    e.clearSelection();
+			    console.info('Action:', e.action);		   
+			    console.info('Trigger:', e.trigger);
+			    showTooltip(e.trigger, 'Copied!');
+			    
+			});
+			clipboard.on('error', function(e) {
+			    console.error('Action:', e.action);
+			    console.error('Trigger:', e.trigger);
+			});
+		
+
+		}
+
+		if ($('.layout-post').length) {
+		    codePreprocessing();
+		    codeCopy();
+		} 
+	</script>
+
 
 
 
@@ -827,38 +864,14 @@ var pjax = pushState + ajax;小时候，小浣熊方便面里面有各种水浒�
 		<ul>
 	
 		<li>
-			<a href="http://github.com/" target="_blank">
+			<a href="https://github.com/Equationliu/Equationliu.github.io" target="_blank">
 				<i class="fa fa-github"></i>
 			</a>
 		</li>
 	
 		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-weibo"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-pinterest"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-instagram"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-twitter"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="/atom.xml" target="_blank">
-				<i class="fa fa-rss"></i>
+			<a href="https://www.zhihu.com/people/equation1998/activities" target="_blank">
+				<i class="fa fa-zhihu"></i>
 			</a>
 		</li>
 			
@@ -869,7 +882,7 @@ var pjax = pushState + ajax;小时候，小浣熊方便面里面有各种水浒�
 	<div class="copyright">
 		<p>
 			 
-				&copy;2017 - 2019, content by Equation. All Rights Reserved.
+				&copy;2019, content by Equation. All Rights Reserved.
 			
 			
 			
@@ -931,8 +944,36 @@ var pjax = pushState + ajax;小时候，小浣熊方便面里面有各种水浒�
 
 	<!-- site-analysis -->
 	
+<script>
+	var _hmt = _hmt || [];
+	(function() {
+		var hm = document.createElement("script");
+		hm.src = "//hm.baidu.com/hm.js?";
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(hm, s);
+	})();
+</script>
+
 	
 	
+<!-- Google Analytics -->
+<script type="text/javascript">
+	(function(i, s, o, g, r, a, m) {
+		i['GoogleAnalyticsObject'] = r;
+		i[r] = i[r] || function() {
+			(i[r].q = i[r].q || []).push(arguments)
+		}, i[r].l = 1 * new Date();
+		a = s.createElement(o),
+			m = s.getElementsByTagName(o)[0];
+		a.async = 1;
+		a.src = g;
+		m.parentNode.insertBefore(a, m)
+	})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+	ga('create', 'UA-99643860-1', 'auto');
+	ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
 	
 	
  

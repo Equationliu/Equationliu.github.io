@@ -32,7 +32,7 @@
   <!-- leancloud -->
   <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
 <script src="/js/leancloud.js"></script>
-<link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
+</head>
 	<body>
 		<!-- Preloader -->
 
@@ -209,38 +209,14 @@
 		<ul>
 	
 		<li>
-			<a href="http://github.com/" target="_blank">
+			<a href="https://github.com/Equationliu/Equationliu.github.io" target="_blank">
 				<i class="fa fa-github"></i>
 			</a>
 		</li>
 	
 		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-weibo"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-pinterest"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-instagram"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-twitter"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="/atom.xml" target="_blank">
-				<i class="fa fa-rss"></i>
+			<a href="https://www.zhihu.com/people/equation1998/activities" target="_blank">
+				<i class="fa fa-zhihu"></i>
 			</a>
 		</li>
 			
@@ -323,7 +299,22 @@
 		
 		
 
+	
+    <span class="leancloud_visitors" id="/2013/09/25/web-worker-learning/_visitors" data-url="/2013/09/25/web-worker-learning/" data-title="web worker简易入门">
+       	<i class="fa fa-eye"></i>
+       	热度
+        <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
+    </span>
+    
 
+
+
+	
+    <span class="leancloud_likes" id="/2013/09/25/web-worker-learning/_likes" data-url="/2013/09/25/web-worker-learning/" data-title="web worker简易入门" rel="unlike">
+        <i class="fa fa-heart"></i>
+        喜欢
+        <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
+    </span>
 
 	</div>
 
@@ -348,7 +339,7 @@
 <pre><code>worker.onmessage = function (event) {
     alert(event.data);
 };</code></pre><p>在worker.js里，发送消息给父线程     </p>
-<pre><code>postMessage(&#39;hello，imweb&#39;);</code></pre><p>在父线程页面就能看到发送过来的信息了。</p>
+<pre><code>postMessage(&apos;hello，imweb&apos;);</code></pre><p>在父线程页面就能看到发送过来的信息了。</p>
 <p>同时，在web worker标准中，是支持对象参数的，也就是说我们能够传递json数据。再看一个稍微复杂点的例子，父线程：</p>
 <pre><code>var worker = new Worker(&quot;worker.js&quot;);
 worker.onmessage = function (event) {
@@ -356,46 +347,46 @@ worker.onmessage = function (event) {
 };
 
 function start(){
-    worker.postMessage({&#39;cmd&#39;: &#39;start&#39;, &#39;msg&#39;: &#39;start&#39;});
+    worker.postMessage({&apos;cmd&apos;: &apos;start&apos;, &apos;msg&apos;: &apos;start&apos;});
 }
 
 function pause(){
-    worker.postMessage({&#39;cmd&#39;: &#39;pause&#39;, &#39;msg&#39;: &#39;pause&#39;});
+    worker.postMessage({&apos;cmd&apos;: &apos;pause&apos;, &apos;msg&apos;: &apos;pause&apos;});
 }
 
 function stop(){
-    worker.postMessage({&#39;cmd&#39;: &#39;stop&#39;, &#39;msg&#39;: &#39;stop&#39;});
+    worker.postMessage({&apos;cmd&apos;: &apos;stop&apos;, &apos;msg&apos;: &apos;stop&apos;});
 }
 
 function msg(){
-    worker.postMessage({&#39;msg&#39;: &#39;hello imweb&#39;});
+    worker.postMessage({&apos;msg&apos;: &apos;hello imweb&apos;});
 }</code></pre><p>worker.js：</p>
 <pre><code>self.onmessage = function (e) {
     var data = e.data;
       switch (data.cmd) {
-    case &#39;start&#39;:
+    case &apos;start&apos;:
         taskStart(); //大量数据处理
-          postMessage(&#39;WORKER DO: &#39; + data.msg);
+          postMessage(&apos;WORKER DO: &apos; + data.msg);
           break;
-    case &#39;pause&#39;:
+    case &apos;pause&apos;:
         taskPause();
-          postMessage(&#39;WORKER DO: &#39; + data.msg);
+          postMessage(&apos;WORKER DO: &apos; + data.msg);
           break;
-    case &#39;stop&#39;:
-          postMessage(&#39;WORKER DO: &#39; + data.msg);
+    case &apos;stop&apos;:
+          postMessage(&apos;WORKER DO: &apos; + data.msg);
           self.close(); //终止web worker
           break;
     default:
-          postMessage(&#39;MESSAGE: &#39; + data.msg);
+          postMessage(&apos;MESSAGE: &apos; + data.msg);
       };
 };</code></pre><p>从上面的例子可以看到，一是利用对象参数，进程之间能够较灵活的实现控制；二是当woker执行taskStart()处理大量数据时，只在子进程处理，不会给主页面带来阻塞，通常，处理大量数据会消极影响程序的响应能力，而web worker通过这样的方式，能提供一个更流畅更实时的UI。</p>
 <p>###<strong>【共享worker】</strong><br>共享worker允许线程在同源中的多个页面间进行共享，例如：同源中所有页面或脚本可以与同一个共享线程通信。它的实例化与事件侦听的写法与专用worker略有不同,主页面：</p>
-<pre><code>var worker = new SharedWorker(&#39;shared-worker.js&#39;);
+<pre><code>var worker = new SharedWorker(&apos;shared-worker.js&apos;);
 worker.port.onmessage = function(e) {
-    msg = &#39;Someone just said &quot;&#39; + e.data.message + &#39;&quot;. That is message number &#39; + e.data.counter;
+    msg = &apos;Someone just said &quot;&apos; + e.data.message + &apos;&quot;. That is message number &apos; + e.data.counter;
     console.log(msg);
 };
-worker.port.postMessage(&#39;hello shared worker!&#39;);</code></pre><p>shared-worker.js:        </p>
+worker.port.postMessage(&apos;hello shared worker!&apos;);</code></pre><p>shared-worker.js:        </p>
 <pre><code>var counter = 0;
 var connections = [];
 onconnect = function(eConn) {
@@ -444,17 +435,17 @@ onconnect = function(eConn) {
     jsonp.src=&quot;worker.js?_=&quot;+d;  
     document.getElementsByTagName(&quot;head&quot;)[0].appendChild(jsonp);
     jsonp.onload = jsonp.onreadystatechange = function(){  
-           if(!this.readyState||this.readyState==&#39;loaded&#39;||this.readyState==&#39;complete&#39;){  
-               console.log(&#39;jsonp: &#39;+ ((new Date()).valueOf() - d));
+           if(!this.readyState||this.readyState==&apos;loaded&apos;||this.readyState==&apos;complete&apos;){  
+               console.log(&apos;jsonp: &apos;+ ((new Date()).valueOf() - d));
         }  
     }
 }
 function tryWorker(){
     var d = (new Date()).valueOf();
     var worker = new Worker(&quot;worker.js&quot;);
-    worker.postMessage({&#39;cmd&#39;: &#39;start&#39;, &#39;msg&#39;: &#39;start&#39;});
+    worker.postMessage({&apos;cmd&apos;: &apos;start&apos;, &apos;msg&apos;: &apos;start&apos;});
     worker.onmessage = function (event) {
-        console.log(&#39;web worker: &#39;+ ((new Date()).valueOf() - d));
+        console.log(&apos;web worker: &apos;+ ((new Date()).valueOf() - d));
     };
 }</code></pre><p>第一次加载是一份1k大小的文件，每个方法重复5次，返回结果为:<br><img src="/assets/blogImg/web_worker1.png" alt="1k文件重复5次"><br>第二次加载1800k大小的文件，返回结果为：<br><img src="/assets/blogImg/web_worker2.png" alt="1800k文件重复5次"><br>可以看到对于较小的数据，jsonp还是比web worker要快，这可能是实例化worker对象时带来的影响；而数据偏大时，web worker的加载将会更优，而且它可以异步加载。</p>
 <p>THE END.</p>
@@ -836,6 +827,14 @@ var pjax = pushState + ajax;小时候，小浣熊方便面里面有各种水浒�
 -->
 
 
+
+	<script>
+		var appid = '8ldhVpVh39at6Spx628YbPjg-gzGzoHsz',
+            appkey = 'YyLDdeVMVo4fHOPd7b51tIJj';	  
+        AnnieLeancloud(appid, appkey);         
+	</script>
+    
+
 	
 
 
@@ -843,7 +842,82 @@ var pjax = pushState + ajax;小时候，小浣熊方便面里面有各种水浒�
 
 
 
-	
+	 
+	<script src="/plugin/clipboard/clipboard.js"></script>
+	<script>
+		// Copy code !
+	    function codePreprocessing() {
+	        $("#article-content .highlight").each(function() {
+
+	            $(this).wrap('<div id="post-code"></div>');
+
+	        })
+
+	        $("#article-content #post-code").each(function() {
+
+	            $(this).prepend('<nav class="copy-nav"><span><i class="code-language"></i></span></nav>');
+
+	        })
+
+	        $("#article-content .copy-nav").each(function() {
+	            var temp = $(this).next().attr('class'),
+	                language = ((temp.length > 9) && (temp != null)) ? temp.substr(10) : "none"; //why 9? Need to check language?
+
+	            $(this).find('.code-language').text(language);
+
+	            $(this).append('<span class="copy-btn"><i class="fa fa-copy" aria-hidden="true"></i></span>');
+
+	        });
+	    }
+
+		function codeCopy() {
+		    $('#article-content #post-code').each(function(i) {
+		        var codeCopyId = 'codeCopy-' + i;
+
+		        var codeNode = $(this).find('.code'),
+		            copyButton = $(this).find('.copy-btn');
+
+		        codeNode.attr('id', codeCopyId);
+		        copyButton.attr('data-clipboard-target-id', codeCopyId);
+		    })
+
+		    
+			var clipboard = new ClipboardJS('.copy-btn', {
+					target: function(trigger) {
+						return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+					}
+		      	});
+
+			//pure js
+			function showTooltip(elem, msg) {		   
+				elem.setAttribute('aria-label', msg);
+				elem.setAttribute('class', 'copy-btn copy-status');
+				setTimeout(function() {
+					elem.setAttribute('class', 'copy-btn');
+				}, 2000);
+			}
+
+			clipboard.on('success', function(e) {
+			    e.clearSelection();
+			    console.info('Action:', e.action);		   
+			    console.info('Trigger:', e.trigger);
+			    showTooltip(e.trigger, 'Copied!');
+			    
+			});
+			clipboard.on('error', function(e) {
+			    console.error('Action:', e.action);
+			    console.error('Trigger:', e.trigger);
+			});
+		
+
+		}
+
+		if ($('.layout-post').length) {
+		    codePreprocessing();
+		    codeCopy();
+		} 
+	</script>
+
 
 
 
@@ -898,38 +972,14 @@ var pjax = pushState + ajax;小时候，小浣熊方便面里面有各种水浒�
 		<ul>
 	
 		<li>
-			<a href="http://github.com/" target="_blank">
+			<a href="https://github.com/Equationliu/Equationliu.github.io" target="_blank">
 				<i class="fa fa-github"></i>
 			</a>
 		</li>
 	
 		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-weibo"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-pinterest"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-instagram"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-twitter"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="/atom.xml" target="_blank">
-				<i class="fa fa-rss"></i>
+			<a href="https://www.zhihu.com/people/equation1998/activities" target="_blank">
+				<i class="fa fa-zhihu"></i>
 			</a>
 		</li>
 			
@@ -940,7 +990,7 @@ var pjax = pushState + ajax;小时候，小浣熊方便面里面有各种水浒�
 	<div class="copyright">
 		<p>
 			 
-				&copy;2017 - 2019, content by Equation. All Rights Reserved.
+				&copy;2019, content by Equation. All Rights Reserved.
 			
 			
 			
@@ -1002,8 +1052,36 @@ var pjax = pushState + ajax;小时候，小浣熊方便面里面有各种水浒�
 
 	<!-- site-analysis -->
 	
+<script>
+	var _hmt = _hmt || [];
+	(function() {
+		var hm = document.createElement("script");
+		hm.src = "//hm.baidu.com/hm.js?";
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(hm, s);
+	})();
+</script>
+
 	
 	
+<!-- Google Analytics -->
+<script type="text/javascript">
+	(function(i, s, o, g, r, a, m) {
+		i['GoogleAnalyticsObject'] = r;
+		i[r] = i[r] || function() {
+			(i[r].q = i[r].q || []).push(arguments)
+		}, i[r].l = 1 * new Date();
+		a = s.createElement(o),
+			m = s.getElementsByTagName(o)[0];
+		a.async = 1;
+		a.src = g;
+		m.parentNode.insertBefore(a, m)
+	})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+	ga('create', 'UA-99643860-1', 'auto');
+	ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
 	
 	
  

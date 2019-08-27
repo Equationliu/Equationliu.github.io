@@ -32,7 +32,7 @@
   <!-- leancloud -->
   <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
 <script src="/js/leancloud.js"></script>
-<link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
+</head>
 	<body>
 		<!-- Preloader -->
 
@@ -209,38 +209,14 @@
 		<ul>
 	
 		<li>
-			<a href="http://github.com/" target="_blank">
+			<a href="https://github.com/Equationliu/Equationliu.github.io" target="_blank">
 				<i class="fa fa-github"></i>
 			</a>
 		</li>
 	
 		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-weibo"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-pinterest"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-instagram"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-twitter"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="/atom.xml" target="_blank">
-				<i class="fa fa-rss"></i>
+			<a href="https://www.zhihu.com/people/equation1998/activities" target="_blank">
+				<i class="fa fa-zhihu"></i>
 			</a>
 		</li>
 			
@@ -327,7 +303,22 @@
 		
 		
 
+	
+    <span class="leancloud_visitors" id="/2014/03/03/instagram-api-ex/_visitors" data-url="/2014/03/03/instagram-api-ex/" data-title="instagram图片拉取小经验">
+       	<i class="fa fa-eye"></i>
+       	热度
+        <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
+    </span>
+    
 
+
+
+	
+    <span class="leancloud_likes" id="/2014/03/03/instagram-api-ex/_likes" data-url="/2014/03/03/instagram-api-ex/" data-title="instagram图片拉取小经验" rel="unlike">
+        <i class="fa fa-heart"></i>
+        喜欢
+        <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
+    </span>
 
 	</div>
 
@@ -338,10 +329,14 @@
 <p>####1、注册client id<br>到<a href="http://instagram.com/developer/clients/manage/" target="_blank" rel="noopener">管理客户端页面</a>，选择“注册新客户端”。<br>这时会提示你填手机号，接着会收到短信验证码。经过验证，就到达了下面的界面：<br><img src="/assets/blogImg/instagram1.jpg" alt="填写信息"><br>按照字面意思填写完毕，client id就注册完毕了。                 </p>
 <p><img src="/assets/blogImg/instagram2.jpg" alt="获得client_id">         </p>
 <p>####2、用client_id去换取token<br>在浏览器中请求：</p>
-<pre><code>    https://instagram.com/oauth/authorize/?client_id={CLIENT_ID}&amp;redirect_uri={REDIRECT_URI}&amp;response_type=token</code></pre><p>花括号里面的值，对应上一步最终得到的<code>client_id</code>和自己设定的<code>redirect_uri</code>。<br>请求到的是一个授权页面，授权完毕后，则重定向到你的redirect_uri。注意看授权成功后的url，hash部分会附带给你的token。至此，token成功获取。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://instagram.com/oauth/authorize/?client_id=&#123;CLIENT_ID&#125;&amp;redirect_uri=&#123;REDIRECT_URI&#125;&amp;response_type=token</span><br></pre></td></tr></table></figure>
+
+<p>花括号里面的值，对应上一步最终得到的<code>client_id</code>和自己设定的<code>redirect_uri</code>。<br>请求到的是一个授权页面，授权完毕后，则重定向到你的redirect_uri。注意看授权成功后的url，hash部分会附带给你的token。至此，token成功获取。</p>
 <p>####3、用token去调用API</p>
 <p>拿到token，就等于拿到仓库的钥匙了！<br>赶紧试着用token调用api查看自己的图片吧：</p>
-<pre><code>    https://api.instagram.com/v1/users/{USER_ID}/media/recent/?access_token={TOKEN}</code></pre><p>这时，你会发现似乎…被instagram api坑了一道。user_id是个啥？机智如我，果断填上了自己的用户名。<br>结果错了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://api.instagram.com/v1/users/&#123;USER_ID&#125;/media/recent/?access_token=&#123;TOKEN&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这时，你会发现似乎…被instagram api坑了一道。user_id是个啥？机智如我，果断填上了自己的用户名。<br>结果错了。</p>
 <p>后来发现有这个的网站：<a href="http://jelled.com/instagram/lookup-user-id" target="_blank" rel="noopener">lookup-user-id</a>，通过此业界良心，成功获取到user_id，摆平了上面的请求。</p>
 <p>###二、参考</p>
 <ol>
@@ -715,6 +710,14 @@
 -->
 
 
+
+	<script>
+		var appid = '8ldhVpVh39at6Spx628YbPjg-gzGzoHsz',
+            appkey = 'YyLDdeVMVo4fHOPd7b51tIJj';	  
+        AnnieLeancloud(appid, appkey);         
+	</script>
+    
+
 	
 
 
@@ -722,7 +725,82 @@
 
 
 
-	
+	 
+	<script src="/plugin/clipboard/clipboard.js"></script>
+	<script>
+		// Copy code !
+	    function codePreprocessing() {
+	        $("#article-content .highlight").each(function() {
+
+	            $(this).wrap('<div id="post-code"></div>');
+
+	        })
+
+	        $("#article-content #post-code").each(function() {
+
+	            $(this).prepend('<nav class="copy-nav"><span><i class="code-language"></i></span></nav>');
+
+	        })
+
+	        $("#article-content .copy-nav").each(function() {
+	            var temp = $(this).next().attr('class'),
+	                language = ((temp.length > 9) && (temp != null)) ? temp.substr(10) : "none"; //why 9? Need to check language?
+
+	            $(this).find('.code-language').text(language);
+
+	            $(this).append('<span class="copy-btn"><i class="fa fa-copy" aria-hidden="true"></i></span>');
+
+	        });
+	    }
+
+		function codeCopy() {
+		    $('#article-content #post-code').each(function(i) {
+		        var codeCopyId = 'codeCopy-' + i;
+
+		        var codeNode = $(this).find('.code'),
+		            copyButton = $(this).find('.copy-btn');
+
+		        codeNode.attr('id', codeCopyId);
+		        copyButton.attr('data-clipboard-target-id', codeCopyId);
+		    })
+
+		    
+			var clipboard = new ClipboardJS('.copy-btn', {
+					target: function(trigger) {
+						return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+					}
+		      	});
+
+			//pure js
+			function showTooltip(elem, msg) {		   
+				elem.setAttribute('aria-label', msg);
+				elem.setAttribute('class', 'copy-btn copy-status');
+				setTimeout(function() {
+					elem.setAttribute('class', 'copy-btn');
+				}, 2000);
+			}
+
+			clipboard.on('success', function(e) {
+			    e.clearSelection();
+			    console.info('Action:', e.action);		   
+			    console.info('Trigger:', e.trigger);
+			    showTooltip(e.trigger, 'Copied!');
+			    
+			});
+			clipboard.on('error', function(e) {
+			    console.error('Action:', e.action);
+			    console.error('Trigger:', e.trigger);
+			});
+		
+
+		}
+
+		if ($('.layout-post').length) {
+		    codePreprocessing();
+		    codeCopy();
+		} 
+	</script>
+
 
 
 
@@ -777,38 +855,14 @@
 		<ul>
 	
 		<li>
-			<a href="http://github.com/" target="_blank">
+			<a href="https://github.com/Equationliu/Equationliu.github.io" target="_blank">
 				<i class="fa fa-github"></i>
 			</a>
 		</li>
 	
 		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-weibo"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-pinterest"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-instagram"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-twitter"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="/atom.xml" target="_blank">
-				<i class="fa fa-rss"></i>
+			<a href="https://www.zhihu.com/people/equation1998/activities" target="_blank">
+				<i class="fa fa-zhihu"></i>
 			</a>
 		</li>
 			
@@ -819,7 +873,7 @@
 	<div class="copyright">
 		<p>
 			 
-				&copy;2017 - 2019, content by Equation. All Rights Reserved.
+				&copy;2019, content by Equation. All Rights Reserved.
 			
 			
 			
@@ -881,8 +935,36 @@
 
 	<!-- site-analysis -->
 	
+<script>
+	var _hmt = _hmt || [];
+	(function() {
+		var hm = document.createElement("script");
+		hm.src = "//hm.baidu.com/hm.js?";
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(hm, s);
+	})();
+</script>
+
 	
 	
+<!-- Google Analytics -->
+<script type="text/javascript">
+	(function(i, s, o, g, r, a, m) {
+		i['GoogleAnalyticsObject'] = r;
+		i[r] = i[r] || function() {
+			(i[r].q = i[r].q || []).push(arguments)
+		}, i[r].l = 1 * new Date();
+		a = s.createElement(o),
+			m = s.getElementsByTagName(o)[0];
+		a.async = 1;
+		a.src = g;
+		m.parentNode.insertBefore(a, m)
+	})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+	ga('create', 'UA-99643860-1', 'auto');
+	ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
 	
 	
  

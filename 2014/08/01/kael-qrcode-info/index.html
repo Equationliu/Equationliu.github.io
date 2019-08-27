@@ -32,7 +32,7 @@
   <!-- leancloud -->
   <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
 <script src="/js/leancloud.js"></script>
-<link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
+</head>
 	<body>
 		<!-- Preloader -->
 
@@ -209,38 +209,14 @@
 		<ul>
 	
 		<li>
-			<a href="http://github.com/" target="_blank">
+			<a href="https://github.com/Equationliu/Equationliu.github.io" target="_blank">
 				<i class="fa fa-github"></i>
 			</a>
 		</li>
 	
 		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-weibo"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-pinterest"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-instagram"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-twitter"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="/atom.xml" target="_blank">
-				<i class="fa fa-rss"></i>
+			<a href="https://www.zhihu.com/people/equation1998/activities" target="_blank">
+				<i class="fa fa-zhihu"></i>
 			</a>
 		</li>
 			
@@ -343,7 +319,22 @@
 		
 		
 
+	
+    <span class="leancloud_visitors" id="/2014/08/01/kael-qrcode-info/_visitors" data-url="/2014/08/01/kael-qrcode-info/" data-title="爱上一匹二维马可我家里没有草原…">
+       	<i class="fa fa-eye"></i>
+       	热度
+        <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
+    </span>
+    
 
+
+
+	
+    <span class="leancloud_likes" id="/2014/08/01/kael-qrcode-info/_likes" data-url="/2014/08/01/kael-qrcode-info/" data-title="爱上一匹二维马可我家里没有草原…" rel="unlike">
+        <i class="fa fa-heart"></i>
+        喜欢
+        <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
+    </span>
 
 	</div>
 
@@ -357,69 +348,30 @@
 <a id="more"></a>
 <h3 id="使用-Usage"><a href="#使用-Usage" class="headerlink" title="使用 Usage:"></a>使用 Usage:</h3><p><strong>1、入手</strong></p>
 <p><strong>Demo Base - 基本</strong></p>
-<pre class=" language-js"><code class="language-js">    <span class="token keyword">var</span> kaelBase <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">KaelQrcode</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    kaelBase<span class="token punctuation">.</span><span class="token function">init</span><span class="token punctuation">(</span>document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"qr-base"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"hello KaelQrcode"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> kaelBase = <span class="keyword">new</span> KaelQrcode();</span><br><span class="line">kaelBase.init(<span class="built_in">document</span>.getElementById(<span class="string">"qr-base"</span>), <span class="string">"hello KaelQrcode"</span>);</span><br></pre></td></tr></table></figure>
+
 <p><strong>2、进阶</strong></p>
 <p>随手可配，变化无穷！           </p>
 <p><strong>Demo Pic - “有图有真相”</strong></p>
 <p>关键词：附图，图片边框，尺寸            </p>
 <p><img src="http://littendomo.sinaapp.com/kaer-qrcode/qrcode-pic.jpg" alt="demo"></p>
-<pre class=" language-js"><code class="language-js">    <span class="token keyword">var</span> kaelPic <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">KaelQrcode</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    kaelBase<span class="token punctuation">.</span><span class="token function">init</span><span class="token punctuation">(</span>document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"qr-pic"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
-        text <span class="token punctuation">:</span> <span class="token string">"hello KaelQrcode"</span><span class="token punctuation">,</span>
-        size<span class="token punctuation">:</span> <span class="token number">300</span><span class="token punctuation">,</span>
-        img<span class="token punctuation">:</span> <span class="token punctuation">{</span>
-            src <span class="token punctuation">:</span> <span class="token string">"kael-ico.jpg"</span><span class="token punctuation">,</span>
-            border<span class="token punctuation">:</span> <span class="token string">"#fff"</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> kaelPic = <span class="keyword">new</span> KaelQrcode();</span><br><span class="line">kaelBase.init(<span class="built_in">document</span>.getElementById(<span class="string">"qr-pic"</span>), &#123;</span><br><span class="line">	text : <span class="string">"hello KaelQrcode"</span>,</span><br><span class="line">	size: <span class="number">300</span>,</span><br><span class="line">	img: &#123;</span><br><span class="line">		src : <span class="string">"kael-ico.jpg"</span>,</span><br><span class="line">		border: <span class="string">"#fff"</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
 <p><strong>Demo Sae - “如果大海能够带走我的哀愁”</strong>        </p>
 <p>关键词：圆角，前景色，背景色，渐变           </p>
 <p><img src="http://littendomo.sinaapp.com/kaer-qrcode/qrcode-sea.jpg" alt="demo"></p>
-<pre class=" language-js"><code class="language-js">    <span class="token keyword">var</span> kaelSea <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">KaelQrcode</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    kaelSea<span class="token punctuation">.</span><span class="token function">init</span><span class="token punctuation">(</span>document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"qr-sea"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
-        text <span class="token punctuation">:</span> <span class="token string">"hello KaelQrcode"</span><span class="token punctuation">,</span>
-        size<span class="token punctuation">:</span> <span class="token number">300</span><span class="token punctuation">,</span>
-        color<span class="token punctuation">:</span> <span class="token punctuation">{</span>
-            <span class="token string">'0'</span><span class="token punctuation">:</span> <span class="token string">'rgb(1, 158, 213)'</span><span class="token punctuation">,</span>
-            <span class="token string">'0.2'</span><span class="token punctuation">:</span> <span class="token string">'rgb(30, 169, 224)'</span><span class="token punctuation">,</span>
-            <span class="token string">'0.6'</span><span class="token punctuation">:</span> <span class="token string">'rgb(0, 120, 191)'</span><span class="token punctuation">,</span>
-            <span class="token string">'1'</span><span class="token punctuation">:</span> <span class="token string">'rgb(1, 119, 255)'</span>
-        <span class="token punctuation">}</span><span class="token punctuation">,</span>
-        background<span class="token punctuation">:</span> <span class="token string">"#d3e3f0"</span><span class="token punctuation">,</span>
-        type<span class="token punctuation">:</span> <span class="token string">"round"</span>
-    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> kaelSea = <span class="keyword">new</span> KaelQrcode();</span><br><span class="line">kaelSea.init(<span class="built_in">document</span>.getElementById(<span class="string">"qr-sea"</span>), &#123;</span><br><span class="line">	text : <span class="string">"hello KaelQrcode"</span>,</span><br><span class="line">	size: <span class="number">300</span>,</span><br><span class="line">	color: &#123;</span><br><span class="line">		<span class="string">'0'</span>: <span class="string">'rgb(1, 158, 213)'</span>,</span><br><span class="line">		<span class="string">'0.2'</span>: <span class="string">'rgb(30, 169, 224)'</span>,</span><br><span class="line">		<span class="string">'0.6'</span>: <span class="string">'rgb(0, 120, 191)'</span>,</span><br><span class="line">		<span class="string">'1'</span>: <span class="string">'rgb(1, 119, 255)'</span></span><br><span class="line">	&#125;,</span><br><span class="line">	background: <span class="string">"#d3e3f0"</span>,</span><br><span class="line">	type: <span class="string">"round"</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
 <p><strong>Demo Iron - “钢铁是怎样炼成的”</strong>     </p>
 <p>关键词：阴影            </p>
 <p><img src="http://littendomo.sinaapp.com/kaer-qrcode/qrcode-iron.jpg" alt="demo"></p>
-<pre class=" language-js"><code class="language-js">    <span class="token keyword">var</span> kaelIron <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">KaelQrcode</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    kaelIron<span class="token punctuation">.</span><span class="token function">init</span><span class="token punctuation">(</span>document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"qr-iron"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
-        text <span class="token punctuation">:</span> <span class="token string">"hello KaelQrcode"</span><span class="token punctuation">,</span>
-        size<span class="token punctuation">:</span> <span class="token number">300</span><span class="token punctuation">,</span>
-        color<span class="token punctuation">:</span> <span class="token punctuation">{</span>
-            <span class="token string">'0'</span><span class="token punctuation">:</span> <span class="token string">'rgb(30, 30, 30)'</span><span class="token punctuation">,</span>
-            <span class="token string">'0.2'</span><span class="token punctuation">:</span> <span class="token string">'rgb(100, 100, 100)'</span><span class="token punctuation">,</span>
-            <span class="token string">'1'</span><span class="token punctuation">:</span> <span class="token string">'rgb(40, 40, 40)'</span>
-        <span class="token punctuation">}</span><span class="token punctuation">,</span>
-        background<span class="token punctuation">:</span> <span class="token punctuation">{</span>
-            <span class="token string">'0'</span><span class="token punctuation">:</span> <span class="token string">'rgb(233, 233, 233)'</span><span class="token punctuation">,</span>
-            <span class="token string">'0.2'</span><span class="token punctuation">:</span> <span class="token string">'rgb(246, 246, 246)'</span><span class="token punctuation">,</span>
-            <span class="token string">'1'</span><span class="token punctuation">:</span> <span class="token string">'rgb(212, 212, 212)'</span>
-        <span class="token punctuation">}</span><span class="token punctuation">,</span>
-        shadow<span class="token punctuation">:</span> <span class="token boolean">true</span>
-    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> kaelIron = <span class="keyword">new</span> KaelQrcode();</span><br><span class="line">kaelIron.init(<span class="built_in">document</span>.getElementById(<span class="string">"qr-iron"</span>), &#123;</span><br><span class="line">	text : <span class="string">"hello KaelQrcode"</span>,</span><br><span class="line">	size: <span class="number">300</span>,</span><br><span class="line">	color: &#123;</span><br><span class="line">		<span class="string">'0'</span>: <span class="string">'rgb(30, 30, 30)'</span>,</span><br><span class="line">		<span class="string">'0.2'</span>: <span class="string">'rgb(100, 100, 100)'</span>,</span><br><span class="line">		<span class="string">'1'</span>: <span class="string">'rgb(40, 40, 40)'</span></span><br><span class="line">	&#125;,</span><br><span class="line">	background: &#123;</span><br><span class="line">		<span class="string">'0'</span>: <span class="string">'rgb(233, 233, 233)'</span>,</span><br><span class="line">		<span class="string">'0.2'</span>: <span class="string">'rgb(246, 246, 246)'</span>,</span><br><span class="line">		<span class="string">'1'</span>: <span class="string">'rgb(212, 212, 212)'</span></span><br><span class="line">	&#125;,</span><br><span class="line">	shadow: <span class="literal">true</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
 <p><strong>Demo Iron - “万紫千红总是春”</strong>      </p>
 <p>关键词：单点        </p>
 <p><img src="http://littendomo.sinaapp.com/kaer-qrcode/qrcode-point.jpg" alt="demo"></p>
-<pre class=" language-js"><code class="language-js">    <span class="token keyword">var</span> kaelPoint <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">KaelQrcode</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    kaelPoint<span class="token punctuation">.</span><span class="token function">init</span><span class="token punctuation">(</span>document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"qr-point"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
-        text <span class="token punctuation">:</span> <span class="token string">"hello KaelQrcode"</span><span class="token punctuation">,</span>
-        size<span class="token punctuation">:</span> <span class="token number">300</span><span class="token punctuation">,</span>
-        color<span class="token punctuation">:</span> <span class="token string">"#50528f"</span><span class="token punctuation">,</span>
-        background<span class="token punctuation">:</span> <span class="token string">"e7e0cf"</span><span class="token punctuation">,</span>
-        pointColor<span class="token punctuation">:</span> <span class="token string">"#ee256c"</span><span class="token punctuation">,</span>
-        type<span class="token punctuation">:</span> <span class="token string">"round"</span>
-    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> kaelPoint = <span class="keyword">new</span> KaelQrcode();</span><br><span class="line">kaelPoint.init(<span class="built_in">document</span>.getElementById(<span class="string">"qr-point"</span>), &#123;</span><br><span class="line">	text : <span class="string">"hello KaelQrcode"</span>,</span><br><span class="line">	size: <span class="number">300</span>,</span><br><span class="line">	color: <span class="string">"#50528f"</span>,</span><br><span class="line">	background: <span class="string">"e7e0cf"</span>,</span><br><span class="line">	pointColor: <span class="string">"#ee256c"</span>,</span><br><span class="line">	type: <span class="string">"round"</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
 <h3 id="正在做-Todo："><a href="#正在做-Todo：" class="headerlink" title="正在做 Todo："></a>正在做 Todo：</h3><ol>
 <li>阴影效果优化</li>
 <li>高光</li>
@@ -799,6 +751,14 @@ var pjax = pushState + ajax;小时候，小浣熊方便面里面有各种水浒�
 -->
 
 
+
+	<script>
+		var appid = '8ldhVpVh39at6Spx628YbPjg-gzGzoHsz',
+            appkey = 'YyLDdeVMVo4fHOPd7b51tIJj';	  
+        AnnieLeancloud(appid, appkey);         
+	</script>
+    
+
 	
 
 
@@ -806,7 +766,82 @@ var pjax = pushState + ajax;小时候，小浣熊方便面里面有各种水浒�
 
 
 
-	
+	 
+	<script src="/plugin/clipboard/clipboard.js"></script>
+	<script>
+		// Copy code !
+	    function codePreprocessing() {
+	        $("#article-content .highlight").each(function() {
+
+	            $(this).wrap('<div id="post-code"></div>');
+
+	        })
+
+	        $("#article-content #post-code").each(function() {
+
+	            $(this).prepend('<nav class="copy-nav"><span><i class="code-language"></i></span></nav>');
+
+	        })
+
+	        $("#article-content .copy-nav").each(function() {
+	            var temp = $(this).next().attr('class'),
+	                language = ((temp.length > 9) && (temp != null)) ? temp.substr(10) : "none"; //why 9? Need to check language?
+
+	            $(this).find('.code-language').text(language);
+
+	            $(this).append('<span class="copy-btn"><i class="fa fa-copy" aria-hidden="true"></i></span>');
+
+	        });
+	    }
+
+		function codeCopy() {
+		    $('#article-content #post-code').each(function(i) {
+		        var codeCopyId = 'codeCopy-' + i;
+
+		        var codeNode = $(this).find('.code'),
+		            copyButton = $(this).find('.copy-btn');
+
+		        codeNode.attr('id', codeCopyId);
+		        copyButton.attr('data-clipboard-target-id', codeCopyId);
+		    })
+
+		    
+			var clipboard = new ClipboardJS('.copy-btn', {
+					target: function(trigger) {
+						return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+					}
+		      	});
+
+			//pure js
+			function showTooltip(elem, msg) {		   
+				elem.setAttribute('aria-label', msg);
+				elem.setAttribute('class', 'copy-btn copy-status');
+				setTimeout(function() {
+					elem.setAttribute('class', 'copy-btn');
+				}, 2000);
+			}
+
+			clipboard.on('success', function(e) {
+			    e.clearSelection();
+			    console.info('Action:', e.action);		   
+			    console.info('Trigger:', e.trigger);
+			    showTooltip(e.trigger, 'Copied!');
+			    
+			});
+			clipboard.on('error', function(e) {
+			    console.error('Action:', e.action);
+			    console.error('Trigger:', e.trigger);
+			});
+		
+
+		}
+
+		if ($('.layout-post').length) {
+		    codePreprocessing();
+		    codeCopy();
+		} 
+	</script>
+
 
 
 
@@ -861,38 +896,14 @@ var pjax = pushState + ajax;小时候，小浣熊方便面里面有各种水浒�
 		<ul>
 	
 		<li>
-			<a href="http://github.com/" target="_blank">
+			<a href="https://github.com/Equationliu/Equationliu.github.io" target="_blank">
 				<i class="fa fa-github"></i>
 			</a>
 		</li>
 	
 		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-weibo"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-pinterest"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-instagram"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-twitter"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="/atom.xml" target="_blank">
-				<i class="fa fa-rss"></i>
+			<a href="https://www.zhihu.com/people/equation1998/activities" target="_blank">
+				<i class="fa fa-zhihu"></i>
 			</a>
 		</li>
 			
@@ -903,7 +914,7 @@ var pjax = pushState + ajax;小时候，小浣熊方便面里面有各种水浒�
 	<div class="copyright">
 		<p>
 			 
-				&copy;2017 - 2019, content by Equation. All Rights Reserved.
+				&copy;2019, content by Equation. All Rights Reserved.
 			
 			
 			
@@ -965,8 +976,36 @@ var pjax = pushState + ajax;小时候，小浣熊方便面里面有各种水浒�
 
 	<!-- site-analysis -->
 	
+<script>
+	var _hmt = _hmt || [];
+	(function() {
+		var hm = document.createElement("script");
+		hm.src = "//hm.baidu.com/hm.js?";
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(hm, s);
+	})();
+</script>
+
 	
 	
+<!-- Google Analytics -->
+<script type="text/javascript">
+	(function(i, s, o, g, r, a, m) {
+		i['GoogleAnalyticsObject'] = r;
+		i[r] = i[r] || function() {
+			(i[r].q = i[r].q || []).push(arguments)
+		}, i[r].l = 1 * new Date();
+		a = s.createElement(o),
+			m = s.getElementsByTagName(o)[0];
+		a.async = 1;
+		a.src = g;
+		m.parentNode.insertBefore(a, m)
+	})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+	ga('create', 'UA-99643860-1', 'auto');
+	ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
 	
 	
  

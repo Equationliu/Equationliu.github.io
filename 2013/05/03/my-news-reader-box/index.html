@@ -32,7 +32,7 @@
   <!-- leancloud -->
   <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
 <script src="/js/leancloud.js"></script>
-<link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
+</head>
 	<body>
 		<!-- Preloader -->
 
@@ -209,38 +209,14 @@
 		<ul>
 	
 		<li>
-			<a href="http://github.com/" target="_blank">
+			<a href="https://github.com/Equationliu/Equationliu.github.io" target="_blank">
 				<i class="fa fa-github"></i>
 			</a>
 		</li>
 	
 		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-weibo"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-pinterest"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-instagram"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-twitter"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="/atom.xml" target="_blank">
-				<i class="fa fa-rss"></i>
+			<a href="https://www.zhihu.com/people/equation1998/activities" target="_blank">
+				<i class="fa fa-zhihu"></i>
 			</a>
 		</li>
 			
@@ -319,7 +295,22 @@
 		
 		
 
+	
+    <span class="leancloud_visitors" id="/2013/05/03/my-news-reader-box/_visitors" data-url="/2013/05/03/my-news-reader-box/" data-title="网易“聚合阅读”布局的实现">
+       	<i class="fa fa-eye"></i>
+       	热度
+        <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
+    </span>
+    
 
+
+
+	
+    <span class="leancloud_likes" id="/2013/05/03/my-news-reader-box/_likes" data-url="/2013/05/03/my-news-reader-box/" data-title="网易“聚合阅读”布局的实现" rel="unlike">
+        <i class="fa fa-heart"></i>
+        喜欢
+        <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
+    </span>
 
 	</div>
 
@@ -343,25 +334,8 @@
 <li>background：格子颜色        </li>
 </ul>
 <p>逐个去定义对象无疑是愚蠢的： </p>
-<pre class=" language-js"><code class="language-js">    <span class="token keyword">function</span> <span class="token function">Block</span><span class="token punctuation">(</span>o<span class="token punctuation">)</span><span class="token punctuation">{</span>
-        <span class="token keyword">return</span><span class="token punctuation">{</span>
-            left<span class="token punctuation">:</span> o<span class="token punctuation">.</span>left<span class="token punctuation">,</span>
-            top<span class="token punctuation">:</span> o<span class="token punctuation">.</span>top<span class="token punctuation">,</span>
-            width<span class="token punctuation">:</span> o<span class="token punctuation">.</span>width<span class="token punctuation">,</span>
-            height<span class="token punctuation">:</span> o<span class="token punctuation">.</span>height<span class="token punctuation">,</span>
-            bg<span class="token punctuation">:</span> o<span class="token punctuation">.</span>bg
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">var</span> block1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Block</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-        left<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
-        top<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
-        width<span class="token punctuation">:</span> <span class="token number">50</span><span class="token punctuation">,</span>
-        height<span class="token punctuation">:</span> <span class="token number">50</span><span class="token punctuation">,</span>
-        bg<span class="token punctuation">:</span> <span class="token string">"#3f3"</span>
-    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">var</span> block2 <span class="token operator">=</span> …
-    …
-    <span class="token keyword">var</span> block37 <span class="token operator">=</span> …</code></pre>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Block</span>(<span class="params">o</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span>&#123;</span><br><span class="line">		left: o.left,</span><br><span class="line">		top: o.top,</span><br><span class="line">		width: o.width,</span><br><span class="line">		height: o.height,</span><br><span class="line">		bg: o.bg</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> block1 = <span class="keyword">new</span> Block(&#123;</span><br><span class="line">	left: <span class="number">0</span>,</span><br><span class="line">	top: <span class="number">0</span>,</span><br><span class="line">	width: <span class="number">50</span>,</span><br><span class="line">	height: <span class="number">50</span>,</span><br><span class="line">	bg: <span class="string">"#3f3"</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="keyword">var</span> block2 = …</span><br><span class="line">…</span><br><span class="line"><span class="keyword">var</span> block37 = …</span><br></pre></td></tr></table></figure>
+
 <p>这样不仅不利于后期维护，而且构造格子的嵌套关系也相对麻烦。</p>
 <p>网易的做法是使用“交替切割”的方式来做：         </p>
 <ol>
@@ -370,151 +344,15 @@
 <li>对形成的6个小块，再进行列的切割</li>
 </ol>
 <p>整个做法就是“列-行-列-行-……”这样的交替切割。所以它的对象是这样设置的,其中random属性可以约定同级的cols或rows是否可以随机变换位置，width和height的值是规定一个父级块的分割比例。其设置的形式例如（例子与demo的设定无关）：</p>
-<pre class=" language-js"><code class="language-js">    window<span class="token punctuation">.</span>tagConfig<span class="token punctuation">.</span>pageLayout <span class="token operator">=</span> <span class="token punctuation">{</span>
-        top<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
-        left<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
-        width<span class="token punctuation">:</span> <span class="token number">100</span><span class="token punctuation">,</span>
-        height<span class="token punctuation">:</span> <span class="token number">100</span><span class="token punctuation">,</span>
-        random<span class="token punctuation">:</span> <span class="token operator">!</span><span class="token number">1</span><span class="token punctuation">,</span>
-        cols<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>
-            width<span class="token punctuation">:</span> <span class="token number">30</span><span class="token punctuation">,</span>
-            rows<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>
-                height<span class="token punctuation">:</span> <span class="token number">40</span><span class="token punctuation">,</span>
-                cols<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>
-                    width<span class="token punctuation">:</span> <span class="token number">30</span><span class="token punctuation">,</span>
-                    rows<span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token punctuation">{</span>
-                        height<span class="token punctuation">:</span><span class="token number">100</span>
-                    <span class="token punctuation">}</span><span class="token punctuation">]</span>
-                <span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token punctuation">{</span>
-                    width<span class="token punctuation">:</span> <span class="token number">70</span><span class="token punctuation">,</span>
-                    rows<span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token punctuation">{</span>
-                        height<span class="token punctuation">:</span><span class="token number">100</span>
-                    <span class="token punctuation">}</span><span class="token punctuation">]</span>
-                <span class="token punctuation">}</span><span class="token punctuation">]</span>
-            <span class="token punctuation">}</span><span class="token punctuation">,</span>
-            <span class="token punctuation">{</span>
-                height<span class="token punctuation">:</span> <span class="token number">30</span>
-            <span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token punctuation">{</span>
-                height<span class="token punctuation">:</span> <span class="token number">30</span>
-            <span class="token punctuation">}</span><span class="token punctuation">]</span>
-        <span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token punctuation">{</span>
-            width<span class="token punctuation">:</span> <span class="token number">70</span><span class="token punctuation">,</span>
-            rows<span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token punctuation">{</span>
-                height<span class="token punctuation">:</span><span class="token number">100</span>
-            <span class="token punctuation">}</span><span class="token punctuation">]</span>
-        <span class="token punctuation">}</span><span class="token punctuation">]</span>
-    <span class="token punctuation">}</span></code></pre>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.tagConfig.pageLayout = &#123;</span><br><span class="line">	top: <span class="number">0</span>,</span><br><span class="line">	left: <span class="number">0</span>,</span><br><span class="line">	width: <span class="number">100</span>,</span><br><span class="line">	height: <span class="number">100</span>,</span><br><span class="line">	random: !<span class="number">1</span>,</span><br><span class="line">	cols: [&#123;</span><br><span class="line">		width: <span class="number">30</span>,</span><br><span class="line">		rows: [&#123;</span><br><span class="line">			height: <span class="number">40</span>,</span><br><span class="line">			cols: [&#123;</span><br><span class="line">				width: <span class="number">30</span>,</span><br><span class="line">				rows:[&#123;</span><br><span class="line">					height:<span class="number">100</span></span><br><span class="line">				&#125;]</span><br><span class="line">			&#125;,&#123;</span><br><span class="line">				width: <span class="number">70</span>,</span><br><span class="line">				rows:[&#123;</span><br><span class="line">					height:<span class="number">100</span></span><br><span class="line">				&#125;]</span><br><span class="line">			&#125;]</span><br><span class="line">		&#125;,</span><br><span class="line">		&#123;</span><br><span class="line">			height: <span class="number">30</span></span><br><span class="line">		&#125;,&#123;</span><br><span class="line">			height: <span class="number">30</span></span><br><span class="line">		&#125;]</span><br><span class="line">	&#125;,&#123;</span><br><span class="line">		width: <span class="number">70</span>,</span><br><span class="line">		rows:[&#123;</span><br><span class="line">			height:<span class="number">100</span></span><br><span class="line">		&#125;]</span><br><span class="line">	&#125;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>##<strong>二.递归调用切割函数</strong></p>
-<pre class=" language-js"><code class="language-js">    <span class="token keyword">function</span> <span class="token function">_getGrids</span><span class="token punctuation">(</span>tag<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token comment" spellcheck="true">/*domArr是拥有left,top,width,height,bg等属性的所有dom数组，_getGrids的最终目的就是生成这个数组*/</span>
-        <span class="token keyword">var</span> domArr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-        <span class="token function">_cutGrid</span><span class="token punctuation">(</span>tag<span class="token punctuation">.</span>pageLayout<span class="token punctuation">,</span>
-            <span class="token keyword">function</span><span class="token punctuation">(</span>tag<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                <span class="token keyword">if</span> <span class="token punctuation">(</span>tag<span class="token punctuation">.</span>rows <span class="token operator">||</span> tag<span class="token punctuation">.</span>cols<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                    <span class="token comment" spellcheck="true">/*假如子级存在rows或者cols，则递归切割*/</span>
-                    <span class="token function">_cutGrid</span><span class="token punctuation">(</span>tag<span class="token punctuation">,</span> arguments<span class="token punctuation">.</span>callee<span class="token punctuation">)</span><span class="token punctuation">;</span>
-                <span class="token punctuation">}</span>
-                <span class="token keyword">else</span> <span class="token punctuation">{</span>
-                    <span class="token comment" spellcheck="true">/*子级不存在rows或者cols，不再进行切割，构造domArr*/</span>
-                    …
-                    domArr<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>xxx<span class="token punctuation">)</span>
-                    …
-                <span class="token punctuation">}</span>
-            <span class="token punctuation">}</span>
-        <span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">return</span> domArr<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span></code></pre>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">_getGrids</span>(<span class="params">tag</span>) </span>&#123;</span><br><span class="line">	<span class="comment">/*domArr是拥有left,top,width,height,bg等属性的所有dom数组，_getGrids的最终目的就是生成这个数组*/</span></span><br><span class="line">	<span class="keyword">var</span> domArr = [],</span><br><span class="line">	_cutGrid(tag.pageLayout,</span><br><span class="line">		<span class="function"><span class="keyword">function</span>(<span class="params">tag</span>) </span>&#123;</span><br><span class="line">			<span class="keyword">if</span> (tag.rows || tag.cols) &#123;</span><br><span class="line">				<span class="comment">/*假如子级存在rows或者cols，则递归切割*/</span></span><br><span class="line">				_cutGrid(tag, <span class="built_in">arguments</span>.callee);</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">else</span> &#123;</span><br><span class="line">				<span class="comment">/*子级不存在rows或者cols，不再进行切割，构造domArr*/</span></span><br><span class="line">				…</span><br><span class="line">				domArr.push(xxx)</span><br><span class="line">				…</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	);</span><br><span class="line">	<span class="keyword">return</span> domArr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>##<strong>三.切割函数</strong></p>
 <p>切割函数挺有意思的，下次想再用一篇文章来详细写一下，在这里仅贴出参考的源码。</p>
-<pre class=" language-js"><code class="language-js">    <span class="token comment" spellcheck="true">/*对象复制函数*/</span>
-    <span class="token keyword">function</span> <span class="token function">_shadowClone</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">var</span> t <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
-        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> n <span class="token keyword">in</span> e<span class="token punctuation">)</span> e<span class="token punctuation">.</span><span class="token function">hasOwnProperty</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span>t<span class="token punctuation">[</span>n<span class="token punctuation">]</span> <span class="token operator">=</span> e<span class="token punctuation">[</span>n<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">return</span> t<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*对象复制函数*/</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">_shadowClone</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">var</span> t = &#123;&#125;;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">var</span> n <span class="keyword">in</span> e) e.hasOwnProperty(n) &amp;&amp; (t[n] = e[n]);</span><br><span class="line">	<span class="keyword">return</span> t;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*判断子块随机布局与否*/</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">function</span> <span class="title">ranOrNot</span>(<span class="params">e, t</span>) </span>&#123;</span><br><span class="line">		<span class="keyword">var</span> n = [];</span><br><span class="line">		<span class="keyword">typeof</span> t == <span class="string">"undefined"</span> &amp;&amp; (t = e, e = <span class="number">0</span>);</span><br><span class="line">		<span class="keyword">for</span> (; e &lt; t; e++) n.push(e);</span><br><span class="line">		<span class="keyword">return</span> n</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">/*随机布局*/</span></span><br><span class="line">	<span class="built_in">Array</span>.prototype.randomEach = <span class="function"><span class="keyword">function</span>(<span class="params">t</span>) </span>&#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="number">3</span>);</span><br><span class="line">		<span class="keyword">if</span> (<span class="keyword">typeof</span> t != <span class="string">"function"</span>) <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>;</span><br><span class="line">		<span class="keyword">var</span> n = <span class="keyword">this</span>.length,</span><br><span class="line">		r = ranOrNot(n);</span><br><span class="line">		<span class="keyword">while</span> (n) &#123;</span><br><span class="line">			<span class="keyword">var</span> i = <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * n--);</span><br><span class="line">			<span class="keyword">if</span> (t(<span class="keyword">this</span>[r[i]]) === !<span class="number">1</span>) <span class="keyword">break</span>;</span><br><span class="line">			r[i] = r[n]</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;,</span><br><span class="line">	<span class="comment">/*常规布局*/</span></span><br><span class="line">	<span class="built_in">Array</span>.prototype.forEach || (<span class="built_in">Array</span>.prototype.forEach = <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">		<span class="keyword">var</span> t = <span class="keyword">this</span>.length;</span><br><span class="line">		<span class="keyword">if</span> (<span class="keyword">typeof</span> e != <span class="string">"function"</span>) <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>;</span><br><span class="line">		<span class="keyword">var</span> n = <span class="built_in">arguments</span>[<span class="number">1</span>];</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">var</span> r = <span class="number">0</span>; r &lt; t; r++) r <span class="keyword">in</span> <span class="keyword">this</span> &amp;&amp; e.call(n, <span class="keyword">this</span>[r], r, <span class="keyword">this</span>)</span><br><span class="line">	&#125;)</span><br><span class="line">&#125; )();</span><br><span class="line"></span><br><span class="line"><span class="comment">/*切割函数*/</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">_cutGrid</span>(<span class="params">tag, funcJudge</span>) </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params">a</span>) </span>&#123;</span><br><span class="line">		<span class="function"><span class="keyword">function</span> <span class="title">h</span>(<span class="params">cutLength</span>) </span>&#123;</span><br><span class="line">			<span class="comment">/*复制子块对象并计算出子块top,left*/</span></span><br><span class="line">			<span class="keyword">var</span> u, a = _shadowClone(cutLength);</span><br><span class="line">			c++,</span><br><span class="line">			u = c === l ? tag[cutType2.measure] - s: <span class="built_in">Math</span>.floor(cutLength[cutType2.measure] * tag[cutType2.measure] / <span class="number">100</span>),</span><br><span class="line">			a[cutType1.offset] = i + tag[cutType1.offset],</span><br><span class="line">			a[cutType2.offset] = s + tag[cutType2.offset],</span><br><span class="line">			a[cutType1.measure] = f,</span><br><span class="line">			a[cutType2.measure] = u,</span><br><span class="line">			a.colorPattern = tag.colorPattern,</span><br><span class="line">			<span class="comment">/*判断小块是否还需要分割*/</span></span><br><span class="line">			funcJudge(a),</span><br><span class="line">			s += u</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">var</span> f, l = a[cutType2.name].length,</span><br><span class="line">		c = <span class="number">0</span>;</span><br><span class="line">		u++,</span><br><span class="line">		f = u === cutLength ? tag[cutType1.measure] - i: <span class="built_in">Math</span>.floor(a[cutType1.measure] * tag[cutType1.measure] / <span class="number">100</span>),</span><br><span class="line">		a.random === !<span class="number">1</span> ? a[cutType2.name].forEach(h) : a[cutType2.name].randomEach(h),</span><br><span class="line">		s = <span class="number">0</span>,</span><br><span class="line">		i += f</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">/*根据大块是否有rows属性，定义两种切割方式*/</span></span><br><span class="line">	<span class="keyword">var</span> cutType1, cutType2;</span><br><span class="line">	tag.rows ? (cutType1 = &#123;</span><br><span class="line">		name: <span class="string">"rows"</span>,</span><br><span class="line">		measure: <span class="string">"height"</span>,</span><br><span class="line">		offset: <span class="string">"top"</span></span><br><span class="line">	&#125;,</span><br><span class="line">	cutType2 = &#123;</span><br><span class="line">		name: <span class="string">"cols"</span>,</span><br><span class="line">		measure: <span class="string">"width"</span>,</span><br><span class="line">		offset: <span class="string">"left"</span></span><br><span class="line">	&#125;) : (cutType1 = &#123;</span><br><span class="line">		name: <span class="string">"cols"</span>,</span><br><span class="line">		measure: <span class="string">"width"</span>,</span><br><span class="line">		offset: <span class="string">"left"</span></span><br><span class="line">	&#125;,</span><br><span class="line">	cutType2 = &#123;</span><br><span class="line">		name: <span class="string">"rows"</span>,</span><br><span class="line">		measure: <span class="string">"height"</span>,</span><br><span class="line">		offset: <span class="string">"top"</span></span><br><span class="line">	&#125;);</span><br><span class="line">	<span class="keyword">var</span> i = <span class="number">0</span>,</span><br><span class="line">	s = <span class="number">0</span>,</span><br><span class="line">	cutLength = tag[cutType1.name].length,</span><br><span class="line">	u = <span class="number">0</span>;</span><br><span class="line">	<span class="comment">/*是否随机布局*/</span></span><br><span class="line">	tag.random === !<span class="number">1</span> ? tag[cutType1.name].forEach(a) : tag[cutType1.name].randomEach(a)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-    <span class="token comment" spellcheck="true">/*判断子块随机布局与否*/</span>
-    <span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">function</span> <span class="token function">ranOrNot</span><span class="token punctuation">(</span>e<span class="token punctuation">,</span> t<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token keyword">var</span> n <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-            <span class="token keyword">typeof</span> t <span class="token operator">==</span> <span class="token string">"undefined"</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span>t <span class="token operator">=</span> e<span class="token punctuation">,</span> e <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token punctuation">;</span> e <span class="token operator">&lt;</span> t<span class="token punctuation">;</span> e<span class="token operator">++</span><span class="token punctuation">)</span> n<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token keyword">return</span> n
-        <span class="token punctuation">}</span>
-        <span class="token comment" spellcheck="true">/*随机布局*/</span>
-        Array<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>randomEach <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>t<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> t <span class="token operator">!=</span> <span class="token string">"function"</span><span class="token punctuation">)</span> <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">TypeError</span><span class="token punctuation">;</span>
-            <span class="token keyword">var</span> n <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>length<span class="token punctuation">,</span>
-            r <span class="token operator">=</span> <span class="token function">ranOrNot</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token keyword">while</span> <span class="token punctuation">(</span>n<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                <span class="token keyword">var</span> i <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">*</span> n<span class="token operator">--</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">t</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">[</span>r<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">===</span> <span class="token operator">!</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token keyword">break</span><span class="token punctuation">;</span>
-                r<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> r<span class="token punctuation">[</span>n<span class="token punctuation">]</span>
-            <span class="token punctuation">}</span>
-        <span class="token punctuation">}</span><span class="token punctuation">,</span>
-        <span class="token comment" spellcheck="true">/*常规布局*/</span>
-        Array<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>forEach <span class="token operator">||</span> <span class="token punctuation">(</span>Array<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>forEach <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token keyword">var</span> t <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>length<span class="token punctuation">;</span>
-            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> e <span class="token operator">!=</span> <span class="token string">"function"</span><span class="token punctuation">)</span> <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">TypeError</span><span class="token punctuation">;</span>
-            <span class="token keyword">var</span> n <span class="token operator">=</span> arguments<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> r <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> r <span class="token operator">&lt;</span> t<span class="token punctuation">;</span> r<span class="token operator">++</span><span class="token punctuation">)</span> r <span class="token keyword">in</span> <span class="token keyword">this</span> <span class="token operator">&amp;&amp;</span> e<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>n<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">[</span>r<span class="token punctuation">]</span><span class="token punctuation">,</span> r<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">)</span>
-        <span class="token punctuation">}</span><span class="token punctuation">)</span>
-    <span class="token punctuation">}</span> <span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-    <span class="token comment" spellcheck="true">/*切割函数*/</span>
-    <span class="token keyword">function</span> <span class="token function">_cutGrid</span><span class="token punctuation">(</span>tag<span class="token punctuation">,</span> funcJudge<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">function</span> <span class="token function">a</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token keyword">function</span> <span class="token function">h</span><span class="token punctuation">(</span>cutLength<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                <span class="token comment" spellcheck="true">/*复制子块对象并计算出子块top,left*/</span>
-                <span class="token keyword">var</span> u<span class="token punctuation">,</span> a <span class="token operator">=</span> <span class="token function">_shadowClone</span><span class="token punctuation">(</span>cutLength<span class="token punctuation">)</span><span class="token punctuation">;</span>
-                c<span class="token operator">++</span><span class="token punctuation">,</span>
-                u <span class="token operator">=</span> c <span class="token operator">===</span> l <span class="token operator">?</span> tag<span class="token punctuation">[</span>cutType2<span class="token punctuation">.</span>measure<span class="token punctuation">]</span> <span class="token operator">-</span> s<span class="token punctuation">:</span> Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>cutLength<span class="token punctuation">[</span>cutType2<span class="token punctuation">.</span>measure<span class="token punctuation">]</span> <span class="token operator">*</span> tag<span class="token punctuation">[</span>cutType2<span class="token punctuation">.</span>measure<span class="token punctuation">]</span> <span class="token operator">/</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-                a<span class="token punctuation">[</span>cutType1<span class="token punctuation">.</span>offset<span class="token punctuation">]</span> <span class="token operator">=</span> i <span class="token operator">+</span> tag<span class="token punctuation">[</span>cutType1<span class="token punctuation">.</span>offset<span class="token punctuation">]</span><span class="token punctuation">,</span>
-                a<span class="token punctuation">[</span>cutType2<span class="token punctuation">.</span>offset<span class="token punctuation">]</span> <span class="token operator">=</span> s <span class="token operator">+</span> tag<span class="token punctuation">[</span>cutType2<span class="token punctuation">.</span>offset<span class="token punctuation">]</span><span class="token punctuation">,</span>
-                a<span class="token punctuation">[</span>cutType1<span class="token punctuation">.</span>measure<span class="token punctuation">]</span> <span class="token operator">=</span> f<span class="token punctuation">,</span>
-                a<span class="token punctuation">[</span>cutType2<span class="token punctuation">.</span>measure<span class="token punctuation">]</span> <span class="token operator">=</span> u<span class="token punctuation">,</span>
-                a<span class="token punctuation">.</span>colorPattern <span class="token operator">=</span> tag<span class="token punctuation">.</span>colorPattern<span class="token punctuation">,</span>
-                <span class="token comment" spellcheck="true">/*判断小块是否还需要分割*/</span>
-                <span class="token function">funcJudge</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">,</span>
-                s <span class="token operator">+</span><span class="token operator">=</span> u
-            <span class="token punctuation">}</span>
-            <span class="token keyword">var</span> f<span class="token punctuation">,</span> l <span class="token operator">=</span> a<span class="token punctuation">[</span>cutType2<span class="token punctuation">.</span>name<span class="token punctuation">]</span><span class="token punctuation">.</span>length<span class="token punctuation">,</span>
-            c <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-            u<span class="token operator">++</span><span class="token punctuation">,</span>
-            f <span class="token operator">=</span> u <span class="token operator">===</span> cutLength <span class="token operator">?</span> tag<span class="token punctuation">[</span>cutType1<span class="token punctuation">.</span>measure<span class="token punctuation">]</span> <span class="token operator">-</span> i<span class="token punctuation">:</span> Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>a<span class="token punctuation">[</span>cutType1<span class="token punctuation">.</span>measure<span class="token punctuation">]</span> <span class="token operator">*</span> tag<span class="token punctuation">[</span>cutType1<span class="token punctuation">.</span>measure<span class="token punctuation">]</span> <span class="token operator">/</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-            a<span class="token punctuation">.</span>random <span class="token operator">===</span> <span class="token operator">!</span><span class="token number">1</span> <span class="token operator">?</span> a<span class="token punctuation">[</span>cutType2<span class="token punctuation">.</span>name<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span>h<span class="token punctuation">)</span> <span class="token punctuation">:</span> a<span class="token punctuation">[</span>cutType2<span class="token punctuation">.</span>name<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">randomEach</span><span class="token punctuation">(</span>h<span class="token punctuation">)</span><span class="token punctuation">,</span>
-            s <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span>
-            i <span class="token operator">+</span><span class="token operator">=</span> f
-        <span class="token punctuation">}</span>
-        <span class="token comment" spellcheck="true">/*根据大块是否有rows属性，定义两种切割方式*/</span>
-        <span class="token keyword">var</span> cutType1<span class="token punctuation">,</span> cutType2<span class="token punctuation">;</span>
-        tag<span class="token punctuation">.</span>rows <span class="token operator">?</span> <span class="token punctuation">(</span>cutType1 <span class="token operator">=</span> <span class="token punctuation">{</span>
-            name<span class="token punctuation">:</span> <span class="token string">"rows"</span><span class="token punctuation">,</span>
-            measure<span class="token punctuation">:</span> <span class="token string">"height"</span><span class="token punctuation">,</span>
-            offset<span class="token punctuation">:</span> <span class="token string">"top"</span>
-        <span class="token punctuation">}</span><span class="token punctuation">,</span>
-        cutType2 <span class="token operator">=</span> <span class="token punctuation">{</span>
-            name<span class="token punctuation">:</span> <span class="token string">"cols"</span><span class="token punctuation">,</span>
-            measure<span class="token punctuation">:</span> <span class="token string">"width"</span><span class="token punctuation">,</span>
-            offset<span class="token punctuation">:</span> <span class="token string">"left"</span>
-        <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token punctuation">:</span> <span class="token punctuation">(</span>cutType1 <span class="token operator">=</span> <span class="token punctuation">{</span>
-            name<span class="token punctuation">:</span> <span class="token string">"cols"</span><span class="token punctuation">,</span>
-            measure<span class="token punctuation">:</span> <span class="token string">"width"</span><span class="token punctuation">,</span>
-            offset<span class="token punctuation">:</span> <span class="token string">"left"</span>
-        <span class="token punctuation">}</span><span class="token punctuation">,</span>
-        cutType2 <span class="token operator">=</span> <span class="token punctuation">{</span>
-            name<span class="token punctuation">:</span> <span class="token string">"rows"</span><span class="token punctuation">,</span>
-            measure<span class="token punctuation">:</span> <span class="token string">"height"</span><span class="token punctuation">,</span>
-            offset<span class="token punctuation">:</span> <span class="token string">"top"</span>
-        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span>
-        s <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span>
-        cutLength <span class="token operator">=</span> tag<span class="token punctuation">[</span>cutType1<span class="token punctuation">.</span>name<span class="token punctuation">]</span><span class="token punctuation">.</span>length<span class="token punctuation">,</span>
-        u <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-        <span class="token comment" spellcheck="true">/*是否随机布局*/</span>
-        tag<span class="token punctuation">.</span>random <span class="token operator">===</span> <span class="token operator">!</span><span class="token number">1</span> <span class="token operator">?</span> tag<span class="token punctuation">[</span>cutType1<span class="token punctuation">.</span>name<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span> <span class="token punctuation">:</span> tag<span class="token punctuation">[</span>cutType1<span class="token punctuation">.</span>name<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">randomEach</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span>
-    <span class="token punctuation">}</span></code></pre>
 <p>##<strong>四.最后</strong><br>完成到这一步，我已不记得声明对象时出了多少次错误。各种尖括号，方括号，逗号和分号翩翩起舞时，你一定跟我一样很想念coffee的语法糖…</p>
 	
 	</div>
@@ -810,7 +648,7 @@ var pjax = pushState + ajax;小时候，小浣熊方便面里面有各种水浒�
 						<div class="relate-post-cover">
 							<a href="/2017/11/24/2017-11-24-horse/" title="基于贪心算法的马踏棋盘哈密顿回路问题">				
 								
-								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg" alt="基于贪心算法的马踏棋盘哈密顿回路问题"/>
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/post-cover/huan.jpg" alt="基于贪心算法的马踏棋盘哈密顿回路问题"/>
 							</a>
 						</div>
 					</li>											
@@ -884,6 +722,14 @@ var pjax = pushState + ajax;小时候，小浣熊方便面里面有各种水浒�
 -->
 
 
+
+	<script>
+		var appid = '8ldhVpVh39at6Spx628YbPjg-gzGzoHsz',
+            appkey = 'YyLDdeVMVo4fHOPd7b51tIJj';	  
+        AnnieLeancloud(appid, appkey);         
+	</script>
+    
+
 	
 
 
@@ -891,7 +737,82 @@ var pjax = pushState + ajax;小时候，小浣熊方便面里面有各种水浒�
 
 
 
-	
+	 
+	<script src="/plugin/clipboard/clipboard.js"></script>
+	<script>
+		// Copy code !
+	    function codePreprocessing() {
+	        $("#article-content .highlight").each(function() {
+
+	            $(this).wrap('<div id="post-code"></div>');
+
+	        })
+
+	        $("#article-content #post-code").each(function() {
+
+	            $(this).prepend('<nav class="copy-nav"><span><i class="code-language"></i></span></nav>');
+
+	        })
+
+	        $("#article-content .copy-nav").each(function() {
+	            var temp = $(this).next().attr('class'),
+	                language = ((temp.length > 9) && (temp != null)) ? temp.substr(10) : "none"; //why 9? Need to check language?
+
+	            $(this).find('.code-language').text(language);
+
+	            $(this).append('<span class="copy-btn"><i class="fa fa-copy" aria-hidden="true"></i></span>');
+
+	        });
+	    }
+
+		function codeCopy() {
+		    $('#article-content #post-code').each(function(i) {
+		        var codeCopyId = 'codeCopy-' + i;
+
+		        var codeNode = $(this).find('.code'),
+		            copyButton = $(this).find('.copy-btn');
+
+		        codeNode.attr('id', codeCopyId);
+		        copyButton.attr('data-clipboard-target-id', codeCopyId);
+		    })
+
+		    
+			var clipboard = new ClipboardJS('.copy-btn', {
+					target: function(trigger) {
+						return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+					}
+		      	});
+
+			//pure js
+			function showTooltip(elem, msg) {		   
+				elem.setAttribute('aria-label', msg);
+				elem.setAttribute('class', 'copy-btn copy-status');
+				setTimeout(function() {
+					elem.setAttribute('class', 'copy-btn');
+				}, 2000);
+			}
+
+			clipboard.on('success', function(e) {
+			    e.clearSelection();
+			    console.info('Action:', e.action);		   
+			    console.info('Trigger:', e.trigger);
+			    showTooltip(e.trigger, 'Copied!');
+			    
+			});
+			clipboard.on('error', function(e) {
+			    console.error('Action:', e.action);
+			    console.error('Trigger:', e.trigger);
+			});
+		
+
+		}
+
+		if ($('.layout-post').length) {
+		    codePreprocessing();
+		    codeCopy();
+		} 
+	</script>
+
 
 
 
@@ -946,38 +867,14 @@ var pjax = pushState + ajax;小时候，小浣熊方便面里面有各种水浒�
 		<ul>
 	
 		<li>
-			<a href="http://github.com/" target="_blank">
+			<a href="https://github.com/Equationliu/Equationliu.github.io" target="_blank">
 				<i class="fa fa-github"></i>
 			</a>
 		</li>
 	
 		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-weibo"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-pinterest"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-instagram"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-twitter"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="/atom.xml" target="_blank">
-				<i class="fa fa-rss"></i>
+			<a href="https://www.zhihu.com/people/equation1998/activities" target="_blank">
+				<i class="fa fa-zhihu"></i>
 			</a>
 		</li>
 			
@@ -988,7 +885,7 @@ var pjax = pushState + ajax;小时候，小浣熊方便面里面有各种水浒�
 	<div class="copyright">
 		<p>
 			 
-				&copy;2017 - 2019, content by Equation. All Rights Reserved.
+				&copy;2019, content by Equation. All Rights Reserved.
 			
 			
 			
@@ -1050,8 +947,36 @@ var pjax = pushState + ajax;小时候，小浣熊方便面里面有各种水浒�
 
 	<!-- site-analysis -->
 	
+<script>
+	var _hmt = _hmt || [];
+	(function() {
+		var hm = document.createElement("script");
+		hm.src = "//hm.baidu.com/hm.js?";
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(hm, s);
+	})();
+</script>
+
 	
 	
+<!-- Google Analytics -->
+<script type="text/javascript">
+	(function(i, s, o, g, r, a, m) {
+		i['GoogleAnalyticsObject'] = r;
+		i[r] = i[r] || function() {
+			(i[r].q = i[r].q || []).push(arguments)
+		}, i[r].l = 1 * new Date();
+		a = s.createElement(o),
+			m = s.getElementsByTagName(o)[0];
+		a.async = 1;
+		a.src = g;
+		m.parentNode.insertBefore(a, m)
+	})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+	ga('create', 'UA-99643860-1', 'auto');
+	ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
 	
 	
  

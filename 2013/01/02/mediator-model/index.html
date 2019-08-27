@@ -32,7 +32,7 @@
   <!-- leancloud -->
   <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
 <script src="/js/leancloud.js"></script>
-<link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
+</head>
 	<body>
 		<!-- Preloader -->
 
@@ -209,38 +209,14 @@
 		<ul>
 	
 		<li>
-			<a href="http://github.com/" target="_blank">
+			<a href="https://github.com/Equationliu/Equationliu.github.io" target="_blank">
 				<i class="fa fa-github"></i>
 			</a>
 		</li>
 	
 		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-weibo"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-pinterest"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-instagram"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-twitter"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="/atom.xml" target="_blank">
-				<i class="fa fa-rss"></i>
+			<a href="https://www.zhihu.com/people/equation1998/activities" target="_blank">
+				<i class="fa fa-zhihu"></i>
 			</a>
 		</li>
 			
@@ -323,7 +299,22 @@
 		
 		
 
+	
+    <span class="leancloud_visitors" id="/2013/01/02/mediator-model/_visitors" data-url="/2013/01/02/mediator-model/" data-title="模式应用小分享——中介者模式(mediator)">
+       	<i class="fa fa-eye"></i>
+       	热度
+        <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
+    </span>
+    
 
+
+
+	
+    <span class="leancloud_likes" id="/2013/01/02/mediator-model/_likes" data-url="/2013/01/02/mediator-model/" data-title="模式应用小分享——中介者模式(mediator)" rel="unlike">
+        <i class="fa fa-heart"></i>
+        喜欢
+        <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
+    </span>
 
 	</div>
 
@@ -346,57 +337,17 @@
 <p>其实不止是像这种“比赛”，想想像电力公司，将各家的电力进行集中管理，像给大家批阅试卷，给出成绩的老师，像一下子可以灭所有灯的寝室楼阿姨，像中国人民代表大会…额好吧，总之就是这么回事。</p>
 <p>##<strong>demo代码解析 coffeescript实现（50行）</strong></p>
 <p>首先我们设定<code>Player</code>对象，它有points和name属性，同时有一个prototype的属性play，使自己的分数加以，并将这信息通知中介者mediator：</p>
-<pre class=" language-coffeescript"><code class="language-coffeescript">    Player <span class="token operator">=</span> <span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">></span>
-        <span class="token class-member variable">@points</span> <span class="token operator">=</span> <span class="token number">0</span>
-        <span class="token class-member variable">@name</span> <span class="token operator">=</span> name
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">Player</span> = <span class="params">(name)</span>-&gt;</span></span><br><span class="line">	@points = <span class="number">0</span></span><br><span class="line">	@name = name</span><br><span class="line"></span><br><span class="line">Player::play = <span class="function">-&gt;</span></span><br><span class="line">	@points++</span><br><span class="line">	mediator.played()</span><br></pre></td></tr></table></figure>
 
-    Player<span class="token punctuation">:</span><span class="token punctuation">:</span>play <span class="token operator">=</span> <span class="token operator">-</span><span class="token operator">></span>
-        <span class="token class-member variable">@points</span><span class="token operator">++</span>
-        mediator<span class="token punctuation">.</span><span class="token function">played</span><span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
 <p>然后我们设定<code>scoreboard</code>对象，这是一个得分板，在MVC模式当中，充当了V(view)，视图。它的使命就是update，将传递给它的数据score展示出来。因为裁判是mediator，它判定队伍得分后(得到score)，他必须通知电视台(对应scoreboard)，让他们把分数展示出来：</p>
-<pre class=" language-coffeescript"><code class="language-coffeescript">    scoreboard <span class="token operator">=</span> 
-        <span class="token property">element</span><span class="token punctuation">:</span>
-            document<span class="token punctuation">.</span>getElementById <span class="token string">"results"</span>
-        <span class="token property">update</span><span class="token punctuation">:</span><span class="token punctuation">(</span>score<span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">></span>
-            msg <span class="token operator">=</span> <span class="token string">''</span>
-            <span class="token keyword">for</span> key<span class="token punctuation">,</span>value <span class="token keyword">of</span> score 
-                <span class="token keyword">if</span> score<span class="token punctuation">.</span>hasOwnProperty key
-                    msg <span class="token operator">=</span> msg<span class="token operator">+</span><span class="token string">"&lt;span>&lt;strong><span class="token interpolation variable">#{key}</span>&lt;/strong>:<span class="token interpolation variable">#{value}</span>&lt;/span>"</span>
-            <span class="token class-member variable">@element</span><span class="token punctuation">.</span>innerHTML <span class="token operator">=</span> msg
-            diff <span class="token operator">=</span> score<span class="token punctuation">.</span>Home <span class="token operator">-</span> score<span class="token punctuation">.</span>Guest
-            <span class="token keyword">if</span> diff <span class="token operator">></span> <span class="token number">15</span> 
-                alert <span class="token string">"Home Win!"</span>
-                location<span class="token punctuation">.</span><span class="token function">reload</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token keyword">else</span> <span class="token keyword">if</span> diff <span class="token operator">&lt;</span><span class="token operator">-</span><span class="token number">15</span>
-                alert <span class="token string">"Guest Win!"</span>
-                location<span class="token punctuation">.</span><span class="token function">reload</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token keyword">else</span>
-                document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'barGuest'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>style<span class="token punctuation">.</span>width <span class="token operator">=</span> <span class="token number">150</span> <span class="token operator">+</span> <span class="token punctuation">(</span>diff<span class="token operator">*</span><span class="token number">10</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">'px'</span></code></pre>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">scoreboard = </span><br><span class="line">	element:</span><br><span class="line">		<span class="built_in">document</span>.getElementById <span class="string">"results"</span></span><br><span class="line">	update:<span class="function"><span class="params">(score)</span>-&gt;</span></span><br><span class="line">		msg = <span class="string">''</span></span><br><span class="line">		<span class="keyword">for</span> key,value <span class="keyword">of</span> score </span><br><span class="line">			<span class="keyword">if</span> score.hasOwnProperty key</span><br><span class="line">				msg = msg+<span class="string">"&lt;span&gt;&lt;strong&gt;<span class="subst">#&#123;key&#125;</span>&lt;/strong&gt;:<span class="subst">#&#123;value&#125;</span>&lt;/span&gt;"</span></span><br><span class="line">		@element.innerHTML = msg</span><br><span class="line">		diff = score.Home - score.Guest</span><br><span class="line">		<span class="keyword">if</span> diff &gt; <span class="number">15</span> </span><br><span class="line">			alert <span class="string">"Home Win!"</span></span><br><span class="line">			location.reload();</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span> diff &lt;<span class="number">-15</span></span><br><span class="line">			alert <span class="string">"Guest Win!"</span></span><br><span class="line">			location.reload();</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">			<span class="built_in">document</span>.getElementById(<span class="string">'barGuest'</span>).style.width = <span class="number">150</span> + (diff*<span class="number">10</span>) + <span class="string">'px'</span></span><br></pre></td></tr></table></figure>
+
 <p>最后的片段就是中介者，<code>mediator</code>。它首先要决定开始比赛，也就是setup，新建了一个名称为Home，一个名称为Guest的Player model。当两个player得分时，mediator执行played，收集两方的分数，构造成score对象，并将这score对象交由scoreboard展示。keypress则是用于判断怎样才算得分：</p>
-<pre class=" language-coffeescript"><code class="language-coffeescript">    mediator <span class="token operator">=</span> 
-        <span class="token property">players</span><span class="token punctuation">:</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
-        <span class="token property">setup</span><span class="token punctuation">:</span><span class="token operator">-</span><span class="token operator">></span>
-            players <span class="token operator">=</span> <span class="token class-member variable">@players</span>
-            players<span class="token punctuation">.</span>home <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Player</span> <span class="token string">'Home'</span>
-            players<span class="token punctuation">.</span>guest <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Player</span> <span class="token string">'Guest'</span>
-        <span class="token property">played</span><span class="token punctuation">:</span><span class="token operator">-</span><span class="token operator">></span>
-            players <span class="token operator">=</span> <span class="token class-member variable">@players</span>
-            score <span class="token operator">=</span> 
-                <span class="token property">Home</span><span class="token punctuation">:</span> players<span class="token punctuation">.</span>home<span class="token punctuation">.</span>points
-                <span class="token property">Guest</span><span class="token punctuation">:</span>players<span class="token punctuation">.</span>guest<span class="token punctuation">.</span>points
-            scoreboard<span class="token punctuation">.</span>update score
-        <span class="token property">keypress</span><span class="token punctuation">:</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">></span>
-            e <span class="token operator">=</span> e<span class="token operator">||</span> <span class="token keyword">window</span><span class="token punctuation">.</span>event
-            keycode <span class="token operator">=</span> e<span class="token punctuation">.</span>which
-            <span class="token keyword">if</span> keycode <span class="token keyword">is</span> <span class="token number">102</span>
-                mediator<span class="token punctuation">.</span>players<span class="token punctuation">.</span>home<span class="token punctuation">.</span><span class="token function">play</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-                <span class="token keyword">return</span>
-            <span class="token keyword">if</span> keycode <span class="token keyword">is</span> <span class="token number">106</span>
-                mediator<span class="token punctuation">.</span>players<span class="token punctuation">.</span>guest<span class="token punctuation">.</span><span class="token function">play</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-                <span class="token keyword">return</span></code></pre>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">mediator = </span><br><span class="line">	players:&#123;&#125;</span><br><span class="line">	setup:<span class="function">-&gt;</span></span><br><span class="line">		players = @players</span><br><span class="line">		players.home = <span class="keyword">new</span> Player <span class="string">'Home'</span></span><br><span class="line">		players.guest = <span class="keyword">new</span> Player <span class="string">'Guest'</span></span><br><span class="line">	played:<span class="function">-&gt;</span></span><br><span class="line">		players = @players</span><br><span class="line">		score = </span><br><span class="line">			Home: players.home.points</span><br><span class="line">			Guest:players.guest.points</span><br><span class="line">		scoreboard.update score</span><br><span class="line">	keypress:<span class="function"><span class="params">(e)</span>-&gt;</span></span><br><span class="line">		e = e|| <span class="built_in">window</span>.event</span><br><span class="line">		keycode = e.which</span><br><span class="line">		<span class="keyword">if</span> keycode <span class="keyword">is</span> <span class="number">102</span></span><br><span class="line">			mediator.players.home.play()</span><br><span class="line">			<span class="keyword">return</span></span><br><span class="line">		<span class="keyword">if</span> keycode <span class="keyword">is</span> <span class="number">106</span></span><br><span class="line">			mediator.players.guest.play()</span><br><span class="line">			<span class="keyword">return</span></span><br></pre></td></tr></table></figure>
+
 <p>最后执行，运行程序：</p>
-<pre class=" language-coffeescript"><code class="language-coffeescript">    mediator<span class="token punctuation">.</span><span class="token function">setup</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-    <span class="token keyword">window</span><span class="token punctuation">.</span>onkeypress <span class="token operator">=</span> mediator<span class="token punctuation">.</span>keypress</code></pre>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mediator.setup()</span><br><span class="line"><span class="built_in">window</span>.onkeypress = mediator.keypress</span><br></pre></td></tr></table></figure>
+
 <p>##<strong>小分享心得</strong><br>中介者模式将控制集中化，colleague对象之间解耦，不必维护各自之间的网状通信，但mediator承受了所有colleague提供过来的信息，肯定会相对复杂。如何优化mediator也会成为一个课题。中介者模式有点像一对多的模型，一个mediator对应多个colleague，而如果现实模型是多对多的，中介者模型视复杂度来说不一定适合。</p>
 	
 	</div>
@@ -533,7 +484,7 @@
 						<div class="relate-post-cover">
 							<a href="/2017/11/24/2017-11-24-horse/" title="基于贪心算法的马踏棋盘哈密顿回路问题">				
 								
-								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg" alt="基于贪心算法的马踏棋盘哈密顿回路问题"/>
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/post-cover/huan.jpg" alt="基于贪心算法的马踏棋盘哈密顿回路问题"/>
 							</a>
 						</div>
 					</li>											
@@ -762,6 +713,14 @@
 -->
 
 
+
+	<script>
+		var appid = '8ldhVpVh39at6Spx628YbPjg-gzGzoHsz',
+            appkey = 'YyLDdeVMVo4fHOPd7b51tIJj';	  
+        AnnieLeancloud(appid, appkey);         
+	</script>
+    
+
 	
 
 
@@ -769,7 +728,82 @@
 
 
 
-	
+	 
+	<script src="/plugin/clipboard/clipboard.js"></script>
+	<script>
+		// Copy code !
+	    function codePreprocessing() {
+	        $("#article-content .highlight").each(function() {
+
+	            $(this).wrap('<div id="post-code"></div>');
+
+	        })
+
+	        $("#article-content #post-code").each(function() {
+
+	            $(this).prepend('<nav class="copy-nav"><span><i class="code-language"></i></span></nav>');
+
+	        })
+
+	        $("#article-content .copy-nav").each(function() {
+	            var temp = $(this).next().attr('class'),
+	                language = ((temp.length > 9) && (temp != null)) ? temp.substr(10) : "none"; //why 9? Need to check language?
+
+	            $(this).find('.code-language').text(language);
+
+	            $(this).append('<span class="copy-btn"><i class="fa fa-copy" aria-hidden="true"></i></span>');
+
+	        });
+	    }
+
+		function codeCopy() {
+		    $('#article-content #post-code').each(function(i) {
+		        var codeCopyId = 'codeCopy-' + i;
+
+		        var codeNode = $(this).find('.code'),
+		            copyButton = $(this).find('.copy-btn');
+
+		        codeNode.attr('id', codeCopyId);
+		        copyButton.attr('data-clipboard-target-id', codeCopyId);
+		    })
+
+		    
+			var clipboard = new ClipboardJS('.copy-btn', {
+					target: function(trigger) {
+						return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+					}
+		      	});
+
+			//pure js
+			function showTooltip(elem, msg) {		   
+				elem.setAttribute('aria-label', msg);
+				elem.setAttribute('class', 'copy-btn copy-status');
+				setTimeout(function() {
+					elem.setAttribute('class', 'copy-btn');
+				}, 2000);
+			}
+
+			clipboard.on('success', function(e) {
+			    e.clearSelection();
+			    console.info('Action:', e.action);		   
+			    console.info('Trigger:', e.trigger);
+			    showTooltip(e.trigger, 'Copied!');
+			    
+			});
+			clipboard.on('error', function(e) {
+			    console.error('Action:', e.action);
+			    console.error('Trigger:', e.trigger);
+			});
+		
+
+		}
+
+		if ($('.layout-post').length) {
+		    codePreprocessing();
+		    codeCopy();
+		} 
+	</script>
+
 
 
 
@@ -824,38 +858,14 @@
 		<ul>
 	
 		<li>
-			<a href="http://github.com/" target="_blank">
+			<a href="https://github.com/Equationliu/Equationliu.github.io" target="_blank">
 				<i class="fa fa-github"></i>
 			</a>
 		</li>
 	
 		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-weibo"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-pinterest"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-instagram"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-twitter"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="/atom.xml" target="_blank">
-				<i class="fa fa-rss"></i>
+			<a href="https://www.zhihu.com/people/equation1998/activities" target="_blank">
+				<i class="fa fa-zhihu"></i>
 			</a>
 		</li>
 			
@@ -866,7 +876,7 @@
 	<div class="copyright">
 		<p>
 			 
-				&copy;2017 - 2019, content by Equation. All Rights Reserved.
+				&copy;2019, content by Equation. All Rights Reserved.
 			
 			
 			
@@ -928,8 +938,36 @@
 
 	<!-- site-analysis -->
 	
+<script>
+	var _hmt = _hmt || [];
+	(function() {
+		var hm = document.createElement("script");
+		hm.src = "//hm.baidu.com/hm.js?";
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(hm, s);
+	})();
+</script>
+
 	
 	
+<!-- Google Analytics -->
+<script type="text/javascript">
+	(function(i, s, o, g, r, a, m) {
+		i['GoogleAnalyticsObject'] = r;
+		i[r] = i[r] || function() {
+			(i[r].q = i[r].q || []).push(arguments)
+		}, i[r].l = 1 * new Date();
+		a = s.createElement(o),
+			m = s.getElementsByTagName(o)[0];
+		a.async = 1;
+		a.src = g;
+		m.parentNode.insertBefore(a, m)
+	})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+	ga('create', 'UA-99643860-1', 'auto');
+	ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
 	
 	
  

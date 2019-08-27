@@ -32,7 +32,7 @@
   <!-- leancloud -->
   <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
 <script src="/js/leancloud.js"></script>
-<link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
+</head>
 	<body>
 		<!-- Preloader -->
 
@@ -209,38 +209,14 @@
 		<ul>
 	
 		<li>
-			<a href="http://github.com/" target="_blank">
+			<a href="https://github.com/Equationliu/Equationliu.github.io" target="_blank">
 				<i class="fa fa-github"></i>
 			</a>
 		</li>
 	
 		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-weibo"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-pinterest"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-instagram"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-twitter"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="/atom.xml" target="_blank">
-				<i class="fa fa-rss"></i>
+			<a href="https://www.zhihu.com/people/equation1998/activities" target="_blank">
+				<i class="fa fa-zhihu"></i>
 			</a>
 		</li>
 			
@@ -323,7 +299,22 @@
 		
 		
 
+	
+    <span class="leancloud_visitors" id="/2012/12/24/coffee-pc/_visitors" data-url="/2012/12/24/coffee-pc/" data-title="生产者-消费者模型的coffeescript实现">
+       	<i class="fa fa-eye"></i>
+       	热度
+        <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
+    </span>
+    
 
+
+
+	
+    <span class="leancloud_likes" id="/2012/12/24/coffee-pc/_likes" data-url="/2012/12/24/coffee-pc/" data-title="生产者-消费者模型的coffeescript实现" rel="unlike">
+        <i class="fa fa-heart"></i>
+        喜欢
+        <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
+    </span>
 
 	</div>
 
@@ -346,73 +337,8 @@
 + 站在产品的角度，我认为coffeescript这名字太长了-_-!              
 
 <p>##<strong>附上源码</strong></p>
-<pre class=" language-coffeescript"><code class="language-coffeescript">    N <span class="token operator">=</span> <span class="token number">10</span>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line">N = <span class="number">10</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ProCon</span></span></span><br><span class="line">	data: </span><br><span class="line">		mutex:<span class="number">1</span></span><br><span class="line">		empty:N</span><br><span class="line">		full:<span class="number">0</span></span><br><span class="line">		front:<span class="number">0</span></span><br><span class="line">		rear:<span class="number">0</span></span><br><span class="line">		buf: []</span><br><span class="line">	init:<span class="function">-&gt;</span></span><br><span class="line">		i = <span class="number">0</span></span><br><span class="line">		<span class="keyword">while</span> i&lt;N</span><br><span class="line">			newDom = $(<span class="string">'&lt;div class="bufBox"&gt;&lt;div class="bufCover"&gt;'</span>+i+<span class="string">'&lt;/div&gt;'</span>+i+<span class="string">'&lt;/div&gt;'</span>)</span><br><span class="line">			$(<span class="string">'#buf'</span>).append(newDom)</span><br><span class="line">			@data.buf.push <span class="string">'e'</span></span><br><span class="line">			i++</span><br><span class="line">		$(<span class="string">'#produce'</span>).click =&gt;</span><br><span class="line">			@producer()</span><br><span class="line">		$(<span class="string">'#consume'</span>).click =&gt;</span><br><span class="line">			@consumer()</span><br><span class="line">	p:<span class="function"><span class="params">(num)</span>-&gt;</span></span><br><span class="line">		<span class="keyword">return</span> --num</span><br><span class="line">	v:<span class="function"><span class="params">(num)</span>-&gt;</span></span><br><span class="line">		<span class="keyword">return</span> ++num</span><br><span class="line">	produceItem:<span class="function">-&gt;</span></span><br><span class="line">		$(<span class="string">'&lt;p class="desPro"&gt;生产了产品&lt;/p&gt;'</span>).insertBefore $(<span class="string">"#des p:first"</span>)</span><br><span class="line">		<span class="keyword">return</span> <span class="string">'m'</span></span><br><span class="line">	consumeItem:<span class="function">-&gt;</span></span><br><span class="line">		$(<span class="string">'&lt;p class="desCon"&gt;消费了产品&lt;/p&gt;'</span>).insertBefore $(<span class="string">"#des p:first"</span>)</span><br><span class="line">	enterItem:<span class="function"><span class="params">(item)</span> -&gt;</span></span><br><span class="line">		@data.front = (@data.front+<span class="number">1</span>)%N</span><br><span class="line">		@data.buf[@data.front] = item;</span><br><span class="line">		str = <span class="string">"存入产品<span class="subst">#&#123;@data.buf[@data.front]&#125;</span>到缓冲区<span class="subst">#&#123;@data.front&#125;</span>"</span></span><br><span class="line">		$(<span class="string">"&lt;p class='desPro'&gt;<span class="subst">#&#123;str&#125;</span>&lt;/p&gt;"</span>).insertBefore $(<span class="string">"#des p:first"</span>)</span><br><span class="line">		$($(<span class="string">'.bufCover'</span>)[@data.front]).animate </span><br><span class="line">			<span class="string">"height"</span>:<span class="string">"50px"</span></span><br><span class="line">	removeItem:<span class="function">-&gt;</span></span><br><span class="line">		@data.rear = (@data.rear + <span class="number">1</span>) % N;</span><br><span class="line">		@data.buf[@data.rear] = <span class="string">'e'</span>;</span><br><span class="line">		str = <span class="string">"取出产品<span class="subst">#&#123;@data.buf[@data.rear]&#125;</span>从缓冲区<span class="subst">#&#123;@data.rear&#125;</span>"</span></span><br><span class="line">		$(<span class="string">"&lt;p class='desCon'&gt;<span class="subst">#&#123;str&#125;</span>&lt;/p&gt;"</span>).insertBefore $(<span class="string">"#des p:first"</span>)</span><br><span class="line">		$($(<span class="string">'.bufCover'</span>)[@data.rear]).animate </span><br><span class="line">			<span class="string">"height"</span>:<span class="string">"0px"</span></span><br><span class="line">	producer:<span class="function">-&gt;</span></span><br><span class="line">		<span class="keyword">if</span> @data.full==N</span><br><span class="line">			$(<span class="string">"&lt;p class='desSpe'&gt;缓冲区已全满&lt;/p&gt;"</span>).insertBefore $(<span class="string">"#des p:first"</span>)</span><br><span class="line">			<span class="keyword">return</span></span><br><span class="line">		item = @produceItem()</span><br><span class="line">		@data.empty = @p(@data.empty)</span><br><span class="line">		@data.mutex = @p(@data.mutex)</span><br><span class="line">		@enterItem(item)</span><br><span class="line">		@data.mutex = @v(@data.mutex)</span><br><span class="line">		@data.full = @v(@data.full)</span><br><span class="line">	consumer:<span class="function">-&gt;</span></span><br><span class="line">		<span class="keyword">if</span> @data.empty==N</span><br><span class="line">			$(<span class="string">"&lt;p class='desSpe'&gt;缓冲区已空&lt;/p&gt;"</span>).insertBefore $(<span class="string">"#des p:first"</span>)</span><br><span class="line">			<span class="keyword">return</span></span><br><span class="line">		@data.full = @p(@data.full)</span><br><span class="line">		@data.mutex = @p(@data.mutex)</span><br><span class="line">		@removeItem()</span><br><span class="line">		@data.mutex = @v(@data.mutex)</span><br><span class="line">		@data.empty = @v(@data.empty)</span><br><span class="line">		@consumeItem()</span><br><span class="line">		</span><br><span class="line">procon = <span class="keyword">new</span> ProCon</span><br><span class="line">procon.init();</span><br></pre></td></tr></table></figure>
 
-    <span class="token keyword">class</span> <span class="token class-name">ProCon</span>
-        <span class="token property">data</span><span class="token punctuation">:</span> 
-            <span class="token property">mutex</span><span class="token punctuation">:</span><span class="token number">1</span>
-            <span class="token property">empty</span><span class="token punctuation">:</span>N
-            <span class="token property">full</span><span class="token punctuation">:</span><span class="token number">0</span>
-            <span class="token property">front</span><span class="token punctuation">:</span><span class="token number">0</span>
-            <span class="token property">rear</span><span class="token punctuation">:</span><span class="token number">0</span>
-            <span class="token property">buf</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-        <span class="token property">init</span><span class="token punctuation">:</span><span class="token operator">-</span><span class="token operator">></span>
-            i <span class="token operator">=</span> <span class="token number">0</span>
-            <span class="token keyword">while</span> i<span class="token operator">&lt;</span>N
-                newDom <span class="token operator">=</span> <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'&lt;div class="bufBox">&lt;div class="bufCover">'</span><span class="token operator">+</span>i<span class="token operator">+</span><span class="token string">'&lt;/div>'</span><span class="token operator">+</span>i<span class="token operator">+</span><span class="token string">'&lt;/div>'</span><span class="token punctuation">)</span>
-                <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'#buf'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span>newDom<span class="token punctuation">)</span>
-                <span class="token class-member variable">@data</span><span class="token punctuation">.</span>buf<span class="token punctuation">.</span>push <span class="token string">'e'</span>
-                i<span class="token operator">++</span>
-            <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'#produce'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>click <span class="token operator">=</span><span class="token operator">></span>
-                @<span class="token function">producer</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-            <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'#consume'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>click <span class="token operator">=</span><span class="token operator">></span>
-                @<span class="token function">consumer</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-        <span class="token property">p</span><span class="token punctuation">:</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">></span>
-            <span class="token keyword">return</span> <span class="token operator">--</span>num
-        <span class="token property">v</span><span class="token punctuation">:</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">></span>
-            <span class="token keyword">return</span> <span class="token operator">++</span>num
-        <span class="token property">produceItem</span><span class="token punctuation">:</span><span class="token operator">-</span><span class="token operator">></span>
-            <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'&lt;p class="desPro">生产了产品&lt;/p>'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>insertBefore <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">"#des p:first"</span><span class="token punctuation">)</span>
-            <span class="token keyword">return</span> <span class="token string">'m'</span>
-        <span class="token property">consumeItem</span><span class="token punctuation">:</span><span class="token operator">-</span><span class="token operator">></span>
-            <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'&lt;p class="desCon">消费了产品&lt;/p>'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>insertBefore <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">"#des p:first"</span><span class="token punctuation">)</span>
-        <span class="token property">enterItem</span><span class="token punctuation">:</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span>
-            <span class="token class-member variable">@data</span><span class="token punctuation">.</span>front <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-member variable">@data</span><span class="token punctuation">.</span>front<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">%</span>N
-            <span class="token class-member variable">@data</span><span class="token punctuation">.</span>buf<span class="token punctuation">[</span><span class="token class-member variable">@data</span><span class="token punctuation">.</span>front<span class="token punctuation">]</span> <span class="token operator">=</span> item<span class="token punctuation">;</span>
-            str <span class="token operator">=</span> <span class="token string">"存入产品<span class="token interpolation variable">#{@data.buf[@data.front]}</span>到缓冲区<span class="token interpolation variable">#{@data.front}</span>"</span>
-            <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">"&lt;p class='desPro'><span class="token interpolation variable">#{str}</span>&lt;/p>"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>insertBefore <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">"#des p:first"</span><span class="token punctuation">)</span>
-            <span class="token function">$</span><span class="token punctuation">(</span><span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'.bufCover'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token class-member variable">@data</span><span class="token punctuation">.</span>front<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">.</span>animate 
-                <span class="token string">"height"</span><span class="token punctuation">:</span><span class="token string">"50px"</span>
-        <span class="token property">removeItem</span><span class="token punctuation">:</span><span class="token operator">-</span><span class="token operator">></span>
-            <span class="token class-member variable">@data</span><span class="token punctuation">.</span>rear <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-member variable">@data</span><span class="token punctuation">.</span>rear <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">%</span> N<span class="token punctuation">;</span>
-            <span class="token class-member variable">@data</span><span class="token punctuation">.</span>buf<span class="token punctuation">[</span><span class="token class-member variable">@data</span><span class="token punctuation">.</span>rear<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'e'</span><span class="token punctuation">;</span>
-            str <span class="token operator">=</span> <span class="token string">"取出产品<span class="token interpolation variable">#{@data.buf[@data.rear]}</span>从缓冲区<span class="token interpolation variable">#{@data.rear}</span>"</span>
-            <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">"&lt;p class='desCon'><span class="token interpolation variable">#{str}</span>&lt;/p>"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>insertBefore <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">"#des p:first"</span><span class="token punctuation">)</span>
-            <span class="token function">$</span><span class="token punctuation">(</span><span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'.bufCover'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token class-member variable">@data</span><span class="token punctuation">.</span>rear<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">.</span>animate 
-                <span class="token string">"height"</span><span class="token punctuation">:</span><span class="token string">"0px"</span>
-        <span class="token property">producer</span><span class="token punctuation">:</span><span class="token operator">-</span><span class="token operator">></span>
-            <span class="token keyword">if</span> <span class="token class-member variable">@data</span><span class="token punctuation">.</span>full<span class="token operator">==</span>N
-                <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">"&lt;p class='desSpe'>缓冲区已全满&lt;/p>"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>insertBefore <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">"#des p:first"</span><span class="token punctuation">)</span>
-                <span class="token keyword">return</span>
-            item <span class="token operator">=</span> @<span class="token function">produceItem</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-            <span class="token class-member variable">@data</span><span class="token punctuation">.</span>empty <span class="token operator">=</span> @<span class="token function">p</span><span class="token punctuation">(</span><span class="token class-member variable">@data</span><span class="token punctuation">.</span>empty<span class="token punctuation">)</span>
-            <span class="token class-member variable">@data</span><span class="token punctuation">.</span>mutex <span class="token operator">=</span> @<span class="token function">p</span><span class="token punctuation">(</span><span class="token class-member variable">@data</span><span class="token punctuation">.</span>mutex<span class="token punctuation">)</span>
-            @<span class="token function">enterItem</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span>
-            <span class="token class-member variable">@data</span><span class="token punctuation">.</span>mutex <span class="token operator">=</span> @<span class="token function">v</span><span class="token punctuation">(</span><span class="token class-member variable">@data</span><span class="token punctuation">.</span>mutex<span class="token punctuation">)</span>
-            <span class="token class-member variable">@data</span><span class="token punctuation">.</span>full <span class="token operator">=</span> @<span class="token function">v</span><span class="token punctuation">(</span><span class="token class-member variable">@data</span><span class="token punctuation">.</span>full<span class="token punctuation">)</span>
-        <span class="token property">consumer</span><span class="token punctuation">:</span><span class="token operator">-</span><span class="token operator">></span>
-            <span class="token keyword">if</span> <span class="token class-member variable">@data</span><span class="token punctuation">.</span>empty<span class="token operator">==</span>N
-                <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">"&lt;p class='desSpe'>缓冲区已空&lt;/p>"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>insertBefore <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">"#des p:first"</span><span class="token punctuation">)</span>
-                <span class="token keyword">return</span>
-            <span class="token class-member variable">@data</span><span class="token punctuation">.</span>full <span class="token operator">=</span> @<span class="token function">p</span><span class="token punctuation">(</span><span class="token class-member variable">@data</span><span class="token punctuation">.</span>full<span class="token punctuation">)</span>
-            <span class="token class-member variable">@data</span><span class="token punctuation">.</span>mutex <span class="token operator">=</span> @<span class="token function">p</span><span class="token punctuation">(</span><span class="token class-member variable">@data</span><span class="token punctuation">.</span>mutex<span class="token punctuation">)</span>
-            @<span class="token function">removeItem</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-            <span class="token class-member variable">@data</span><span class="token punctuation">.</span>mutex <span class="token operator">=</span> @<span class="token function">v</span><span class="token punctuation">(</span><span class="token class-member variable">@data</span><span class="token punctuation">.</span>mutex<span class="token punctuation">)</span>
-            <span class="token class-member variable">@data</span><span class="token punctuation">.</span>empty <span class="token operator">=</span> @<span class="token function">v</span><span class="token punctuation">(</span><span class="token class-member variable">@data</span><span class="token punctuation">.</span>empty<span class="token punctuation">)</span>
-            @<span class="token function">consumeItem</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-
-    procon <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ProCon</span>
-    procon<span class="token punctuation">.</span><span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 	
 	</div>
 	
@@ -783,6 +709,14 @@ var pjax = pushState + ajax;小时候，小浣熊方便面里面有各种水浒�
 -->
 
 
+
+	<script>
+		var appid = '8ldhVpVh39at6Spx628YbPjg-gzGzoHsz',
+            appkey = 'YyLDdeVMVo4fHOPd7b51tIJj';	  
+        AnnieLeancloud(appid, appkey);         
+	</script>
+    
+
 	
 
 
@@ -790,7 +724,82 @@ var pjax = pushState + ajax;小时候，小浣熊方便面里面有各种水浒�
 
 
 
-	
+	 
+	<script src="/plugin/clipboard/clipboard.js"></script>
+	<script>
+		// Copy code !
+	    function codePreprocessing() {
+	        $("#article-content .highlight").each(function() {
+
+	            $(this).wrap('<div id="post-code"></div>');
+
+	        })
+
+	        $("#article-content #post-code").each(function() {
+
+	            $(this).prepend('<nav class="copy-nav"><span><i class="code-language"></i></span></nav>');
+
+	        })
+
+	        $("#article-content .copy-nav").each(function() {
+	            var temp = $(this).next().attr('class'),
+	                language = ((temp.length > 9) && (temp != null)) ? temp.substr(10) : "none"; //why 9? Need to check language?
+
+	            $(this).find('.code-language').text(language);
+
+	            $(this).append('<span class="copy-btn"><i class="fa fa-copy" aria-hidden="true"></i></span>');
+
+	        });
+	    }
+
+		function codeCopy() {
+		    $('#article-content #post-code').each(function(i) {
+		        var codeCopyId = 'codeCopy-' + i;
+
+		        var codeNode = $(this).find('.code'),
+		            copyButton = $(this).find('.copy-btn');
+
+		        codeNode.attr('id', codeCopyId);
+		        copyButton.attr('data-clipboard-target-id', codeCopyId);
+		    })
+
+		    
+			var clipboard = new ClipboardJS('.copy-btn', {
+					target: function(trigger) {
+						return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+					}
+		      	});
+
+			//pure js
+			function showTooltip(elem, msg) {		   
+				elem.setAttribute('aria-label', msg);
+				elem.setAttribute('class', 'copy-btn copy-status');
+				setTimeout(function() {
+					elem.setAttribute('class', 'copy-btn');
+				}, 2000);
+			}
+
+			clipboard.on('success', function(e) {
+			    e.clearSelection();
+			    console.info('Action:', e.action);		   
+			    console.info('Trigger:', e.trigger);
+			    showTooltip(e.trigger, 'Copied!');
+			    
+			});
+			clipboard.on('error', function(e) {
+			    console.error('Action:', e.action);
+			    console.error('Trigger:', e.trigger);
+			});
+		
+
+		}
+
+		if ($('.layout-post').length) {
+		    codePreprocessing();
+		    codeCopy();
+		} 
+	</script>
+
 
 
 
@@ -845,38 +854,14 @@ var pjax = pushState + ajax;小时候，小浣熊方便面里面有各种水浒�
 		<ul>
 	
 		<li>
-			<a href="http://github.com/" target="_blank">
+			<a href="https://github.com/Equationliu/Equationliu.github.io" target="_blank">
 				<i class="fa fa-github"></i>
 			</a>
 		</li>
 	
 		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-weibo"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-pinterest"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-instagram"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-twitter"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="/atom.xml" target="_blank">
-				<i class="fa fa-rss"></i>
+			<a href="https://www.zhihu.com/people/equation1998/activities" target="_blank">
+				<i class="fa fa-zhihu"></i>
 			</a>
 		</li>
 			
@@ -887,7 +872,7 @@ var pjax = pushState + ajax;小时候，小浣熊方便面里面有各种水浒�
 	<div class="copyright">
 		<p>
 			 
-				&copy;2017 - 2019, content by Equation. All Rights Reserved.
+				&copy;2019, content by Equation. All Rights Reserved.
 			
 			
 			
@@ -949,8 +934,36 @@ var pjax = pushState + ajax;小时候，小浣熊方便面里面有各种水浒�
 
 	<!-- site-analysis -->
 	
+<script>
+	var _hmt = _hmt || [];
+	(function() {
+		var hm = document.createElement("script");
+		hm.src = "//hm.baidu.com/hm.js?";
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(hm, s);
+	})();
+</script>
+
 	
 	
+<!-- Google Analytics -->
+<script type="text/javascript">
+	(function(i, s, o, g, r, a, m) {
+		i['GoogleAnalyticsObject'] = r;
+		i[r] = i[r] || function() {
+			(i[r].q = i[r].q || []).push(arguments)
+		}, i[r].l = 1 * new Date();
+		a = s.createElement(o),
+			m = s.getElementsByTagName(o)[0];
+		a.async = 1;
+		a.src = g;
+		m.parentNode.insertBefore(a, m)
+	})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+	ga('create', 'UA-99643860-1', 'auto');
+	ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
 	
 	
  

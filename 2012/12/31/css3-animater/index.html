@@ -32,7 +32,7 @@
   <!-- leancloud -->
   <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
 <script src="/js/leancloud.js"></script>
-<link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
+</head>
 	<body>
 		<!-- Preloader -->
 
@@ -209,38 +209,14 @@
 		<ul>
 	
 		<li>
-			<a href="http://github.com/" target="_blank">
+			<a href="https://github.com/Equationliu/Equationliu.github.io" target="_blank">
 				<i class="fa fa-github"></i>
 			</a>
 		</li>
 	
 		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-weibo"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-pinterest"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-instagram"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-twitter"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="/atom.xml" target="_blank">
-				<i class="fa fa-rss"></i>
+			<a href="https://www.zhihu.com/people/equation1998/activities" target="_blank">
+				<i class="fa fa-zhihu"></i>
 			</a>
 		</li>
 			
@@ -319,7 +295,22 @@
 		
 		
 
+	
+    <span class="leancloud_visitors" id="/2012/12/31/css3-animater/_visitors" data-url="/2012/12/31/css3-animater/" data-title="当我想用css3实现一个动作类库">
+       	<i class="fa fa-eye"></i>
+       	热度
+        <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
+    </span>
+    
 
+
+
+	
+    <span class="leancloud_likes" id="/2012/12/31/css3-animater/_likes" data-url="/2012/12/31/css3-animater/" data-title="当我想用css3实现一个动作类库" rel="unlike">
+        <i class="fa fa-heart"></i>
+        喜欢
+        <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
+    </span>
 
 	</div>
 
@@ -334,36 +325,8 @@
 <iframe id="demoIframe" src="/assets/demo/pre_css3_demo/demo.html" width="641" height="483" scrolling="no"></iframe>
 
 <p>##<strong>最深的体会</strong><br><strong>我的js代码需要怎样“辅助”css3？</strong><br>按照我的理解，如果是说一个dom元素的“动作”的话，完全可以用纯css3来实现，而且你可以将dom的动作串连起来。<br>例如：</p>
-<pre class=" language-css"><code class="language-css">    <span class="token atrule"><span class="token rule">@-webkit-keyframes</span> q-down</span> <span class="token punctuation">{</span>
-         <span class="token selector">0%</span><span class="token punctuation">{</span>
-              <span class="token property">-webkit-transform</span><span class="token punctuation">:</span><span class="token function">rotate</span><span class="token punctuation">(</span><span class="token number">0</span>deg<span class="token punctuation">)</span><span class="token punctuation">;</span>
-              <span class="token property">top</span><span class="token punctuation">:</span><span class="token number">10</span>px<span class="token punctuation">;</span>
-         <span class="token punctuation">}</span>
-         <span class="token selector">33%</span><span class="token punctuation">{</span>
-              <span class="token property">-webkit-transform</span><span class="token punctuation">:</span> <span class="token function">scale</span><span class="token punctuation">(</span><span class="token number">1.5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-              <span class="token property">top</span><span class="token punctuation">:</span><span class="token number">147</span>px<span class="token punctuation">;</span>
-         <span class="token punctuation">}</span>
-         <span class="token selector">66%</span><span class="token punctuation">{</span>
-              <span class="token property">top</span><span class="token punctuation">:</span><span class="token number">10</span>px<span class="token punctuation">;</span>
-              <span class="token property">-webkit-transform</span><span class="token punctuation">:</span> <span class="token function">translate</span><span class="token punctuation">(</span><span class="token number">50</span>px,<span class="token number">50</span>px<span class="token punctuation">)</span><span class="token punctuation">;</span>
-         <span class="token punctuation">}</span>
-        <span class="token selector">100% </span><span class="token punctuation">{</span>
-             <span class="token property">top</span><span class="token punctuation">:</span><span class="token number">147</span>px<span class="token punctuation">;</span>
-             <span class="token property">-webkit-transform</span><span class="token punctuation">:</span><span class="token function">rotate</span><span class="token punctuation">(</span><span class="token number">45</span>deg<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-    <span class="token selector"><span class="token class">.box</span> </span><span class="token punctuation">{</span>
-        <span class="token property">-webkit-animation</span><span class="token punctuation">:</span>q-down  ease<span class="token punctuation">;</span>
-        <span class="token property">-webkit-animation-duration</span><span class="token punctuation">:</span> <span class="token number">2</span>s<span class="token punctuation">;</span>
-        <span class="token property">-webkit-animation-timing-function</span><span class="token punctuation">:</span> linear<span class="token punctuation">;</span>
-        <span class="token property">-webkit-transform</span><span class="token punctuation">:</span><span class="token function">rotate</span><span class="token punctuation">(</span><span class="token number">45</span>deg<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">100</span>px<span class="token punctuation">;</span>
-        <span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">100</span>px<span class="token punctuation">;</span>
-        <span class="token property">background</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span>
-        <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
-        <span class="token property">top</span><span class="token punctuation">:</span> <span class="token number">147</span>px<span class="token punctuation">;</span>
-        <span class="token property">left</span><span class="token punctuation">:</span> <span class="token number">100</span>px<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span></code></pre>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">@-<span class="keyword">webkit</span>-<span class="keyword">keyframes</span> q-down &#123;</span><br><span class="line">     0%&#123;</span><br><span class="line">          <span class="attribute">-webkit-transform</span>:<span class="built_in">rotate</span>(0deg);</span><br><span class="line">          <span class="attribute">top</span>:<span class="number">10px</span>;</span><br><span class="line">     &#125;</span><br><span class="line">     33%&#123;</span><br><span class="line">          <span class="attribute">-webkit-transform</span>: <span class="built_in">scale</span>(1.5);</span><br><span class="line">          <span class="attribute">top</span>:<span class="number">147px</span>;</span><br><span class="line">     &#125;</span><br><span class="line">     66%&#123;</span><br><span class="line">          <span class="attribute">top</span>:<span class="number">10px</span>;</span><br><span class="line">          <span class="attribute">-webkit-transform</span>: <span class="built_in">translate</span>(50px,50px);</span><br><span class="line">     &#125;</span><br><span class="line">    100% &#123;</span><br><span class="line">         <span class="attribute">top</span>:<span class="number">147px</span>;</span><br><span class="line">         <span class="attribute">-webkit-transform</span>:<span class="built_in">rotate</span>(45deg);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="attribute">-webkit-animation</span>:q-down  ease;</span><br><span class="line">    <span class="attribute">-webkit-animation-duration</span>: <span class="number">2s</span>;</span><br><span class="line">    <span class="attribute">-webkit-animation-timing-function</span>: linear;</span><br><span class="line">    <span class="attribute">-webkit-transform</span>:<span class="built_in">rotate</span>(45deg);</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">background</span>: red;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">top</span>: <span class="number">147px</span>;</span><br><span class="line">    <span class="attribute">left</span>: <span class="number">100px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>dom元素会在0%，33%，66%，100%这些时间点上做出相应的效果响应。<br><strong>这样的动作序列还会有什么问题吗？</strong><br>在demo当中，我设置了按一下“左”键，人物向左偏移一格，按一下“下”键，人物下移一格，于是我就遇到了这样的两种情况：<br>    1、用户按下“下”，人物向下偏移动作完成后，他仍不放手，此时同时按了“左”<br>    我认为此时用户在使用“双键”，这时人物会再向左下方向都偏移一格。<br>    2、用户“几乎”同时按下“下”和“左”，由于js每次只能检测单键的keycode<br>    程序会判断用户是先按下了某个键，再使用了双键。<br>    而用户之所以“几乎”同时按下，本是希望只执行“双键”的。</p>
 <p><img src="/assets/blogImg/css3_anm.jpg" alt="两种情况"><br>1与2的区别，其实就是双键产生时，两个按键的时间间隔的区别。时间间隔长，用户是需要1这种效果的，而时间间隔短，用户就是想只执行“双键”。但程序是固定的，无论时间间隔有多短，在它看来就是有先后，因此程序认为2和1是一样的。我在demo里，就用了时间戳的方式，而这种方式，其实是“投机取巧”的一种方式。</p>
 <p>回到上面那个问题来，这样的纯css3动作序列有什么问题？时间的问题更深入一点我可以得到结论：<br>    那就是无法侦听一个css3动作是否已经结束。<br>如果我能够侦听动作是否正在执行，那么一切就好办了，如果前动作已完成，我就像情况1一样“先单键再双键”去操作，如果前动作未完成，我就判断用户是想只执行“双键”。</p>
@@ -508,7 +471,7 @@
 						<div class="relate-post-cover">
 							<a href="/2017/11/24/2017-11-24-horse/" title="基于贪心算法的马踏棋盘哈密顿回路问题">				
 								
-								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg" alt="基于贪心算法的马踏棋盘哈密顿回路问题"/>
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/post-cover/huan.jpg" alt="基于贪心算法的马踏棋盘哈密顿回路问题"/>
 							</a>
 						</div>
 					</li>											
@@ -737,6 +700,14 @@
 -->
 
 
+
+	<script>
+		var appid = '8ldhVpVh39at6Spx628YbPjg-gzGzoHsz',
+            appkey = 'YyLDdeVMVo4fHOPd7b51tIJj';	  
+        AnnieLeancloud(appid, appkey);         
+	</script>
+    
+
 	
 
 
@@ -744,7 +715,82 @@
 
 
 
-	
+	 
+	<script src="/plugin/clipboard/clipboard.js"></script>
+	<script>
+		// Copy code !
+	    function codePreprocessing() {
+	        $("#article-content .highlight").each(function() {
+
+	            $(this).wrap('<div id="post-code"></div>');
+
+	        })
+
+	        $("#article-content #post-code").each(function() {
+
+	            $(this).prepend('<nav class="copy-nav"><span><i class="code-language"></i></span></nav>');
+
+	        })
+
+	        $("#article-content .copy-nav").each(function() {
+	            var temp = $(this).next().attr('class'),
+	                language = ((temp.length > 9) && (temp != null)) ? temp.substr(10) : "none"; //why 9? Need to check language?
+
+	            $(this).find('.code-language').text(language);
+
+	            $(this).append('<span class="copy-btn"><i class="fa fa-copy" aria-hidden="true"></i></span>');
+
+	        });
+	    }
+
+		function codeCopy() {
+		    $('#article-content #post-code').each(function(i) {
+		        var codeCopyId = 'codeCopy-' + i;
+
+		        var codeNode = $(this).find('.code'),
+		            copyButton = $(this).find('.copy-btn');
+
+		        codeNode.attr('id', codeCopyId);
+		        copyButton.attr('data-clipboard-target-id', codeCopyId);
+		    })
+
+		    
+			var clipboard = new ClipboardJS('.copy-btn', {
+					target: function(trigger) {
+						return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+					}
+		      	});
+
+			//pure js
+			function showTooltip(elem, msg) {		   
+				elem.setAttribute('aria-label', msg);
+				elem.setAttribute('class', 'copy-btn copy-status');
+				setTimeout(function() {
+					elem.setAttribute('class', 'copy-btn');
+				}, 2000);
+			}
+
+			clipboard.on('success', function(e) {
+			    e.clearSelection();
+			    console.info('Action:', e.action);		   
+			    console.info('Trigger:', e.trigger);
+			    showTooltip(e.trigger, 'Copied!');
+			    
+			});
+			clipboard.on('error', function(e) {
+			    console.error('Action:', e.action);
+			    console.error('Trigger:', e.trigger);
+			});
+		
+
+		}
+
+		if ($('.layout-post').length) {
+		    codePreprocessing();
+		    codeCopy();
+		} 
+	</script>
+
 
 
 
@@ -799,38 +845,14 @@
 		<ul>
 	
 		<li>
-			<a href="http://github.com/" target="_blank">
+			<a href="https://github.com/Equationliu/Equationliu.github.io" target="_blank">
 				<i class="fa fa-github"></i>
 			</a>
 		</li>
 	
 		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-weibo"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-pinterest"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-instagram"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-twitter"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="/atom.xml" target="_blank">
-				<i class="fa fa-rss"></i>
+			<a href="https://www.zhihu.com/people/equation1998/activities" target="_blank">
+				<i class="fa fa-zhihu"></i>
 			</a>
 		</li>
 			
@@ -841,7 +863,7 @@
 	<div class="copyright">
 		<p>
 			 
-				&copy;2017 - 2019, content by Equation. All Rights Reserved.
+				&copy;2019, content by Equation. All Rights Reserved.
 			
 			
 			
@@ -903,8 +925,36 @@
 
 	<!-- site-analysis -->
 	
+<script>
+	var _hmt = _hmt || [];
+	(function() {
+		var hm = document.createElement("script");
+		hm.src = "//hm.baidu.com/hm.js?";
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(hm, s);
+	})();
+</script>
+
 	
 	
+<!-- Google Analytics -->
+<script type="text/javascript">
+	(function(i, s, o, g, r, a, m) {
+		i['GoogleAnalyticsObject'] = r;
+		i[r] = i[r] || function() {
+			(i[r].q = i[r].q || []).push(arguments)
+		}, i[r].l = 1 * new Date();
+		a = s.createElement(o),
+			m = s.getElementsByTagName(o)[0];
+		a.async = 1;
+		a.src = g;
+		m.parentNode.insertBefore(a, m)
+	})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+	ga('create', 'UA-99643860-1', 'auto');
+	ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
 	
 	
  
