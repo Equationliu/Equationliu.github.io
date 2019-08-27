@@ -234,6 +234,18 @@
 		插件作者：KELEN
 		插件来源: https://github.com/KELEN/katelog
 -->
+
+	
+		<div class="layout-toc">
+			<div id="layout-toc">
+				<div class="k-catelog-list" id="catelog-list" data-title="文章目录"></div>
+			</div>
+		</div>
+
+		
+		<script src="/plugin/toc/katelog.min.js"></script>
+
+		
 	 
 
 <div class="layout-post">
@@ -315,17 +327,13 @@
 	</div>
 
 	<div class="article-content" id="article-content">
-		<p>###一、分享一个IE6，7的css hack bug。<br><img src="/assets/blogImg/css_hack.jpg" alt="css hack">   </p>
+		<h3 id="一、分享一个IE6，7的css-hack-bug。"><a href="#一、分享一个IE6，7的css-hack-bug。" class="headerlink" title="一、分享一个IE6，7的css hack bug。"></a>一、分享一个IE6，7的css hack bug。</h3><p><img src="/.com//blogImg/css_hack.jpg" alt="css hack">   </p>
 <blockquote>
 <p>IE和我们之间，肯定有一个是傻逼，如果它不是，那我们准是。不然很多事情没法解释…  ——多么痛的领悟 </p>
 </blockquote>
 <a id="more"></a>
-<p>先看代码，或者点击看<a href="/assets/demo/hack_demo.html">demo</a><br>html:     </p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"main"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>css:     </p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#main</span>&#123;</span><br><span class="line">	<span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">	<span class="attribute">height</span>: <span class="number">50px</span>;</span><br><span class="line">	<span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#000</span>;</span><br><span class="line">	<span class="attribute">margin</span>: <span class="number">0</span> auto;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-id">#main</span> <span class="selector-class">.box</span>&#123;</span><br><span class="line">	<span class="attribute">width</span>: <span class="number">50px</span>;</span><br><span class="line">	<span class="attribute">height</span>: <span class="number">50px</span>;</span><br><span class="line">	<span class="attribute">margin-left</span>: <span class="number">10px</span>;</span><br><span class="line">	<span class="attribute">position</span>: relative;</span><br><span class="line">	<span class="attribute">float</span>: left;</span><br><span class="line">	<span class="attribute">background</span>: <span class="number">#333</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-id">#main</span> <span class="selector-class">.box</span><span class="selector-pseudo">:hover</span>&#123;</span><br><span class="line">	<span class="attribute">z-index</span>: <span class="number">999</span>;</span><br><span class="line">	<span class="comment">/*background: #333;*/</span></span><br><span class="line">	<span class="comment">/*background: #999;*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<p>先看代码，或者点击看<a href="/assets/demo/hack_demo.html">demo</a><br>html:<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"main"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>css:<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#main</span>&#123;</span><br><span class="line">	<span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">	<span class="attribute">height</span>: <span class="number">50px</span>;</span><br><span class="line">	<span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#000</span>;</span><br><span class="line">	<span class="attribute">margin</span>: <span class="number">0</span> auto;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-id">#main</span> <span class="selector-class">.box</span>&#123;</span><br><span class="line">	<span class="attribute">width</span>: <span class="number">50px</span>;</span><br><span class="line">	<span class="attribute">height</span>: <span class="number">50px</span>;</span><br><span class="line">	<span class="attribute">margin-left</span>: <span class="number">10px</span>;</span><br><span class="line">	<span class="attribute">position</span>: relative;</span><br><span class="line">	<span class="attribute">float</span>: left;</span><br><span class="line">	<span class="attribute">background</span>: <span class="number">#333</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-id">#main</span> <span class="selector-class">.box</span><span class="selector-pseudo">:hover</span>&#123;</span><br><span class="line">	<span class="attribute">z-index</span>: <span class="number">999</span>;</span><br><span class="line">	<span class="comment">/*background: #333;*/</span></span><br><span class="line">	<span class="comment">/*background: #999;*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>.box设置了的四行核心代码是：          </p>
 <ul>
 <li><code>float:left</code> - 左浮动         </li>
@@ -333,12 +341,9 @@
 <li><code>position: relative</code> - 因为在box里面想用一个dom做绝对定位            </li>
 <li><code>background: #333</code> - 设置background颜色为#333<br>当.box触发hover时，做了一步z-index的改变，这时候在IE6，7中出现bug：因margin-left失效，.box会向左移动10px；而且这时候设置margin-left是不起作用的，hover结束后.box也不会回到原来的位置。</li>
 </ul>
-<p>###二、淡定解决异次元的bug</p>
-<p>诡异的事情最后水落石出：<strong>background属性居然影响了margin</strong>。</p>
+<h3 id="二、淡定解决异次元的bug"><a href="#二、淡定解决异次元的bug" class="headerlink" title="二、淡定解决异次元的bug"></a>二、淡定解决异次元的bug</h3><p>诡异的事情最后水落石出：<strong>background属性居然影响了margin</strong>。</p>
 <p>将.box:hover多加一行background属性，比如：<code>background: #999</code>，这样子在IE上“看上去”就解决了。<br><strong>但是</strong>，就当你以为解决了bug的时候，如果.box:hover的background颜色设置与hover之前的颜色一样，也就是设置为<code>background: #333</code>，阴魂不散的bug又会重新出现啦。</p>
-<p>庆幸你的需求是background颜色不一样吧。如果还真是悲剧到要做成一样的颜色，解决的办法恐怕只能是取消.box的<code>position: relative</code>，然后多加一层dom容器了。</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class="box"&gt;</span><br><span class="line">	&lt;div style="position: relative"&gt;…&lt;/div&gt;</span><br><span class="line">	…</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
-
+<p>庆幸你的需求是background颜色不一样吧。如果还真是悲剧到要做成一样的颜色，解决的办法恐怕只能是取消.box的<code>position: relative</code>，然后多加一层dom容器了。<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class="box"&gt;</span><br><span class="line">	&lt;div style="position: relative"&gt;…&lt;/div&gt;</span><br><span class="line">	…</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
 <p>友情link：<a href="http://xueran.github.com/blog/2012/12/17/csstest-jiugongge/" target="_blank" rel="noopener">xueran的这篇文字</a>。</p>
 	
 	</div>

@@ -234,6 +234,18 @@
 		插件作者：KELEN
 		插件来源: https://github.com/KELEN/katelog
 -->
+
+	
+		<div class="layout-toc">
+			<div id="layout-toc">
+				<div class="k-catelog-list" id="catelog-list" data-title="文章目录"></div>
+			</div>
+		</div>
+
+		
+		<script src="/plugin/toc/katelog.min.js"></script>
+
+		
 	 
 
 <div class="layout-post">
@@ -322,10 +334,8 @@
 		<blockquote>
 <p>请记住，每个尽责的设计师都是处女座…</p>
 </blockquote>
-<p>这里…没有黑处女座的意思，只是想借题发挥，并由衷的跪倒在强大的“像素眼”之下。</p>
-<a id="more"></a>
-<p>###一、你是我的眼</p>
-<p>什么是像素眼？<br>就是那些个神奇的存在，他们用余光瞄了你一眼，然后跟你说：我发现啊，你左边眉毛比右边眉毛高了1像素，麻烦你调整下…</p>
+<p>这里…没有黑处女座的意思，只是想借题发挥，并由衷的跪倒在强大的“像素眼”之下。<br><a id="more"></a></p>
+<h3 id="一、你是我的眼"><a href="#一、你是我的眼" class="headerlink" title="一、你是我的眼"></a>一、你是我的眼</h3><p>什么是像素眼？<br>就是那些个神奇的存在，他们用余光瞄了你一眼，然后跟你说：我发现啊，你左边眉毛比右边眉毛高了1像素，麻烦你调整下…</p>
 <p>在腾讯，我身边的许多设计同学都有这样的眼睛。他们会把细节做到极致，也会因为频繁的修改，把你开发的心情搞得一团糟。但你得承认，他们是对的。</p>
 <p>最近在做移动端web开发，按着设计图，toby已在我旁边核对修改了两个多小时。当我觉得已经万事大吉时，toby跟我说，还是觉得不太对——边框好像有点粗？</p>
 <p>当时我就傻眼了，因为这已是最细的边框，电脑上清楚的显示，我已经设置了1px的border。于是我去解释，并建议更换个色值，让边框至少“看起来”更细。而toby却不接受，按他给我的说法是：这border看起来不性感…</p>
@@ -335,15 +345,9 @@
 <li><strong>子元素设置</strong>：scale(2,2) 还原缩放，origin都是基于左上角（0,0）/left top</li>
 </ul>
 <p>这样父元素的border其实被缩放了，无疑更细。</p>
-<p>###二、通用方案</p>
-<p>用一个css类去为block元素添加更细的border</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.border-1px</span>&#123;</span><br><span class="line">  <span class="attribute">position</span>: relative;</span><br><span class="line">  &amp;:before, &amp;:after&#123;</span><br><span class="line">    <span class="selector-tag">border-top</span>: 1<span class="selector-tag">px</span> <span class="selector-tag">solid</span> <span class="selector-id">#c8c7cc</span>;</span><br><span class="line">    content: ' ';</span><br><span class="line">    <span class="selector-tag">display</span>: <span class="selector-tag">block</span>;</span><br><span class="line">    <span class="selector-tag">width</span>: 100%;</span><br><span class="line">    <span class="selector-tag">position</span>: <span class="selector-tag">absolute</span>;</span><br><span class="line">    <span class="selector-tag">left</span>: 0;</span><br><span class="line">  &#125;</span><br><span class="line">  &amp;<span class="selector-pseudo">:before</span>&#123;</span><br><span class="line">    <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  &amp;<span class="selector-pseudo">:after</span>&#123;</span><br><span class="line">    <span class="attribute">bottom</span>: <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>适应移动设备：</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">media</span> (-webkit-min-device-pixel-ratio:<span class="number">1.5</span>), (min-device-pixel-ratio: <span class="number">1.5</span>)&#123;</span><br><span class="line">  <span class="selector-class">.border-1px</span>&#123;</span><br><span class="line">    &amp;::after, &amp;::before&#123;</span><br><span class="line">      <span class="selector-tag">-webkit-transform</span>: <span class="selector-tag">scaleY</span>(<span class="selector-class">.7</span>);</span><br><span class="line">      <span class="selector-tag">-webkit-transform-origin</span>: 0 0;</span><br><span class="line">      <span class="selector-tag">transform</span>: <span class="selector-tag">scaleY</span>(<span class="selector-class">.7</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    &amp;<span class="selector-pseudo">::after</span>&#123;</span><br><span class="line">      <span class="attribute">-webkit-transform-origin</span>: left bottom;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@<span class="keyword">media</span> (-webkit-min-device-pixel-ratio:<span class="number">2</span>), (min-device-pixel-ratio: <span class="number">2</span>)&#123;</span><br><span class="line">  <span class="selector-class">.border-1px</span>&#123;</span><br><span class="line">    &amp;::after, &amp;::before&#123;</span><br><span class="line">      <span class="selector-tag">-webkit-transform</span>: <span class="selector-tag">scaleY</span>(<span class="selector-class">.5</span>);</span><br><span class="line">      <span class="selector-tag">transform</span>: <span class="selector-tag">scaleY</span>(<span class="selector-class">.5</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>###三、来个对比</p>
-<p>比如，之前我学日语时，自己搞起了个app，这是50音列表界面，可以明显的看出区别：上图是原生方案，下图是…性感方案<br><img src="/assets/blogImg/border1px.jpg" alt="与原生方案对比">      </p>
+<h3 id="二、通用方案"><a href="#二、通用方案" class="headerlink" title="二、通用方案"></a>二、通用方案</h3><p>用一个css类去为block元素添加更细的border<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.border-1px</span>&#123;</span><br><span class="line">  <span class="attribute">position</span>: relative;</span><br><span class="line">  &amp;:before, &amp;:after&#123;</span><br><span class="line">    <span class="selector-tag">border-top</span>: 1<span class="selector-tag">px</span> <span class="selector-tag">solid</span> <span class="selector-id">#c8c7cc</span>;</span><br><span class="line">    content: ' ';</span><br><span class="line">    <span class="selector-tag">display</span>: <span class="selector-tag">block</span>;</span><br><span class="line">    <span class="selector-tag">width</span>: 100%;</span><br><span class="line">    <span class="selector-tag">position</span>: <span class="selector-tag">absolute</span>;</span><br><span class="line">    <span class="selector-tag">left</span>: 0;</span><br><span class="line">  &#125;</span><br><span class="line">  &amp;<span class="selector-pseudo">:before</span>&#123;</span><br><span class="line">    <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  &amp;<span class="selector-pseudo">:after</span>&#123;</span><br><span class="line">    <span class="attribute">bottom</span>: <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>适应移动设备：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">media</span> (-webkit-min-device-pixel-ratio:<span class="number">1.5</span>), (min-device-pixel-ratio: <span class="number">1.5</span>)&#123;</span><br><span class="line">  <span class="selector-class">.border-1px</span>&#123;</span><br><span class="line">    &amp;::after, &amp;::before&#123;</span><br><span class="line">      <span class="selector-tag">-webkit-transform</span>: <span class="selector-tag">scaleY</span>(<span class="selector-class">.7</span>);</span><br><span class="line">      <span class="selector-tag">-webkit-transform-origin</span>: 0 0;</span><br><span class="line">      <span class="selector-tag">transform</span>: <span class="selector-tag">scaleY</span>(<span class="selector-class">.7</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    &amp;<span class="selector-pseudo">::after</span>&#123;</span><br><span class="line">      <span class="attribute">-webkit-transform-origin</span>: left bottom;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@<span class="keyword">media</span> (-webkit-min-device-pixel-ratio:<span class="number">2</span>), (min-device-pixel-ratio: <span class="number">2</span>)&#123;</span><br><span class="line">  <span class="selector-class">.border-1px</span>&#123;</span><br><span class="line">    &amp;::after, &amp;::before&#123;</span><br><span class="line">      <span class="selector-tag">-webkit-transform</span>: <span class="selector-tag">scaleY</span>(<span class="selector-class">.5</span>);</span><br><span class="line">      <span class="selector-tag">transform</span>: <span class="selector-tag">scaleY</span>(<span class="selector-class">.5</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="三、来个对比"><a href="#三、来个对比" class="headerlink" title="三、来个对比"></a>三、来个对比</h3><p>比如，之前我学日语时，自己搞起了个app，这是50音列表界面，可以明显的看出区别：上图是原生方案，下图是…性感方案<br><img src="/.com//blogImg/border1px.jpg" alt="与原生方案对比">      </p>
 <p>源码小demo，注意要在手机上才能看到效果：<a href="/assets/demo/border1px.html">demo</a>。</p>
 <p>The End.<br>——litten 2.22 <em>“写轮眼？弱爆了啊 ←_←”</em></p>
 	
@@ -403,10 +407,9 @@
 最近参加了IMWEB前端技术沙龙活动，有幸能站到讲台上，将性能方面的经验与大家分享。现将“再议减少HTTP请求”部分简单摘剪成文。
 
 
-
 前言:关于web性能，有两个著名论断：              
 
-0.1-...
+0.1-0...
 							</p>
 						</div>
 
@@ -429,11 +432,10 @@
 								八月 1日, 2014				
 							</p>
 							<p class="relate-post-content">
-								#Kael-Qrcode 
-
+								Kael-Qrcode
 基于html5 canvas，灵活轻巧，美观多变的二维码生成库                   
 
-一直觉得二维码长得太单一，抽空做了一个生成库：github here。取名卡尔，缘由dota英雄Ka...
+一直觉得二维码长得太单一，抽空做了一个生成库：github here。取名卡尔，缘由dota英雄Kael；...
 							</p>
 						</div>
 

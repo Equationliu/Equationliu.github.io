@@ -234,6 +234,18 @@
 		插件作者：KELEN
 		插件来源: https://github.com/KELEN/katelog
 -->
+
+	
+		<div class="layout-toc">
+			<div id="layout-toc">
+				<div class="k-catelog-list" id="catelog-list" data-title="文章目录"></div>
+			</div>
+		</div>
+
+		
+		<script src="/plugin/toc/katelog.min.js"></script>
+
+		
 	 
 
 <div class="layout-post">
@@ -319,9 +331,8 @@
 	</div>
 
 	<div class="article-content" id="article-content">
-		<p>js是单线程的语言，由于此特性，我们在处理并发时需要用到一些技巧，如setTimeout()，setInterval()，调用XMLHttpRequest等。<br>但这里的并发只是非阻塞（参照John Resig的文章<a href="http://ejohn.org/blog/how-javascript-timers-work/" target="_blank" rel="noopener">How JavaScript Timers Work</a>），真正的多线程编程则需要HTML5的web worker。</p>
-<a id="more"></a>
-<p>###<strong>【worker的使用】</strong><br>web worker的使用非常简单，线程之间通讯的api与html5 postmessage或node.js里面的socket.io方法类似。</p>
+		<p>js是单线程的语言，由于此特性，我们在处理并发时需要用到一些技巧，如setTimeout()，setInterval()，调用XMLHttpRequest等。<br>但这里的并发只是非阻塞（参照John Resig的文章<a href="http://ejohn.org/blog/how-javascript-timers-work/" target="_blank" rel="noopener">How JavaScript Timers Work</a>），真正的多线程编程则需要HTML5的web worker。<br><a id="more"></a></p>
+<h3 id="【worker的使用】"><a href="#【worker的使用】" class="headerlink" title="【worker的使用】"></a><strong>【worker的使用】</strong></h3><p>web worker的使用非常简单，线程之间通讯的api与html5 postmessage或node.js里面的socket.io方法类似。</p>
 <p>通讯：      </p>
 <ol>
 <li>发送方：postMessage(data)      </li>
@@ -332,14 +343,16 @@
 <li>子线程: self.close()</li>
 <li>父线程: worker.terminate()</li>
 </ol>
-<p>按照目前w3c规范，web worker分为两种：专用worker(Dedicated Worker)和共享worker(Shared Worker)。</p>
-<!--more-->
-<p>###<strong>【专用worker】</strong><br>实例化一个web worker对象，异步加载子线程文件worker.js，其中的代码将执行。</p>
-<pre><code>var worker = new Worker(&quot;worker.js&quot;);</code></pre><p>给worker增加侦听</p>
+<p>按照目前w3c规范，web worker分为两种：专用worker(Dedicated Worker)和共享worker(Shared Worker)。<br><!--more--></p>
+<h3 id="【专用worker】"><a href="#【专用worker】" class="headerlink" title="【专用worker】"></a><strong>【专用worker】</strong></h3><p>实例化一个web worker对象，异步加载子线程文件worker.js，其中的代码将执行。</p>
+<pre><code>var worker = new Worker(&quot;worker.js&quot;);
+</code></pre><p>给worker增加侦听</p>
 <pre><code>worker.onmessage = function (event) {
     alert(event.data);
-};</code></pre><p>在worker.js里，发送消息给父线程     </p>
-<pre><code>postMessage(&apos;hello，imweb&apos;);</code></pre><p>在父线程页面就能看到发送过来的信息了。</p>
+};
+</code></pre><p>在worker.js里，发送消息给父线程     </p>
+<pre><code>postMessage(&#39;hello，imweb&#39;);
+</code></pre><p>在父线程页面就能看到发送过来的信息了。</p>
 <p>同时，在web worker标准中，是支持对象参数的，也就是说我们能够传递json数据。再看一个稍微复杂点的例子，父线程：</p>
 <pre><code>var worker = new Worker(&quot;worker.js&quot;);
 worker.onmessage = function (event) {
@@ -347,46 +360,49 @@ worker.onmessage = function (event) {
 };
 
 function start(){
-    worker.postMessage({&apos;cmd&apos;: &apos;start&apos;, &apos;msg&apos;: &apos;start&apos;});
+    worker.postMessage({&#39;cmd&#39;: &#39;start&#39;, &#39;msg&#39;: &#39;start&#39;});
 }
 
 function pause(){
-    worker.postMessage({&apos;cmd&apos;: &apos;pause&apos;, &apos;msg&apos;: &apos;pause&apos;});
+    worker.postMessage({&#39;cmd&#39;: &#39;pause&#39;, &#39;msg&#39;: &#39;pause&#39;});
 }
 
 function stop(){
-    worker.postMessage({&apos;cmd&apos;: &apos;stop&apos;, &apos;msg&apos;: &apos;stop&apos;});
+    worker.postMessage({&#39;cmd&#39;: &#39;stop&#39;, &#39;msg&#39;: &#39;stop&#39;});
 }
 
 function msg(){
-    worker.postMessage({&apos;msg&apos;: &apos;hello imweb&apos;});
-}</code></pre><p>worker.js：</p>
+    worker.postMessage({&#39;msg&#39;: &#39;hello imweb&#39;});
+}
+</code></pre><p>worker.js：</p>
 <pre><code>self.onmessage = function (e) {
     var data = e.data;
       switch (data.cmd) {
-    case &apos;start&apos;:
+    case &#39;start&#39;:
         taskStart(); //大量数据处理
-          postMessage(&apos;WORKER DO: &apos; + data.msg);
+          postMessage(&#39;WORKER DO: &#39; + data.msg);
           break;
-    case &apos;pause&apos;:
+    case &#39;pause&#39;:
         taskPause();
-          postMessage(&apos;WORKER DO: &apos; + data.msg);
+          postMessage(&#39;WORKER DO: &#39; + data.msg);
           break;
-    case &apos;stop&apos;:
-          postMessage(&apos;WORKER DO: &apos; + data.msg);
+    case &#39;stop&#39;:
+          postMessage(&#39;WORKER DO: &#39; + data.msg);
           self.close(); //终止web worker
           break;
     default:
-          postMessage(&apos;MESSAGE: &apos; + data.msg);
+          postMessage(&#39;MESSAGE: &#39; + data.msg);
       };
-};</code></pre><p>从上面的例子可以看到，一是利用对象参数，进程之间能够较灵活的实现控制；二是当woker执行taskStart()处理大量数据时，只在子进程处理，不会给主页面带来阻塞，通常，处理大量数据会消极影响程序的响应能力，而web worker通过这样的方式，能提供一个更流畅更实时的UI。</p>
-<p>###<strong>【共享worker】</strong><br>共享worker允许线程在同源中的多个页面间进行共享，例如：同源中所有页面或脚本可以与同一个共享线程通信。它的实例化与事件侦听的写法与专用worker略有不同,主页面：</p>
-<pre><code>var worker = new SharedWorker(&apos;shared-worker.js&apos;);
+};
+</code></pre><p>从上面的例子可以看到，一是利用对象参数，进程之间能够较灵活的实现控制；二是当woker执行taskStart()处理大量数据时，只在子进程处理，不会给主页面带来阻塞，通常，处理大量数据会消极影响程序的响应能力，而web worker通过这样的方式，能提供一个更流畅更实时的UI。</p>
+<h3 id="【共享worker】"><a href="#【共享worker】" class="headerlink" title="【共享worker】"></a><strong>【共享worker】</strong></h3><p>共享worker允许线程在同源中的多个页面间进行共享，例如：同源中所有页面或脚本可以与同一个共享线程通信。它的实例化与事件侦听的写法与专用worker略有不同,主页面：</p>
+<pre><code>var worker = new SharedWorker(&#39;shared-worker.js&#39;);
 worker.port.onmessage = function(e) {
-    msg = &apos;Someone just said &quot;&apos; + e.data.message + &apos;&quot;. That is message number &apos; + e.data.counter;
+    msg = &#39;Someone just said &quot;&#39; + e.data.message + &#39;&quot;. That is message number &#39; + e.data.counter;
     console.log(msg);
 };
-worker.port.postMessage(&apos;hello shared worker!&apos;);</code></pre><p>shared-worker.js:        </p>
+worker.port.postMessage(&#39;hello shared worker!&#39;);
+</code></pre><p>shared-worker.js:        </p>
 <pre><code>var counter = 0;
 var connections = [];
 onconnect = function(eConn) {
@@ -403,8 +419,9 @@ onconnect = function(eConn) {
        }
    }
    port.start();
-   connections.push(port);</code></pre><p>用两个窗口打开这个页面，第一个显示：<strong>Someone just said “Hello shared worker!” This is message number 1</strong>，第二个也收到一样的信息，<br>但是后面是<strong>message number 2</strong>。</p>
-<p>###<strong>【安全性和错误检查】</strong><br>出于安全性的考虑，web worker必须遵守同源策略。同时，它的全局对象是worker对象本身，this和self引用的都是worker对象。<br>只能访问：</p>
+   connections.push(port);
+</code></pre><p>用两个窗口打开这个页面，第一个显示：<strong>Someone just said “Hello shared worker!” This is message number 1</strong>，第二个也收到一样的信息，<br>但是后面是<strong>message number 2</strong>。</p>
+<h3 id="【安全性和错误检查】"><a href="#【安全性和错误检查】" class="headerlink" title="【安全性和错误检查】"></a><strong>【安全性和错误检查】</strong></h3><p>出于安全性的考虑，web worker必须遵守同源策略。同时，它的全局对象是worker对象本身，this和self引用的都是worker对象。<br>只能访问：</p>
 <ol>
 <li>navigator 对象（仅限appName, appVersion, platform, userAgent）</li>
 <li>location 对象（只读）</li>
@@ -427,7 +444,8 @@ onconnect = function(eConn) {
 <p>如：</p>
 <pre><code>worker.onerror = function(e) {
     console.log(e.filename+&quot;ERROR on line&quot;+e.lineno+&quot;,msg:&quot;+e.message);
-}</code></pre><p>###<strong>【web worker的其他尝试】</strong><br>对于比较消耗时间的操作，我们可看到web worker能够发挥它的作用。比如：大量数据排序，精确到像素的canvas计算等。而我们又知道，jsonp加载数据时，动态创建script标签，加载和执行这些过程都是阻塞式的，而web worker正好可以异步加载，这会是更快的方式吗？带着这个疑问我做了下面的试验，分别用jsonp和worker的方式去加载文件，计算数据返回时延：</p>
+}
+</code></pre><h3 id="【web-worker的其他尝试】"><a href="#【web-worker的其他尝试】" class="headerlink" title="【web worker的其他尝试】"></a><strong>【web worker的其他尝试】</strong></h3><p>对于比较消耗时间的操作，我们可看到web worker能够发挥它的作用。比如：大量数据排序，精确到像素的canvas计算等。而我们又知道，jsonp加载数据时，动态创建script标签，加载和执行这些过程都是阻塞式的，而web worker正好可以异步加载，这会是更快的方式吗？带着这个疑问我做了下面的试验，分别用jsonp和worker的方式去加载文件，计算数据返回时延：</p>
 <pre><code>function tryJsonp(){
     var d = (new Date()).valueOf();
     var jsonp=document.createElement(&quot;script&quot;);  
@@ -435,19 +453,20 @@ onconnect = function(eConn) {
     jsonp.src=&quot;worker.js?_=&quot;+d;  
     document.getElementsByTagName(&quot;head&quot;)[0].appendChild(jsonp);
     jsonp.onload = jsonp.onreadystatechange = function(){  
-           if(!this.readyState||this.readyState==&apos;loaded&apos;||this.readyState==&apos;complete&apos;){  
-               console.log(&apos;jsonp: &apos;+ ((new Date()).valueOf() - d));
+           if(!this.readyState||this.readyState==&#39;loaded&#39;||this.readyState==&#39;complete&#39;){  
+               console.log(&#39;jsonp: &#39;+ ((new Date()).valueOf() - d));
         }  
     }
 }
 function tryWorker(){
     var d = (new Date()).valueOf();
     var worker = new Worker(&quot;worker.js&quot;);
-    worker.postMessage({&apos;cmd&apos;: &apos;start&apos;, &apos;msg&apos;: &apos;start&apos;});
+    worker.postMessage({&#39;cmd&#39;: &#39;start&#39;, &#39;msg&#39;: &#39;start&#39;});
     worker.onmessage = function (event) {
-        console.log(&apos;web worker: &apos;+ ((new Date()).valueOf() - d));
+        console.log(&#39;web worker: &#39;+ ((new Date()).valueOf() - d));
     };
-}</code></pre><p>第一次加载是一份1k大小的文件，每个方法重复5次，返回结果为:<br><img src="/assets/blogImg/web_worker1.png" alt="1k文件重复5次"><br>第二次加载1800k大小的文件，返回结果为：<br><img src="/assets/blogImg/web_worker2.png" alt="1800k文件重复5次"><br>可以看到对于较小的数据，jsonp还是比web worker要快，这可能是实例化worker对象时带来的影响；而数据偏大时，web worker的加载将会更优，而且它可以异步加载。</p>
+}
+</code></pre><p>第一次加载是一份1k大小的文件，每个方法重复5次，返回结果为:<br><img src="/.com//blogImg/web_worker1.png" alt="1k文件重复5次"><br>第二次加载1800k大小的文件，返回结果为：<br><img src="/.com//blogImg/web_worker2.png" alt="1800k文件重复5次"><br>可以看到对于较小的数据，jsonp还是比web worker要快，这可能是实例化worker对象时带来的影响；而数据偏大时，web worker的加载将会更优，而且它可以异步加载。</p>
 <p>THE END.</p>
 	
 	</div>
@@ -506,10 +525,9 @@ function tryWorker(){
 最近参加了IMWEB前端技术沙龙活动，有幸能站到讲台上，将性能方面的经验与大家分享。现将“再议减少HTTP请求”部分简单摘剪成文。
 
 
-
 前言:关于web性能，有两个著名论断：              
 
-0.1-...
+0.1-0...
 							</p>
 						</div>
 
@@ -532,11 +550,10 @@ function tryWorker(){
 								八月 1日, 2014				
 							</p>
 							<p class="relate-post-content">
-								#Kael-Qrcode 
-
+								Kael-Qrcode
 基于html5 canvas，灵活轻巧，美观多变的二维码生成库                   
 
-一直觉得二维码长得太单一，抽空做了一个生成库：github here。取名卡尔，缘由dota英雄Ka...
+一直觉得二维码长得太单一，抽空做了一个生成库：github here。取名卡尔，缘由dota英雄Kael；...
 							</p>
 						</div>
 

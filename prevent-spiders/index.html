@@ -336,7 +336,6 @@
 <p><em>—— 同时发表于<a href="http://imweb.io/topic/595b7161d6ca6b4f0ac71f05" target="_blank" rel="noopener">imweb.io</a></em></p>
 <h3 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h3><p>对于一张网页，我们往往希望它是结构良好，内容清晰的，这样搜索引擎才能准确地认知它。<br>而反过来，又有一些情景，我们不希望内容能被轻易获取，比方说电商网站的交易额，教育网站的题目等。因为这些内容，往往是一个产品的生命线，必须做到有效地保护。这就是<strong>爬虫与反爬虫</strong>这一话题的由来。</p>
 <a id="more"></a>
-
 <h3 id="2-常见反爬虫策略"><a href="#2-常见反爬虫策略" class="headerlink" title="2. 常见反爬虫策略"></a>2. 常见反爬虫策略</h3><p>但是世界上没有一个网站，能做到完美地反爬虫。</p>
 <p>如果页面希望能在用户面前正常展示，同时又不给爬虫机会，就必须要做到识别真人与机器人。因此工程师们做了各种尝试，这些策略大多采用于<strong>后端</strong>，也是目前比较常规单有效的手段，比如：</p>
 <ul>
@@ -363,13 +362,13 @@
 <p><img src="http://7tszky.com1.z0.glb.clouddn.com/FvAROr33mC0rpTFO46Xtl3j-8HrW" alt></p>
 <p>并且不同页面，图片的字符排序也是有区别的。不过理论上只需生成0-9与小数点，为何有重复字符就不是很懂。</p>
 <p>页面A：<br><img src="http://7tszky.com1.z0.glb.clouddn.com/Fp_3RGHisGjjKoofp-W7oOx731ry" alt><br>页面B：<br><img src="http://7tszky.com1.z0.glb.clouddn.com/FiuQ2nSHzD6VoM2L_LDloXUo9ndL" alt></p>
-<h4 id="3-3-字符穿插式"><a href="#3-3-字符穿插式" class="headerlink" title="3.3 字符穿插式"></a>3.3 字符穿插式</h4><p><strong>例子：<a href="https://mp.weixin.qq.com/s?__biz=MzI0MDYwNjk2OA==&mid=2247484365&idx=4&sn=291a93e8a4ce6e90d3b6ef8b98fe09c4&chksm=e919085ade6e814cc037ecf6a873f22da0e492911a4e539e6f8fdeff022806b4d248c4d54194&scene=4" target="_blank" rel="noopener">微信公众号文章</a></strong></p>
+<h4 id="3-3-字符穿插式"><a href="#3-3-字符穿插式" class="headerlink" title="3.3 字符穿插式"></a>3.3 字符穿插式</h4><p><strong>例子：<a href="https://mp.weixin.qq.com/s?__biz=MzI0MDYwNjk2OA==&amp;mid=2247484365&amp;idx=4&amp;sn=291a93e8a4ce6e90d3b6ef8b98fe09c4&amp;chksm=e919085ade6e814cc037ecf6a873f22da0e492911a4e539e6f8fdeff022806b4d248c4d54194&amp;scene=4" target="_blank" rel="noopener">微信公众号文章</a></strong></p>
 <p>某些微信公众号的文章里，穿插了各种迷之字符，并且通过样式把这些字符隐藏掉。<br>这种方式虽然令人震惊…但其实没有太大的识别与过滤难度，甚至可以做得更好，不过也算是一种脑洞吧。<br><img src="http://7tszky.com1.z0.glb.clouddn.com/FoFF_VXDYzM0DyLDjAbOz8ATzH59" alt></p>
 <p>对了，我的手机流量可以找谁报销吗？</p>
 <h4 id="3-4-伪元素隐藏式"><a href="#3-4-伪元素隐藏式" class="headerlink" title="3.4 伪元素隐藏式"></a>3.4 伪元素隐藏式</h4><p><strong>例子：<a href="http://car.autohome.com.cn/config/series/3170.html" target="_blank" rel="noopener">汽车之家</a></strong></p>
 <p>汽车之家里，把关键的厂商信息，做到了伪元素的content里。<br>这也是一种思路：爬取网页，必须得解析css，需要拿到伪元素的content，这就提升了爬虫的难度。</p>
 <p><img src="http://7tszky.com1.z0.glb.clouddn.com/FslsPbUtQhM2uE_bK-LZw7NHynl5" alt></p>
-<h4 id="3-5-元素定位覆盖式"><a href="#3-5-元素定位覆盖式" class="headerlink" title="3.5 元素定位覆盖式"></a>3.5 元素定位覆盖式</h4><p><strong>例子：<a href="https://flight.qunar.com/site/oneway_list.htm?searchDepartureAirport=%E5%B9%BF%E5%B7%9E&searchArrivalAirport=%E5%8C%97%E4%BA%AC&searchDepartureTime=2017-07-06&searchArrivalTime=2017-07-09&nextNDays=0&startSearch=true&fromCode=CAN&toCode=BJS&from=qunarindex&lowestPrice=null" target="_blank" rel="noopener">去哪儿</a></strong></p>
+<h4 id="3-5-元素定位覆盖式"><a href="#3-5-元素定位覆盖式" class="headerlink" title="3.5 元素定位覆盖式"></a>3.5 元素定位覆盖式</h4><p><strong>例子：<a href="https://flight.qunar.com/site/oneway_list.htm?searchDepartureAirport=%E5%B9%BF%E5%B7%9E&amp;searchArrivalAirport=%E5%8C%97%E4%BA%AC&amp;searchDepartureTime=2017-07-06&amp;searchArrivalTime=2017-07-09&amp;nextNDays=0&amp;startSearch=true&amp;fromCode=CAN&amp;toCode=BJS&amp;from=qunarindex&amp;lowestPrice=null" target="_blank" rel="noopener">去哪儿</a></strong></p>
 <p>还有热爱数学的去哪儿，对于一个4位数字的机票价格，先用四个<code>i</code>标签渲染，再用两个<code>b</code>标签去绝对定位偏移量，覆盖故意展示错误的<code>i</code>标签，最后在视觉上形成正确的价格…</p>
 <p><img src="http://7tszky.com1.z0.glb.clouddn.com/FtZdGFs-53tAYT10GS_ukosJL8CF" alt></p>
 <p>这说明爬虫会解析css还不行，还得会做数学题。</p>
@@ -381,7 +380,7 @@
 <p>在一些展示代理IP信息的页面，对于IP的保护也是大费周折。</p>
 <p><img src="http://7tszky.com1.z0.glb.clouddn.com/FiY93YeoTulfbXWBxfX3nrksVQVV" alt></p>
 <p>他们会先把IP的数字与符号分割成dom节点，再在中间插入迷惑人的数字，如果爬虫不知道这个策略，还会以为自己成功拿到了数值；不过如果爬虫注意到，就很好解决了。</p>
-<h4 id="3-8-字符集替换式"><a href="#3-8-字符集替换式" class="headerlink" title="3.8 字符集替换式"></a>3.8 字符集替换式</h4><p><strong>例子：<a href="https://m.flight.qunar.com/ncs/page/flightlist?depCity=%E5%8C%97%E4%BA%AC&arrCity=%E4%B8%8A%E6%B5%B7&goDate=2017-07-05&backDate=&sort=&airLine=&from=" target="_blank" rel="noopener">去哪儿移动侧</a></strong></p>
+<h4 id="3-8-字符集替换式"><a href="#3-8-字符集替换式" class="headerlink" title="3.8 字符集替换式"></a>3.8 字符集替换式</h4><p><strong>例子：<a href="https://m.flight.qunar.com/ncs/page/flightlist?depCity=%E5%8C%97%E4%BA%AC&amp;arrCity=%E4%B8%8A%E6%B5%B7&amp;goDate=2017-07-05&amp;backDate=&amp;sort=&amp;airLine=&amp;from=" target="_blank" rel="noopener">去哪儿移动侧</a></strong></p>
 <p>同样会欺骗爬虫的还有去哪儿的移动版。</p>
 <p><img src="http://7tszky.com1.z0.glb.clouddn.com/Ft3i0NfbT8udcJ-OMIQQvdeU-LTb" alt></p>
 <p>html里明明写的3211，视觉上展示的却是1233。原来他们重新定义了字符集，3与1的顺序刚好调换得来的结果…</p>
