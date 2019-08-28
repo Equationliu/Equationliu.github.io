@@ -299,12 +299,12 @@
 			<i class="fa fa-tags"></i>
 			
 	
-		<a href="/tags/octopress/" class=" ">
-			octopress
-		</a>
-	
 		<a href="/tags/主题/" class=" ">
 			主题
+		</a>
+	
+		<a href="/tags/octopress/" class=" ">
+			octopress
 		</a>
 	
 
@@ -394,30 +394,6 @@
 			
 					<li>
 						<div class="relate-post-text">
-							<a class="relate-post-title" href="/hello-world/" title="Hello World">
-								Hello World			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								十二月 13日, 2012				
-							</p>
-							<p class="relate-post-content">
-								在Winiex的推荐和帮助下，这个octopress博客终于搭建起来了。
-折腾了两天多，在github page上看到自己的博客加载下来时，突然有种错综复杂的恍惚感。是的，它不是qq空间，不是新浪博客，不是豆瓣小站，也不是贴吧。它更像...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/hello-world/" title="Hello World">				
-								
-								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg" alt="Hello World"/>
-							</a>
-						</div>
-					</li>											
-			
-			
-					<li>
-						<div class="relate-post-text">
 							<a class="relate-post-title" href="/yilia-on-mobile/" title="hexo主题Yilia在移动端适配的一些事">
 								hexo主题Yilia在移动端适配的一些事			
 							</a>
@@ -439,6 +415,32 @@
 					</li>											
 			
 			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/hexo-theme-yilia/" title="Hexo主题Yilia">
+								Hexo主题Yilia			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								八月 31日, 2014				
+							</p>
+							<p class="relate-post-content">
+								hexo-theme-yilia 是为 hexo 2.4+制作的主题。响应式设计，风格简约。
+终于从octopress迁移到hexo。Yilia是自己设计的主题，分享之，有爱请自取。关于主题：
+
+我喜欢简约。所以标签云，搜索框都拿掉了...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/hexo-theme-yilia/" title="Hexo主题Yilia">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg" alt="Hexo主题Yilia"/>
+							</a>
+						</div>
+					</li>											
+			
+			
 		</ul>
 	
 </div>
@@ -450,73 +452,9 @@
 
 		
 
-			<!-- gitalk comment -->
-			<!-- show gitalk comment -->
-<div id="gitalk-container"></div>
-
-<!-- gitalk`s css & js -->
-<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-<link rel="stylesheet" href="/css/comment.css">
-<script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script>
-<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-
-<script type="text/javascript">
-	//Thanks O-R
-	//https://github.com/gitalk/gitalk/issues/102#issuecomment-382970552
-	//去除尾部匹配正则数组的字符串  
-	//Remove redundant characters
-	String.prototype.trimEnd = function(regStr) {
-		var result = this;
-		if(regStr == undefined || regStr == null || regStr == "") {
-			return result;
-		}
-		var array = regStr.split(',');
-
-		if(array.length > 0) {
-
-			var c = array.shift();
-			var str = this;
-			var i = str.length;
-			var rg = new RegExp(c);
-			var matchArr = str.match(rg);
-
-			if(matchArr != undefined && matchArr != null && matchArr.length > 0) {
-				var matchStr = matchArr[0].replace(/\\/g, "\\\\").replace(/\*/g, "\\*")
-					.replace(/\+/g, "\\+").replace(/\|/g, "\\|")
-					.replace(/\{/g, "\\{").replace(/\}/g, "\\}")
-					.replace(/\(/g, "\\(").replace(/\)/g, "\\)")
-					.replace(/\^/g, "\\^").replace(/\$/g, "\\$")
-					.replace(/\[/g, "\\[").replace(/\]/g, "\\]")
-					.replace(/\?/g, "\\?").replace(/\,/g, "\\,")
-					.replace(/\./g, "\\.").replace(/\&/g, "\\&");
-				matchStr = matchStr + '$';
-				result = str.replace(new RegExp(matchStr), "");
-			}
-
-			if(array.length > 0) {
-				return result.trimEnd(array.join())
-			} else {
-				return result;
-			}
-		}
-	};
-
-	//Create gitalk
-	var gitalk = new Gitalk({
-		clientID: 'c5d264006f86829c01b9',
-		clientSecret: '018624f40a5f85ec2cb53656d9dbf28bd16ccd5c',
-		//id: window.location.pathname,
-		//id: decodeURI(window.location.pathname),
-		//id: (window.location.pathname).split("/").pop().substring(0, 49),
-		id: decodeURI( md5( location.href.trimEnd('#.*$,\\?.*$,index.html$') ) ),
-		repo: 'equationliu.github.io',
-		owner: 'Equationliu',
-		admin: 'Equationliu',
-		distractionFreeMode: 'true',
-	})
-	gitalk.render('gitalk-container');
-</script>
-
+			<!-- I don't know !!!-->
+			<div>Please check the comment setting in config.yml of hexo-theme-Annie!</div>
+			
 		
 		
 	
