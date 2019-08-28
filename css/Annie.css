@@ -120,6 +120,9 @@ body {
   height: 100%;
   overflow: hidden;
 }
+html {
+  font-size: 16px;
+}
 p {
   text-align: justify;
   margin-bottom: 1rem;
