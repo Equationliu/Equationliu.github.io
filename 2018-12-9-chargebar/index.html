@@ -1,0 +1,983 @@
+<!--
+	作者：Sariay
+	时间：2018-09-25
+	描述：There may be a bug, but don't worry, QiLing(器灵) says that it can work normally!
+-->
+<!DOCTYPE html>
+<html class="html-loading">
+		
+
+<head><meta name="generator" content="Hexo 3.9.0">
+	<meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+  <title>
+    
+      爬虫实战：全国电动汽车充电站数据 | Equation-Blog
+    
+  </title>
+  <meta name="author" content="Equation">
+  <meta name="keywords" content="equation, equation的博客, 个人网站, 互联网, CS, 机器学习 , Machine Learning, Math, 数学">
+  <meta name="description" content>
+	<!-- favicon -->
+  <link rel="shortcut icon" href="/img/favicon.ico">
+
+  <!-- css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.1/css/all.min.css">
+<link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/Annie.css">
+  
+  <!-- jquery -->
+	<script src="/js/jquery.min.js"></script>
+
+  <!-- leancloud -->
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+<script src="/js/leancloud.js"></script>
+</head>
+	<body>
+		<!-- Preloader -->
+
+	<div id="preloader">
+		<div class="pre-container">
+			
+				<div class="spinner">
+					<div class="double-bounce1"></div>
+					<div class="double-bounce2"></div>
+				</div>
+						
+		</div>
+	</div>
+
+
+<!-- header -->
+<header class="fixbackground" data-img-mode="normal" data-normal-src="/img/new-start.jpg" data-random-max="110" data-random-src="https://sariay.github.io/Random-img/">
+	<div class="mask">
+		<!-- Logo and navigation -->
+		<div class="h-header">
+			<div id="logo">
+				<a href="/">
+					
+						Equation
+					
+				</a>
+			</div>
+			
+			<div id="navigation-show">
+				<ul>
+	
+		<li class="menu-home">
+			<a href="/" class="menu-item-home">主页</a>
+		</li>
+	
+		<li class="menu-archive">
+			<a href="/archives" class="menu-item-archive">归档</a>
+		</li>
+	
+		<li class="menu-categories">
+			<a href="/categories" class="menu-item-categories">分类</a>
+		</li>
+	
+		<li class="menu-tags">
+			<a href="/tags" class="menu-item-tags">标签</a>
+		</li>
+	
+		<li class="menu-about">
+			<a href="/about" class="menu-item-about">关于</a>
+		</li>
+	
+		<li class="menu-gallery">
+			<a href="/gallery" class="menu-item-gallery">相册</a>
+		</li>
+	
+
+	
+</ul>
+			</div>				
+		</div>
+
+		<!-- motto -->
+		<div class="h-body">	
+			
+				<p class="motto"></p>
+			
+		</div>
+		
+		<!-- others: such as time... -->			
+		<div class="h-footer">
+			<a href="javascript:;" id="read-more"><i class="fa fa-angle-double-down" aria-hidden="true"></i>
+			</a>
+
+			
+				<!-- 
+	This is only a demo, please go to "https://time.is" to set your city time! 
+-->
+<style type="text/css">
+	.header-date {
+		font-size: 1.6rem;
+		color: #fff;
+		position: absolute;
+		bottom: 5px;
+		right: 1rem;
+		writing-mode: tb-rl;
+	}	
+	
+	.header-date a {
+		border-bottom: none;
+	}
+
+	@media only screen and (max-width: 768 ) {
+		.header-date {
+			font-size: 1rem;
+		}			
+	}
+</style>
+<div class="header-date">
+	<a href="https://time.is/Beijing" id="time_is_link" rel="nofollow" ></a>
+	<span id="Beijing_z43d"></span>
+</div>
+<script src="//widget.time.is/zh.js"></script>
+<script>
+	time_is_widget.init({
+		Beijing_z43d:{
+			template:"DATE", 
+			date_format:"year年 monthname dnum日"
+		}
+	});
+</script>
+			
+		</div>
+	</div>
+</header>
+
+<div id="navigation-hide">
+	<!-- Progress bar -->
+	<div id="progress-bar"></div>
+
+	<!-- Progress percent -->
+	<div id="progress-percentage"><h1>0.0%</h1></div>
+
+	<div class="toc-switch"><span class="switch-button">目录</span></div>
+
+	<!-- Page title -->
+	<p>
+		
+			当前文章&nbsp;:&nbsp;《爬虫实战：全国电动汽车充电站数据》
+		
+	</p>
+
+	<!-- Nav trigger for navigation-H-->
+	<a class="nav-trigger"><span></span></a>
+</div>
+
+<!-- Navigation in div(id="navigation-H") -->
+<nav class="nav-container" id="cd-nav">
+	<div class="nav-header">
+		<h3>Navigation</h3>
+		<a href="javascript:;" class="nav-close"></a>
+	</div>
+	<div class="nav-body">
+		<ul>
+	
+		<li class="menu-home">
+			<a href="/" class="menu-item-home">主页</a>
+		</li>
+	
+		<li class="menu-archive">
+			<a href="/archives" class="menu-item-archive">归档</a>
+		</li>
+	
+		<li class="menu-categories">
+			<a href="/categories" class="menu-item-categories">分类</a>
+		</li>
+	
+		<li class="menu-tags">
+			<a href="/tags" class="menu-item-tags">标签</a>
+		</li>
+	
+		<li class="menu-about">
+			<a href="/about" class="menu-item-about">关于</a>
+		</li>
+	
+		<li class="menu-gallery">
+			<a href="/gallery" class="menu-item-gallery">相册</a>
+		</li>
+	
+
+	
+</ul>
+	</div>
+	<div class="nav-footer">
+		<ul>
+	
+		<li>
+			<a href="https://github.com/Equationliu/Equationliu.github.io" target="_blank">
+				<i class="fa fa-github"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="https://www.zhihu.com/people/equation1998/activities" target="_blank">
+				<i class="fab fa-zhihu"></i>
+			</a>
+		</li>
+			
+</ul>
+
+	</div>
+</nav>
+			
+		<!--main-->
+		<main>
+			<!--
+	时间：2018-11-17
+	描述：
+		插件名称：katelog.min.js
+		插件作者：KELEN
+		插件来源: https://github.com/KELEN/katelog
+-->
+
+	
+		<div class="layout-toc">
+			<div id="layout-toc">
+				<div class="k-catelog-list" id="catelog-list" data-title="文章目录"></div>
+			</div>
+		</div>
+
+		
+		<script src="/plugin/toc/katelog.min.js"></script>
+
+		
+	
+
+<div class="layout-post">
+	<div id="layout-post">
+	<div class="article-title">
+		<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+		
+	<a href="/2018-12-9-chargebar/" itemprop="url">
+		爬虫实战：全国电动汽车充电站数据
+	</a>
+
+	</div>
+
+	<div class="article-meta">
+		<span>
+			<i class="fa fa-calendar"></i>
+			
+
+
+	发布于
+
+	<a href="/2018-12-9-chargebar/" itemprop="url">
+		<time datetime="2018-12-09T04:00:00.000Z" itemprop="datePublished">
+	  		2018-12-09
+	  </time>
+	</a>
+	&nbsp;
+
+
+
+
+
+			
+
+
+
+
+	更新于
+
+	<a href="/2018-12-9-chargebar/" itemprop="url">
+		<time datetime="2018-12-09T04:00:00.000Z" itemprop="dateUpdated">
+	  		2019-08-28
+	  </time>
+	</a> 
+
+
+
+		</span>
+		<span>
+			<i class="fa fa-tags"></i>
+			
+	
+		<a href="/tags/网络爬虫/" class=" ">
+			网络爬虫
+		</a>
+	
+		<a href="/tags/python/" class=" ">
+			python
+		</a>
+	
+
+		</span>
+
+		
+
+	
+    <span class="leancloud_visitors" id="/2018-12-9-chargebar/_visitors" data-url="/2018-12-9-chargebar/" data-title="爬虫实战：全国电动汽车充电站数据">
+       	<i class="fa fa-eye"></i>
+       	热度
+        <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
+    </span>
+    
+
+
+
+	
+    <span class="leancloud_likes" id="/2018-12-9-chargebar/_likes" data-url="/2018-12-9-chargebar/" data-title="爬虫实战：全国电动汽车充电站数据" rel="unlike">
+        <i class="fa fa-heart"></i>
+        喜欢
+        <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
+    </span>
+
+	</div>
+
+	<div class="article-content" id="article-content">
+		<blockquote>
+<p> 项目详情页请访问 <a href="https://github.com/Equationliu/Webscrapy" target="_blank" rel="noopener">Github</a>，喜欢的话就去加个 <strong>star</strong> 吧</p>
+</blockquote>
+<p>先放张效果图，吸引一下眼球</p>
+<p><img src="https://i.loli.net/2018/12/15/5c151ff933e29.png"></p>
+<p><img src="https://i.loli.net/2018/12/15/5c151ff928083.png"></p>
+<p>下面进入正题~</p>
+<p>想必大家某些时候总需要爬取一些数据，那如何使用 python 简单的实现一个爬取任务呢？</p>
+<blockquote>
+<p>还在为机器学习的数据集而困恼吗？还在为建模时没有数据而烦闷吗？</p>
+</blockquote>
+<p>这里就通过一个实例来实现一个简单的 Web 爬虫程序，首先介绍一些常见的问题：</p>
+<h2 id="静态网页爬取-VS-动态网页爬取"><a href="#静态网页爬取-VS-动态网页爬取" class="headerlink" title="静态网页爬取 VS 动态网页爬取"></a>静态网页爬取 VS 动态网页爬取</h2><p>静态网页爬取即是网页的 html 文件即包含了你所需要的所有数据并且你可以直接请求到，这通常便有两种方法：</p>
+<ul>
+<li>正则表达式</li>
+<li>BeautifulSoup </li>
+</ul>
+<p>而动态网页则往往需要加载一段时间或者内容需要由ajax 异步更新等等，本处爬取的网站应该算最简单的需要加载一段时间吧~</p>
+<h3 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h3><p>既然能够直接从 html 源码中获得数据，那么直接把源码请求下来不就好了！通常使用如下代码请求一个静态网页的源码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_one_page</span><span class="params">(url)</span>:</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        headers = &#123;</span><br><span class="line">            <span class="string">'User-Agent'</span>: <span class="string">'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) '</span><span class="string">'Chrome/51.0.2704.63 Safari/537.36'</span>&#125;</span><br><span class="line">        response = requests.get(url, headers=headers, timeout=<span class="number">30</span>)</span><br><span class="line">        <span class="keyword">if</span> response.status_code == <span class="number">200</span>:</span><br><span class="line">            <span class="keyword">return</span> response.text</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            print(response.status_code)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        print(<span class="string">'访问 http 发生错误... '</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">None</span></span><br></pre></td></tr></table></figure>
+<p>源码获得后便可以直接通过<strong>正则表达式</strong>匹配所需要的数据了，具体使用方法这里就不多说了，网上教程一抓一大把，这里给个示例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">pattern_fast = re.compile(<span class="string">'快充数量：(.*?)个'</span>, re.S)</span><br><span class="line">pattern_low = re.compile(<span class="string">'慢充数量：(.*?)个'</span>, re.S)</span><br><span class="line">kuaichong = re.findall(pattern_fast, str(charge[<span class="number">0</span>]))</span><br><span class="line">manchong = re.findall(pattern_low, str(charge[<span class="number">0</span>]))</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>上述简要代码将匹配字符串 <code>charge[0]</code> 中的快充桩和慢充桩数据</p>
+</blockquote>
+<p>但是对整个文档进行正则匹配显然不是一件高效的事情，而且某些情况下正则表达式并不是很好写，这时结构化的 html 便有用了，通常使用 <code>BeautifulSoup</code> 来实现 html 的解析与操作</p>
+<blockquote>
+<p>必要的情况也可以缩小目标范围后再使用正则表达式</p>
+</blockquote>
+<h3 id="BeautifulSoup"><a href="#BeautifulSoup" class="headerlink" title="BeautifulSoup"></a>BeautifulSoup</h3><p>具体使用方法可直接参考<a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/index.zh.html#" target="_blank" rel="noopener">官方文档</a> ，下面这个示例给出按类解析省份的功能</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 按类（class）解析 html 文件得到所有省份名称</span></span><br><span class="line">soup = BeautifulSoup(all_html, <span class="string">"lxml"</span>)</span><br><span class="line">province = soup.find_all(name=<span class="string">'td'</span>, attrs=&#123;<span class="string">"class"</span>: <span class="string">"sel-city-td-sf"</span>&#125;)</span><br></pre></td></tr></table></figure>
+<p>BeautifulSoup  看上去比暴力正则表达式便要柔和很多，因为我们所<strong>感兴趣的数据往往具有相同的类 class 或者 ID</strong>，并且 <code>id</code> 在 html 中是<strong>唯一</strong>的，这样提取一个数据显然十分方便。</p>
+<p>如果你以为到这便可以爬取大部分网页那就太天真了，很多数据对提供商来说是不想传播开来的，这时变会有相应的<strong>反爬机制</strong>，这里手段很多，此博客仅介绍本项目遇到的问题</p>
+<p>通常的 Request 请求方式是请求一次成功后便马上将源码下载下来，然而此时页面可能还<strong>未加载完全！</strong>，通常会是一些 <code>Ajax</code> 异步的 <code>javascript</code> 程序（本项目似乎仅仅是<strong>加载慢</strong>而已，，），那么这时下载下来的 html 源码<strong>可能</strong>是没有你想要的信息的。解决方案显然也很清晰，那我就等呀！而实现这种功能的途径往往是 webdriver</p>
+<h3 id="Selenium-Webdriver"><a href="#Selenium-Webdriver" class="headerlink" title="Selenium + Webdriver"></a>Selenium + Webdriver</h3><p>详细的概念这里就不介绍了，我们需要明确的是 <code>Selenium Python</code> 提供了一个简单的API 便于我们使用 <code>Selenium WebDriver</code>编写 <strong>功能/验收测试</strong>。直观上说就是操作一个浏览器的行为，可以实现<strong>等待、跳转</strong>等等操作，下面我们直接从实例出发分析如何利用这些技术</p>
+<h2 id="开始爬取"><a href="#开始爬取" class="headerlink" title="开始爬取"></a>开始爬取</h2><p>首先来分析下目标网页，采集的网页来自于北汽，但是地图爬虫不是这次的重点</p>
+<blockquote>
+<p>其实只是不会而已</p>
+</blockquote>
+<p><img src="https://i.loli.net/2018/12/09/5c0d0b97c749a.png" alt></p>
+<p>我们爬取的主要是表单数据，于是我们从这个页面入手</p>
+<p><img src="https://i.loli.net/2018/12/09/5c0d0c98241e3.png" alt></p>
+<p>根据上图确定如下的思路</p>
+<ol>
+<li><p><strong>先获得所有省份的详情页地址</strong></p>
+<blockquote>
+<p>这一步由于省份其实并不多，可以自己建立一个字典存放省份名称，但是傲娇的作者怎么能忍呢？当然要爬！而且这些地址均在同一个类（<code>sel-city-td-sf</code>）中</p>
+</blockquote>
+</li>
+<li><p><strong>针对每个省份从左上角获得电站数量、快充数量、慢充数量的信息</strong></p>
+<blockquote>
+<p> 访问网页便会知道这些数据似乎是在<strong>加载完地图之后才加载</strong>的的，直接使用 Request 会失效</p>
+</blockquote>
+</li>
+<li><p><strong>针对每一个省份从左边的表单遍历所有的充电站获得每一个充电站的详细数据</strong></p>
+<blockquote>
+<p>这算是最重要的一步，也是最难的一步，我们发现所有的<strong>侧边表单的网址都是一样的！</strong> ，也就是说必须是从安徽省的网页中点击侧边栏才能跳转到安徽省的充电桩详情页，具体实现见后文</p>
+</blockquote>
+</li>
+</ol>
+<p>实现前先放一张全国的分布图（虽然数据少，但绝不是手工记录，，，），下面进入正题！</p>
+<p><img src="https://i.loli.net/2018/12/15/5c14dfa87fdc8.png" alt></p>
+<h2 id="关键模块"><a href="#关键模块" class="headerlink" title="关键模块"></a>关键模块</h2><h3 id="省份名称及详情页"><a href="#省份名称及详情页" class="headerlink" title="省份名称及详情页"></a>省份名称及详情页</h3><p>上述已经提到了通过如下代码便可以提取到所有省份的名称</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 打开起始页面</span></span><br><span class="line">url = <span class="string">'http://www.bjev520.com/jsp/beiqi/pcmap/do/index.jsp'</span></span><br><span class="line">all_html = get_one_page(url)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 按类（class）解析 html 文件得到所有省份名称</span></span><br><span class="line">model = <span class="string">'http://www.bjev520.com/jsp/beiqi/pcmap/do/pcMap.jsp?chargingTypeId=&amp;companyId=&amp;chargingBrandId=&amp;brandStatuId=&amp;cityName='</span></span><br><span class="line">soup = BeautifulSoup(all_html, <span class="string">"lxml"</span>)</span><br><span class="line">province = soup.find_all(name=<span class="string">'td'</span>, attrs=&#123;<span class="string">"class"</span>: <span class="string">"sel-city-td-sf"</span>&#125;)</span><br></pre></td></tr></table></figure>
+<p>不过这还有个小问题，进入详情页的时候需要对网址中的中文进行编码</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> urllib.request <span class="keyword">import</span> quote</span><br><span class="line">quote(<span class="string">"安徽省"</span>)</span><br><span class="line"><span class="comment"># output</span></span><br><span class="line"><span class="comment"># '%E5%AE%89%E5%BE%BD%E7%9C%81'</span></span><br></pre></td></tr></table></figure>
+<h3 id="省份概览信息"><a href="#省份概览信息" class="headerlink" title="省份概览信息"></a>省份概览信息</h3><p>进过上述步骤已经可以进入任意省份的详情页，下一步便是从左上角获得电站数量、快充数量、慢充数量的信息，一开始我错以为这三个 <code>id</code> 的数据是 <code>ajax</code> 异步加载的，后来才发现是单线程的，，先分析下这三个 <code>id</code> 的 <code>javascript</code> 代码</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** 修改数量统计 */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">editCharging</span>(<span class="params">dianzhan,kuaichong,manchong</span>)</span>&#123;</span><br><span class="line">   $(<span class="string">"#dianzhan"</span>).html(dianzhan);</span><br><span class="line">   $(<span class="string">"#kuaichong"</span>).html(kuaichong);</span><br><span class="line">   $(<span class="string">"#manchong"</span>).html(manchong);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>这里默认大家会使用浏览器的开发者模式检查源代码，，推荐 chrome F12</p>
+</blockquote>
+<p>这就是一段简单的 js 代码，但是也需要服务器进行响应，加载完毕需要一定时间，那么此时 Request 直接请求一次返回源码便失效了，来看下效果：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">all_html = get_one_page(<span class="string">"http://www.bjev520.com/jsp/beiqi/pcmap/do/pcMap.jsp?chargingTypeId=&amp;companyId=&amp;chargingBrandId=&amp;brandStatuId=&amp;cityName=%E5%AE%89%E5%BE%BD%E7%9C%81"</span>)</span><br><span class="line">soup = BeautifulSoup(all_html, <span class="string">"lxml"</span>)</span><br><span class="line">print(soup.find(id=<span class="string">"dianzhan"</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># output</span></span><br><span class="line"><span class="comment"># &lt;span id="dianzhan"&gt;0&lt;/span&gt;</span></span><br></pre></td></tr></table></figure>
+<p>可以看出解析出来的是 <strong>0</strong> </p>
+<p>这时便可以依靠 Webdrive 来实现了，这个模拟的浏览器默认是在页面加载完全才会返回信息的，通过以下代码可以简单实现此功能</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">driver = webdriver.Chrome(<span class="string">"chromedriver.exe"</span>)</span><br><span class="line">driver.get(<span class="string">"http://www.bjev520.com/jsp/beiqi/pcmap/do/pcMap.jsp?chargingTypeId=&amp;companyId=&amp;chargingBrandId=&amp;brandStatuId=&amp;cityName=%E5%AE%89%E5%BE%BD%E7%9C%81"</span>)</span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line"><span class="comment">#    element = WebDriverWait(driver, 10).until(</span></span><br><span class="line"><span class="comment">#        EC.presence_of_element_located((By.ID, "dianzhan"))</span></span><br><span class="line"><span class="comment">#    )</span></span><br><span class="line">    total = driver.find_element_by_id(<span class="string">'dianzhan'</span>).text</span><br><span class="line">    print(total)</span><br><span class="line"><span class="keyword">finally</span>:</span><br><span class="line">    driver.quit()</span><br><span class="line"> </span><br><span class="line"><span class="comment"># output</span></span><br><span class="line"><span class="comment"># 597</span></span><br></pre></td></tr></table></figure>
+<p>上面注释了一部分代码，<code>WebDriverWait</code> 集成了 Webdrive 的<strong>等待事件</strong>，上述代码</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">EC.presence_of_element_located((By.ID, <span class="string">"dianzhan"</span>))</span><br></pre></td></tr></table></figure>
+<p>就是直到页面中出现了 <code>dianzhan</code> 这个 <code>id</code> 后方才进行抓取，这在网站数据<strong>经由 ajax 异步更新</strong>的时候格外有用，官方提供了很多种等待事件可参考 <a href="https://python-selenium-zh.readthedocs.io/zh_CN/latest/5.Waits/" target="_blank" rel="noopener"> selenium-python中文文档</a></p>
+<blockquote>
+<ul>
+<li><p>title_is</p>
+</li>
+<li><p>title_contains</p>
+</li>
+<li><p>presence_of_element_located</p>
+</li>
+<li><p>visibility_of_element_located</p>
+</li>
+<li><p>visibility_of</p>
+</li>
+<li><p>presence_of_all_elements_located</p>
+</li>
+<li><p>text_to_be_present_in_element</p>
+<p>等等</p>
+</li>
+</ul>
+</blockquote>
+<h3 id="ajax-异步更新爬取实例"><a href="#ajax-异步更新爬取实例" class="headerlink" title="ajax 异步更新爬取实例"></a>ajax 异步更新爬取实例</h3><p>由于这个项目中用不到 webdrive 的这个机制，感觉有点委屈了它，所以咱么看一个 pythonscraping 给的 <a href="http://pythonscraping.com/pages/javascript/ajaxDemo.html" target="_blank" rel="noopener">ajax 爬取实例</a></p>
+<p>这个网站中单线加载完毕后会通过 ajax 更新段落内容，如果不使用等待事件的话</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">driver = webdriver.Chrome(<span class="string">"chromedriver.exe"</span>)</span><br><span class="line">driver.get(<span class="string">"http://pythonscraping.com/pages/javascript/ajaxDemo.html"</span>)</span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line"><span class="comment">#    element = WebDriverWait(driver, 10).until(</span></span><br><span class="line"><span class="comment">#        EC.presence_of_element_located((By.ID, "content"))</span></span><br><span class="line"><span class="comment">#    )</span></span><br><span class="line">    total = driver.find_element_by_id(<span class="string">'content'</span>).text</span><br><span class="line">    print(total)</span><br><span class="line"><span class="keyword">finally</span>:</span><br><span class="line">    driver.quit()</span><br><span class="line"><span class="comment"># output</span></span><br><span class="line"><span class="comment"># This is some content that will appear on the page while it's loading. You # don't care about scraping this.</span></span><br></pre></td></tr></table></figure>
+<p>返回的就是还没来得及更新的的段落内容，查看网页源码如下</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id="content"&gt;Here is some important text you want to retrieve! &lt;p&gt;&lt;/p&gt;&lt;button id="loadedButton"&gt;A button to click!&lt;/button&gt;&lt;/div&gt;</span><br><span class="line">$.ajax(&#123;</span><br><span class="line">    type: <span class="string">"GET"</span>,</span><br><span class="line">    url: <span class="string">"loadedContent.php"</span>,</span><br><span class="line">    success: function(response)&#123;</span><br><span class="line"></span><br><span class="line">	setTimeout(function() &#123;</span><br><span class="line">	    $(<span class="string">'#content'</span>).html(response);</span><br><span class="line">	&#125;, <span class="number">2000</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">function ajax_delay(str)&#123;</span><br><span class="line"> setTimeout(<span class="string">"str"</span>,<span class="number">2000</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>从 <code>$.ajax</code> 可以看出这是实打实的异步更新，但是也很容易发现当页面加载完之后会有一个新的 <code>id</code> ——<code>loadedButton</code> ，只要执行等待事件直到这个 <code>id</code> 出现就能抓取到所需内容了</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">driver = webdriver.Chrome(<span class="string">"chromedriver.exe"</span>)</span><br><span class="line">driver.get(<span class="string">"http://pythonscraping.com/pages/javascript/ajaxDemo.html"</span>)</span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    element = WebDriverWait(driver, <span class="number">10</span>).until(</span><br><span class="line">        EC.presence_of_element_located((By.ID, <span class="string">"loadedButton"</span>))</span><br><span class="line">    )</span><br><span class="line">    total = driver.find_element_by_id(<span class="string">'content'</span>).text</span><br><span class="line">    print(total)</span><br><span class="line"><span class="keyword">finally</span>:</span><br><span class="line">    driver.quit()</span><br><span class="line"><span class="comment"># output</span></span><br><span class="line"><span class="comment"># Here is some important text you want to retrieve!</span></span><br><span class="line"><span class="comment"># A button to click!</span></span><br></pre></td></tr></table></figure>
+<h3 id="嵌套网页（iframe）抓取"><a href="#嵌套网页（iframe）抓取" class="headerlink" title="嵌套网页（iframe）抓取"></a>嵌套网页（iframe）抓取</h3><p>抓取页面的侧边表单（充电站详细数据）时发现解析的网页源码没有相关的内容，过了很久后才发现这是因为嵌套的缘故</p>
+<p><img src="https://i.loli.net/2018/12/10/5c0de5e5586ce.png" alt></p>
+<p>不进入子 iframe 的话是无法访问其中的html 结构的</p>
+<blockquote>
+<p>因为 HTML 是一个树的结构，只有一个顶点，存在嵌套相当于有多个顶点</p>
+</blockquote>
+<p>马上容易想到这个 iframe 不是给出链接了吗？直接访问呀！这就有反爬机制了，<strong>从不同的页面访问这个网址返回的是不一样的</strong> ,这当时就刷新了我的三观，顿时无奈。。</p>
+<p>好在后面看到了 webdriver 的另一神奇功能 <code>switch_to</code> ，问题迎刃而解</p>
+<blockquote>
+<p>这个故事告诉我们不全面了解一门技术总会遇到坑，，老手勿喷</p>
+</blockquote>
+<p>解决方案如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 调转到嵌入的 iframe</span></span><br><span class="line">driver.switch_to.frame(<span class="string">'left'</span>)         <span class="comment"># iframe标签的name属性     最重要的一步</span></span><br><span class="line">soup = BeautifulSoup(driver.page_source, <span class="string">"html.parser"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 读取每一个充电站</span></span><br><span class="line">status = soup.find_all(<span class="string">'a'</span>)</span><br></pre></td></tr></table></figure>
+<p>然后就能得到<strong>一个个静态网页的链接了</strong> ,他们都长这样</p>
+<p><img src="https://i.loli.net/2018/12/10/5c0de79f165b8.png" alt></p>
+<p>顿时感觉手里多了不知道多少的数据，，，</p>
+<h3 id="正则匹配获取充电桩信息"><a href="#正则匹配获取充电桩信息" class="headerlink" title="正则匹配获取充电桩信息"></a>正则匹配获取充电桩信息</h3><p>这个比较简单，就不细说了</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 充电站充电桩</span></span><br><span class="line">charge = soup_location.find_all(</span><br><span class="line"> name=<span class="string">'div'</span>, attrs=&#123;<span class="string">"class"</span>: <span class="string">"news-c"</span>&#125;)  <span class="comment"># 由于部分只有快充或者慢充，正则匹配似乎比较方便</span></span><br><span class="line">pattern_fast = re.compile(<span class="string">'快充数量：(.*?)个'</span>, re.S)</span><br><span class="line">pattern_low = re.compile(<span class="string">'慢充数量：(.*?)个'</span>, re.S)</span><br><span class="line">kuaichong = re.findall(pattern_fast, str(charge[<span class="number">0</span>]))</span><br><span class="line">manchong = re.findall(pattern_low, str(charge[<span class="number">0</span>]))</span><br></pre></td></tr></table></figure>
+<h3 id="正逆地理编码——API"><a href="#正逆地理编码——API" class="headerlink" title="正逆地理编码——API"></a>正逆地理编码——API</h3><p>这一步才是最关键或者说 usefull 的东西，数据时代人们关心的是经纬度而不是一串地址，而这些<strong>充电桩的地址并不是很规范</strong>，故而先要对地址的字符串进行清洗，下述代码中的正则方法去除了地址中的<strong>全角和半角括号以及其中的内容</strong> ，然后再调用百度的 API</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 调用 API</span></span><br><span class="line">ak = <span class="string">''</span> <span class="comment"># 换成你自己的 key</span></span><br><span class="line">b = baidu.Baidu(ak)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 去除无用信息</span></span><br><span class="line">s = location[<span class="number">0</span>].p.get_text()</span><br><span class="line">delete_banjiao = re.sub(<span class="string">u"\\(.*?\\)|\\&#123;.*?&#125;|\\[.*?]"</span>, <span class="string">""</span>, s)</span><br><span class="line">s = bytes(delete_banjiao, encoding=<span class="string">"utf8"</span>)</span><br><span class="line">delete_quanjiao = re.sub(<span class="string">u"\\（.*?）|\\&#123;.*?&#125;|\\[.*?]|\\【.*?】"</span>, <span class="string">""</span>, s.decode())</span><br><span class="line"></span><br><span class="line">location_api = b.geocode(delete_quanjiao)</span><br><span class="line">location_api.latitude</span><br><span class="line">location_api.longitude</span><br></pre></td></tr></table></figure>
+<h2 id="可视化"><a href="#可视化" class="headerlink" title="可视化"></a>可视化</h2><p><img src="https://i.loli.net/2018/12/15/5c14dd983934e.jpg" width="700px"></p>
+<h2 id="推荐一下舍友工作"><a href="#推荐一下舍友工作" class="headerlink" title="推荐一下舍友工作"></a>推荐一下舍友工作</h2><p><a href="https://lwz322.github.io/2018/12/07/Tesla_chargers.html#%E7%8E%AF%E5%A2%83" target="_blank" rel="noopener">tesla充电桩数据</a>  爬取了美国特斯拉充电桩的分布信息，源起于2018年MCM\ICM的D题。</p>
+<p><img src="https://img.vim-cn.com/dc/7c180c409d8786a3360fdf7ec17c11f515bf32.png" alt></p>
+
+	</div>
+
+	<div id="current-post-cover" data-scr="/img/post-cover/post-bg-spider.png"></div>
+
+	<!-- relate post, comment...-->
+	<div class="investment-container">
+		<div class="investment-header">
+			<div class="investment-title-1">
+				<div class="on">相关文章</div>
+				<div>评论</div>
+				<div>分享</div>
+			</div>
+			<div class="investment-title-2">
+				
+	<span>
+		<a href="javascript: window.scrollTo(0, 0);">返回顶部</a>
+		
+			<a href="/hello-world/" title="New Start" rel="prev">
+				&laquo;上一篇
+			</a>
+		
+		
+			<a href="/2018-04-01-xuankecelue/" title="选课策略——0-1整数规划" rel="next">
+				下一篇&raquo;
+			</a>
+			
+	</span>
+
+
+    
+			</div>
+		</div>
+
+		<div class="investment-content">
+			<div class="investment-content-list">
+	     
+
+<div class="relate-post">
+	
+		<ul>
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/hello-world/" title="New Start">
+								New Start			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								八月 28日, 2019				
+							</p>
+							<p class="relate-post-content">
+								Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using ...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/hello-world/" title="New Start">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/post-cover/new-start.jpg" alt="New Start"/>
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2018-04-01-xuankecelue/" title="选课策略——0-1整数规划">
+								选课策略——0-1整数规划			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								四月 1日, 2018				
+							</p>
+							<p class="relate-post-content">
+								问题重述已知某年数学与统计学院课程结构如图所示。要求至少选两门数学课、三门运筹学课和两门计算机课。    
+
+
+为了选修课程总数最少，应学习哪些课程？                
+选修课程最少，且学分尽量多，应学习哪些课程？   ...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2018-04-01-xuankecelue/" title="选课策略——0-1整数规划">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/post-cover/huan.jpg" alt="选课策略——0-1整数规划"/>
+							</a>
+						</div>
+					</li>											
+			
+			
+		</ul>
+	
+</div>
+			</div>
+			<div class="investment-content-list">
+      <div class="layout-comment">
+
+	
+
+		
+
+			<!-- gitalk comment -->
+			<!-- show gitalk comment -->
+<div id="gitalk-container"></div>
+
+<!-- gitalk`s css & js -->
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<link rel="stylesheet" href="/css/comment.css">
+<script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script>
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<script type="text/javascript">
+	//Thanks O-R
+	//https://github.com/gitalk/gitalk/issues/102#issuecomment-382970552
+	//去除尾部匹配正则数组的字符串  
+	//Remove redundant characters
+	String.prototype.trimEnd = function(regStr) {
+		var result = this;
+		if(regStr == undefined || regStr == null || regStr == "") {
+			return result;
+		}
+		var array = regStr.split(',');
+
+		if(array.length > 0) {
+
+			var c = array.shift();
+			var str = this;
+			var i = str.length;
+			var rg = new RegExp(c);
+			var matchArr = str.match(rg);
+
+			if(matchArr != undefined && matchArr != null && matchArr.length > 0) {
+				var matchStr = matchArr[0].replace(/\\/g, "\\\\").replace(/\*/g, "\\*")
+					.replace(/\+/g, "\\+").replace(/\|/g, "\\|")
+					.replace(/\{/g, "\\{").replace(/\}/g, "\\}")
+					.replace(/\(/g, "\\(").replace(/\)/g, "\\)")
+					.replace(/\^/g, "\\^").replace(/\$/g, "\\$")
+					.replace(/\[/g, "\\[").replace(/\]/g, "\\]")
+					.replace(/\?/g, "\\?").replace(/\,/g, "\\,")
+					.replace(/\./g, "\\.").replace(/\&/g, "\\&");
+				matchStr = matchStr + '$';
+				result = str.replace(new RegExp(matchStr), "");
+			}
+
+			if(array.length > 0) {
+				return result.trimEnd(array.join())
+			} else {
+				return result;
+			}
+		}
+	};
+
+	//Create gitalk
+	var gitalk = new Gitalk({
+		clientID: 'c5d264006f86829c01b9',
+		clientSecret: '018624f40a5f85ec2cb53656d9dbf28bd16ccd5c',
+		//id: window.location.pathname,
+		//id: decodeURI(window.location.pathname),
+		//id: (window.location.pathname).split("/").pop().substring(0, 49),
+		id: decodeURI( md5( location.href.trimEnd('#.*$,\\?.*$,index.html$') ) ),
+		repo: 'equationliu.github.io',
+		owner: 'Equationliu',
+		admin: 'Equationliu',
+		distractionFreeMode: 'true',
+	})
+	gitalk.render('gitalk-container');
+</script>
+
+		
+		
+	
+
+</div>
+			</div>
+			<div class="investment-content-list">
+				<div class="layout-share">
+	
+	
+
+		
+			
+			<!-- socialShare share -->
+			<div class="social-share"></div>
+
+<!--  css & js -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+			
+		
+		
+	
+</div>
+
+
+			</div>
+		</div>
+	</div>
+
+	</div>
+</div>
+
+
+
+	<!-- leancloud -->
+	<!--
+	时间：2018-11-27
+	描述：
+		文章访问量：visitors
+		文章喜欢量：likes	
+		文章排行榜：topNPost
+		其他得说明：
+			01-Cookie相关的函数 
+				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
+			02-visitors相关的函数 
+				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
+				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
+			03-topNPost相关的函数
+				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
+			04-likes相关的函数，
+				参考了01 & 02进行简单的设计与实现
+-->
+
+
+
+	<script>
+		var appid = '8ldhVpVh39at6Spx628YbPjg-gzGzoHsz',
+            appkey = 'YyLDdeVMVo4fHOPd7b51tIJj';	  
+        AnnieLeancloud(appid, appkey);         
+	</script>
+    
+
+	
+
+
+<!-- show math formula -->
+
+	<script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+	<script type="text/x-mathjax-config">
+		MathJax.Hub.Config(
+			{ 
+				tex2jax: {
+					inlineMath: [['$','$'], ['\\(','\\)']]
+				} 
+			}
+		);
+	</script>
+
+
+
+	 
+	<script src="/plugin/clipboard/clipboard.js"></script>
+	<script>
+		// Copy code !
+	    function codePreprocessing() {
+	        $("#article-content .highlight").each(function() {
+
+	            $(this).wrap('<div id="post-code"></div>');
+
+	        })
+
+	        $("#article-content #post-code").each(function() {
+
+	            $(this).prepend('<nav class="copy-nav"><span><i class="code-language"></i></span></nav>');
+
+	        })
+
+	        $("#article-content .copy-nav").each(function() {
+	            var temp = $(this).next().attr('class'),
+	                language = ((temp.length > 9) && (temp != null)) ? temp.substr(10) : "none"; //why 9? Need to check language?
+
+	            $(this).find('.code-language').text(language);
+
+	            $(this).append('<span class="copy-btn"><i class="fa fa-copy" aria-hidden="true"></i></span>');
+
+	        });
+	    }
+
+		function codeCopy() {
+		    $('#article-content #post-code').each(function(i) {
+		        var codeCopyId = 'codeCopy-' + i;
+
+		        var codeNode = $(this).find('.code'),
+		            copyButton = $(this).find('.copy-btn');
+
+		        codeNode.attr('id', codeCopyId);
+		        copyButton.attr('data-clipboard-target-id', codeCopyId);
+		    })
+
+		    
+			var clipboard = new ClipboardJS('.copy-btn', {
+					target: function(trigger) {
+						return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+					}
+		      	});
+
+			//pure js
+			function showTooltip(elem, msg) {		   
+				elem.setAttribute('aria-label', msg);
+				elem.setAttribute('class', 'copy-btn copy-status');
+				setTimeout(function() {
+					elem.setAttribute('class', 'copy-btn');
+				}, 2000);
+			}
+
+			clipboard.on('success', function(e) {
+			    e.clearSelection();
+			    console.info('Action:', e.action);		   
+			    console.info('Trigger:', e.trigger);
+			    showTooltip(e.trigger, 'Copied!');
+			    
+			});
+			clipboard.on('error', function(e) {
+			    console.error('Action:', e.action);
+			    console.error('Trigger:', e.trigger);
+			});
+		
+
+		}
+
+		if ($('.layout-post').length) {
+		    codePreprocessing();
+		    codeCopy();
+		} 
+	</script>
+
+
+
+
+
+<link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
+<script src="/plugin/fancybox/jquery.fancybox.js"></script>
+
+<script type="text/javascript">
+	var titleID = $('.article-title a'),
+		imageID = $('.article-content img'),
+		videoID = $('.article-content video');
+
+	var postTitle = titleID.text() ? titleID.text() : "No post title!";
+
+	imageID.each(function() {
+		var imgPath = $(this).attr('src'),
+			imgTitle = $(this).attr('alt') ? $(this).attr('alt') : "No image description!";
+
+		//给每个匹配的<img>元素打包, 即添加父元素<a>
+		$(this).wrap('<a data-fancybox="gallery" data-caption=" 《 ' + postTitle + ' 》 ' + imgTitle + ' "  href=" ' + imgPath + ' "> </a>');
+	});
+
+	videoID.each(function() {
+		var videoPath = $(this).attr('src');
+
+		//给每个匹配的<img>元素打包, 即添加父元素<a>
+		$(this).wrap('<a data-fancybox href=" ' + videoPath + ' "> </a>');
+	});
+	//TODO：支持html5 video
+
+	if($('#layout-post').length) {
+		$('[data-fancybox="gallery"]').fancybox({
+			loop: true,
+			buttons: [
+				"zoom",
+				"share",
+				"slideShow",
+				"fullScreen",
+				//"download",
+				"thumbs",
+				"close"
+			],
+			protect: false
+		});
+	}
+</script>
+
+		</main>
+
+		<!--footer-->
+		<footer>
+	<div class="social">
+		<ul>
+	
+		<li>
+			<a href="https://github.com/Equationliu/Equationliu.github.io" target="_blank">
+				<i class="fa fa-github"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="https://www.zhihu.com/people/equation1998/activities" target="_blank">
+				<i class="fab fa-zhihu"></i>
+			</a>
+		</li>
+			
+</ul>
+
+	</div>
+		
+	<div class="copyright">
+		<p>
+			 
+				&copy;2019, content by Equation. All Rights Reserved.
+			
+			
+			
+
+	<!-- busuanzi -->
+	<!-- busuanzi -->
+
+		
+	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+
+		<span id="busuanzi_container_page_pv">
+	  		本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+		</span>
+
+	
+
+
+
+
+		</p>
+		<p>
+			<a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> Theme <a href="https://github.com/Sariay/hexo-theme-Annie" title="Annie" target="_blank" rel="noopener">Annie</a> by Sariay.
+			<a href="javascript:zh_tran('s');" class="zh_click" id="zh_click_s">简体</a> 
+			<a href="javascript:zh_tran('t');" class="zh_click" id="zh_click_t">繁體</a>				
+		</p>
+	</div>		
+</footer>
+		
+	<!-- set '1' to show motto in all pages! -->
+
+	<script src="/plugin/motto/motto.js"></script>
+	
+	<script type="text/javascript">
+		$(".motto").html( getMingYanContent() );
+	</script>	
+
+
+
+
+
+<!-- love effect -->
+
+	<script src="/plugin/love/love.js"></script>
+
+
+<!-- back to top -->
+
+	
+	<div id="totop">
+  		<a href="javascript:;"  name="TOTOP" class="fa fa-arrow-up" ></a>
+	</div>
+
+
+
+
+<!-- site analysis -->
+
+
+	<!-- site-analysis -->
+	
+<script>
+	var _hmt = _hmt || [];
+	(function() {
+		var hm = document.createElement("script");
+		hm.src = "//hm.baidu.com/hm.js?";
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(hm, s);
+	})();
+</script>
+
+	
+	
+<!-- Google Analytics -->
+<script type="text/javascript">
+	(function(i, s, o, g, r, a, m) {
+		i['GoogleAnalyticsObject'] = r;
+		i[r] = i[r] || function() {
+			(i[r].q = i[r].q || []).push(arguments)
+		}, i[r].l = 1 * new Date();
+		a = s.createElement(o),
+			m = s.getElementsByTagName(o)[0];
+		a.async = 1;
+		a.src = g;
+		m.parentNode.insertBefore(a, m)
+	})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+	ga('create', 'UA-99643860-1', 'auto');
+	ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+	
+	
+ 
+
+<script src="/plugin/vibrant/vibrant.js"></script>
+<script src="/plugin/chinese/chinese.js"></script>
+<script src="/plugin/imgLazyLoader/yall.min.js"></script>
+<script src="/plugin/imgResize/jquery.resizeimagetoparent.min.js"></script>
+<script src="/plugin/nicescroll/jquery.nicescroll.js"></script>
+<script src="/js/resizediv.js"></script>
+<script src="/js/main.js"></script>
+
+
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+	</body>	
+</html>
