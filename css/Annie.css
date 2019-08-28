@@ -1917,6 +1917,9 @@ main {
   margin-bottom: 0;
   position: relative;
 }
+p {
+  font-size: 16px;
+}
 .layout-pure .leancloud_likes,
 .layout-cart .leancloud_likes,
 .layout-post .leancloud_likes {
