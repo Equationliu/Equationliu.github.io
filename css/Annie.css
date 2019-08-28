@@ -97,6 +97,9 @@ article,
 figure {
   display: block;
 }
+html {
+  font-size: 16px;
+}
 body {
 /*font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell","Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;*/
   font-family: Ovo, Georgia, STZhongsong, "Microsoft YaHei", serif;
@@ -123,7 +126,6 @@ body {
 p {
   text-align: justify;
   margin-bottom: 1rem;
-  font-size: 18px;
 }
 p:first-letter {
   text-transform: uppercase;
@@ -260,15 +262,13 @@ td {
 }
 img,
 video,
-table,
 audio {
   display: block;
   opacity: 1;
-  width: 60%;
+  max-width: 100%;
+  width: 100%;
   height: auto;
   cursor: pointer;
-  margin-left: auto;
-  margin-right: auto;
 }
 code {
   font-family: "Source Code Pro", Consolas, Monaco, Menlo, Consolas, monospace;
@@ -291,16 +291,14 @@ pre code {
   overflow-x: auto;
 }
 img,
-table,
 video {
   display: block;
   opacity: 1;
   max-width: 100%;
-  width: 60%;
+  width: 100%;
   height: auto;
   cursor: pointer;
   margin-bottom: 1rem;
-  align: center;
 }
 .video-container {
   position: relative;
@@ -856,7 +854,6 @@ main {
   border: 1px solid #e0e0e0;
   background: #fff;
   text-align: left;
-  font-size: 16px;
 }
 .layout-cart .post:nth-child(odd) {
   text-align: left;
@@ -1731,7 +1728,6 @@ main {
   padding: 5em 0;
   border: 1px solid transparent;
   background-color: #fff;
-  font-size: 16px;
 }
 #layout-post {
 /*font-family: Ovo,Georgia,STZhongsong,"Microsoft YaHei",serif;*/
@@ -1915,9 +1911,6 @@ main {
 .relate-post .relate-post-cover img {
   margin-bottom: 0;
   position: relative;
-}
-p {
-  font-size: 16px;
 }
 .layout-pure .leancloud_likes,
 .layout-cart .leancloud_likes,
