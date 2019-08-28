@@ -86,7 +86,6 @@ video {
   padding: 0;
   border: 0;
   vertical-align: baseline;
-  font-size: 16px;
 }
 header,
 nav,
@@ -122,11 +121,12 @@ body {
   overflow: hidden;
 }
 html {
-  font-size: 16px;
+  font-size: 18px;
 }
 p {
   text-align: justify;
   margin-bottom: 1rem;
+  font-size: 18px;
 }
 p:first-letter {
   text-transform: uppercase;
@@ -859,6 +859,7 @@ main {
   border: 1px solid #e0e0e0;
   background: #fff;
   text-align: left;
+  font-size: 16px;
 }
 .layout-cart .post:nth-child(odd) {
   text-align: left;
@@ -1733,6 +1734,7 @@ main {
   padding: 5em 0;
   border: 1px solid transparent;
   background-color: #fff;
+  font-size: 16px;
 }
 #layout-post {
 /*font-family: Ovo,Georgia,STZhongsong,"Microsoft YaHei",serif;*/
