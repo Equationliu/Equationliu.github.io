@@ -1763,6 +1763,16 @@ main {
   border-spacing: 0;
   min-width: 100%;
   margin-bottom: 1rem;
+  max-width: 70%;
+  margin-left: 15%;
+}
+.article-content table {
+  max-width: 70%;
+  margin-left: 15%;
+}
+.article-content img {
+  max-width: 70%;
+  margin-left: 15%;
 }
 .article-content>table thead tr {
   border: 1px solid #e0e0e0;
