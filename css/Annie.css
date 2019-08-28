@@ -86,6 +86,7 @@ video {
   padding: 0;
   border: 0;
   vertical-align: baseline;
+  font-size: 16px;
 }
 header,
 nav,
@@ -126,7 +127,6 @@ html {
 p {
   text-align: justify;
   margin-bottom: 1rem;
-  font-size: 16px;
 }
 p:first-letter {
   text-transform: uppercase;
