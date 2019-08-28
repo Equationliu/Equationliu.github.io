@@ -1759,6 +1759,12 @@ main {
 .article-meta span {
   padding: 0.4em;
 }
+.article-content {
+  font-size: 16px;
+}
+.post-content {
+  font-size: 16px;
+}
 .article-content a {
   color: #4183c4;
 }
