@@ -434,7 +434,7 @@
 <p>这个网站中单线加载完毕后会通过 ajax 更新段落内容，如果不使用等待事件的话</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">driver = webdriver.Chrome(<span class="string">"chromedriver.exe"</span>)</span><br><span class="line">driver.get(<span class="string">"http://pythonscraping.com/pages/javascript/ajaxDemo.html"</span>)</span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line"><span class="comment">#    element = WebDriverWait(driver, 10).until(</span></span><br><span class="line"><span class="comment">#        EC.presence_of_element_located((By.ID, "content"))</span></span><br><span class="line"><span class="comment">#    )</span></span><br><span class="line">    total = driver.find_element_by_id(<span class="string">'content'</span>).text</span><br><span class="line">    print(total)</span><br><span class="line"><span class="keyword">finally</span>:</span><br><span class="line">    driver.quit()</span><br><span class="line"><span class="comment"># output</span></span><br><span class="line"><span class="comment"># This is some content that will appear on the page while it's loading. You # don't care about scraping this.</span></span><br></pre></td></tr></table></figure>
 <p>返回的就是还没来得及更新的的段落内容，查看网页源码如下</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id="content"&gt;Here is some important text you want to retrieve! &lt;p&gt;&lt;/p&gt;&lt;button id="loadedButton"&gt;A button to click!&lt;/button&gt;&lt;/div&gt;</span><br><span class="line">$.ajax(&#123;</span><br><span class="line">    type: <span class="string">"GET"</span>,</span><br><span class="line">    url: <span class="string">"loadedContent.php"</span>,</span><br><span class="line">    success: function(response)&#123;</span><br><span class="line"></span><br><span class="line">	setTimeout(function() &#123;</span><br><span class="line">	    $(<span class="string">'#content'</span>).html(response);</span><br><span class="line">	&#125;, <span class="number">2000</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">function ajax_delay(str)&#123;</span><br><span class="line"> setTimeout(<span class="string">"str"</span>,<span class="number">2000</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"content"</span>&gt;</span>Here is some important text you want to retrieve! <span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">"loadedButton"</span>&gt;</span>A button to click!<span class="tag">&lt;/<span class="name">button</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">$.ajax(&#123;</span><br><span class="line">    type: "GET",</span><br><span class="line">    url: "loadedContent.php",</span><br><span class="line">    success: function(response)&#123;</span><br><span class="line"></span><br><span class="line">	setTimeout(function() &#123;</span><br><span class="line">	    $('#content').html(response);</span><br><span class="line">	&#125;, 2000);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">function ajax_delay(str)&#123;</span><br><span class="line"> setTimeout("str",2000);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>从 <code>$.ajax</code> 可以看出这是实打实的异步更新，但是也很容易发现当页面加载完之后会有一个新的 <code>id</code> ——<code>loadedButton</code> ，只要执行等待事件直到这个 <code>id</code> 出现就能抓取到所需内容了</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">driver = webdriver.Chrome(<span class="string">"chromedriver.exe"</span>)</span><br><span class="line">driver.get(<span class="string">"http://pythonscraping.com/pages/javascript/ajaxDemo.html"</span>)</span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    element = WebDriverWait(driver, <span class="number">10</span>).until(</span><br><span class="line">        EC.presence_of_element_located((By.ID, <span class="string">"loadedButton"</span>))</span><br><span class="line">    )</span><br><span class="line">    total = driver.find_element_by_id(<span class="string">'content'</span>).text</span><br><span class="line">    print(total)</span><br><span class="line"><span class="keyword">finally</span>:</span><br><span class="line">    driver.quit()</span><br><span class="line"><span class="comment"># output</span></span><br><span class="line"><span class="comment"># Here is some important text you want to retrieve!</span></span><br><span class="line"><span class="comment"># A button to click!</span></span><br></pre></td></tr></table></figure>
 <h3 id="嵌套网页（iframe）抓取"><a href="#嵌套网页（iframe）抓取" class="headerlink" title="嵌套网页（iframe）抓取"></a>嵌套网页（iframe）抓取</h3><p>抓取页面的侧边表单（充电站详细数据）时发现解析的网页源码没有相关的内容，过了很久后才发现这是因为嵌套的缘故</p>
@@ -478,7 +478,7 @@
 	<span>
 		<a href="javascript: window.scrollTo(0, 0);">返回顶部</a>
 		
-			<a href="/hello-world/" title="New Start" rel="prev">
+			<a href="/2019-8-27-rmu/" title="二次型极值与 PCA ？" rel="prev">
 				&laquo;上一篇
 			</a>
 		
@@ -527,26 +527,24 @@
 			
 					<li>
 						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2018-04-01-xuankecelue/" title="选课策略——0-1整数规划">
-								选课策略——0-1整数规划			
+							<a class="relate-post-title" href="/2019-8-27-exponential/" title="指数族分布：充分统计量？无偏估计？相合估计？">
+								指数族分布：充分统计量？无偏估计？相合估计？			
 							</a>
 							<p class="relate-post-date">
 								<i class="fa fa-calendar"></i>
-								四月 1日, 2018				
+								六月 25日, 2019				
 							</p>
 							<p class="relate-post-content">
-								问题重述已知某年数学与统计学院课程结构如图所示。要求至少选两门数学课、三门运筹学课和两门计算机课。    
+								考察给定参数 $\boldsymbol{\eta} $ 的指数族分布
 
-
-为了选修课程总数最少，应学习哪些课程？                
-选修课程最少，且学分尽量多，应学习哪些课程？   ...
+p_{X}(\mathbf{x} | \boldsymbol{\eta})=h(\mathbf{x}) g(\boldsymbol{\eta}) \exp \le...
 							</p>
 						</div>
 
 						<div class="relate-post-cover">
-							<a href="/2018-04-01-xuankecelue/" title="选课策略——0-1整数规划">				
+							<a href="/2019-8-27-exponential/" title="指数族分布：充分统计量？无偏估计？相合估计？">				
 								
-								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/xuanke.jpg" alt="选课策略——0-1整数规划"/>
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/exp.jpg" alt="指数族分布：充分统计量？无偏估计？相合估计？"/>
 							</a>
 						</div>
 					</li>											
