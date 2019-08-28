@@ -247,7 +247,7 @@
 		<script src="/plugin/toc/katelog.min.js"></script>
 
 		
-	 
+	
 
 <div class="layout-post">
 	<div id="layout-post">
@@ -303,9 +303,9 @@
 			web
 		</a>
 	
-		
+
 		</span>
-		
+
 		
 
 	
@@ -529,9 +529,9 @@
 <h2 id="四、stackoverflow上的一些问答"><a href="#四、stackoverflow上的一些问答" class="headerlink" title="四、stackoverflow上的一些问答"></a><strong>四、stackoverflow上的一些问答</strong></h2><p><strong>Q</strong>：OpenID和OAuth的区别是什么？<br><strong>A</strong>：OpenID是有关身份验证（即证明你是谁），OAuth有关授权（即授予访问权限），推荐博文：<a href="http://cakebaker.42dh.com/2008/04/01/openid-versus-oauth-from-the-users-perspective/" target="_blank" rel="noopener">从用户的角度来看OpenID和OAuth</a>                    </p>
 <p><strong>Q</strong>：OAuth2与OAuth1不同的地方是？有人可以简单的解释的OAuth2和OAuth1之间的区别吗？ OAuth1现在已经过时，应实施的OAuth2？我没有看到许多实现的OAuth2，大多数仍在使用OAuth，这让我怀疑的OAuth2的准备使用。是吗？<br><strong>A</strong>：OAuth2能更好地支持不是基于浏览器的应用。对于不是基于浏览器的应用程序，这是对OAuth的主要挑战。例如，在OAuth1.0，桌面应用或手机应用必须引导用户打开浏览器所需的服务，与服务进行身份验证，并复制令牌从服务返回给应用程序。这里的主要批评是针对用户体验。使用OAuth2.0，可以用新的方式为用户的应用程序获得授权。<br>OAuth2.0不再需要客户端应用程序拥有密钥。这让人回想起老的Twitter认证的API，它并不需要应用得到HMAC哈希令牌和请求字符串。使用OAuth2.0，应用程序可以通过HTTPS获得令牌。<br>OAuth2.0的签名流程简单得多。没有更多的特殊解析，排序，或编码。<br>OAuth2.0的访问令牌是“短命”的。通常情况下，OAuth1.0的访问令牌可以存储一年或一年以上（Twitter从来没有让他们到期）。 OAuth的2.0有刷新令牌的概念。虽然我不能完全肯定这是什么意思，我的猜测是，您的访问令牌可以是短暂存储的（即基于会话），而你可以刷新令牌。你使用刷新令牌获取新的访问令牌，而不是让用户重新授权您的应用程序。<br>最后，OAuth2.0使得负责处理的OAuth请求的服务器和处理用户的授权服务器之间的角色有一个干净的分离。更多信息，在上述的文章中详述。</p>
 <p><strong>Q</strong>：OAuth2服务器群怎么使用state来防范CSRF？<br><strong>A</strong>：state只是一个随机的字符串，可以做这样的事情：$state = md5(uniqid(rand(), TRUE));在session中记录satate，以便稍后你能做验证。一些额外的资料：<a href="http://tools.ietf.org/html/draft-ietf-oauth-v2-threatmodel-00" target="_blank" rel="noopener">OAuth2威胁文件模型</a>，<a href="http://tools.ietf.org/html/draft-ietf-oauth-v2-26#section-10.12" target="_blank" rel="noopener">特别CSRF保护</a>                                    </p>
-	
+
 	</div>
-	
+
 	<div id="current-post-cover" data-scr="/img/cart_cover.jpg"></div>
 
 	<!-- relate post, comment...-->
@@ -542,7 +542,7 @@
 				<div>评论</div>
 				<div>分享</div>
 			</div>
-			<div class="investment-title-2">	            
+			<div class="investment-title-2">
 				
 	<span>
 		<a href="javascript: window.scrollTo(0, 0);">返回顶部</a>
@@ -559,13 +559,13 @@
 	</span>
 
 
-      		
-			</div>	
+    
+			</div>
 		</div>
-		
+
 		<div class="investment-content">
 			<div class="investment-content-list">
-				
+	     
 
 <div class="relate-post">
 	
@@ -622,10 +622,10 @@
 			
 		</ul>
 	
-</div>	
+</div>
 			</div>
 			<div class="investment-content-list">
-				<div class="layout-comment">
+      <div class="layout-comment">
 
 	
 
@@ -725,8 +725,9 @@
 
 
 			</div>
-		</div>	
+		</div>
 	</div>
+
 	</div>
 </div>
 
@@ -889,6 +890,7 @@
 		});
 	}
 </script>
+
 		</main>
 
 		<!--footer-->

@@ -247,7 +247,7 @@
 		<script src="/plugin/toc/katelog.min.js"></script>
 
 		
-	 
+	
 
 <div class="layout-post">
 	<div id="layout-post">
@@ -307,9 +307,9 @@
 			优化
 		</a>
 	
-		
+
 		</span>
-		
+
 		
 
 	
@@ -377,9 +377,9 @@ d_i=0,1 \quad i=&1,2,\cdots,9 \notag
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>上述模型说明了整数规划的最优解并不一定是唯一的，模型 2 正是在模型 1 的最优解空间中进一步搜索从而得到同时还满足极大化总学分的理想解。事实上模型 2 的最优解解也不唯一，如还可以选择课程 1,2,3,5,7,9 。</p>
 <h3 id="程序源代码"><a href="#程序源代码" class="headerlink" title="程序源代码"></a>程序源代码</h3><h4 id="最小化课程数目"><a href="#最小化课程数目" class="headerlink" title="最小化课程数目"></a>最小化课程数目</h4><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">clear,clc;</span><br><span class="line"><span class="comment">%% function</span></span><br><span class="line">f=<span class="built_in">ones</span>(<span class="number">1</span>,<span class="number">9</span>);</span><br><span class="line"><span class="comment">%% Inequality constraints</span></span><br><span class="line">A=[<span class="number">-1</span>,<span class="number">-1</span>,<span class="number">-1</span>,<span class="number">-1</span>,<span class="number">-1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>;</span><br><span class="line">    <span class="number">0</span>,<span class="number">0</span>,<span class="number">-1</span>,<span class="number">0</span>,<span class="number">-1</span>,<span class="number">-1</span>,<span class="number">0</span>,<span class="number">-1</span>,<span class="number">-1</span>;</span><br><span class="line">    <span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">-1</span>,<span class="number">0</span>,<span class="number">-1</span>,<span class="number">-1</span>,<span class="number">0</span>,<span class="number">-1</span>;</span><br><span class="line">    <span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">-1</span>,<span class="number">0</span>,<span class="number">0</span>;</span><br><span class="line">    <span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">-1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>;</span><br><span class="line">    <span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">-1</span>,<span class="number">0</span>,<span class="number">0</span>;</span><br><span class="line">    <span class="number">-1</span>,<span class="number">-1</span>,<span class="number">2</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>;</span><br><span class="line">    <span class="number">-1</span>,<span class="number">-1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">2</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>;</span><br><span class="line">    <span class="number">-1</span>,<span class="number">-1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">2</span>;];</span><br><span class="line">b=[<span class="number">-2</span>,<span class="number">-3</span>,<span class="number">-2</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>]';</span><br><span class="line">Aeq=[];</span><br><span class="line">beq=[];</span><br><span class="line">intcon=<span class="number">1</span>:<span class="number">9</span>;</span><br><span class="line"><span class="comment">%% solve</span></span><br><span class="line">x=intlinprog(f,intcon,A,b,Aeq,beq,<span class="built_in">zeros</span>(<span class="number">9</span>,<span class="number">1</span>),<span class="built_in">ones</span>(<span class="number">9</span>,<span class="number">1</span>))</span><br></pre></td></tr></table></figure>
 <h4 id="最小课程数目-极大化总学分"><a href="#最小课程数目-极大化总学分" class="headerlink" title="最小课程数目,极大化总学分"></a>最小课程数目,极大化总学分</h4><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">clear,clc;</span><br><span class="line">xuefen_1=[<span class="number">5</span>,<span class="number">4</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">3</span>];</span><br><span class="line"><span class="comment">%% function</span></span><br><span class="line">f=-<span class="built_in">ones</span>(<span class="number">1</span>,<span class="number">9</span>).*xuefen_1;</span><br><span class="line">A=[<span class="number">-1</span>,<span class="number">-1</span>,<span class="number">-1</span>,<span class="number">-1</span>,<span class="number">-1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>;</span><br><span class="line">    <span class="number">0</span>,<span class="number">0</span>,<span class="number">-1</span>,<span class="number">0</span>,<span class="number">-1</span>,<span class="number">-1</span>,<span class="number">0</span>,<span class="number">-1</span>,<span class="number">-1</span>;</span><br><span class="line">    <span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">-1</span>,<span class="number">0</span>,<span class="number">-1</span>,<span class="number">-1</span>,<span class="number">0</span>,<span class="number">-1</span>;</span><br><span class="line">    <span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">-1</span>,<span class="number">0</span>,<span class="number">0</span>;</span><br><span class="line">    <span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">-1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>;</span><br><span class="line">    <span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">-1</span>,<span class="number">0</span>,<span class="number">0</span>;</span><br><span class="line">    <span class="number">-1</span>,<span class="number">-1</span>,<span class="number">2</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>;</span><br><span class="line">    <span class="number">-1</span>,<span class="number">-1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">2</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>;</span><br><span class="line">    <span class="number">-1</span>,<span class="number">-1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">2</span>;];</span><br><span class="line">b=[<span class="number">-2</span>,<span class="number">-3</span>,<span class="number">-2</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>]';</span><br><span class="line"><span class="comment">%% Equality constraints</span></span><br><span class="line">Aeq=<span class="built_in">ones</span>(<span class="number">1</span>,<span class="number">9</span>);</span><br><span class="line">beq=<span class="number">6</span>; <span class="comment">% the minimum number of courses</span></span><br><span class="line">intcon=<span class="number">1</span>:<span class="number">9</span>;</span><br><span class="line">[x,fval]=intlinprog(f,intcon,A,b,Aeq,beq,<span class="built_in">zeros</span>(<span class="number">9</span>,<span class="number">1</span>),<span class="built_in">ones</span>(<span class="number">9</span>,<span class="number">1</span>))</span><br></pre></td></tr></table></figure>
-	
+
 	</div>
-	
+
 	<div id="current-post-cover" data-scr="/img/cart_cover.jpg"></div>
 
 	<!-- relate post, comment...-->
@@ -390,7 +390,7 @@ d_i=0,1 \quad i=&1,2,\cdots,9 \notag
 				<div>评论</div>
 				<div>分享</div>
 			</div>
-			<div class="investment-title-2">	            
+			<div class="investment-title-2">
 				
 	<span>
 		<a href="javascript: window.scrollTo(0, 0);">返回顶部</a>
@@ -407,13 +407,13 @@ d_i=0,1 \quad i=&1,2,\cdots,9 \notag
 	</span>
 
 
-      		
-			</div>	
+    
+			</div>
 		</div>
-		
+
 		<div class="investment-content">
 			<div class="investment-content-list">
-				
+	     
 
 <div class="relate-post">
 	
@@ -469,10 +469,10 @@ d_i=0,1 \quad i=&1,2,\cdots,9 \notag
 			
 		</ul>
 	
-</div>	
+</div>
 			</div>
 			<div class="investment-content-list">
-				<div class="layout-comment">
+      <div class="layout-comment">
 
 	
 
@@ -572,8 +572,9 @@ d_i=0,1 \quad i=&1,2,\cdots,9 \notag
 
 
 			</div>
-		</div>	
+		</div>
 	</div>
+
 	</div>
 </div>
 
@@ -747,6 +748,7 @@ d_i=0,1 \quad i=&1,2,\cdots,9 \notag
 		});
 	}
 </script>
+
 		</main>
 
 		<!--footer-->

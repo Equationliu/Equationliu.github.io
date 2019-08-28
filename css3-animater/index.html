@@ -247,7 +247,7 @@
 		<script src="/plugin/toc/katelog.min.js"></script>
 
 		
-	 
+	
 
 <div class="layout-post">
 	<div id="layout-post">
@@ -303,9 +303,9 @@
 			css3
 		</a>
 	
-		
+
 		</span>
-		
+
 		
 
 	
@@ -340,9 +340,9 @@
 <p><img src="/.com//blogImg/css3_anm.jpg" alt="两种情况"><br>1与2的区别，其实就是双键产生时，两个按键的时间间隔的区别。时间间隔长，用户是需要1这种效果的，而时间间隔短，用户就是想只执行“双键”。但程序是固定的，无论时间间隔有多短，在它看来就是有先后，因此程序认为2和1是一样的。我在demo里，就用了时间戳的方式，而这种方式，其实是“投机取巧”的一种方式。</p>
 <p>回到上面那个问题来，这样的纯css3动作序列有什么问题？时间的问题更深入一点我可以得到结论：<br>    那就是无法侦听一个css3动作是否已经结束。<br>如果我能够侦听动作是否正在执行，那么一切就好办了，如果前动作已完成，我就像情况1一样“先单键再双键”去操作，如果前动作未完成，我就判断用户是想只执行“双键”。</p>
 <p>OK，js代码就是要像jquery的animate方法一样，构造一个动作的队列，存放用户积累下来的动作，并作好回调判断。</p>
-	
+
 	</div>
-	
+
 	<div id="current-post-cover" data-scr="/img/cart_cover.jpg"></div>
 
 	<!-- relate post, comment...-->
@@ -353,7 +353,7 @@
 				<div>评论</div>
 				<div>分享</div>
 			</div>
-			<div class="investment-title-2">	            
+			<div class="investment-title-2">
 				
 	<span>
 		<a href="javascript: window.scrollTo(0, 0);">返回顶部</a>
@@ -370,13 +370,13 @@
 	</span>
 
 
-      		
-			</div>	
+    
+			</div>
 		</div>
-		
+
 		<div class="investment-content">
 			<div class="investment-content-list">
-				
+	     
 
 <div class="relate-post">
 	
@@ -434,10 +434,10 @@
 			
 		</ul>
 	
-</div>	
+</div>
 			</div>
 			<div class="investment-content-list">
-				<div class="layout-comment">
+      <div class="layout-comment">
 
 	
 
@@ -537,8 +537,9 @@
 
 
 			</div>
-		</div>	
+		</div>
 	</div>
+
 	</div>
 </div>
 
@@ -701,6 +702,7 @@
 		});
 	}
 </script>
+
 		</main>
 
 		<!--footer-->

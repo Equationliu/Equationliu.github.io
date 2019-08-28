@@ -247,7 +247,7 @@
 		<script src="/plugin/toc/katelog.min.js"></script>
 
 		
-	 
+	
 
 <div class="layout-post">
 	<div id="layout-post">
@@ -303,9 +303,9 @@
 			js
 		</a>
 	
-		
+
 		</span>
-		
+
 		
 
 	
@@ -354,9 +354,9 @@
 <h2 id="二-递归调用切割函数"><a href="#二-递归调用切割函数" class="headerlink" title="二.递归调用切割函数"></a><strong>二.递归调用切割函数</strong></h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">_getGrids</span>(<span class="params">tag</span>) </span>&#123;</span><br><span class="line">	<span class="comment">/*domArr是拥有left,top,width,height,bg等属性的所有dom数组，_getGrids的最终目的就是生成这个数组*/</span></span><br><span class="line">	<span class="keyword">var</span> domArr = [],</span><br><span class="line">	_cutGrid(tag.pageLayout,</span><br><span class="line">		<span class="function"><span class="keyword">function</span>(<span class="params">tag</span>) </span>&#123;</span><br><span class="line">			<span class="keyword">if</span> (tag.rows || tag.cols) &#123;</span><br><span class="line">				<span class="comment">/*假如子级存在rows或者cols，则递归切割*/</span></span><br><span class="line">				_cutGrid(tag, <span class="built_in">arguments</span>.callee);</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">else</span> &#123;</span><br><span class="line">				<span class="comment">/*子级不存在rows或者cols，不再进行切割，构造domArr*/</span></span><br><span class="line">				…</span><br><span class="line">				domArr.push(xxx)</span><br><span class="line">				…</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	);</span><br><span class="line">	<span class="keyword">return</span> domArr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="三-切割函数"><a href="#三-切割函数" class="headerlink" title="三.切割函数"></a><strong>三.切割函数</strong></h2><p>切割函数挺有意思的，下次想再用一篇文章来详细写一下，在这里仅贴出参考的源码。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*对象复制函数*/</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">_shadowClone</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">var</span> t = &#123;&#125;;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">var</span> n <span class="keyword">in</span> e) e.hasOwnProperty(n) &amp;&amp; (t[n] = e[n]);</span><br><span class="line">	<span class="keyword">return</span> t;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*判断子块随机布局与否*/</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">function</span> <span class="title">ranOrNot</span>(<span class="params">e, t</span>) </span>&#123;</span><br><span class="line">		<span class="keyword">var</span> n = [];</span><br><span class="line">		<span class="keyword">typeof</span> t == <span class="string">"undefined"</span> &amp;&amp; (t = e, e = <span class="number">0</span>);</span><br><span class="line">		<span class="keyword">for</span> (; e &lt; t; e++) n.push(e);</span><br><span class="line">		<span class="keyword">return</span> n</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">/*随机布局*/</span></span><br><span class="line">	<span class="built_in">Array</span>.prototype.randomEach = <span class="function"><span class="keyword">function</span>(<span class="params">t</span>) </span>&#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="number">3</span>);</span><br><span class="line">		<span class="keyword">if</span> (<span class="keyword">typeof</span> t != <span class="string">"function"</span>) <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>;</span><br><span class="line">		<span class="keyword">var</span> n = <span class="keyword">this</span>.length,</span><br><span class="line">		r = ranOrNot(n);</span><br><span class="line">		<span class="keyword">while</span> (n) &#123;</span><br><span class="line">			<span class="keyword">var</span> i = <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * n--);</span><br><span class="line">			<span class="keyword">if</span> (t(<span class="keyword">this</span>[r[i]]) === !<span class="number">1</span>) <span class="keyword">break</span>;</span><br><span class="line">			r[i] = r[n]</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;,</span><br><span class="line">	<span class="comment">/*常规布局*/</span></span><br><span class="line">	<span class="built_in">Array</span>.prototype.forEach || (<span class="built_in">Array</span>.prototype.forEach = <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">		<span class="keyword">var</span> t = <span class="keyword">this</span>.length;</span><br><span class="line">		<span class="keyword">if</span> (<span class="keyword">typeof</span> e != <span class="string">"function"</span>) <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>;</span><br><span class="line">		<span class="keyword">var</span> n = <span class="built_in">arguments</span>[<span class="number">1</span>];</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">var</span> r = <span class="number">0</span>; r &lt; t; r++) r <span class="keyword">in</span> <span class="keyword">this</span> &amp;&amp; e.call(n, <span class="keyword">this</span>[r], r, <span class="keyword">this</span>)</span><br><span class="line">	&#125;)</span><br><span class="line">&#125; )();</span><br><span class="line"></span><br><span class="line"><span class="comment">/*切割函数*/</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">_cutGrid</span>(<span class="params">tag, funcJudge</span>) </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params">a</span>) </span>&#123;</span><br><span class="line">		<span class="function"><span class="keyword">function</span> <span class="title">h</span>(<span class="params">cutLength</span>) </span>&#123;</span><br><span class="line">			<span class="comment">/*复制子块对象并计算出子块top,left*/</span></span><br><span class="line">			<span class="keyword">var</span> u, a = _shadowClone(cutLength);</span><br><span class="line">			c++,</span><br><span class="line">			u = c === l ? tag[cutType2.measure] - s: <span class="built_in">Math</span>.floor(cutLength[cutType2.measure] * tag[cutType2.measure] / <span class="number">100</span>),</span><br><span class="line">			a[cutType1.offset] = i + tag[cutType1.offset],</span><br><span class="line">			a[cutType2.offset] = s + tag[cutType2.offset],</span><br><span class="line">			a[cutType1.measure] = f,</span><br><span class="line">			a[cutType2.measure] = u,</span><br><span class="line">			a.colorPattern = tag.colorPattern,</span><br><span class="line">			<span class="comment">/*判断小块是否还需要分割*/</span></span><br><span class="line">			funcJudge(a),</span><br><span class="line">			s += u</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">var</span> f, l = a[cutType2.name].length,</span><br><span class="line">		c = <span class="number">0</span>;</span><br><span class="line">		u++,</span><br><span class="line">		f = u === cutLength ? tag[cutType1.measure] - i: <span class="built_in">Math</span>.floor(a[cutType1.measure] * tag[cutType1.measure] / <span class="number">100</span>),</span><br><span class="line">		a.random === !<span class="number">1</span> ? a[cutType2.name].forEach(h) : a[cutType2.name].randomEach(h),</span><br><span class="line">		s = <span class="number">0</span>,</span><br><span class="line">		i += f</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">/*根据大块是否有rows属性，定义两种切割方式*/</span></span><br><span class="line">	<span class="keyword">var</span> cutType1, cutType2;</span><br><span class="line">	tag.rows ? (cutType1 = &#123;</span><br><span class="line">		name: <span class="string">"rows"</span>,</span><br><span class="line">		measure: <span class="string">"height"</span>,</span><br><span class="line">		offset: <span class="string">"top"</span></span><br><span class="line">	&#125;,</span><br><span class="line">	cutType2 = &#123;</span><br><span class="line">		name: <span class="string">"cols"</span>,</span><br><span class="line">		measure: <span class="string">"width"</span>,</span><br><span class="line">		offset: <span class="string">"left"</span></span><br><span class="line">	&#125;) : (cutType1 = &#123;</span><br><span class="line">		name: <span class="string">"cols"</span>,</span><br><span class="line">		measure: <span class="string">"width"</span>,</span><br><span class="line">		offset: <span class="string">"left"</span></span><br><span class="line">	&#125;,</span><br><span class="line">	cutType2 = &#123;</span><br><span class="line">		name: <span class="string">"rows"</span>,</span><br><span class="line">		measure: <span class="string">"height"</span>,</span><br><span class="line">		offset: <span class="string">"top"</span></span><br><span class="line">	&#125;);</span><br><span class="line">	<span class="keyword">var</span> i = <span class="number">0</span>,</span><br><span class="line">	s = <span class="number">0</span>,</span><br><span class="line">	cutLength = tag[cutType1.name].length,</span><br><span class="line">	u = <span class="number">0</span>;</span><br><span class="line">	<span class="comment">/*是否随机布局*/</span></span><br><span class="line">	tag.random === !<span class="number">1</span> ? tag[cutType1.name].forEach(a) : tag[cutType1.name].randomEach(a)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h2 id="四-最后"><a href="#四-最后" class="headerlink" title="四.最后"></a><strong>四.最后</strong></h2><p>完成到这一步，我已不记得声明对象时出了多少次错误。各种尖括号，方括号，逗号和分号翩翩起舞时，你一定跟我一样很想念coffee的语法糖…</p>
-	
+
 	</div>
-	
+
 	<div id="current-post-cover" data-scr="/img/cart_cover.jpg"></div>
 
 	<!-- relate post, comment...-->
@@ -367,7 +367,7 @@
 				<div>评论</div>
 				<div>分享</div>
 			</div>
-			<div class="investment-title-2">	            
+			<div class="investment-title-2">
 				
 	<span>
 		<a href="javascript: window.scrollTo(0, 0);">返回顶部</a>
@@ -384,13 +384,13 @@
 	</span>
 
 
-      		
-			</div>	
+    
+			</div>
 		</div>
-		
+
 		<div class="investment-content">
 			<div class="investment-content-list">
-				
+	     
 
 <div class="relate-post">
 	
@@ -449,10 +449,10 @@
 			
 		</ul>
 	
-</div>	
+</div>
 			</div>
 			<div class="investment-content-list">
-				<div class="layout-comment">
+      <div class="layout-comment">
 
 	
 
@@ -552,8 +552,9 @@
 
 
 			</div>
-		</div>	
+		</div>
 	</div>
+
 	</div>
 </div>
 
@@ -716,6 +717,7 @@
 		});
 	}
 </script>
+
 		</main>
 
 		<!--footer-->

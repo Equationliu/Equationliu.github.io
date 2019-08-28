@@ -247,7 +247,7 @@
 		<script src="/plugin/toc/katelog.min.js"></script>
 
 		
-	 
+	
 
 <div class="layout-post">
 	<div id="layout-post">
@@ -307,9 +307,9 @@
 			模式
 		</a>
 	
-		
+
 		</span>
-		
+
 		
 
 	
@@ -347,9 +347,9 @@
 <p>最后的片段就是中介者，<code>mediator</code>。它首先要决定开始比赛，也就是setup，新建了一个名称为Home，一个名称为Guest的Player model。当两个player得分时，mediator执行played，收集两方的分数，构造成score对象，并将这score对象交由scoreboard展示。keypress则是用于判断怎样才算得分：<br><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">mediator = </span><br><span class="line">	players:&#123;&#125;</span><br><span class="line">	setup:<span class="function">-&gt;</span></span><br><span class="line">		players = @players</span><br><span class="line">		players.home = <span class="keyword">new</span> Player <span class="string">'Home'</span></span><br><span class="line">		players.guest = <span class="keyword">new</span> Player <span class="string">'Guest'</span></span><br><span class="line">	played:<span class="function">-&gt;</span></span><br><span class="line">		players = @players</span><br><span class="line">		score = </span><br><span class="line">			Home: players.home.points</span><br><span class="line">			Guest:players.guest.points</span><br><span class="line">		scoreboard.update score</span><br><span class="line">	keypress:<span class="function"><span class="params">(e)</span>-&gt;</span></span><br><span class="line">		e = e|| <span class="built_in">window</span>.event</span><br><span class="line">		keycode = e.which</span><br><span class="line">		<span class="keyword">if</span> keycode <span class="keyword">is</span> <span class="number">102</span></span><br><span class="line">			mediator.players.home.play()</span><br><span class="line">			<span class="keyword">return</span></span><br><span class="line">		<span class="keyword">if</span> keycode <span class="keyword">is</span> <span class="number">106</span></span><br><span class="line">			mediator.players.guest.play()</span><br><span class="line">			<span class="keyword">return</span></span><br></pre></td></tr></table></figure></p>
 <p>最后执行，运行程序：<br><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mediator.setup()</span><br><span class="line"><span class="built_in">window</span>.onkeypress = mediator.keypress</span><br></pre></td></tr></table></figure></p>
 <h2 id="小分享心得"><a href="#小分享心得" class="headerlink" title="小分享心得"></a><strong>小分享心得</strong></h2><p>中介者模式将控制集中化，colleague对象之间解耦，不必维护各自之间的网状通信，但mediator承受了所有colleague提供过来的信息，肯定会相对复杂。如何优化mediator也会成为一个课题。中介者模式有点像一对多的模型，一个mediator对应多个colleague，而如果现实模型是多对多的，中介者模型视复杂度来说不一定适合。</p>
-	
+
 	</div>
-	
+
 	<div id="current-post-cover" data-scr="/img/cart_cover.jpg"></div>
 
 	<!-- relate post, comment...-->
@@ -360,7 +360,7 @@
 				<div>评论</div>
 				<div>分享</div>
 			</div>
-			<div class="investment-title-2">	            
+			<div class="investment-title-2">
 				
 	<span>
 		<a href="javascript: window.scrollTo(0, 0);">返回顶部</a>
@@ -377,13 +377,13 @@
 	</span>
 
 
-      		
-			</div>	
+    
+			</div>
 		</div>
-		
+
 		<div class="investment-content">
 			<div class="investment-content-list">
-				
+	     
 
 <div class="relate-post">
 	
@@ -438,10 +438,10 @@
 			
 		</ul>
 	
-</div>	
+</div>
 			</div>
 			<div class="investment-content-list">
-				<div class="layout-comment">
+      <div class="layout-comment">
 
 	
 
@@ -541,8 +541,9 @@
 
 
 			</div>
-		</div>	
+		</div>
 	</div>
+
 	</div>
 </div>
 
@@ -705,6 +706,7 @@
 		});
 	}
 </script>
+
 		</main>
 
 		<!--footer-->

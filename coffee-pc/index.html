@@ -247,7 +247,7 @@
 		<script src="/plugin/toc/katelog.min.js"></script>
 
 		
-	 
+	
 
 <div class="layout-post">
 	<div id="layout-post">
@@ -307,9 +307,9 @@
 			coffeescript
 		</a>
 	
-		
+
 		</span>
-		
+
 		
 
 	
@@ -348,9 +348,9 @@
 <li>站在产品的角度，我认为coffeescript这名字太长了-_-!              </li>
 </ul>
 <h2 id="附上源码"><a href="#附上源码" class="headerlink" title="附上源码"></a><strong>附上源码</strong></h2><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line">N = <span class="number">10</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ProCon</span></span></span><br><span class="line">	data: </span><br><span class="line">		mutex:<span class="number">1</span></span><br><span class="line">		empty:N</span><br><span class="line">		full:<span class="number">0</span></span><br><span class="line">		front:<span class="number">0</span></span><br><span class="line">		rear:<span class="number">0</span></span><br><span class="line">		buf: []</span><br><span class="line">	init:<span class="function">-&gt;</span></span><br><span class="line">		i = <span class="number">0</span></span><br><span class="line">		<span class="keyword">while</span> i&lt;N</span><br><span class="line">			newDom = $(<span class="string">'&lt;div class="bufBox"&gt;&lt;div class="bufCover"&gt;'</span>+i+<span class="string">'&lt;/div&gt;'</span>+i+<span class="string">'&lt;/div&gt;'</span>)</span><br><span class="line">			$(<span class="string">'#buf'</span>).append(newDom)</span><br><span class="line">			@data.buf.push <span class="string">'e'</span></span><br><span class="line">			i++</span><br><span class="line">		$(<span class="string">'#produce'</span>).click =&gt;</span><br><span class="line">			@producer()</span><br><span class="line">		$(<span class="string">'#consume'</span>).click =&gt;</span><br><span class="line">			@consumer()</span><br><span class="line">	p:<span class="function"><span class="params">(num)</span>-&gt;</span></span><br><span class="line">		<span class="keyword">return</span> --num</span><br><span class="line">	v:<span class="function"><span class="params">(num)</span>-&gt;</span></span><br><span class="line">		<span class="keyword">return</span> ++num</span><br><span class="line">	produceItem:<span class="function">-&gt;</span></span><br><span class="line">		$(<span class="string">'&lt;p class="desPro"&gt;生产了产品&lt;/p&gt;'</span>).insertBefore $(<span class="string">"#des p:first"</span>)</span><br><span class="line">		<span class="keyword">return</span> <span class="string">'m'</span></span><br><span class="line">	consumeItem:<span class="function">-&gt;</span></span><br><span class="line">		$(<span class="string">'&lt;p class="desCon"&gt;消费了产品&lt;/p&gt;'</span>).insertBefore $(<span class="string">"#des p:first"</span>)</span><br><span class="line">	enterItem:<span class="function"><span class="params">(item)</span> -&gt;</span></span><br><span class="line">		@data.front = (@data.front+<span class="number">1</span>)%N</span><br><span class="line">		@data.buf[@data.front] = item;</span><br><span class="line">		str = <span class="string">"存入产品<span class="subst">#&#123;@data.buf[@data.front]&#125;</span>到缓冲区<span class="subst">#&#123;@data.front&#125;</span>"</span></span><br><span class="line">		$(<span class="string">"&lt;p class='desPro'&gt;<span class="subst">#&#123;str&#125;</span>&lt;/p&gt;"</span>).insertBefore $(<span class="string">"#des p:first"</span>)</span><br><span class="line">		$($(<span class="string">'.bufCover'</span>)[@data.front]).animate </span><br><span class="line">			<span class="string">"height"</span>:<span class="string">"50px"</span></span><br><span class="line">	removeItem:<span class="function">-&gt;</span></span><br><span class="line">		@data.rear = (@data.rear + <span class="number">1</span>) % N;</span><br><span class="line">		@data.buf[@data.rear] = <span class="string">'e'</span>;</span><br><span class="line">		str = <span class="string">"取出产品<span class="subst">#&#123;@data.buf[@data.rear]&#125;</span>从缓冲区<span class="subst">#&#123;@data.rear&#125;</span>"</span></span><br><span class="line">		$(<span class="string">"&lt;p class='desCon'&gt;<span class="subst">#&#123;str&#125;</span>&lt;/p&gt;"</span>).insertBefore $(<span class="string">"#des p:first"</span>)</span><br><span class="line">		$($(<span class="string">'.bufCover'</span>)[@data.rear]).animate </span><br><span class="line">			<span class="string">"height"</span>:<span class="string">"0px"</span></span><br><span class="line">	producer:<span class="function">-&gt;</span></span><br><span class="line">		<span class="keyword">if</span> @data.full==N</span><br><span class="line">			$(<span class="string">"&lt;p class='desSpe'&gt;缓冲区已全满&lt;/p&gt;"</span>).insertBefore $(<span class="string">"#des p:first"</span>)</span><br><span class="line">			<span class="keyword">return</span></span><br><span class="line">		item = @produceItem()</span><br><span class="line">		@data.empty = @p(@data.empty)</span><br><span class="line">		@data.mutex = @p(@data.mutex)</span><br><span class="line">		@enterItem(item)</span><br><span class="line">		@data.mutex = @v(@data.mutex)</span><br><span class="line">		@data.full = @v(@data.full)</span><br><span class="line">	consumer:<span class="function">-&gt;</span></span><br><span class="line">		<span class="keyword">if</span> @data.empty==N</span><br><span class="line">			$(<span class="string">"&lt;p class='desSpe'&gt;缓冲区已空&lt;/p&gt;"</span>).insertBefore $(<span class="string">"#des p:first"</span>)</span><br><span class="line">			<span class="keyword">return</span></span><br><span class="line">		@data.full = @p(@data.full)</span><br><span class="line">		@data.mutex = @p(@data.mutex)</span><br><span class="line">		@removeItem()</span><br><span class="line">		@data.mutex = @v(@data.mutex)</span><br><span class="line">		@data.empty = @v(@data.empty)</span><br><span class="line">		@consumeItem()</span><br><span class="line">		</span><br><span class="line">procon = <span class="keyword">new</span> ProCon</span><br><span class="line">procon.init();</span><br></pre></td></tr></table></figure>
-	
+
 	</div>
-	
+
 	<div id="current-post-cover" data-scr="/img/cart_cover.jpg"></div>
 
 	<!-- relate post, comment...-->
@@ -361,7 +361,7 @@
 				<div>评论</div>
 				<div>分享</div>
 			</div>
-			<div class="investment-title-2">	            
+			<div class="investment-title-2">
 				
 	<span>
 		<a href="javascript: window.scrollTo(0, 0);">返回顶部</a>
@@ -378,13 +378,13 @@
 	</span>
 
 
-      		
-			</div>	
+    
+			</div>
 		</div>
-		
+
 		<div class="investment-content">
 			<div class="investment-content-list">
-				
+	     
 
 <div class="relate-post">
 	
@@ -443,10 +443,10 @@
 			
 		</ul>
 	
-</div>	
+</div>
 			</div>
 			<div class="investment-content-list">
-				<div class="layout-comment">
+      <div class="layout-comment">
 
 	
 
@@ -546,8 +546,9 @@
 
 
 			</div>
-		</div>	
+		</div>
 	</div>
+
 	</div>
 </div>
 
@@ -710,6 +711,7 @@
 		});
 	}
 </script>
+
 		</main>
 
 		<!--footer-->
