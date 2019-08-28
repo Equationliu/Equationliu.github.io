@@ -1731,8 +1731,8 @@ main {
 }
 #layout-post {
 /*font-family: Ovo,Georgia,STZhongsong,"Microsoft YaHei",serif;*/
-  font-size: 1rem;
-  line-height: 2;
+  font-size: 16pt;
+  line-height: 1.3;
 }
 .article-title {
   font-size: 2rem;
