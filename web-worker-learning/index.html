@@ -467,7 +467,7 @@ function tryWorker(){
         console.log(&#39;web worker: &#39;+ ((new Date()).valueOf() - d));
     };
 }
-</code></pre><p>第一次加载是一份1k大小的文件，每个方法重复5次，返回结果为:<br><img src="/.com//blogImg/web_worker1.png" alt="1k文件重复5次"><br>第二次加载1800k大小的文件，返回结果为：<br><img src="/.com//blogImg/web_worker2.png" alt="1800k文件重复5次"><br>可以看到对于较小的数据，jsonp还是比web worker要快，这可能是实例化worker对象时带来的影响；而数据偏大时，web worker的加载将会更优，而且它可以异步加载。</p>
+</code></pre><p>第一次加载是一份1k大小的文件，每个方法重复5次，返回结果为:<br><img src="/.io//blogImg/web_worker1.png" alt="1k文件重复5次"><br>第二次加载1800k大小的文件，返回结果为：<br><img src="/.io//blogImg/web_worker2.png" alt="1800k文件重复5次"><br>可以看到对于较小的数据，jsonp还是比web worker要快，这可能是实例化worker对象时带来的影响；而数据偏大时，web worker的加载将会更优，而且它可以异步加载。</p>
 <p>THE END.</p>
 
 	</div>
