@@ -266,6 +266,7 @@ audio {
   display: block;
   opacity: 1;
   max-width: 100%;
+  width: 100%;
   height: auto;
   cursor: pointer;
 }
@@ -294,6 +295,7 @@ video {
   display: block;
   opacity: 1;
   max-width: 100%;
+  width: 100%;
   height: auto;
   cursor: pointer;
   margin-bottom: 1rem;
@@ -1763,8 +1765,6 @@ main {
   border-spacing: 0;
   min-width: 100%;
   margin-bottom: 1rem;
-  max-width: 70%;
-  margin-left: 15%;
 }
 .article-content table {
   max-width: 70%;

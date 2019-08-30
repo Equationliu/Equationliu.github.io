@@ -13,7 +13,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
   <title>
     
-      指数族分布：充分统计量？无偏估计？相合估计？ | Equation-Blog
+      浅谈连续函数 | Equation-Blog
     
   </title>
   <meta name="author" content="Equation">
@@ -44,10 +44,9 @@
 	<div id="preloader">
 		<div class="pre-container">
 			
-				<div class="transition">
-					<div class="three-bounce1"></div>
-					<div class="three-bounce2"></div>
-					<div class="three-bounce3"></div>
+				<div class="spinner">
+					<div class="double-bounce1"></div>
+					<div class="double-bounce2"></div>
 				</div>
 						
 		</div>
@@ -166,7 +165,7 @@
 	<!-- Page title -->
 	<p>
 		
-			当前文章&nbsp;:&nbsp;《指数族分布：充分统计量？无偏估计？相合估计？》
+			当前文章&nbsp;:&nbsp;《浅谈连续函数》
 		
 	</p>
 
@@ -238,7 +237,6 @@
 </nav>
 
 
-
 			
 		<!--main-->
 		<main>
@@ -268,8 +266,8 @@
 	<div class="article-title">
 		<i class="fas fa-paper-plane" aria-hidden="true"></i>
 		
-	<a href="/2019-8-27-exponential/" itemprop="url">
-		指数族分布：充分统计量？无偏估计？相合估计？
+	<a href="/2019-6-28-continuous/" itemprop="url">
+		浅谈连续函数
 	</a>
 
 	</div>
@@ -282,9 +280,9 @@
 
 	发布于
 
-	<a href="/2019-8-27-exponential/" itemprop="url">
-		<time datetime="2019-06-25T05:00:00.000Z" itemprop="datePublished">
-	  		2019-06-25
+	<a href="/2019-6-28-continuous/" itemprop="url">
+		<time datetime="2019-06-28T05:00:00.000Z" itemprop="datePublished">
+	  		2019-06-28
 	  </time>
 	</a>
 	&nbsp;
@@ -300,9 +298,9 @@
 
 	更新于
 
-	<a href="/2019-8-27-exponential/" itemprop="url">
-		<time datetime="2019-06-25T05:00:00.000Z" itemprop="dateUpdated">
-	  		2019-08-28
+	<a href="/2019-6-28-continuous/" itemprop="url">
+		<time datetime="2019-06-28T05:00:00.000Z" itemprop="dateUpdated">
+	  		2019-08-30
 	  </time>
 	</a> 
 
@@ -317,24 +315,8 @@
 			数学
 		</a>
 	
-		<a href="/tags/统计/" class=" ">
-			统计
-		</a>
-	
-		<a href="/tags/机器学习/" class=" ">
-			机器学习
-		</a>
-	
 		<a href="/tags/math/" class=" ">
 			math
-		</a>
-	
-		<a href="/tags/Statistics/" class=" ">
-			Statistics
-		</a>
-	
-		<a href="/tags/machine-learning/" class=" ">
-			machine learning
 		</a>
 	
 		
@@ -343,7 +325,7 @@
 		
 
 	
-    <span class="leancloud_visitors" id="/2019-8-27-exponential/_visitors" data-url="/2019-8-27-exponential/" data-title="指数族分布：充分统计量？无偏估计？相合估计？">
+    <span class="leancloud_visitors" id="/2019-6-28-continuous/_visitors" data-url="/2019-6-28-continuous/" data-title="浅谈连续函数">
        	<i class="fa fa-eye"></i>
        	热度
         <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
@@ -353,7 +335,7 @@
 
 
 	
-    <span class="leancloud_likes" id="/2019-8-27-exponential/_likes" data-url="/2019-8-27-exponential/" data-title="指数族分布：充分统计量？无偏估计？相合估计？" rel="unlike">
+    <span class="leancloud_likes" id="/2019-6-28-continuous/_likes" data-url="/2019-6-28-continuous/" data-title="浅谈连续函数" rel="unlike">
         <i class="fa fa-heart"></i>
         喜欢
         <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
@@ -362,55 +344,41 @@
 	</div>
 
 	<div class="article-content" id="article-content">
-		<p>考察给定参数 $\boldsymbol{\eta} $ 的指数族分布</p>
-<script type="math/tex; mode=display">
-p_{X}(\mathbf{x} | \boldsymbol{\eta})=h(\mathbf{x}) g(\boldsymbol{\eta}) \exp \left\{\boldsymbol{\eta}^{\mathrm{T}} \mathbf{u}(\mathbf{x})\right\}</script><p>试证明</p>
-<ol>
-<li>参数 $\boldsymbol{\eta}$ 的极大似然估计量（$\boldsymbol{\eta}_{\mathrm{ML}}$）也是一个充分统计量。</li>
-<li>$-\nabla \ln g\left(\boldsymbol{\eta}_{\mathrm{ML}}\right)$ 是一个<strong>相合估计量</strong>。</li>
-</ol>
+		<p>数学分析的学习过程中上来便是极限，连续的概念，而课本中的连续概念正是用极限定义的。不过如果细究数学史的话，连续概念是要先于极限的概念提出的。</p>
+<p>以下内容旨在粗略介绍我眼中连续概念的前世今生。</p>
+<h2 id="闭区间上连续函数的性质"><a href="#闭区间上连续函数的性质" class="headerlink" title="闭区间上连续函数的性质"></a>闭区间上连续函数的性质</h2><h3 id="引例"><a href="#引例" class="headerlink" title="引例"></a>引例</h3><p>为了先直观凸显连续函数的威力，我们从一个例题开始。</p>
+<p>设实值函数 $f(x)$ 在 $[0,n]$（$n$ 为自然数，$n\ge 2$）上连续，$f(0) = f(n)$，证明存在 $\xi,\xi+1\in[0,n]$ ，使得 $f(\xi) = f(\xi+1)$ 。</p>
+<p>题目说的就是下面这个图的意思：</p>
+<p><img src="https://i.loli.net/2019/08/30/5Estyhm3DZCXVbu.jpg" alt></p>
 <blockquote>
-<p>事实上，由充分统计量可以唯一构造出一个无偏估计量，进而是 UMVUE （一致最小方差无偏估计）</p>
+<p>显然这个比仅仅要求 $f(\xi_1) = f(\xi_2)$ 要更强，证明如下：</p>
+<p>构造函数 $g(x) = f(x) - f(x+1)$，易知 $g(x) $ 连续。令 $x$ 遍历 $[0,n-1]$ 内所有整数有</p>
+<script type="math/tex; mode=display">
+\begin{align*}
+m_1 &\le f(0) - f(1) \le M_1  \\
+m_2 &\le f(1) - f(2) \le M_2 \\
+& \quad \qquad \cdots \\
+m_{n}&\le f(n-1) - f(n) \le M_{n} \\
+\end{align*}</script><p>取 $m = \min\limits_{x \in [0,n]}g(x),M = \max \limits_{x \in [0,n]}g(x)$，累计上述不等式得到</p>
+<script type="math/tex; mode=display">
+nm \le 0 \le nM</script><p>再由<strong>介值定理</strong>可得必 $\exists \; \xi \in [0,n]$ 有 $g(\xi) = 0$，即 $f(\xi) = f(\xi+1)$。</p>
 </blockquote>
-<h2 id="引理：指数族分布的充分统计量"><a href="#引理：指数族分布的充分统计量" class="headerlink" title="引理：指数族分布的充分统计量"></a>引理：指数族分布的充分统计量</h2><p>设随机变量 $X$ 具有单参数指数族分布</p>
-<script type="math/tex; mode=display">
-p_{X}(\mathbf{x} | \boldsymbol{\eta})=h(\mathbf{x}) g(\boldsymbol{\eta}) \exp \left\{\boldsymbol{\eta}^{\mathrm{T}} \mathbf{u}(\mathbf{x})\right\}</script><p>$X_1,X_2,\cdots,X_N$ 为取自母体 $X $ 的一个子样，则统计量 </p>
-<script type="math/tex; mode=display">
-\sum_{n=1}^{N}\mathbf{u}(x_n)</script><p>是参数 $\boldsymbol{\eta} $ 的充分统计量。</p>
-<h2 id="证明"><a href="#证明" class="headerlink" title="证明"></a>证明</h2><blockquote>
-<p><strong>部分</strong>解答过程参考于 <a href="https://www.microsoft.com/en-us/research/people/cmbishop/#!prml-book" target="_blank" rel="noopener">PRML</a></p>
-</blockquote>
-<ol>
-<li><p>样本的似然函数</p>
-<script type="math/tex; mode=display">
-p(\mathbf{X} | \boldsymbol{\eta})=\left(\prod_{n=1}^{N} h\left(\mathbf{x}_{n}\right)\right) g(\boldsymbol{\eta})^{N} \exp \left\{\boldsymbol{\eta}^{\mathrm{T}} \sum_{n=1}^{N} \mathbf{u}\left(\mathbf{x}_{n}\right)\right\}</script><p>令其<strong>对数似然函数</strong>对参数 $\boldsymbol{\eta} $ 的梯度为零，得到其极大似然估计 $\boldsymbol{\eta} _{ML} $ 满足</p>
-<script type="math/tex; mode=display">
--\nabla \ln g\left(\boldsymbol{\eta}_{\mathrm{ML}}\right)=\frac{1}{N} \sum_{n=1}^{N} \mathbf{u}\left(\mathbf{x}_{n}\right)</script><p>从而 $\boldsymbol{\eta} _{ML} $ 仅由 $\sum_{n=1}^{N} \mathbf{u}\left(\mathbf{x}_{n}\right)$ 决定。由引理知其 $\boldsymbol{\eta} _{ML} $ 是一个充分统计量。</p>
+<h3 id="连续初印象"><a href="#连续初印象" class="headerlink" title="连续初印象"></a>连续初印象</h3><ol>
+<li><p>从定义来说，连续就是函数在点 $x_0$ 处有 $\lim \limits_{x \rightarrow x_0}f(x) = f(x_0)$。</p>
 </li>
-<li><p>单参数指数族分布中的 $g(\boldsymbol{\eta}) $ 实际上是概率分布的归一项，即</p>
-<script type="math/tex; mode=display">
-g(\boldsymbol{\eta}) \int h(\mathbf{x}) \exp \left\{\boldsymbol{\eta}^{\mathrm{T}} \mathbf{u}(\mathbf{x})\right\} \mathrm{d} \mathbf{x}=1</script><p>上式两边对参数 $\boldsymbol{\eta}$ 求梯度，有</p>
-<script type="math/tex; mode=display">
-\nabla g(\eta) \int h(\mathbf{x}) \exp \left\{\eta^{\mathrm{T}} \mathbf{u}(\mathbf{x})\right\} \mathrm{d} \mathbf{x}{+g(\boldsymbol{\eta}) \int h(\mathbf{x}) \exp \left\{\boldsymbol{\eta}^{\mathrm{T}} \mathbf{u}(\mathbf{x})\right\} \mathbf{u}(\mathbf{x}) \mathrm{d} \mathbf{x}=0}</script><p>再将 $\int h(\mathbf{x}) \exp \left\{\eta^{\mathrm{T}} \mathbf{u}(\mathbf{x})\right\} \mathrm{d} \mathbf{x} = 1 /g(\boldsymbol{\eta})  $ 代入可得</p>
-<script type="math/tex; mode=display">
--\frac{1}{g(\boldsymbol{\eta})} \nabla g(\boldsymbol{\eta})=g(\boldsymbol{\eta}) \int h(\mathbf{x}) \exp \left\{\boldsymbol{\eta}^{\mathrm{T}} \mathbf{u}(\mathbf{x})\right\} \mathbf{u}(\mathbf{x}) \mathrm{d} \mathbf{x}=\mathbb{E}[\mathbf{u}(\mathbf{x})]</script><p>即</p>
-<script type="math/tex; mode=display">
--\nabla \ln g(\boldsymbol{\eta})=\mathbb{E}[\mathbf{u}(\mathbf{x})]</script><p>从而由<strong>辛钦大数定律</strong> $\forall  \varepsilon &gt;0$，有</p>
-<script type="math/tex; mode=display">
-\begin{align}
-& \lim_{N\rightarrow + \infty} P\left\{|-\nabla \ln g\left(\boldsymbol{\eta}_{\mathrm{ML}}\right)  + \nabla \ln g\left(\boldsymbol{\eta}_{\mathrm{ML}}\right)| \le \varepsilon\right\}  \\
-=&   \lim_{N\rightarrow + \infty} P\left\{\left|\frac{1}{N} \sum_{n=1}^{N} \mathbf{u}\left(\mathbf{x}_{n}\right) - \mathbb{E}[\mathbf{u}(\mathbf{x})]\right| < \varepsilon\right\} \\
-= & 1
-\end{align}</script><p>从而 $-\nabla \ln g\left(\boldsymbol{\eta}_{\mathrm{ML}}\right)$ 是一个<strong>相合估计量</strong>。</p>
+<li><p>闭区间上的连续函数具有很好的性质。最值定理、介值定理、康托定理、有界性等 $\cdots$</p>
+</li>
+<li><p>从邻域的角度理解连续，</p>
+<p><img src="https://i.loli.net/2019/08/30/rYOhzXW1PtpGAVk.png" alt></p>
 </li>
 </ol>
-<h2 id="注记"><a href="#注记" class="headerlink" title="注记"></a>注记</h2><p>指数族分布统一了大部分<a href="https://en.wikipedia.org/wiki/Generalized_linear_model" target="_blank" rel="noopener">广义线性模型</a>（GLM）。以伯努利分布（参数为 $\mu$）为例，此时 $\eta = \ln (\frac{\mu}{1-\mu})$，从而</p>
-<script type="math/tex; mode=display">
-\mu = \sigma(\eta)=\frac{1}{1+\exp (-\eta)}</script><p>这便是 logistic sigmoid 函数。参数 $\eta$ 作为一个回归项便将线性回归推广到了二分类问题。</p>
+<h2 id="连续概念的前世"><a href="#连续概念的前世" class="headerlink" title="连续概念的前世"></a>连续概念的前世</h2><blockquote>
+<p>未完待续~</p>
+</blockquote>
 	
 	</div>
 	
-	<div id="current-post-cover" data-scr="/img/exp.jpg"></div>
+	<div id="current-post-cover" data-scr="/img/continuous.png"></div>
 
 	<!-- relate post, comment...-->
 	<div class="investment-container">
@@ -430,7 +398,7 @@ g(\boldsymbol{\eta}) \int h(\mathbf{x}) \exp \left\{\boldsymbol{\eta}^{\mathrm{T
 			</a>
 		
 		
-			<a href="/2019-8-27-rmu/" title="二次型极值与 PCA ？" rel="next">
+			<a href="/2019-6-25-exponential/" title="指数族分布：充分统计量？无偏估计？相合估计？" rel="next">
 				下一篇&raquo;
 			</a>
 			
@@ -451,7 +419,32 @@ g(\boldsymbol{\eta}) \int h(\mathbf{x}) \exp \left\{\boldsymbol{\eta}^{\mathrm{T
 			
 					<li>
 						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2019-8-27-rmu/" title="二次型极值与 PCA ？">
+							<a class="relate-post-title" href="/2019-6-25-exponential/" title="指数族分布：充分统计量？无偏估计？相合估计？">
+								指数族分布：充分统计量？无偏估计？相合估计？			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								六月 25日, 2019				
+							</p>
+							<p class="relate-post-content">
+								考察给定参数 $\boldsymbol{\eta} $ 的指数族分布
+
+p_{X}(\mathbf{x} | \boldsymbol{\eta})=h(\mathbf{x}) g(\boldsymbol{\eta}) \exp \le...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019-6-25-exponential/" title="指数族分布：充分统计量？无偏估计？相合估计？">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/exp.jpg" alt="指数族分布：充分统计量？无偏估计？相合估计？"/>
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019-6-25-rmu/" title="二次型极值与 PCA ？">
 								二次型极值与 PCA ？			
 							</a>
 							<p class="relate-post-date">
@@ -468,7 +461,7 @@ g(\boldsymbol{\eta}) \int h(\mathbf{x}) \exp \left\{\boldsymbol{\eta}^{\mathrm{T
 						</div>
 
 						<div class="relate-post-cover">
-							<a href="/2019-8-27-rmu/" title="二次型极值与 PCA ？">				
+							<a href="/2019-6-25-rmu/" title="二次型极值与 PCA ？">				
 								
 								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/erci.jpg" alt="二次型极值与 PCA ？"/>
 							</a>
@@ -652,6 +645,9 @@ g(\boldsymbol{\eta}) \int h(\mathbf{x}) \exp \left\{\boldsymbol{\eta}^{\mathrm{T
 	<script type="text/x-mathjax-config">
 		MathJax.Hub.Config(
 			{ 
+			    CommonHTML: {
+                    scale: 200
+                },
 				tex2jax: {
 					inlineMath: [['$','$'], ['\\(','\\)']]
 				} 

@@ -13,7 +13,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
   <title>
     
-      选课策略——0-1整数规划 | Equation-Blog
+      二次型极值与 PCA ？ | Equation-Blog
     
   </title>
   <meta name="author" content="Equation">
@@ -165,7 +165,7 @@
 	<!-- Page title -->
 	<p>
 		
-			当前文章&nbsp;:&nbsp;《选课策略——0-1整数规划》
+			当前文章&nbsp;:&nbsp;《二次型极值与 PCA ？》
 		
 	</p>
 
@@ -266,8 +266,8 @@
 	<div class="article-title">
 		<i class="fas fa-paper-plane" aria-hidden="true"></i>
 		
-	<a href="/2018-04-01-xuankecelue/" itemprop="url">
-		选课策略——0-1整数规划
+	<a href="/2019-6-25-rmu/" itemprop="url">
+		二次型极值与 PCA ？
 	</a>
 
 	</div>
@@ -280,9 +280,9 @@
 
 	发布于
 
-	<a href="/2018-04-01-xuankecelue/" itemprop="url">
-		<time datetime="2018-04-01T04:00:00.000Z" itemprop="datePublished">
-	  		2018-04-01
+	<a href="/2019-6-25-rmu/" itemprop="url">
+		<time datetime="2019-06-25T04:00:00.000Z" itemprop="datePublished">
+	  		2019-06-25
 	  </time>
 	</a>
 	&nbsp;
@@ -298,8 +298,8 @@
 
 	更新于
 
-	<a href="/2018-04-01-xuankecelue/" itemprop="url">
-		<time datetime="2018-04-01T04:00:00.000Z" itemprop="dateUpdated">
+	<a href="/2019-6-25-rmu/" itemprop="url">
+		<time datetime="2019-06-25T04:00:00.000Z" itemprop="dateUpdated">
 	  		2019-08-28
 	  </time>
 	</a> 
@@ -311,10 +311,6 @@
 			<i class="fa fa-tags"></i>
 			
 	
-		<a href="/tags/数学建模/" class=" ">
-			数学建模
-		</a>
-	
 		<a href="/tags/优化/" class=" ">
 			优化
 		</a>
@@ -323,13 +319,29 @@
 			Optimization
 		</a>
 	
+		<a href="/tags/数学/" class=" ">
+			数学
+		</a>
+	
+		<a href="/tags/机器学习/" class=" ">
+			机器学习
+		</a>
+	
+		<a href="/tags/math/" class=" ">
+			math
+		</a>
+	
+		<a href="/tags/machine-learning/" class=" ">
+			machine learning
+		</a>
+	
 		
 		</span>
 		
 		
 
 	
-    <span class="leancloud_visitors" id="/2018-04-01-xuankecelue/_visitors" data-url="/2018-04-01-xuankecelue/" data-title="选课策略——0-1整数规划">
+    <span class="leancloud_visitors" id="/2019-6-25-rmu/_visitors" data-url="/2019-6-25-rmu/" data-title="二次型极值与 PCA ？">
        	<i class="fa fa-eye"></i>
        	热度
         <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
@@ -339,7 +351,7 @@
 
 
 	
-    <span class="leancloud_likes" id="/2018-04-01-xuankecelue/_likes" data-url="/2018-04-01-xuankecelue/" data-title="选课策略——0-1整数规划" rel="unlike">
+    <span class="leancloud_likes" id="/2019-6-25-rmu/_likes" data-url="/2019-6-25-rmu/" data-title="二次型极值与 PCA ？" rel="unlike">
         <i class="fa fa-heart"></i>
         喜欢
         <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
@@ -348,55 +360,70 @@
 	</div>
 
 	<div class="article-content" id="article-content">
-		<h2 id="问题重述"><a href="#问题重述" class="headerlink" title="问题重述"></a>问题重述</h2><p>已知某年数学与统计学院课程结构如图所示。要求至少选两门数学课、三门运筹学课和两门计算机课。    </p>
-<p><img src="https://i.loli.net/2019/08/28/6kLRgdWcbZzYqJ2.png"></p>
-<ol>
-<li>为了选修课程总数最少，应学习哪些课程？                </li>
-<li>选修课程最少，且学分尽量多，应学习哪些课程？        </li>
+		<p>协方差矩阵 $\mathbf{S}$ 本身是一个特殊的实对称矩阵，而以下两个问题背后的数学本质其实是相通的。</p>
+<blockquote>
+<p>二次型极值问题的<strong>拉格朗日函数</strong>和 PCA 中使用的是一样的！</p>
+</blockquote>
+<h2 id="二次型在单位球面上的极值"><a href="#二次型在单位球面上的极值" class="headerlink" title="二次型在单位球面上的极值"></a>二次型在单位球面上的极值</h2><p><strong>问题：</strong>设 $A=\left(a_{i j}\right)_{n \times n}$  是 $n$ 阶实对称矩阵，求二次型：</p>
+<script type="math/tex; mode=display">
+f(X)=f\left(x_{1}, x_{2}, \cdots, x_{n}\right)=\sum_{i, j=1}^{n} a_{i j} x_{i} x_{j}=X^{T} A X</script><p>在单位球面上 </p>
+<script type="math/tex; mode=display">
+S : \sum_{i=1}^{n} x_{i}^{2}=1</script><p>上的最大值、最小值。</p>
+<blockquote>
+<p>题目来源：杨柳, 罗成新. 高等代数与数学分析相互渗透溶合应用研究[J]. 应用数学进展, 2017, 6(3): 238-242. </p>
+</blockquote>
+<h3 id="解法一：分析法"><a href="#解法一：分析法" class="headerlink" title="解法一：分析法"></a>解法一：分析法</h3><p>首先单位球面 $S$ 是一个闭集，而 $f(X)$ 在 $\mathbb{R}^n$ 上连续，故而目标函数必然在单位球面上某点取得最大（小）值（<strong>最值定理</strong>）。这是一个条件极值问题，构造<strong>拉格朗日函数</strong>：</p>
+<script type="math/tex; mode=display">
+L(X,\lambda) =X^{T} A X - \lambda\left(||X||_2^2-1\right)</script><p>令对 $X$ 的导数为零</p>
+<script type="math/tex; mode=display">
+\frac{\partial L(X,\lambda)}{\partial X} = 2AX - 2\lambda X  =0</script><p>从而</p>
+<script type="math/tex; mode=display">
+(A-\lambda I)X = 0 \tag{1}</script><p>其中 $\lambda$ 是 $A$ 的一个特征值，$X$ 是对应的一个单位特征向量。设满足（1）式的 $X$ 为 $X^0 = (x_1^0,x_2^0,\cdots,x_n^0)$，再在（1）式左右两边同时左乘 $X^T$ 有</p>
+<script type="math/tex; mode=display">
+f(X) = X^{T} A X = \lambda X^{T} X = \lambda\left[(x_1^0)^2+(x_2^0)^2 + \cdots +(x_n^0)^2\right] = \lambda</script><p>从而 $f(X)$ 在单位球面上的最大值即 $A$ 的最大特征值；最小值即 $A$ 的最小特征值。</p>
+<blockquote>
+<p>更一般的，$A$ 的任一特征值 $\lambda$ 等于在单位球面上某点的值</p>
+</blockquote>
+<h3 id="解法二：代数法"><a href="#解法二：代数法" class="headerlink" title="解法二：代数法"></a>解法二：代数法</h3><p>由于 $A$ 为对称矩阵，故而其特征值均为<strong>实数</strong>。不妨设 $\lambda_1 \le \lambda_2\le \cdots\le\lambda_n$ ，对二次型转化为合同标准型有（经<strong>正交变换</strong> $X = PY$，$P$ 的列向量为各特征值对应的单位特征向量）</p>
+<script type="math/tex; mode=display">
+f(X)=\lambda_{1} y_{1}^{2}+\lambda_{2} y_{2}^{2}+\cdots+\lambda_{n} y_{n}^{2}</script><p>显然</p>
+<script type="math/tex; mode=display">
+\lambda_{1}\left(y_{1}^{2}+y_{2}^{2}+\cdots+y_{n}^{2}\right) \leq f(X) \leq \lambda_{n}\left(y_{1}^{2}+y_{2}^{2}+\cdots+y_{n}^{2}\right)</script><p>由于<strong>正交变换保长度</strong>，从而有 $\lambda_{1}\left(x_{1}^{2}+x_{2}^{2}+\cdots+x_{n}^{2}\right) \leq f(X) \leq \lambda_{n}\left(x_{1}^{2}+x_{2}^{2}+\cdots+x_{n}^{2}\right)$ ，即</p>
+<script type="math/tex; mode=display">
+\lambda_{1} \leq f(X) \leq \lambda_{n}</script><p>并且等号可以取到，和分析法中一样极值点为最大（最小）特征值对应的单位特征向量。</p>
+<h4 id="推广：瑞利商"><a href="#推广：瑞利商" class="headerlink" title="推广：瑞利商"></a>推广：瑞利商</h4><p>对于<a href="https://en.wikipedia.org/wiki/Hermitian_matrix" target="_blank" rel="noopener">埃尔米特矩阵</a>（共轭转置等于自身，实对称矩阵是其特殊情形），特征值可以表示为一系列最优化问题的解。定义瑞利商为（$x^{\mathrm{H}}$ 表示共轭转置）</p>
+<script type="math/tex; mode=display">
+R(x) = \frac{x^{\mathrm{H}}Ax}{x^{\mathrm{H}}x}</script><p>有以下<strong>定理</strong>（Rayleigh-Ritz）：埃尔米特矩阵的最大特征值</p>
+<script type="math/tex; mode=display">
+\lambda_{max} =\max \limits_{x \ne 0} \frac{x^{\mathrm{H}}Ax}{x^{\mathrm{H}}x} = \max \limits_{x^{\mathrm{H}} x = 1} x^{\mathrm{H}}Ax</script><h2 id="PCA-算法原理简述"><a href="#PCA-算法原理简述" class="headerlink" title="PCA 算法原理简述"></a>PCA 算法原理简述</h2><p>考虑数据集 $\{\mathbf{x}_n\}_1^N$ ，其中 $\mathbf{x}_n \in \mathbb{R}^D$ ，先考虑将数据集投影到一维空间（某一个主成分），定义这个空间的方向为一个<strong>单位</strong> $D$ 维向量 $\mathbf{u}_1$，这样每一个点都被映射为一个标量 $\mathbf{u}_1^\mathrm{T}\mathbf{x}$ ，投影之后的方差为</p>
+<script type="math/tex; mode=display">
+\frac{1}{N} \sum_{n=1}^{N}\left\{\mathbf{u}_{1}^{\mathrm{T}} \mathbf{x}_{n}-\mathbf{u}_{1}^{\mathrm{T}} \overline{\mathbf{x}}\right\}^{2}=\mathbf{u}_{1}^{\mathrm{T}} \mathbf{S} \mathbf{u}_{1}</script><p>其中 $\overline{\mathbf{x}}=\frac{1}{N} \sum_{n=1}^{N} \mathbf{x}_{n}$ 为投影之后的均值，$\mathbf{S}$ 是样本的协方差矩阵。需要在 $\mathbf{u}_1$ 为单位向量的约束下最大化投影方差，故而构造拉格朗日函数</p>
+<script type="math/tex; mode=display">
+L(\mathbf{S},\mathbf{u}_{1}) = \mathbf{u}_{1}^{\mathrm{T}} \mathbf{S} \mathbf{u}_{1}+\lambda_{1}\left(1-\mathbf{u}_{1}^{\mathrm{T}} \mathbf{u}_{1}\right)</script><p>对 $\mathbf{u}_{1}$ 求导并令为零可得 </p>
+<script type="math/tex; mode=display">
+\mathbf{S u}_{1}=\lambda_{1} \mathbf{u}_{1}</script><p>左乘向量 $\mathbf{u}_{1}^\mathrm{T}$ 可得 $\mathbf{u}_{1}^\mathrm{T}\mathbf{S u}_{1}=\lambda_{1} $ ，从而数据集单位特征向量 $\mathbf{u}_{1}$ 投影后的方差等于其对应的特征值。</p>
+<p>从而主成分分析的过程实际就是对<strong>样本协方差矩阵进行特征分解</strong>的过程，依次从大到小选择特征值对应的特征向量最为主成分。</p>
+<h3 id="计算步骤"><a href="#计算步骤" class="headerlink" title="计算步骤"></a>计算步骤</h3><ol>
+<li><p><strong>样本中心化</strong>。记中心化后的样本矩阵为 $\mathbf{X}_{N \times D},D \gg N$ ，其中第 $n$ 行为 $(\mathbf{x}_n -\overline{\mathbf{x}})^\mathrm{T} $。则协方差矩阵为</p>
+<script type="math/tex; mode=display">
+\mathbf{S}_{D \times D}=N^{-1} \mathbf{X}^{\mathrm{T}} \mathbf{X}</script><p>此时协方差矩阵维度较高（$N$），而由引理知 $\mathbf{X}\mathbf{X}^{\mathrm{T}}$ 和 $\mathbf{S}$ 具有相同非零特征值，故而特征分解 $ \mathbf{X}\mathbf{X}^{\mathrm{T}} $ 更为有效。</p>
+</li>
+<li><p><strong>特征分解</strong> $ \mathbf{X}\mathbf{X}^{\mathrm{T}} $ 。为求得原空间的特征向量，对</p>
+<script type="math/tex; mode=display">
+\frac{1}{N} \mathbf{X} \mathbf{X}^{\mathrm{T}} \mathbf{v}_{i}=\lambda_{i} \mathbf{v}_{i}</script><p>左乘 $\mathbf{X}^{\mathrm{T}} $ 有</p>
+<script type="math/tex; mode=display">
+\left(\frac{1}{N} \mathbf{X}^{\mathrm{T}} \mathbf{X}\right)\left(\mathbf{X}^{\mathrm{T}} \mathbf{v}_{i}\right)=\lambda_{i}\left(\mathbf{X}^{\mathrm{T}} \mathbf{v}_{i}\right)</script><p>从而 $\mathbf{X}^{\mathrm{T}} \mathbf{v}_{i}$ 即协方差矩阵 $\mathbf{S}$ 对应的特征向量。</p>
+</li>
+<li><p><strong>缩放</strong>原空间特征向量使得 $||\mathbf{u}_i|| = 1$。</p>
+<script type="math/tex; mode=display">
+\mathbf{u}_{i}=\frac{1}{\left(N \lambda_{i}\right)^{1 / 2}} \mathbf{X}^{\mathrm{T}} \mathbf{v}_{i}</script></li>
+<li><p>降维后在第 $i$ 个主成分的坐标为 $y_n=\mathbf{u}_i^ \mathrm{T}\mathbf{x}_n$ </p>
+</li>
 </ol>
-<h2 id="选修课程总数最少"><a href="#选修课程总数最少" class="headerlink" title="选修课程总数最少"></a>选修课程总数最少</h2><h3 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h3><p>分析上图可知，所属类别为两门的课程均有先修课程要求，可只选择基础课程又达不到课程结业要求。易知基础课程（微积分、线性代数、计算机编程）为必修课程，问题的关键在于如何在已修课程的基础上合理的选择多类别课程。</p>
-<h3 id="模型的建立"><a href="#模型的建立" class="headerlink" title="模型的建立"></a>模型的建立</h3><p>设 0-1 变量 $d_i,i=1,2,\cdots ,9$ 表示是否选择课程 $i$ 。如 $d_5=1$ 表示选择了应用统计这门课。为完成结业要求与先修课机制，有以下约束条件：</p>
-<p>由最低课程数目标准知：</p>
-<script type="math/tex; mode=display">
-\begin{align}
-d_1+d_2+d_3+d_4+d_5 &\ge 2  \notag \\
-    d_3+d_5+d_6+d_8+d_9 &\ge 3 \notag \\
-    d_4+d_6+d_7+d_9 &\ge 2 \notag 
-    \end{align}</script><p>由先修课机制知：</p>
-<script type="math/tex; mode=display">
-\begin{align}
-        d_6 &\le d_7  \notag \\
-        d_8 &\le d_5 \notag \\
-        d_4 &\le d_7 \notag \\
-2d_3 &\le d_1+d_2  \notag \\
-2d_5 &\le d_1+d_2 \notag \\
-2d_9 &\le d_1+d_2 \notag 
-    \end{align}</script><p>记不等式约束矩阵为 $A$ ，约束向量为 $b$ ,则可建立优化模型</p>
-<script type="math/tex; mode=display">
-\begin{align}
-\min \quad S=&\sum_{i=1}^9d_i  \\
-A \cdot d^T \le & b \notag \\
-d_i=0,1 \quad i=&1,2,\cdots,9 \notag 
-\end{align}</script><h3 id="问题求解"><a href="#问题求解" class="headerlink" title="问题求解"></a>问题求解</h3><p>使用 Matlab 的 intlinprog 进行求解得，$d_1=d_2=d_3=d_6=d_7=d_9=1$ ，亦即为了选择课程总数最少，应该学习微积分、线性代数、最优化方法、计算机模拟、计算机编程、数学实验这 6 门课程。</p>
-<h2 id="课程数最少且学分尽量多"><a href="#课程数最少且学分尽量多" class="headerlink" title="课程数最少且学分尽量多"></a>课程数最少且学分尽量多</h2><h3 id="问题分析-1"><a href="#问题分析-1" class="headerlink" title="问题分析"></a>问题分析</h3><p>此问题为一个多目标优化问题，但是要求选修课程最少，由 上述模型知必须在只能选 6 门课程的前提下使得学分尽可能大。</p>
-<h3 id="模型的改进"><a href="#模型的改进" class="headerlink" title="模型的改进"></a>模型的改进</h3><p>由题意知，只需在上述模型中增加一个等式约束</p>
-<script type="math/tex; mode=display">
-\sum_{i=1}^9d_i=6</script><p>并将优化函数改为最大化总学分即可，优化模型如下</p>
-<script type="math/tex; mode=display">
-\begin{align}
-\max \quad S^{'}=&\sum_{i=1}^9(d_i \times s_i)  \\
-\sum_{i=1}^9d_i=&6 \notag \\
-A \cdot d^T \le & b \notag \\
-d_i=0,1 \quad i=&1,2,\cdots,9 \notag 
-\end{align}</script><p>其中 $s_i$ 表示每一项课程对应的学分。</p>
-<h3 id="模型的求解"><a href="#模型的求解" class="headerlink" title="模型的求解"></a>模型的求解</h3><p>利用 Matlab 易得结果得 $d_1=d_2=d_3=d_5=d_6=d_7=1$，亦即应该选择微积分、线性代数、最优化方法、应用统计、计算机模拟、计算机编程这 6 门课程，并且可以达到 22 分的学分。较第 1 部分中的 21 分 更优。</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>上述模型说明了整数规划的最优解并不一定是唯一的，模型 2 正是在模型 1 的最优解空间中进一步搜索从而得到同时还满足极大化总学分的理想解。事实上模型 2 的最优解解也不唯一，如还可以选择课程 1,2,3,5,7,9 。</p>
-<h3 id="程序源代码"><a href="#程序源代码" class="headerlink" title="程序源代码"></a>程序源代码</h3><h4 id="最小化课程数目"><a href="#最小化课程数目" class="headerlink" title="最小化课程数目"></a>最小化课程数目</h4><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">clear,clc;</span><br><span class="line"><span class="comment">%% function</span></span><br><span class="line">f=<span class="built_in">ones</span>(<span class="number">1</span>,<span class="number">9</span>);</span><br><span class="line"><span class="comment">%% Inequality constraints</span></span><br><span class="line">A=[<span class="number">-1</span>,<span class="number">-1</span>,<span class="number">-1</span>,<span class="number">-1</span>,<span class="number">-1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>;</span><br><span class="line">    <span class="number">0</span>,<span class="number">0</span>,<span class="number">-1</span>,<span class="number">0</span>,<span class="number">-1</span>,<span class="number">-1</span>,<span class="number">0</span>,<span class="number">-1</span>,<span class="number">-1</span>;</span><br><span class="line">    <span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">-1</span>,<span class="number">0</span>,<span class="number">-1</span>,<span class="number">-1</span>,<span class="number">0</span>,<span class="number">-1</span>;</span><br><span class="line">    <span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">-1</span>,<span class="number">0</span>,<span class="number">0</span>;</span><br><span class="line">    <span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">-1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>;</span><br><span class="line">    <span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">-1</span>,<span class="number">0</span>,<span class="number">0</span>;</span><br><span class="line">    <span class="number">-1</span>,<span class="number">-1</span>,<span class="number">2</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>;</span><br><span class="line">    <span class="number">-1</span>,<span class="number">-1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">2</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>;</span><br><span class="line">    <span class="number">-1</span>,<span class="number">-1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">2</span>;];</span><br><span class="line">b=[<span class="number">-2</span>,<span class="number">-3</span>,<span class="number">-2</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>]';</span><br><span class="line">Aeq=[];</span><br><span class="line">beq=[];</span><br><span class="line">intcon=<span class="number">1</span>:<span class="number">9</span>;</span><br><span class="line"><span class="comment">%% solve</span></span><br><span class="line">x=intlinprog(f,intcon,A,b,Aeq,beq,<span class="built_in">zeros</span>(<span class="number">9</span>,<span class="number">1</span>),<span class="built_in">ones</span>(<span class="number">9</span>,<span class="number">1</span>))</span><br></pre></td></tr></table></figure>
-<h4 id="最小课程数目-极大化总学分"><a href="#最小课程数目-极大化总学分" class="headerlink" title="最小课程数目,极大化总学分"></a>最小课程数目,极大化总学分</h4><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">clear,clc;</span><br><span class="line">xuefen_1=[<span class="number">5</span>,<span class="number">4</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">3</span>];</span><br><span class="line"><span class="comment">%% function</span></span><br><span class="line">f=-<span class="built_in">ones</span>(<span class="number">1</span>,<span class="number">9</span>).*xuefen_1;</span><br><span class="line">A=[<span class="number">-1</span>,<span class="number">-1</span>,<span class="number">-1</span>,<span class="number">-1</span>,<span class="number">-1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>;</span><br><span class="line">    <span class="number">0</span>,<span class="number">0</span>,<span class="number">-1</span>,<span class="number">0</span>,<span class="number">-1</span>,<span class="number">-1</span>,<span class="number">0</span>,<span class="number">-1</span>,<span class="number">-1</span>;</span><br><span class="line">    <span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">-1</span>,<span class="number">0</span>,<span class="number">-1</span>,<span class="number">-1</span>,<span class="number">0</span>,<span class="number">-1</span>;</span><br><span class="line">    <span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">-1</span>,<span class="number">0</span>,<span class="number">0</span>;</span><br><span class="line">    <span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">-1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>;</span><br><span class="line">    <span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">-1</span>,<span class="number">0</span>,<span class="number">0</span>;</span><br><span class="line">    <span class="number">-1</span>,<span class="number">-1</span>,<span class="number">2</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>;</span><br><span class="line">    <span class="number">-1</span>,<span class="number">-1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">2</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>;</span><br><span class="line">    <span class="number">-1</span>,<span class="number">-1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">2</span>;];</span><br><span class="line">b=[<span class="number">-2</span>,<span class="number">-3</span>,<span class="number">-2</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>]';</span><br><span class="line"><span class="comment">%% Equality constraints</span></span><br><span class="line">Aeq=<span class="built_in">ones</span>(<span class="number">1</span>,<span class="number">9</span>);</span><br><span class="line">beq=<span class="number">6</span>; <span class="comment">% the minimum number of courses</span></span><br><span class="line">intcon=<span class="number">1</span>:<span class="number">9</span>;</span><br><span class="line">[x,fval]=intlinprog(f,intcon,A,b,Aeq,beq,<span class="built_in">zeros</span>(<span class="number">9</span>,<span class="number">1</span>),<span class="built_in">ones</span>(<span class="number">9</span>,<span class="number">1</span>))</span><br></pre></td></tr></table></figure>
-	
+<h3 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h3><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">%% 生成样本</span></span><br><span class="line">D = <span class="number">1000000</span>;</span><br><span class="line">N = <span class="number">10</span>;</span><br><span class="line">data = <span class="built_in">rand</span>(N,D);</span><br><span class="line"><span class="comment">%% 样本中心化</span></span><br><span class="line">X = data - sum(data,<span class="number">1</span>) / N;</span><br><span class="line"><span class="comment">%% 特征分解</span></span><br><span class="line">[eigenvectors,lambda] = eig(X*X'); <span class="comment">% 默认特征值从小到大</span></span><br><span class="line">lambda = <span class="built_in">diag</span>(lambda);</span><br><span class="line"><span class="comment">%% 原空间特征向量</span></span><br><span class="line">u1 = (<span class="number">1</span> / <span class="built_in">sqrt</span>(N*lambda(N)))*X'*eigenvectors(:,N);</span><br><span class="line">u2 = (<span class="number">1</span> / <span class="built_in">sqrt</span>(N*lambda(N<span class="number">-1</span>)))*X'*eigenvectors(:,N<span class="number">-1</span>);</span><br><span class="line">u = [u1,u2];</span><br><span class="line"><span class="comment">%% 降维</span></span><br><span class="line">y = X*u;</span><br><span class="line"><span class="comment">%% 可视化</span></span><br><span class="line"><span class="built_in">figure</span></span><br><span class="line"><span class="built_in">plot</span>(y(:,<span class="number">1</span>),y(:,<span class="number">2</span>),<span class="string">'o'</span>);xlabel(<span class="string">'主成分1'</span>);ylabel(<span class="string">'主成分2'</span>)</span><br></pre></td></tr></table></figure>	
 	</div>
 	
-	<div id="current-post-cover" data-scr="/img/xuanke.jpg"></div>
+	<div id="current-post-cover" data-scr="/img/erci.jpg"></div>
 
 	<!-- relate post, comment...-->
 	<div class="investment-container">
@@ -411,12 +438,12 @@ d_i=0,1 \quad i=&1,2,\cdots,9 \notag
 	<span>
 		<a href="javascript: window.scrollTo(0, 0);">返回顶部</a>
 		
-			<a href="/2018-12-9-chargebar/" title="爬虫实战：全国电动汽车充电站数据" rel="prev">
+			<a href="/2019-6-25-exponential/" title="指数族分布：充分统计量？无偏估计？相合估计？" rel="prev">
 				&laquo;上一篇
 			</a>
 		
 		
-			<a href="/2017-11-24-horse/" title="基于贪心算法的马踏棋盘哈密顿回路问题" rel="next">
+			<a href="/2018-12-9-chargebar/" title="爬虫实战：全国电动汽车充电站数据" rel="next">
 				下一篇&raquo;
 			</a>
 			
@@ -487,26 +514,26 @@ p_{X}(\mathbf{x} | \boldsymbol{\eta})=h(\mathbf{x}) g(\boldsymbol{\eta}) \exp \l
 			
 					<li>
 						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2019-6-25-rmu/" title="二次型极值与 PCA ？">
-								二次型极值与 PCA ？			
+							<a class="relate-post-title" href="/2018-04-01-xuankecelue/" title="选课策略——0-1整数规划">
+								选课策略——0-1整数规划			
 							</a>
 							<p class="relate-post-date">
 								<i class="fa fa-calendar"></i>
-								六月 25日, 2019				
+								四月 1日, 2018				
 							</p>
 							<p class="relate-post-content">
-								协方差矩阵 $\mathbf{S}$ 本身是一个特殊的实对称矩阵，而以下两个问题背后的数学本质其实是相通的。
+								问题重述已知某年数学与统计学院课程结构如图所示。要求至少选两门数学课、三门运筹学课和两门计算机课。    
 
-二次型极值问题的拉格朗日函数和 PCA 中使用的是一样的！
 
-二次型在单位球面上的极值问题：设 $A=\left(a_{i...
+为了选修课程总数最少，应学习哪些课程？                
+选修课程最少，且学分尽量多，应学习哪些课程？   ...
 							</p>
 						</div>
 
 						<div class="relate-post-cover">
-							<a href="/2019-6-25-rmu/" title="二次型极值与 PCA ？">				
+							<a href="/2018-04-01-xuankecelue/" title="选课策略——0-1整数规划">				
 								
-								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/erci.jpg" alt="二次型极值与 PCA ？"/>
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/xuanke.jpg" alt="选课策略——0-1整数规划"/>
 							</a>
 						</div>
 					</li>											

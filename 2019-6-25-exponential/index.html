@@ -13,7 +13,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
   <title>
     
-      二次型极值与 PCA ？ | Equation-Blog
+      指数族分布：充分统计量？无偏估计？相合估计？ | Equation-Blog
     
   </title>
   <meta name="author" content="Equation">
@@ -44,10 +44,9 @@
 	<div id="preloader">
 		<div class="pre-container">
 			
-				<div class="transition">
-					<div class="three-bounce1"></div>
-					<div class="three-bounce2"></div>
-					<div class="three-bounce3"></div>
+				<div class="spinner">
+					<div class="double-bounce1"></div>
+					<div class="double-bounce2"></div>
 				</div>
 						
 		</div>
@@ -166,7 +165,7 @@
 	<!-- Page title -->
 	<p>
 		
-			当前文章&nbsp;:&nbsp;《二次型极值与 PCA ？》
+			当前文章&nbsp;:&nbsp;《指数族分布：充分统计量？无偏估计？相合估计？》
 		
 	</p>
 
@@ -238,7 +237,6 @@
 </nav>
 
 
-
 			
 		<!--main-->
 		<main>
@@ -268,8 +266,8 @@
 	<div class="article-title">
 		<i class="fas fa-paper-plane" aria-hidden="true"></i>
 		
-	<a href="/2019-8-27-rmu/" itemprop="url">
-		二次型极值与 PCA ？
+	<a href="/2019-6-25-exponential/" itemprop="url">
+		指数族分布：充分统计量？无偏估计？相合估计？
 	</a>
 
 	</div>
@@ -282,8 +280,8 @@
 
 	发布于
 
-	<a href="/2019-8-27-rmu/" itemprop="url">
-		<time datetime="2019-06-25T04:00:00.000Z" itemprop="datePublished">
+	<a href="/2019-6-25-exponential/" itemprop="url">
+		<time datetime="2019-06-25T05:00:00.000Z" itemprop="datePublished">
 	  		2019-06-25
 	  </time>
 	</a>
@@ -300,8 +298,8 @@
 
 	更新于
 
-	<a href="/2019-8-27-rmu/" itemprop="url">
-		<time datetime="2019-06-25T04:00:00.000Z" itemprop="dateUpdated">
+	<a href="/2019-6-25-exponential/" itemprop="url">
+		<time datetime="2019-06-25T05:00:00.000Z" itemprop="dateUpdated">
 	  		2019-08-28
 	  </time>
 	</a> 
@@ -313,16 +311,12 @@
 			<i class="fa fa-tags"></i>
 			
 	
-		<a href="/tags/优化/" class=" ">
-			优化
-		</a>
-	
-		<a href="/tags/Optimization/" class=" ">
-			Optimization
-		</a>
-	
 		<a href="/tags/数学/" class=" ">
 			数学
+		</a>
+	
+		<a href="/tags/统计/" class=" ">
+			统计
 		</a>
 	
 		<a href="/tags/机器学习/" class=" ">
@@ -331,6 +325,10 @@
 	
 		<a href="/tags/math/" class=" ">
 			math
+		</a>
+	
+		<a href="/tags/Statistics/" class=" ">
+			Statistics
 		</a>
 	
 		<a href="/tags/machine-learning/" class=" ">
@@ -343,7 +341,7 @@
 		
 
 	
-    <span class="leancloud_visitors" id="/2019-8-27-rmu/_visitors" data-url="/2019-8-27-rmu/" data-title="二次型极值与 PCA ？">
+    <span class="leancloud_visitors" id="/2019-6-25-exponential/_visitors" data-url="/2019-6-25-exponential/" data-title="指数族分布：充分统计量？无偏估计？相合估计？">
        	<i class="fa fa-eye"></i>
        	热度
         <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
@@ -353,7 +351,7 @@
 
 
 	
-    <span class="leancloud_likes" id="/2019-8-27-rmu/_likes" data-url="/2019-8-27-rmu/" data-title="二次型极值与 PCA ？" rel="unlike">
+    <span class="leancloud_likes" id="/2019-6-25-exponential/_likes" data-url="/2019-6-25-exponential/" data-title="指数族分布：充分统计量？无偏估计？相合估计？" rel="unlike">
         <i class="fa fa-heart"></i>
         喜欢
         <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
@@ -362,70 +360,55 @@
 	</div>
 
 	<div class="article-content" id="article-content">
-		<p>协方差矩阵 $\mathbf{S}$ 本身是一个特殊的实对称矩阵，而以下两个问题背后的数学本质其实是相通的。</p>
+		<p>考察给定参数 $\boldsymbol{\eta} $ 的指数族分布</p>
+<script type="math/tex; mode=display">
+p_{X}(\mathbf{x} | \boldsymbol{\eta})=h(\mathbf{x}) g(\boldsymbol{\eta}) \exp \left\{\boldsymbol{\eta}^{\mathrm{T}} \mathbf{u}(\mathbf{x})\right\}</script><p>试证明</p>
+<ol>
+<li>参数 $\boldsymbol{\eta}$ 的极大似然估计量（$\boldsymbol{\eta}_{\mathrm{ML}}$）也是一个充分统计量。</li>
+<li>$-\nabla \ln g\left(\boldsymbol{\eta}_{\mathrm{ML}}\right)$ 是一个<strong>相合估计量</strong>。</li>
+</ol>
 <blockquote>
-<p>二次型极值问题的<strong>拉格朗日函数</strong>和 PCA 中使用的是一样的！</p>
+<p>事实上，由充分统计量可以唯一构造出一个无偏估计量，进而是 UMVUE （一致最小方差无偏估计）</p>
 </blockquote>
-<h2 id="二次型在单位球面上的极值"><a href="#二次型在单位球面上的极值" class="headerlink" title="二次型在单位球面上的极值"></a>二次型在单位球面上的极值</h2><p><strong>问题：</strong>设 $A=\left(a_{i j}\right)_{n \times n}$  是 $n$ 阶实对称矩阵，求二次型：</p>
+<h2 id="引理：指数族分布的充分统计量"><a href="#引理：指数族分布的充分统计量" class="headerlink" title="引理：指数族分布的充分统计量"></a>引理：指数族分布的充分统计量</h2><p>设随机变量 $X$ 具有单参数指数族分布</p>
 <script type="math/tex; mode=display">
-f(X)=f\left(x_{1}, x_{2}, \cdots, x_{n}\right)=\sum_{i, j=1}^{n} a_{i j} x_{i} x_{j}=X^{T} A X</script><p>在单位球面上 </p>
+p_{X}(\mathbf{x} | \boldsymbol{\eta})=h(\mathbf{x}) g(\boldsymbol{\eta}) \exp \left\{\boldsymbol{\eta}^{\mathrm{T}} \mathbf{u}(\mathbf{x})\right\}</script><p>$X_1,X_2,\cdots,X_N$ 为取自母体 $X $ 的一个子样，则统计量 </p>
 <script type="math/tex; mode=display">
-S : \sum_{i=1}^{n} x_{i}^{2}=1</script><p>上的最大值、最小值。</p>
-<blockquote>
-<p>题目来源：杨柳, 罗成新. 高等代数与数学分析相互渗透溶合应用研究[J]. 应用数学进展, 2017, 6(3): 238-242. </p>
+\sum_{n=1}^{N}\mathbf{u}(x_n)</script><p>是参数 $\boldsymbol{\eta} $ 的充分统计量。</p>
+<h2 id="证明"><a href="#证明" class="headerlink" title="证明"></a>证明</h2><blockquote>
+<p><strong>部分</strong>解答过程参考于 <a href="https://www.microsoft.com/en-us/research/people/cmbishop/#!prml-book" target="_blank" rel="noopener">PRML</a></p>
 </blockquote>
-<h3 id="解法一：分析法"><a href="#解法一：分析法" class="headerlink" title="解法一：分析法"></a>解法一：分析法</h3><p>首先单位球面 $S$ 是一个闭集，而 $f(X)$ 在 $\mathbb{R}^n$ 上连续，故而目标函数必然在单位球面上某点取得最大（小）值（<strong>最值定理</strong>）。这是一个条件极值问题，构造<strong>拉格朗日函数</strong>：</p>
+<ol>
+<li><p>样本的似然函数</p>
 <script type="math/tex; mode=display">
-L(X,\lambda) =X^{T} A X - \lambda\left(||X||_2^2-1\right)</script><p>令对 $X$ 的导数为零</p>
+p(\mathbf{X} | \boldsymbol{\eta})=\left(\prod_{n=1}^{N} h\left(\mathbf{x}_{n}\right)\right) g(\boldsymbol{\eta})^{N} \exp \left\{\boldsymbol{\eta}^{\mathrm{T}} \sum_{n=1}^{N} \mathbf{u}\left(\mathbf{x}_{n}\right)\right\}</script><p>令其<strong>对数似然函数</strong>对参数 $\boldsymbol{\eta} $ 的梯度为零，得到其极大似然估计 $\boldsymbol{\eta} _{ML} $ 满足</p>
 <script type="math/tex; mode=display">
-\frac{\partial L(X,\lambda)}{\partial X} = 2AX - 2\lambda X  =0</script><p>从而</p>
-<script type="math/tex; mode=display">
-(A-\lambda I)X = 0 \tag{1}</script><p>其中 $\lambda$ 是 $A$ 的一个特征值，$X$ 是对应的一个单位特征向量。设满足（1）式的 $X$ 为 $X^0 = (x_1^0,x_2^0,\cdots,x_n^0)$，再在（1）式左右两边同时左乘 $X^T$ 有</p>
-<script type="math/tex; mode=display">
-f(X) = X^{T} A X = \lambda X^{T} X = \lambda\left[(x_1^0)^2+(x_2^0)^2 + \cdots +(x_n^0)^2\right] = \lambda</script><p>从而 $f(X)$ 在单位球面上的最大值即 $A$ 的最大特征值；最小值即 $A$ 的最小特征值。</p>
-<blockquote>
-<p>更一般的，$A$ 的任一特征值 $\lambda$ 等于在单位球面上某点的值</p>
-</blockquote>
-<h3 id="解法二：代数法"><a href="#解法二：代数法" class="headerlink" title="解法二：代数法"></a>解法二：代数法</h3><p>由于 $A$ 为对称矩阵，故而其特征值均为<strong>实数</strong>。不妨设 $\lambda_1 \le \lambda_2\le \cdots\le\lambda_n$ ，对二次型转化为合同标准型有（经<strong>正交变换</strong> $X = PY$，$P$ 的列向量为各特征值对应的单位特征向量）</p>
-<script type="math/tex; mode=display">
-f(X)=\lambda_{1} y_{1}^{2}+\lambda_{2} y_{2}^{2}+\cdots+\lambda_{n} y_{n}^{2}</script><p>显然</p>
-<script type="math/tex; mode=display">
-\lambda_{1}\left(y_{1}^{2}+y_{2}^{2}+\cdots+y_{n}^{2}\right) \leq f(X) \leq \lambda_{n}\left(y_{1}^{2}+y_{2}^{2}+\cdots+y_{n}^{2}\right)</script><p>由于<strong>正交变换保长度</strong>，从而有 $\lambda_{1}\left(x_{1}^{2}+x_{2}^{2}+\cdots+x_{n}^{2}\right) \leq f(X) \leq \lambda_{n}\left(x_{1}^{2}+x_{2}^{2}+\cdots+x_{n}^{2}\right)$ ，即</p>
-<script type="math/tex; mode=display">
-\lambda_{1} \leq f(X) \leq \lambda_{n}</script><p>并且等号可以取到，和分析法中一样极值点为最大（最小）特征值对应的单位特征向量。</p>
-<h4 id="推广：瑞利商"><a href="#推广：瑞利商" class="headerlink" title="推广：瑞利商"></a>推广：瑞利商</h4><p>对于<a href="https://en.wikipedia.org/wiki/Hermitian_matrix" target="_blank" rel="noopener">埃尔米特矩阵</a>（共轭转置等于自身，实对称矩阵是其特殊情形），特征值可以表示为一系列最优化问题的解。定义瑞利商为（$x^{\mathrm{H}}$ 表示共轭转置）</p>
-<script type="math/tex; mode=display">
-R(x) = \frac{x^{\mathrm{H}}Ax}{x^{\mathrm{H}}x}</script><p>有以下<strong>定理</strong>（Rayleigh-Ritz）：埃尔米特矩阵的最大特征值</p>
-<script type="math/tex; mode=display">
-\lambda_{max} =\max \limits_{x \ne 0} \frac{x^{\mathrm{H}}Ax}{x^{\mathrm{H}}x} = \max \limits_{x^{\mathrm{H}} x = 1} x^{\mathrm{H}}Ax</script><h2 id="PCA-算法原理简述"><a href="#PCA-算法原理简述" class="headerlink" title="PCA 算法原理简述"></a>PCA 算法原理简述</h2><p>考虑数据集 $\{\mathbf{x}_n\}_1^N$ ，其中 $\mathbf{x}_n \in \mathbb{R}^D$ ，先考虑将数据集投影到一维空间（某一个主成分），定义这个空间的方向为一个<strong>单位</strong> $D$ 维向量 $\mathbf{u}_1$，这样每一个点都被映射为一个标量 $\mathbf{u}_1^\mathrm{T}\mathbf{x}$ ，投影之后的方差为</p>
-<script type="math/tex; mode=display">
-\frac{1}{N} \sum_{n=1}^{N}\left\{\mathbf{u}_{1}^{\mathrm{T}} \mathbf{x}_{n}-\mathbf{u}_{1}^{\mathrm{T}} \overline{\mathbf{x}}\right\}^{2}=\mathbf{u}_{1}^{\mathrm{T}} \mathbf{S} \mathbf{u}_{1}</script><p>其中 $\overline{\mathbf{x}}=\frac{1}{N} \sum_{n=1}^{N} \mathbf{x}_{n}$ 为投影之后的均值，$\mathbf{S}$ 是样本的协方差矩阵。需要在 $\mathbf{u}_1$ 为单位向量的约束下最大化投影方差，故而构造拉格朗日函数</p>
-<script type="math/tex; mode=display">
-L(\mathbf{S},\mathbf{u}_{1}) = \mathbf{u}_{1}^{\mathrm{T}} \mathbf{S} \mathbf{u}_{1}+\lambda_{1}\left(1-\mathbf{u}_{1}^{\mathrm{T}} \mathbf{u}_{1}\right)</script><p>对 $\mathbf{u}_{1}$ 求导并令为零可得 </p>
-<script type="math/tex; mode=display">
-\mathbf{S u}_{1}=\lambda_{1} \mathbf{u}_{1}</script><p>左乘向量 $\mathbf{u}_{1}^\mathrm{T}$ 可得 $\mathbf{u}_{1}^\mathrm{T}\mathbf{S u}_{1}=\lambda_{1} $ ，从而数据集单位特征向量 $\mathbf{u}_{1}$ 投影后的方差等于其对应的特征值。</p>
-<p>从而主成分分析的过程实际就是对<strong>样本协方差矩阵进行特征分解</strong>的过程，依次从大到小选择特征值对应的特征向量最为主成分。</p>
-<h3 id="计算步骤"><a href="#计算步骤" class="headerlink" title="计算步骤"></a>计算步骤</h3><ol>
-<li><p><strong>样本中心化</strong>。记中心化后的样本矩阵为 $\mathbf{X}_{N \times D},D \gg N$ ，其中第 $n$ 行为 $(\mathbf{x}_n -\overline{\mathbf{x}})^\mathrm{T} $。则协方差矩阵为</p>
-<script type="math/tex; mode=display">
-\mathbf{S}_{D \times D}=N^{-1} \mathbf{X}^{\mathrm{T}} \mathbf{X}</script><p>此时协方差矩阵维度较高（$N$），而由引理知 $\mathbf{X}\mathbf{X}^{\mathrm{T}}$ 和 $\mathbf{S}$ 具有相同非零特征值，故而特征分解 $ \mathbf{X}\mathbf{X}^{\mathrm{T}} $ 更为有效。</p>
+-\nabla \ln g\left(\boldsymbol{\eta}_{\mathrm{ML}}\right)=\frac{1}{N} \sum_{n=1}^{N} \mathbf{u}\left(\mathbf{x}_{n}\right)</script><p>从而 $\boldsymbol{\eta} _{ML} $ 仅由 $\sum_{n=1}^{N} \mathbf{u}\left(\mathbf{x}_{n}\right)$ 决定。由引理知其 $\boldsymbol{\eta} _{ML} $ 是一个充分统计量。</p>
 </li>
-<li><p><strong>特征分解</strong> $ \mathbf{X}\mathbf{X}^{\mathrm{T}} $ 。为求得原空间的特征向量，对</p>
+<li><p>单参数指数族分布中的 $g(\boldsymbol{\eta}) $ 实际上是概率分布的归一项，即</p>
 <script type="math/tex; mode=display">
-\frac{1}{N} \mathbf{X} \mathbf{X}^{\mathrm{T}} \mathbf{v}_{i}=\lambda_{i} \mathbf{v}_{i}</script><p>左乘 $\mathbf{X}^{\mathrm{T}} $ 有</p>
+g(\boldsymbol{\eta}) \int h(\mathbf{x}) \exp \left\{\boldsymbol{\eta}^{\mathrm{T}} \mathbf{u}(\mathbf{x})\right\} \mathrm{d} \mathbf{x}=1</script><p>上式两边对参数 $\boldsymbol{\eta}$ 求梯度，有</p>
 <script type="math/tex; mode=display">
-\left(\frac{1}{N} \mathbf{X}^{\mathrm{T}} \mathbf{X}\right)\left(\mathbf{X}^{\mathrm{T}} \mathbf{v}_{i}\right)=\lambda_{i}\left(\mathbf{X}^{\mathrm{T}} \mathbf{v}_{i}\right)</script><p>从而 $\mathbf{X}^{\mathrm{T}} \mathbf{v}_{i}$ 即协方差矩阵 $\mathbf{S}$ 对应的特征向量。</p>
-</li>
-<li><p><strong>缩放</strong>原空间特征向量使得 $||\mathbf{u}_i|| = 1$。</p>
+\nabla g(\eta) \int h(\mathbf{x}) \exp \left\{\eta^{\mathrm{T}} \mathbf{u}(\mathbf{x})\right\} \mathrm{d} \mathbf{x}{+g(\boldsymbol{\eta}) \int h(\mathbf{x}) \exp \left\{\boldsymbol{\eta}^{\mathrm{T}} \mathbf{u}(\mathbf{x})\right\} \mathbf{u}(\mathbf{x}) \mathrm{d} \mathbf{x}=0}</script><p>再将 $\int h(\mathbf{x}) \exp \left\{\eta^{\mathrm{T}} \mathbf{u}(\mathbf{x})\right\} \mathrm{d} \mathbf{x} = 1 /g(\boldsymbol{\eta})  $ 代入可得</p>
 <script type="math/tex; mode=display">
-\mathbf{u}_{i}=\frac{1}{\left(N \lambda_{i}\right)^{1 / 2}} \mathbf{X}^{\mathrm{T}} \mathbf{v}_{i}</script></li>
-<li><p>降维后在第 $i$ 个主成分的坐标为 $y_n=\mathbf{u}_i^ \mathrm{T}\mathbf{x}_n$ </p>
+-\frac{1}{g(\boldsymbol{\eta})} \nabla g(\boldsymbol{\eta})=g(\boldsymbol{\eta}) \int h(\mathbf{x}) \exp \left\{\boldsymbol{\eta}^{\mathrm{T}} \mathbf{u}(\mathbf{x})\right\} \mathbf{u}(\mathbf{x}) \mathrm{d} \mathbf{x}=\mathbb{E}[\mathbf{u}(\mathbf{x})]</script><p>即</p>
+<script type="math/tex; mode=display">
+-\nabla \ln g(\boldsymbol{\eta})=\mathbb{E}[\mathbf{u}(\mathbf{x})]</script><p>从而由<strong>辛钦大数定律</strong> $\forall  \varepsilon &gt;0$，有</p>
+<script type="math/tex; mode=display">
+\begin{align}
+& \lim_{N\rightarrow + \infty} P\left\{|-\nabla \ln g\left(\boldsymbol{\eta}_{\mathrm{ML}}\right)  + \nabla \ln g\left(\boldsymbol{\eta}_{\mathrm{ML}}\right)| \le \varepsilon\right\}  \\
+=&   \lim_{N\rightarrow + \infty} P\left\{\left|\frac{1}{N} \sum_{n=1}^{N} \mathbf{u}\left(\mathbf{x}_{n}\right) - \mathbb{E}[\mathbf{u}(\mathbf{x})]\right| < \varepsilon\right\} \\
+= & 1
+\end{align}</script><p>从而 $-\nabla \ln g\left(\boldsymbol{\eta}_{\mathrm{ML}}\right)$ 是一个<strong>相合估计量</strong>。</p>
 </li>
 </ol>
-<h3 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h3><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">%% 生成样本</span></span><br><span class="line">D = <span class="number">1000000</span>;</span><br><span class="line">N = <span class="number">10</span>;</span><br><span class="line">data = <span class="built_in">rand</span>(N,D);</span><br><span class="line"><span class="comment">%% 样本中心化</span></span><br><span class="line">X = data - sum(data,<span class="number">1</span>) / N;</span><br><span class="line"><span class="comment">%% 特征分解</span></span><br><span class="line">[eigenvectors,lambda] = eig(X*X'); <span class="comment">% 默认特征值从小到大</span></span><br><span class="line">lambda = <span class="built_in">diag</span>(lambda);</span><br><span class="line"><span class="comment">%% 原空间特征向量</span></span><br><span class="line">u1 = (<span class="number">1</span> / <span class="built_in">sqrt</span>(N*lambda(N)))*X'*eigenvectors(:,N);</span><br><span class="line">u2 = (<span class="number">1</span> / <span class="built_in">sqrt</span>(N*lambda(N<span class="number">-1</span>)))*X'*eigenvectors(:,N<span class="number">-1</span>);</span><br><span class="line">u = [u1,u2];</span><br><span class="line"><span class="comment">%% 降维</span></span><br><span class="line">y = X*u;</span><br><span class="line"><span class="comment">%% 可视化</span></span><br><span class="line"><span class="built_in">figure</span></span><br><span class="line"><span class="built_in">plot</span>(y(:,<span class="number">1</span>),y(:,<span class="number">2</span>),<span class="string">'o'</span>);xlabel(<span class="string">'主成分1'</span>);ylabel(<span class="string">'主成分2'</span>)</span><br></pre></td></tr></table></figure>	
+<h2 id="注记"><a href="#注记" class="headerlink" title="注记"></a>注记</h2><p>指数族分布统一了大部分<a href="https://en.wikipedia.org/wiki/Generalized_linear_model" target="_blank" rel="noopener">广义线性模型</a>（GLM）。以伯努利分布（参数为 $\mu$）为例，此时 $\eta = \ln (\frac{\mu}{1-\mu})$，从而</p>
+<script type="math/tex; mode=display">
+\mu = \sigma(\eta)=\frac{1}{1+\exp (-\eta)}</script><p>这便是 logistic sigmoid 函数。参数 $\eta$ 作为一个回归项便将线性回归推广到了二分类问题。</p>
+	
 	</div>
 	
-	<div id="current-post-cover" data-scr="/img/erci.jpg"></div>
+	<div id="current-post-cover" data-scr="/img/exp.jpg"></div>
 
 	<!-- relate post, comment...-->
 	<div class="investment-container">
@@ -440,12 +423,12 @@ L(\mathbf{S},\mathbf{u}_{1}) = \mathbf{u}_{1}^{\mathrm{T}} \mathbf{S} \mathbf{u}
 	<span>
 		<a href="javascript: window.scrollTo(0, 0);">返回顶部</a>
 		
-			<a href="/2019-8-27-exponential/" title="指数族分布：充分统计量？无偏估计？相合估计？" rel="prev">
+			<a href="/2019-6-28-continuous/" title="浅谈连续函数" rel="prev">
 				&laquo;上一篇
 			</a>
 		
 		
-			<a href="/2018-12-9-chargebar/" title="爬虫实战：全国电动汽车充电站数据" rel="next">
+			<a href="/2019-6-25-rmu/" title="二次型极值与 PCA ？" rel="next">
 				下一篇&raquo;
 			</a>
 			
@@ -466,24 +449,51 @@ L(\mathbf{S},\mathbf{u}_{1}) = \mathbf{u}_{1}^{\mathrm{T}} \mathbf{S} \mathbf{u}
 			
 					<li>
 						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2019-8-27-exponential/" title="指数族分布：充分统计量？无偏估计？相合估计？">
-								指数族分布：充分统计量？无偏估计？相合估计？			
+							<a class="relate-post-title" href="/2019-6-28-continuous/" title="浅谈连续函数">
+								浅谈连续函数			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								六月 28日, 2019				
+							</p>
+							<p class="relate-post-content">
+								数学分析的学习过程中上来便是极限，连续的概念，而课本中的连续概念正是用极限定义的。不过如果细究数学史的话，连续概念是要先于极限的概念提出的。
+以下内容旨在粗略介绍我眼中连续概念的前世今生。
+闭区间上连续函数的性质引例为了先直观凸显连续...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019-6-28-continuous/" title="浅谈连续函数">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/continuous.png" alt="浅谈连续函数"/>
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019-6-25-rmu/" title="二次型极值与 PCA ？">
+								二次型极值与 PCA ？			
 							</a>
 							<p class="relate-post-date">
 								<i class="fa fa-calendar"></i>
 								六月 25日, 2019				
 							</p>
 							<p class="relate-post-content">
-								考察给定参数 $\boldsymbol{\eta} $ 的指数族分布
+								协方差矩阵 $\mathbf{S}$ 本身是一个特殊的实对称矩阵，而以下两个问题背后的数学本质其实是相通的。
 
-p_{X}(\mathbf{x} | \boldsymbol{\eta})=h(\mathbf{x}) g(\boldsymbol{\eta}) \exp \le...
+二次型极值问题的拉格朗日函数和 PCA 中使用的是一样的！
+
+二次型在单位球面上的极值问题：设 $A=\left(a_{i...
 							</p>
 						</div>
 
 						<div class="relate-post-cover">
-							<a href="/2019-8-27-exponential/" title="指数族分布：充分统计量？无偏估计？相合估计？">				
+							<a href="/2019-6-25-rmu/" title="二次型极值与 PCA ？">				
 								
-								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/exp.jpg" alt="指数族分布：充分统计量？无偏估计？相合估计？"/>
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/erci.jpg" alt="二次型极值与 PCA ？"/>
 							</a>
 						</div>
 					</li>											
@@ -665,6 +675,9 @@ p_{X}(\mathbf{x} | \boldsymbol{\eta})=h(\mathbf{x}) g(\boldsymbol{\eta}) \exp \l
 	<script type="text/x-mathjax-config">
 		MathJax.Hub.Config(
 			{ 
+			    CommonHTML: {
+                    scale: 200
+                },
 				tex2jax: {
 					inlineMath: [['$','$'], ['\\(','\\)']]
 				} 
