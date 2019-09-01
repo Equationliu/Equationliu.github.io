@@ -300,7 +300,7 @@
 
 	<a href="/2019-6-28-continuous/" itemprop="url">
 		<time datetime="2019-06-28T05:00:00.000Z" itemprop="dateUpdated">
-	  		2019-08-30
+	  		2019-09-02
 	  </time>
 	</a> 
 
@@ -344,15 +344,15 @@
 	</div>
 
 	<div class="article-content" id="article-content">
-		<p>数学分析的学习过程中上来便是极限，连续的概念，而课本中的连续概念正是用极限定义的。不过如果细究数学史的话，连续概念是要先于极限的概念提出的。</p>
+		<p>数学分析的学习过程中上来便是极限，连续的概念，而课本中的连续概念却恰恰是用极限定义的。如果细究数学史的话，连续概念是要先于极限的概念提出的。</p>
 <p>以下内容旨在粗略介绍我眼中连续概念的前世今生。</p>
-<h2 id="闭区间上连续函数的性质"><a href="#闭区间上连续函数的性质" class="headerlink" title="闭区间上连续函数的性质"></a>闭区间上连续函数的性质</h2><h3 id="引例"><a href="#引例" class="headerlink" title="引例"></a>引例</h3><p>为了先直观凸显连续函数的威力，我们从一个例题开始。</p>
+<h2 id="闭区间上连续函数的性质"><a href="#闭区间上连续函数的性质" class="headerlink" title="闭区间上连续函数的性质"></a>闭区间上连续函数的性质</h2><p>为了先直观<strong>凸显</strong>连续函数的威力，我们从一个例题开始。</p>
 <p>设实值函数 $f(x)$ 在 $[0,n]$（$n$ 为自然数，$n\ge 2$）上连续，$f(0) = f(n)$，证明存在 $\xi,\xi+1\in[0,n]$ ，使得 $f(\xi) = f(\xi+1)$ 。</p>
 <p>题目说的就是下面这个图的意思：</p>
-<p><img src="https://i.loli.net/2019/08/30/5Estyhm3DZCXVbu.jpg" alt></p>
+<p><img src="https://i.loli.net/2019/09/01/xRyKUMNrhfvpqZF.jpg" alt></p>
 <blockquote>
-<p>显然这个比仅仅要求 $f(\xi_1) = f(\xi_2)$ 要更强，证明如下：</p>
-<p>构造函数 $g(x) = f(x) - f(x+1)$，易知 $g(x) $ 连续。令 $x$ 遍历 $[0,n-1]$ 内所有整数有</p>
+<p>显然这个比仅仅要求存在 $\xi_1,\xi_2 \in [0,n]$，使得 $f(\xi_1) = f(\xi_2)$ 要更强，证明如下：</p>
+<p>构造函数 $g(x) = f(x) - f(x+1)$，易知 $g(x) $ 连续。令 $x$ <strong>遍历</strong> $[0,n-1]$ 内所有<strong>整数</strong>有</p>
 <script type="math/tex; mode=display">
 \begin{align*}
 m_1 &\le f(0) - f(1) \le M_1  \\
@@ -364,21 +364,89 @@ m_{n}&\le f(n-1) - f(n) \le M_{n} \\
 nm \le 0 \le nM</script><p>再由<strong>介值定理</strong>可得必 $\exists \; \xi \in [0,n]$ 有 $g(\xi) = 0$，即 $f(\xi) = f(\xi+1)$。</p>
 </blockquote>
 <h3 id="连续初印象"><a href="#连续初印象" class="headerlink" title="连续初印象"></a>连续初印象</h3><ol>
-<li><p>从定义来说，连续就是函数在点 $x_0$ 处有 $\lim \limits_{x \rightarrow x_0}f(x) = f(x_0)$。</p>
+<li><p>从定义来说，连续就是函数在点 $x_0$ 处有 $\lim \limits_{x \rightarrow x_0}f(x) = f(x_0)$</p>
 </li>
 <li><p>闭区间上的连续函数具有很好的性质。最值定理、介值定理、康托定理、有界性等 $\cdots$</p>
 </li>
-<li><p>从邻域的角度理解连续，</p>
+<li><p>从邻域的角度理解连续，连续就是把开集映射到开集</p>
 <p><img src="https://i.loli.net/2019/08/30/rYOhzXW1PtpGAVk.png" alt></p>
 </li>
 </ol>
-<h2 id="连续概念的前世"><a href="#连续概念的前世" class="headerlink" title="连续概念的前世"></a>连续概念的前世</h2><blockquote>
-<p>未完待续~</p>
+<h2 id="连续概念的前世"><a href="#连续概念的前世" class="headerlink" title="连续概念的前世"></a>连续概念的前世</h2><h3 id="第二次数学危机"><a href="#第二次数学危机" class="headerlink" title="第二次数学危机"></a>第二次数学危机</h3><p>第二次数学危机可以说是围绕无穷小量展开的，其中著名的<a href="[https://zh.wikipedia.org/wiki/%E8%8A%9D%E8%AF%BA%E6%82%96%E8%AE%BA](https://zh.wikipedia.org/wiki/芝诺悖论">之诺悖论</a>)讨论的便是<strong>离散和连续</strong>的问题，这里以其四个悖论中的一个为例：</p>
+<blockquote>
+<p>之诺悖论：两分法:</p>
+<p>向着一个目的地运动的物体，首先必须经过路程的中点，然而要经过这点，又必须先经过路程的 1/4 点，如此类推以至无穷。</p>
+<p>结论是：无穷是不可穷尽的过程，<strong>运动是不可能的</strong>。</p>
 </blockquote>
+<p>当然了我们现在很容易计算出</p>
+<script type="math/tex; mode=display">
+\lim_{n\rightarrow \infty }\sum_{i=1}^n\frac{1}{2^i} = 1</script><p>但当时人们对极限是无法理解的。</p>
+<h3 id="没有极限的概念会怎样？"><a href="#没有极限的概念会怎样？" class="headerlink" title="没有极限的概念会怎样？"></a>没有极限的概念会怎样？</h3><p>没有极限的概念，下面的这个级数在当时就无法求解：</p>
+<script type="math/tex; mode=display">
+\sum_{i=0}^{n}(-1)^i = 1-1+1-1+\cdots</script><p>当时人们通过不同的<strong>加括号方式</strong>得到不同的结果，从而感到困惑。我们现在知道是级数<strong>绝对收敛</strong>才能任意加括号，可是收敛不正是用极限定义的？所以说极限的出现几乎奠定了后来分析的基础。</p>
+<h3 id="连续和极限概念的提出"><a href="#连续和极限概念的提出" class="headerlink" title="连续和极限概念的提出"></a>连续和极限概念的提出</h3><p><strong>波尔查诺</strong>（Bernard Bolzano） <strong>1817</strong> 年指出：若在区间内任意一点 $x$ 处，只要 $w$ 的绝对值<strong>充分小</strong>，就能使差 $f(x+w)-f(x)$ 的绝对值<strong>任意小</strong>，就说 $f(x)$ 在<strong>区间上是连续</strong>的。</p>
+<blockquote>
+<p>Bourbaki, N., Elements d’histoire des mathematiques, Masson, Paris, 1984, ISBN 978-3-540-33938-0</p>
+</blockquote>
+<p>其实连续最早的定义中已经看到了<strong>极限的雏形</strong>，后来柯西将这个和极限联系起来，其在<strong>1821</strong> 年的《教程》中说：<strong>当说及函数的连续性时，不需要说明无穷小量的性质，无穷小量是一个极限为 0 的变量</strong>。不过我们后来广泛使用的极限的定义是魏尔斯特拉斯提出的 $\epsilon-\delta$ 语言。</p>
+<blockquote>
+<p>克莱因, 理京, 锦炎, 等. 古今数学思想[M]. 上海科学技术出版社, 2002.</p>
+</blockquote>
+<p>可以说，极限和连续是一对孪生兄弟，是整个数学分析的基础。</p>
+<p>简单整理连续概念的<strong>发展脉络</strong>如下：</p>
+<ol>
+<li><p>1817 年波尔查诺提出连续性的概念，并给出了中值定理的证明。</p>
+</li>
+<li><p>1860 年魏尔斯特拉斯证明了最值定理。</p>
+</li>
+<li><p>1872 年海涅证明了实数系有界闭区间的连续函数一致连续。</p>
+<blockquote>
+<p>一般的，<strong>紧空间</strong>上的连续泛函为一致连续泛函。</p>
+</blockquote>
+</li>
+<li><p>绝对连续是一个<strong>光滑性质</strong>，比连续和一致连续都要严格</p>
+</li>
+<li><p>李普希兹（Lipschitz continuity）连续是一个比通常连续，绝对连续更强的光滑性条件。可以说它控制了函数变化的速度，它要求：</p>
+<script type="math/tex; mode=display">
+|f(a)-f(b)| \leq K|a-b|</script></li>
+</ol>
+<p>为了清晰看到如今各种连续的强弱关系，根据参考 <a href="https://en.wikipedia.org/wiki/Absolute_continuity" target="_blank" rel="noopener">wikipedia</a> 绘制了以下示意图：</p>
+<p><img src="https://i.loli.net/2019/09/01/o46MI51S3rcPpKd.png" alt="img"></p>
+<p>可以看到为了解决某些具体的问题，条件要求越来越苛刻。</p>
+<h3 id="连续的本质"><a href="#连续的本质" class="headerlink" title="连续的本质"></a>连续的本质</h3><p>连续有很多种刻画：</p>
+<ol>
+<li>自变量变化比较小的时候，因变量变化也不大</li>
+<li>极限值等于函数值本身</li>
+<li>函数值与序列极限相等</li>
+<li>实数系上连续与完备性等价（完备即<a href="[https://zh.wikipedia.org/zh-hans/%E6%9F%AF%E8%A5%BF%E5%BA%8F%E5%88%97](https://zh.wikipedia.org/zh-hans/柯西序列">柯西列</a>)均收敛）</li>
+<li>等等</li>
+</ol>
+<p>不过如果要我说一种观点的话，我更倾向于认为<strong>连续是自变量与因变量之间的一种约束。</strong>光滑性则是更强的一种约束。</p>
+<p>文章最开始举的例子中，连续函数仅仅首尾的函数值相同，便使得中间得到如此强的约束。</p>
+<p>数学分析中我们讨论的最多的便是连续函数。而连续函数中我们讨论的最多的是什么？</p>
+<p>多项式函数。那么多项式函数为什么如此重要呢？</p>
+<p>因为一个 $n$ 阶多项式可由 $n+1$ 个点的函数值唯一确定。也就是说 $n + 1$ 个点便<strong>完全约束</strong>了一个 $n$ 阶多项式。</p>
+<p>有趣的是，连续函数同样有类似的性质。这里引用 <a href="https://www.cnblogs.com/xjtu-blacksmith/p/rational-analysis.html" target="_blank" rel="noopener">连续函数与有理分析</a> 中的结果：</p>
+<p><strong>一个连续函数由其在有理数上的取值唯一确定。</strong></p>
+<blockquote>
+<p>证明：</p>
+<p>不妨设 $f_1(x),f_2(x)$ 在区间 $[a,b]$ 内所有有理点的函数值均相同，下面只须证其在所有无理点的函数值亦相等。</p>
+<p>现在任取一个介于 $(a,b)$ 之间的<strong>无理数</strong> $x_0$，只须证：</p>
+<script type="math/tex; mode=display">
+f_1(x_0) = f_2(x_0)</script><p>考虑到这两个函数在无理点 $x_0$ 处都是连续的，因而对于任给的 $\varepsilon$ ，分别存在 $\delta_1,\delta_2$，使得</p>
+<script type="math/tex; mode=display">
+\begin{cases}|f_1(x)-f_1(x_0)|<\dfrac{\varepsilon}{3},\quad|x-x_0|<\delta_1\\|f_2(x)-f_2(x_0)|<\dfrac{\varepsilon}{3},\quad|x-x_0|<\delta_2\end{cases}</script><p>取 $\delta = \min\{\delta_1,\delta_2\}$ ，则 当$|x-x_0| \le \delta$ 时，上面的两个不等式均成立。由三角不等式</p>
+<script type="math/tex; mode=display">
+|f_1(x_0)-f_2(x_0)|\leq \inf_{x} \left\{|f_1(x_0)-f_1(x)|+|f_1(x)-f_2(x)|+|f_2(x)-f_2(x_0)|\right\}</script><p>这里取下确界是因为上述不等式对任意的 $x$ 均成立，且左式为常数。</p>
+<p>综上从而只需证 $|f_1(x)-f_2(x)| \le \dfrac{\varepsilon}{3}$ ，虽然当 $x$ 取无理点时无从计算，但是在有理点一定为零（已知 $f_1,f_2$ 在有理点相等）。而<strong>任何一个无理点的任意小邻域内总是有有理点存在</strong>（实数的完备性），从而存在 $x$，使得右边 $\le \dfrac{\varepsilon}{3} + 0 + \dfrac{\varepsilon}{3}  \le\varepsilon$ 。</p>
+<p>从而 $\forall \varepsilon &gt;0$ ，$|f_1(x_0)-f_2(x_0)|&lt;\varepsilon$ ，进而 $f_1(x_0)=f_2(x_0)$，命题得证</p>
+</blockquote>
+<p>不过由于有理数数目是可列可数的（仍是无穷），通过采样确定一个连续函数就不现实了。</p>
+<h2 id="连续与机器学习"><a href="#连续与机器学习" class="headerlink" title="连续与机器学习"></a>连续与机器学习</h2><p>机器学习中常常假设输入变化不大时，输出变化应该也不大。特定情况下甚至要求其训练后的函数 $f$ 具有李普希兹连续甚至<strong>光滑性</strong>，近年来 robust machine learning 考虑便是这样的性质，留个坑以后补~</p>
 	
 	</div>
 	
-	<div id="current-post-cover" data-scr="/img/continuous.png"></div>
+	<div id="current-post-cover" data-scr="/img/continuous.jpg"></div>
 
 	<!-- relate post, comment...-->
 	<div class="investment-container">
