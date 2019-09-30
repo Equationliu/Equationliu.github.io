@@ -8,6 +8,21 @@
   <link rel="dns-prefetch" href="https://equationliu.github.io">
   <title>About | Equation-Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+  <link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+    <style>
+    .pace .pace-progress {
+        background: #6d6d6d; /*进度条颜色*/
+        height: 2px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #6d6d6d; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #6d6d6d;    /*上边框颜色*/
+        border-left-color: #6d6d6d;    /*左边框颜色*/
+    }
+  </style>
   <meta name="description" content="Fangcheng Liu (刘方程)Currently, I am a senior student of  Xidian University.    Links：          Research InterestsMachine Learning,  Optimization, and Computer Vision.">
 <meta name="keywords" content="equation, equation的博客, 个人网站, 互联网, CS, 机器学习 , Machine Learning, Math, 数学">
 <meta property="og:type" content="website">
@@ -196,15 +211,16 @@ var _hmt = _hmt || [];
   
 
 		<!--显示阅读次数-->
-		
-			<br/>
-				<a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
-				<span class="icon-sort"></span>
-				<span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
-				阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
-				</span>
-				</a>
-		
+
+  <br/>
+  <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
+  <span class="icon-sort"></span>
+  <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+            阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+  </span>
+  </a>
+
+<!--显示阅读次数完毕-->
         
         <a href="/about/index.html" class="archive-article-date">
   	<time datetime="2019-08-27T14:13:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-27</time>
@@ -290,6 +306,11 @@ var _hmt = _hmt || [];
       
       <div class="clearfix"></div>
     </div>
+	<div>
+     <div style="text-align:center;color: #ccc;font-size:14px;">
+     -------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------
+     </div>
+</div>
   </div>
 </article>
 
@@ -382,7 +403,7 @@ gitment.render('gitment-ctn')
     	<div class="footer-left">
     		&copy; 2019 Equation
     	</div>
-		<span id="busuanzi_container_site_uv">  本站访客数<span id="busuanzi_value_site_uv"></span>人次</span>
+		<span id="busuanzi_container_site_pv">    本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
       	</div>
@@ -435,6 +456,7 @@ MathJax.Hub.Queue(function() {
 
 
 <script  async  src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
     
 <div class="tools-col" q-class="show:isShow,hide:isShow|isFalse" q-on="click:stop(e)">
   <div class="tools-nav header-menu">
@@ -487,6 +509,18 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数学建模</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">优化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Optimization</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
@@ -500,18 +534,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Algorithm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数学建模</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">优化</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Optimization</a>
               </li>
              
               <li class="article-tag-list-item">
