@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Equation-Blog">
 <meta property="og:description" content="协方差矩阵 $\mathbf{S}$ 本身是一个特殊的实对称矩阵，而以下两个问题背后的数学本质其实是相通的。  二次型极值问题的拉格朗日函数和 PCA 中使用的是一样的！  二次型在单位球面上的极值问题：设 $A=\left(a_{i j}\right)_{n \times n}$  是 $n$ 阶实对称矩阵，求二次型：  f(X)=f\left(x_{1}, x_{2}, \cdots, x_{">
 <meta property="og:locale" content="en | zh-CN |zh-TW">
-<meta property="og:updated_time" content="2019-08-28T07:44:50.888Z">
+<meta property="og:updated_time" content="2019-09-29T16:36:08.828Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="二次型极值与 PCA ？">
 <meta name="twitter:description" content="协方差矩阵 $\mathbf{S}$ 本身是一个特殊的实对称矩阵，而以下两个问题背后的数学本质其实是相通的。  二次型极值问题的拉格朗日函数和 PCA 中使用的是一样的！  二次型在单位球面上的极值问题：设 $A=\left(a_{i j}\right)_{n \times n}$  是 $n$ 阶实对称矩阵，求二次型：  f(X)=f\left(x_{1}, x_{2}, \cdots, x_{">
@@ -210,6 +210,7 @@ S : \sum_{i=1}^{n} x_{i}^{2}=1</script><p>上的最大值、最小值。</p>
 <blockquote>
 <p>题目来源：杨柳, 罗成新. 高等代数与数学分析相互渗透溶合应用研究[J]. 应用数学进展, 2017, 6(3): 238-242. </p>
 </blockquote>
+<a id="more"></a>
 <h3 id="解法一：分析法"><a href="#解法一：分析法" class="headerlink" title="解法一：分析法"></a>解法一：分析法</h3><p>首先单位球面 $S$ 是一个闭集，而 $f(X)$ 在 $\mathbb{R}^n$ 上连续，故而目标函数必然在单位球面上某点取得最大（小）值（<strong>最值定理</strong>）。这是一个条件极值问题，构造<strong>拉格朗日函数</strong>：</p>
 <script type="math/tex; mode=display">
 L(X,\lambda) =X^{T} A X - \lambda\left(||X||_2^2-1\right)</script><p>令对 $X$ 的导数为零</p>
@@ -298,17 +299,6 @@ L(\mathbf{S},\mathbf{u}_{1}) = \mathbf{u}_{1}^{\mathrm{T}} \mathbf{S} \mathbf{u}
 	</div>
 
       
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/学习//" class="article-tag-list-link color3">学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
 
       
 
@@ -607,14 +597,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">网络爬虫</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">数学</a>
               </li>
              
@@ -639,7 +621,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">感悟</a>
+                <a href="javascript:void(0)" class="js-tag color5">网络爬虫</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
             
             <div class="clearfix"></div>
@@ -699,7 +689,11 @@ MathJax.Hub.Queue(function() {
             </li>
           
             <li class="search-li">
-              <a href="https://lwz322.github.io/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>Lwz322</a>
+              <a href="https://lwz322.github.io/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>lwz322</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="https://xdmegumi.github.io/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>xdmegumi</a>
             </li>
           
         </ul>

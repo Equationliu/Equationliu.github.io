@@ -9,14 +9,14 @@
   <title>远程服务器上使用 jupyter + matplotlib 绘制动态图 | Equation-Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="目前许多深度学习（炼丹）的服务器大多是远程 Linux 服务器，从而没有图形化界面。动态可视化训练过程有时候可能比仅仅 print 中间输出更有效。 针对 pytorch 也有对应的 TensorboardX，但是更多时候可能想边训练边查看某些特定指标（如 Loss, Accuracy）的变化情况。这时通过 matplotlib 动态更新图层遍好了。为了看到图形化界面，首先需要在服务器上配置 Ju">
-<meta name="keywords" content="python,machine learning">
+<meta name="keywords" content="machine learning,python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="远程服务器上使用 jupyter + matplotlib 绘制动态图">
 <meta property="og:url" content="https://equationliu.github.io/2019-9-13-jupyter/index.html">
 <meta property="og:site_name" content="Equation-Blog">
 <meta property="og:description" content="目前许多深度学习（炼丹）的服务器大多是远程 Linux 服务器，从而没有图形化界面。动态可视化训练过程有时候可能比仅仅 print 中间输出更有效。 针对 pytorch 也有对应的 TensorboardX，但是更多时候可能想边训练边查看某些特定指标（如 Loss, Accuracy）的变化情况。这时通过 matplotlib 动态更新图层遍好了。为了看到图形化界面，首先需要在服务器上配置 Ju">
 <meta property="og:locale" content="en | zh-CN |zh-TW">
-<meta property="og:updated_time" content="2019-09-13T02:13:53.552Z">
+<meta property="og:updated_time" content="2019-09-29T16:36:55.868Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="远程服务器上使用 jupyter + matplotlib 绘制动态图">
 <meta name="twitter:description" content="目前许多深度学习（炼丹）的服务器大多是远程 Linux 服务器，从而没有图形化界面。动态可视化训练过程有时候可能比仅仅 print 中间输出更有效。 针对 pytorch 也有对应的 TensorboardX，但是更多时候可能想边训练边查看某些特定指标（如 Loss, Accuracy）的变化情况。这时通过 matplotlib 动态更新图层遍好了。为了看到图形化界面，首先需要在服务器上配置 Ju">
@@ -200,6 +200,7 @@ var _hmt = _hmt || [];
       
         <p>目前许多深度学习（炼丹）的服务器大多是远程 Linux 服务器，从而没有图形化界面。动态可视化训练过程有时候可能比仅仅 <code>print</code> 中间输出更有效。</p>
 <p>针对 <code>pytorch</code> 也有对应的 <a href="https://github.com/lanpa/tensorboardX" target="_blank" rel="noopener">TensorboardX</a>，但是更多时候可能想<strong>边训练边查看某些特定指标</strong>（如 Loss, Accuracy）的变化情况。这时通过 matplotlib 动态更新图层遍好了。为了看到图形化界面，首先需要在服务器上配置 Jupyter，这个网上教程很多，就不赘述了。</p>
+<a id="more"></a>
 <h2 id="开始绘图"><a href="#开始绘图" class="headerlink" title="开始绘图"></a>开始绘图</h2><p>开始找了很多教程，在 Jupyter 总是出现各种问题，最后参考下面链接得以解决</p>
 <blockquote>
 <p><a href="https://github.com/anujgupta82/Musings/blob/master/Dynamic%20or%20Live%20update%20of%20a%20Plot.ipynb" target="_blank" rel="noopener">Dynamic or Live update of a Plot in Python</a></p>
@@ -219,28 +220,17 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">machine learning</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">machine learning</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
         		</li>
       		
 		</ul>
 	</div>
 
       
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/技术//" class="article-tag-list-link color3">技术</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
 
       
 
@@ -530,14 +520,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">网络爬虫</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">数学</a>
               </li>
              
@@ -562,7 +544,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">感悟</a>
+                <a href="javascript:void(0)" class="js-tag color5">网络爬虫</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
             
             <div class="clearfix"></div>
@@ -622,7 +612,11 @@ MathJax.Hub.Queue(function() {
             </li>
           
             <li class="search-li">
-              <a href="https://lwz322.github.io/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>Lwz322</a>
+              <a href="https://lwz322.github.io/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>lwz322</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="https://xdmegumi.github.io/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>xdmegumi</a>
             </li>
           
         </ul>

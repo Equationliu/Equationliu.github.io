@@ -8,19 +8,19 @@
   <link rel="dns-prefetch" href="https://equationliu.github.io">
   <title>选课策略——0-1整数规划 | Equation-Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="问题重述已知某年数学与统计学院课程结构如图所示。要求至少选两门数学课、三门运筹学课和两门计算机课。       为了选修课程总数最少，应学习哪些课程？                 选修课程最少，且学分尽量多，应学习哪些课程？          选修课程总数最少问题分析分析上图可知，所属类别为两门的课程均有先修课程要求，可只选择基础课程又达不到课程结业要求。易知基础课程（微积分、线性代数、计算机">
+  <meta name="description" content="问题重述已知某年数学与统计学院课程结构如图所示。要求至少选两门数学课、三门运筹学课和两门计算机课。       为了选修课程总数最少，应学习哪些课程？                 选修课程最少，且学分尽量多，应学习哪些课程？">
 <meta name="keywords" content="数学建模,优化,Optimization">
 <meta property="og:type" content="article">
 <meta property="og:title" content="选课策略——0-1整数规划">
 <meta property="og:url" content="https://equationliu.github.io/2018-04-01-xuankecelue/index.html">
 <meta property="og:site_name" content="Equation-Blog">
-<meta property="og:description" content="问题重述已知某年数学与统计学院课程结构如图所示。要求至少选两门数学课、三门运筹学课和两门计算机课。       为了选修课程总数最少，应学习哪些课程？                 选修课程最少，且学分尽量多，应学习哪些课程？          选修课程总数最少问题分析分析上图可知，所属类别为两门的课程均有先修课程要求，可只选择基础课程又达不到课程结业要求。易知基础课程（微积分、线性代数、计算机">
+<meta property="og:description" content="问题重述已知某年数学与统计学院课程结构如图所示。要求至少选两门数学课、三门运筹学课和两门计算机课。       为了选修课程总数最少，应学习哪些课程？                 选修课程最少，且学分尽量多，应学习哪些课程？">
 <meta property="og:locale" content="en | zh-CN |zh-TW">
 <meta property="og:image" content="https://i.loli.net/2019/08/28/6kLRgdWcbZzYqJ2.png">
-<meta property="og:updated_time" content="2019-08-28T07:00:02.271Z">
+<meta property="og:updated_time" content="2019-09-29T16:34:55.792Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="选课策略——0-1整数规划">
-<meta name="twitter:description" content="问题重述已知某年数学与统计学院课程结构如图所示。要求至少选两门数学课、三门运筹学课和两门计算机课。       为了选修课程总数最少，应学习哪些课程？                 选修课程最少，且学分尽量多，应学习哪些课程？          选修课程总数最少问题分析分析上图可知，所属类别为两门的课程均有先修课程要求，可只选择基础课程又达不到课程结业要求。易知基础课程（微积分、线性代数、计算机">
+<meta name="twitter:description" content="问题重述已知某年数学与统计学院课程结构如图所示。要求至少选两门数学课、三门运筹学课和两门计算机课。       为了选修课程总数最少，应学习哪些课程？                 选修课程最少，且学分尽量多，应学习哪些课程？">
 <meta name="twitter:image" content="https://i.loli.net/2019/08/28/6kLRgdWcbZzYqJ2.png">
   
     <link rel="alternative" href="/atom.xml" title="Equation-Blog" type="application/atom+xml">
@@ -206,6 +206,7 @@ var _hmt = _hmt || [];
 <li>为了选修课程总数最少，应学习哪些课程？                </li>
 <li>选修课程最少，且学分尽量多，应学习哪些课程？        </li>
 </ol>
+<a id="more"></a>
 <h2 id="选修课程总数最少"><a href="#选修课程总数最少" class="headerlink" title="选修课程总数最少"></a>选修课程总数最少</h2><h3 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h3><p>分析上图可知，所属类别为两门的课程均有先修课程要求，可只选择基础课程又达不到课程结业要求。易知基础课程（微积分、线性代数、计算机编程）为必修课程，问题的关键在于如何在已修课程的基础上合理的选择多类别课程。</p>
 <h3 id="模型的建立"><a href="#模型的建立" class="headerlink" title="模型的建立"></a>模型的建立</h3><p>设 0-1 变量 $d_i,i=1,2,\cdots ,9$ 表示是否选择课程 $i$ 。如 $d_5=1$ 表示选择了应用统计这门课。为完成结业要求与先修课机制，有以下约束条件：</p>
 <p>由最低课程数目标准知：</p>
@@ -273,17 +274,6 @@ d_i=0,1 \quad i=&1,2,\cdots,9 \notag
 	</div>
 
       
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/学习//" class="article-tag-list-link color3">学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
 
       
 
@@ -582,14 +572,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">网络爬虫</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">数学</a>
               </li>
              
@@ -614,7 +596,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">感悟</a>
+                <a href="javascript:void(0)" class="js-tag color5">网络爬虫</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
             
             <div class="clearfix"></div>
@@ -674,7 +664,11 @@ MathJax.Hub.Queue(function() {
             </li>
           
             <li class="search-li">
-              <a href="https://lwz322.github.io/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>Lwz322</a>
+              <a href="https://lwz322.github.io/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>lwz322</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="https://xdmegumi.github.io/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>xdmegumi</a>
             </li>
           
         </ul>

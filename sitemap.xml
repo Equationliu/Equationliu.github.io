@@ -2,16 +2,58 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://equationliu.github.io/hello-world/</loc>
+    
+    <lastmod>2019-09-29T16:42:21.329Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://equationliu.github.io/2019-9-13-jupyter/</loc>
     
-    <lastmod>2019-09-13T02:13:53.552Z</lastmod>
+    <lastmod>2019-09-29T16:36:55.868Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://equationliu.github.io/2019-6-28-continuous/</loc>
     
-    <lastmod>2019-09-01T16:31:42.591Z</lastmod>
+    <lastmod>2019-09-29T16:36:44.267Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://equationliu.github.io/2019-6-25-rmu/</loc>
+    
+    <lastmod>2019-09-29T16:36:08.828Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://equationliu.github.io/2019-6-25-exponential/</loc>
+    
+    <lastmod>2019-09-29T16:35:47.724Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://equationliu.github.io/2018-12-9-chargebar/</loc>
+    
+    <lastmod>2019-09-29T16:35:26.753Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://equationliu.github.io/2018-04-01-xuankecelue/</loc>
+    
+    <lastmod>2019-09-29T16:34:55.792Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://equationliu.github.io/2017-11-24-horse/</loc>
+    
+    <lastmod>2019-09-29T16:34:06.600Z</lastmod>
     
   </url>
   
@@ -19,69 +61,6 @@
     <loc>https://equationliu.github.io/about/index.html</loc>
     
     <lastmod>2019-08-29T16:57:34.865Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://equationliu.github.io/tags/index.html</loc>
-    
-    <lastmod>2019-08-28T16:51:57.657Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://equationliu.github.io/2019-6-25-exponential/</loc>
-    
-    <lastmod>2019-08-28T07:46:31.275Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://equationliu.github.io/2019-6-25-rmu/</loc>
-    
-    <lastmod>2019-08-28T07:44:50.888Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://equationliu.github.io/2017-11-24-horse/</loc>
-    
-    <lastmod>2019-08-28T07:41:24.721Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://equationliu.github.io/hello-world/</loc>
-    
-    <lastmod>2019-08-28T07:39:30.214Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://equationliu.github.io/2018-12-9-chargebar/</loc>
-    
-    <lastmod>2019-08-28T07:23:23.063Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://equationliu.github.io/2018-04-01-xuankecelue/</loc>
-    
-    <lastmod>2019-08-28T07:00:02.271Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://equationliu.github.io/gallery/index.html</loc>
-    
-    <lastmod>2019-08-28T02:40:53.128Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://equationliu.github.io/categories/index.html</loc>
-    
-    <lastmod>2019-08-27T15:45:33.922Z</lastmod>
     
   </url>
   
