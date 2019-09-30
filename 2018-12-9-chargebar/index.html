@@ -40,7 +40,7 @@
 <meta property="og:image" content="https://i.loli.net/2018/12/10/5c0de79f165b8.png">
 <meta property="og:image" content="https://i.loli.net/2018/12/15/5c14dd983934e.jpg">
 <meta property="og:image" content="https://img.vim-cn.com/dc/7c180c409d8786a3360fdf7ec17c11f515bf32.png">
-<meta property="og:updated_time" content="2019-09-29T16:35:26.753Z">
+<meta property="og:updated_time" content="2019-09-30T09:19:38.039Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="爬虫实战：全国电动汽车充电站数据">
 <meta name="twitter:description" content="项目详情页请访问 Github，喜欢的话就去加个 star 吧  先放张效果图，吸引一下眼球   下面进入正题~">
@@ -226,7 +226,7 @@ var _hmt = _hmt || [];
   <br/>
   <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
   <span class="icon-sort"></span>
-  <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+  <span id="busuanzi_container_page_pv" style="color:gray;font-size:14px;">
             阅读数: <span id="busuanzi_value_page_pv"></span> 次 &nbsp;&nbsp;
   </span>
   </a>
@@ -254,13 +254,13 @@ var _hmt = _hmt || [];
 <p>还在为机器学习的数据集而困恼吗？还在为建模时没有数据而烦闷吗？</p>
 </blockquote>
 <p>这里就通过一个实例来实现一个简单的 Web 爬虫程序，首先介绍一些常见的问题：</p>
-<h2 id="静态网页爬取-VS-动态网页爬取"><a href="#静态网页爬取-VS-动态网页爬取" class="headerlink" title="静态网页爬取 VS 动态网页爬取"></a>静态网页爬取 VS 动态网页爬取</h2><p>静态网页爬取即是网页的 html 文件即包含了你所需要的所有数据并且你可以直接请求到，这通常便有两种方法：</p>
+<h1 id="静态网页爬取-VS-动态网页爬取"><a href="#静态网页爬取-VS-动态网页爬取" class="headerlink" title="静态网页爬取 VS 动态网页爬取"></a>静态网页爬取 VS 动态网页爬取</h1><p>静态网页爬取即是网页的 html 文件即包含了你所需要的所有数据并且你可以直接请求到，这通常便有两种方法：</p>
 <ul>
 <li>正则表达式</li>
 <li>BeautifulSoup </li>
 </ul>
 <p>而动态网页则往往需要加载一段时间或者内容需要由ajax 异步更新等等，本处爬取的网站应该算最简单的需要加载一段时间吧~</p>
-<h3 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h3><p>既然能够直接从 html 源码中获得数据，那么直接把源码请求下来不就好了！通常使用如下代码请求一个静态网页的源码：</p>
+<h2 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h2><p>既然能够直接从 html 源码中获得数据，那么直接把源码请求下来不就好了！通常使用如下代码请求一个静态网页的源码：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_one_page</span><span class="params">(url)</span>:</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        headers = &#123;</span><br><span class="line">            <span class="string">'User-Agent'</span>: <span class="string">'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) '</span><span class="string">'Chrome/51.0.2704.63 Safari/537.36'</span>&#125;</span><br><span class="line">        response = requests.get(url, headers=headers, timeout=<span class="number">30</span>)</span><br><span class="line">        <span class="keyword">if</span> response.status_code == <span class="number">200</span>:</span><br><span class="line">            <span class="keyword">return</span> response.text</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            print(response.status_code)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        print(<span class="string">'访问 http 发生错误... '</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">None</span></span><br></pre></td></tr></table></figure>
 <p>源码获得后便可以直接通过<strong>正则表达式</strong>匹配所需要的数据了，具体使用方法这里就不多说了，网上教程一抓一大把，这里给个示例：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">pattern_fast = re.compile(<span class="string">'快充数量：(.*?)个'</span>, re.S)</span><br><span class="line">pattern_low = re.compile(<span class="string">'慢充数量：(.*?)个'</span>, re.S)</span><br><span class="line">kuaichong = re.findall(pattern_fast, str(charge[<span class="number">0</span>]))</span><br><span class="line">manchong = re.findall(pattern_low, str(charge[<span class="number">0</span>]))</span><br></pre></td></tr></table></figure>
@@ -271,13 +271,13 @@ var _hmt = _hmt || [];
 <blockquote>
 <p>必要的情况也可以缩小目标范围后再使用正则表达式</p>
 </blockquote>
-<h3 id="BeautifulSoup"><a href="#BeautifulSoup" class="headerlink" title="BeautifulSoup"></a>BeautifulSoup</h3><p>具体使用方法可直接参考<a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/index.zh.html#" target="_blank" rel="noopener">官方文档</a> ，下面这个示例给出按类解析省份的功能</p>
+<h2 id="BeautifulSoup"><a href="#BeautifulSoup" class="headerlink" title="BeautifulSoup"></a>BeautifulSoup</h2><p>具体使用方法可直接参考<a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/index.zh.html#" target="_blank" rel="noopener">官方文档</a> ，下面这个示例给出按类解析省份的功能</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 按类（class）解析 html 文件得到所有省份名称</span></span><br><span class="line">soup = BeautifulSoup(all_html, <span class="string">"lxml"</span>)</span><br><span class="line">province = soup.find_all(name=<span class="string">'td'</span>, attrs=&#123;<span class="string">"class"</span>: <span class="string">"sel-city-td-sf"</span>&#125;)</span><br></pre></td></tr></table></figure>
 <p>BeautifulSoup  看上去比暴力正则表达式便要柔和很多，因为我们所<strong>感兴趣的数据往往具有相同的类 class 或者 ID</strong>，并且 <code>id</code> 在 html 中是<strong>唯一</strong>的，这样提取一个数据显然十分方便。</p>
 <p>如果你以为到这便可以爬取大部分网页那就太天真了，很多数据对提供商来说是不想传播开来的，这时变会有相应的<strong>反爬机制</strong>，这里手段很多，此博客仅介绍本项目遇到的问题</p>
 <p>通常的 Request 请求方式是请求一次成功后便马上将源码下载下来，然而此时页面可能还<strong>未加载完全！</strong>，通常会是一些 <code>Ajax</code> 异步的 <code>javascript</code> 程序（本项目似乎仅仅是<strong>加载慢</strong>而已，，），那么这时下载下来的 html 源码<strong>可能</strong>是没有你想要的信息的。解决方案显然也很清晰，那我就等呀！而实现这种功能的途径往往是 webdriver</p>
-<h3 id="Selenium-Webdriver"><a href="#Selenium-Webdriver" class="headerlink" title="Selenium + Webdriver"></a>Selenium + Webdriver</h3><p>详细的概念这里就不介绍了，我们需要明确的是 <code>Selenium Python</code> 提供了一个简单的API 便于我们使用 <code>Selenium WebDriver</code>编写 <strong>功能/验收测试</strong>。直观上说就是操作一个浏览器的行为，可以实现<strong>等待、跳转</strong>等等操作，下面我们直接从实例出发分析如何利用这些技术</p>
-<h2 id="开始爬取"><a href="#开始爬取" class="headerlink" title="开始爬取"></a>开始爬取</h2><p>首先来分析下目标网页，采集的网页来自于北汽，但是地图爬虫不是这次的重点</p>
+<h2 id="Selenium-Webdriver"><a href="#Selenium-Webdriver" class="headerlink" title="Selenium + Webdriver"></a>Selenium + Webdriver</h2><p>详细的概念这里就不介绍了，我们需要明确的是 <code>Selenium Python</code> 提供了一个简单的API 便于我们使用 <code>Selenium WebDriver</code>编写 <strong>功能/验收测试</strong>。直观上说就是操作一个浏览器的行为，可以实现<strong>等待、跳转</strong>等等操作，下面我们直接从实例出发分析如何利用这些技术</p>
+<h1 id="开始爬取"><a href="#开始爬取" class="headerlink" title="开始爬取"></a>开始爬取</h1><p>首先来分析下目标网页，采集的网页来自于北汽，但是地图爬虫不是这次的重点</p>
 <blockquote>
 <p>其实只是不会而已</p>
 </blockquote>
@@ -304,11 +304,11 @@ var _hmt = _hmt || [];
 </ol>
 <p>实现前先放一张全国的分布图（虽然数据少，但绝不是手工记录，，，），下面进入正题！</p>
 <p><img src="https://i.loli.net/2018/12/15/5c14dfa87fdc8.png" alt></p>
-<h2 id="关键模块"><a href="#关键模块" class="headerlink" title="关键模块"></a>关键模块</h2><h3 id="省份名称及详情页"><a href="#省份名称及详情页" class="headerlink" title="省份名称及详情页"></a>省份名称及详情页</h3><p>上述已经提到了通过如下代码便可以提取到所有省份的名称</p>
+<h1 id="关键模块"><a href="#关键模块" class="headerlink" title="关键模块"></a>关键模块</h1><h2 id="省份名称及详情页"><a href="#省份名称及详情页" class="headerlink" title="省份名称及详情页"></a>省份名称及详情页</h2><p>上述已经提到了通过如下代码便可以提取到所有省份的名称</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 打开起始页面</span></span><br><span class="line">url = <span class="string">'http://www.bjev520.com/jsp/beiqi/pcmap/do/index.jsp'</span></span><br><span class="line">all_html = get_one_page(url)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 按类（class）解析 html 文件得到所有省份名称</span></span><br><span class="line">model = <span class="string">'http://www.bjev520.com/jsp/beiqi/pcmap/do/pcMap.jsp?chargingTypeId=&amp;companyId=&amp;chargingBrandId=&amp;brandStatuId=&amp;cityName='</span></span><br><span class="line">soup = BeautifulSoup(all_html, <span class="string">"lxml"</span>)</span><br><span class="line">province = soup.find_all(name=<span class="string">'td'</span>, attrs=&#123;<span class="string">"class"</span>: <span class="string">"sel-city-td-sf"</span>&#125;)</span><br></pre></td></tr></table></figure>
 <p>不过这还有个小问题，进入详情页的时候需要对网址中的中文进行编码</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> urllib.request <span class="keyword">import</span> quote</span><br><span class="line">quote(<span class="string">"安徽省"</span>)</span><br><span class="line"><span class="comment"># output</span></span><br><span class="line"><span class="comment"># '%E5%AE%89%E5%BE%BD%E7%9C%81'</span></span><br></pre></td></tr></table></figure>
-<h3 id="省份概览信息"><a href="#省份概览信息" class="headerlink" title="省份概览信息"></a>省份概览信息</h3><p>进过上述步骤已经可以进入任意省份的详情页，下一步便是从左上角获得电站数量、快充数量、慢充数量的信息，一开始我错以为这三个 <code>id</code> 的数据是 <code>ajax</code> 异步加载的，后来才发现是单线程的，，先分析下这三个 <code>id</code> 的 <code>javascript</code> 代码</p>
+<h2 id="省份概览信息"><a href="#省份概览信息" class="headerlink" title="省份概览信息"></a>省份概览信息</h2><p>进过上述步骤已经可以进入任意省份的详情页，下一步便是从左上角获得电站数量、快充数量、慢充数量的信息，一开始我错以为这三个 <code>id</code> 的数据是 <code>ajax</code> 异步加载的，后来才发现是单线程的，，先分析下这三个 <code>id</code> 的 <code>javascript</code> 代码</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** 修改数量统计 */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">editCharging</span>(<span class="params">dianzhan,kuaichong,manchong</span>)</span>&#123;</span><br><span class="line">   $(<span class="string">"#dianzhan"</span>).html(dianzhan);</span><br><span class="line">   $(<span class="string">"#kuaichong"</span>).html(kuaichong);</span><br><span class="line">   $(<span class="string">"#manchong"</span>).html(manchong);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>这里默认大家会使用浏览器的开发者模式检查源代码，，推荐 chrome F12</p>
@@ -340,14 +340,14 @@ var _hmt = _hmt || [];
 </li>
 </ul>
 </blockquote>
-<h3 id="ajax-异步更新爬取实例"><a href="#ajax-异步更新爬取实例" class="headerlink" title="ajax 异步更新爬取实例"></a>ajax 异步更新爬取实例</h3><p>由于这个项目中用不到 webdrive 的这个机制，感觉有点委屈了它，所以咱么看一个 pythonscraping 给的 <a href="http://pythonscraping.com/pages/javascript/ajaxDemo.html" target="_blank" rel="noopener">ajax 爬取实例</a></p>
+<h2 id="ajax-异步更新爬取实例"><a href="#ajax-异步更新爬取实例" class="headerlink" title="ajax 异步更新爬取实例"></a>ajax 异步更新爬取实例</h2><p>由于这个项目中用不到 webdrive 的这个机制，感觉有点委屈了它，所以咱么看一个 pythonscraping 给的 <a href="http://pythonscraping.com/pages/javascript/ajaxDemo.html" target="_blank" rel="noopener">ajax 爬取实例</a></p>
 <p>这个网站中单线加载完毕后会通过 ajax 更新段落内容，如果不使用等待事件的话</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">driver = webdriver.Chrome(<span class="string">"chromedriver.exe"</span>)</span><br><span class="line">driver.get(<span class="string">"http://pythonscraping.com/pages/javascript/ajaxDemo.html"</span>)</span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line"><span class="comment">#    element = WebDriverWait(driver, 10).until(</span></span><br><span class="line"><span class="comment">#        EC.presence_of_element_located((By.ID, "content"))</span></span><br><span class="line"><span class="comment">#    )</span></span><br><span class="line">    total = driver.find_element_by_id(<span class="string">'content'</span>).text</span><br><span class="line">    print(total)</span><br><span class="line"><span class="keyword">finally</span>:</span><br><span class="line">    driver.quit()</span><br><span class="line"><span class="comment"># output</span></span><br><span class="line"><span class="comment"># This is some content that will appear on the page while it's loading. You # don't care about scraping this.</span></span><br></pre></td></tr></table></figure>
 <p>返回的就是还没来得及更新的的段落内容，查看网页源码如下</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"content"</span>&gt;</span>Here is some important text you want to retrieve! <span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">"loadedButton"</span>&gt;</span>A button to click!<span class="tag">&lt;/<span class="name">button</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">$.ajax(&#123;</span><br><span class="line">    type: "GET",</span><br><span class="line">    url: "loadedContent.php",</span><br><span class="line">    success: function(response)&#123;</span><br><span class="line"></span><br><span class="line">	setTimeout(function() &#123;</span><br><span class="line">	    $('#content').html(response);</span><br><span class="line">	&#125;, 2000);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">function ajax_delay(str)&#123;</span><br><span class="line"> setTimeout("str",2000);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>从 <code>$.ajax</code> 可以看出这是实打实的异步更新，但是也很容易发现当页面加载完之后会有一个新的 <code>id</code> ——<code>loadedButton</code> ，只要执行等待事件直到这个 <code>id</code> 出现就能抓取到所需内容了</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">driver = webdriver.Chrome(<span class="string">"chromedriver.exe"</span>)</span><br><span class="line">driver.get(<span class="string">"http://pythonscraping.com/pages/javascript/ajaxDemo.html"</span>)</span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    element = WebDriverWait(driver, <span class="number">10</span>).until(</span><br><span class="line">        EC.presence_of_element_located((By.ID, <span class="string">"loadedButton"</span>))</span><br><span class="line">    )</span><br><span class="line">    total = driver.find_element_by_id(<span class="string">'content'</span>).text</span><br><span class="line">    print(total)</span><br><span class="line"><span class="keyword">finally</span>:</span><br><span class="line">    driver.quit()</span><br><span class="line"><span class="comment"># output</span></span><br><span class="line"><span class="comment"># Here is some important text you want to retrieve!</span></span><br><span class="line"><span class="comment"># A button to click!</span></span><br></pre></td></tr></table></figure>
-<h3 id="嵌套网页（iframe）抓取"><a href="#嵌套网页（iframe）抓取" class="headerlink" title="嵌套网页（iframe）抓取"></a>嵌套网页（iframe）抓取</h3><p>抓取页面的侧边表单（充电站详细数据）时发现解析的网页源码没有相关的内容，过了很久后才发现这是因为嵌套的缘故</p>
+<h2 id="嵌套网页（iframe）抓取"><a href="#嵌套网页（iframe）抓取" class="headerlink" title="嵌套网页（iframe）抓取"></a>嵌套网页（iframe）抓取</h2><p>抓取页面的侧边表单（充电站详细数据）时发现解析的网页源码没有相关的内容，过了很久后才发现这是因为嵌套的缘故</p>
 <p><img src="https://i.loli.net/2018/12/10/5c0de5e5586ce.png" alt></p>
 <p>不进入子 iframe 的话是无法访问其中的html 结构的</p>
 <blockquote>
@@ -363,12 +363,12 @@ var _hmt = _hmt || [];
 <p>然后就能得到<strong>一个个静态网页的链接了</strong> ,他们都长这样</p>
 <p><img src="https://i.loli.net/2018/12/10/5c0de79f165b8.png" alt></p>
 <p>顿时感觉手里多了不知道多少的数据，，，</p>
-<h3 id="正则匹配获取充电桩信息"><a href="#正则匹配获取充电桩信息" class="headerlink" title="正则匹配获取充电桩信息"></a>正则匹配获取充电桩信息</h3><p>这个比较简单，就不细说了</p>
+<h2 id="正则匹配获取充电桩信息"><a href="#正则匹配获取充电桩信息" class="headerlink" title="正则匹配获取充电桩信息"></a>正则匹配获取充电桩信息</h2><p>这个比较简单，就不细说了</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 充电站充电桩</span></span><br><span class="line">charge = soup_location.find_all(</span><br><span class="line"> name=<span class="string">'div'</span>, attrs=&#123;<span class="string">"class"</span>: <span class="string">"news-c"</span>&#125;)  <span class="comment"># 由于部分只有快充或者慢充，正则匹配似乎比较方便</span></span><br><span class="line">pattern_fast = re.compile(<span class="string">'快充数量：(.*?)个'</span>, re.S)</span><br><span class="line">pattern_low = re.compile(<span class="string">'慢充数量：(.*?)个'</span>, re.S)</span><br><span class="line">kuaichong = re.findall(pattern_fast, str(charge[<span class="number">0</span>]))</span><br><span class="line">manchong = re.findall(pattern_low, str(charge[<span class="number">0</span>]))</span><br></pre></td></tr></table></figure>
-<h3 id="正逆地理编码——API"><a href="#正逆地理编码——API" class="headerlink" title="正逆地理编码——API"></a>正逆地理编码——API</h3><p>这一步才是最关键或者说 usefull 的东西，数据时代人们关心的是经纬度而不是一串地址，而这些<strong>充电桩的地址并不是很规范</strong>，故而先要对地址的字符串进行清洗，下述代码中的正则方法去除了地址中的<strong>全角和半角括号以及其中的内容</strong> ，然后再调用百度的 API</p>
+<h2 id="正逆地理编码——API"><a href="#正逆地理编码——API" class="headerlink" title="正逆地理编码——API"></a>正逆地理编码——API</h2><p>这一步才是最关键或者说 usefull 的东西，数据时代人们关心的是经纬度而不是一串地址，而这些<strong>充电桩的地址并不是很规范</strong>，故而先要对地址的字符串进行清洗，下述代码中的正则方法去除了地址中的<strong>全角和半角括号以及其中的内容</strong> ，然后再调用百度的 API</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 调用 API</span></span><br><span class="line">ak = <span class="string">''</span> <span class="comment"># 换成你自己的 key</span></span><br><span class="line">b = baidu.Baidu(ak)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 去除无用信息</span></span><br><span class="line">s = location[<span class="number">0</span>].p.get_text()</span><br><span class="line">delete_banjiao = re.sub(<span class="string">u"\\(.*?\\)|\\&#123;.*?&#125;|\\[.*?]"</span>, <span class="string">""</span>, s)</span><br><span class="line">s = bytes(delete_banjiao, encoding=<span class="string">"utf8"</span>)</span><br><span class="line">delete_quanjiao = re.sub(<span class="string">u"\\（.*?）|\\&#123;.*?&#125;|\\[.*?]|\\【.*?】"</span>, <span class="string">""</span>, s.decode())</span><br><span class="line"></span><br><span class="line">location_api = b.geocode(delete_quanjiao)</span><br><span class="line">location_api.latitude</span><br><span class="line">location_api.longitude</span><br></pre></td></tr></table></figure>
-<h2 id="可视化"><a href="#可视化" class="headerlink" title="可视化"></a>可视化</h2><p><img src="https://i.loli.net/2018/12/15/5c14dd983934e.jpg" width="700px"></p>
-<h2 id="推荐一下舍友工作"><a href="#推荐一下舍友工作" class="headerlink" title="推荐一下舍友工作"></a>推荐一下舍友工作</h2><p><a href="https://lwz322.github.io/2018/12/07/Tesla_chargers.html#%E7%8E%AF%E5%A2%83" target="_blank" rel="noopener">tesla充电桩数据</a>  爬取了美国特斯拉充电桩的分布信息，源起于2018年MCM\ICM的D题。</p>
+<h1 id="可视化"><a href="#可视化" class="headerlink" title="可视化"></a>可视化</h1><p><img src="https://i.loli.net/2018/12/15/5c14dd983934e.jpg" width="700px"></p>
+<h1 id="推荐一下舍友工作"><a href="#推荐一下舍友工作" class="headerlink" title="推荐一下舍友工作"></a>推荐一下舍友工作</h1><p><a href="https://lwz322.github.io/2018/12/07/Tesla_chargers.html#%E7%8E%AF%E5%A2%83" target="_blank" rel="noopener">tesla充电桩数据</a>  爬取了美国特斯拉充电桩的分布信息，源起于2018年MCM\ICM的D题。</p>
 <p><img src="https://img.vim-cn.com/dc/7c180c409d8786a3360fdf7ec17c11f515bf32.png" alt></p>
 
       
@@ -500,7 +500,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#静态网页爬取-VS-动态网页爬取"><span class="toc-number">1.</span> <span class="toc-text">静态网页爬取 VS 动态网页爬取</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#正则表达式"><span class="toc-number">1.1.</span> <span class="toc-text">正则表达式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BeautifulSoup"><span class="toc-number">1.2.</span> <span class="toc-text">BeautifulSoup</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Selenium-Webdriver"><span class="toc-number">1.3.</span> <span class="toc-text">Selenium + Webdriver</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#开始爬取"><span class="toc-number">2.</span> <span class="toc-text">开始爬取</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关键模块"><span class="toc-number">3.</span> <span class="toc-text">关键模块</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#省份名称及详情页"><span class="toc-number">3.1.</span> <span class="toc-text">省份名称及详情页</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#省份概览信息"><span class="toc-number">3.2.</span> <span class="toc-text">省份概览信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ajax-异步更新爬取实例"><span class="toc-number">3.3.</span> <span class="toc-text">ajax 异步更新爬取实例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#嵌套网页（iframe）抓取"><span class="toc-number">3.4.</span> <span class="toc-text">嵌套网页（iframe）抓取</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#正则匹配获取充电桩信息"><span class="toc-number">3.5.</span> <span class="toc-text">正则匹配获取充电桩信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#正逆地理编码——API"><span class="toc-number">3.6.</span> <span class="toc-text">正逆地理编码——API</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#可视化"><span class="toc-number">4.</span> <span class="toc-text">可视化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#推荐一下舍友工作"><span class="toc-number">5.</span> <span class="toc-text">推荐一下舍友工作</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#静态网页爬取-VS-动态网页爬取"><span class="toc-number">1.</span> <span class="toc-text">静态网页爬取 VS 动态网页爬取</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#正则表达式"><span class="toc-number">1.1.</span> <span class="toc-text">正则表达式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BeautifulSoup"><span class="toc-number">1.2.</span> <span class="toc-text">BeautifulSoup</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Selenium-Webdriver"><span class="toc-number">1.3.</span> <span class="toc-text">Selenium + Webdriver</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#开始爬取"><span class="toc-number">2.</span> <span class="toc-text">开始爬取</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#关键模块"><span class="toc-number">3.</span> <span class="toc-text">关键模块</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#省份名称及详情页"><span class="toc-number">3.1.</span> <span class="toc-text">省份名称及详情页</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#省份概览信息"><span class="toc-number">3.2.</span> <span class="toc-text">省份概览信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ajax-异步更新爬取实例"><span class="toc-number">3.3.</span> <span class="toc-text">ajax 异步更新爬取实例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#嵌套网页（iframe）抓取"><span class="toc-number">3.4.</span> <span class="toc-text">嵌套网页（iframe）抓取</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#正则匹配获取充电桩信息"><span class="toc-number">3.5.</span> <span class="toc-text">正则匹配获取充电桩信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#正逆地理编码——API"><span class="toc-number">3.6.</span> <span class="toc-text">正逆地理编码——API</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#可视化"><span class="toc-number">4.</span> <span class="toc-text">可视化</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#推荐一下舍友工作"><span class="toc-number">5.</span> <span class="toc-text">推荐一下舍友工作</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -569,7 +569,7 @@ gitment.render('gitment-ctn')
     	</div>
 		<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 		<span id="busuanzi_container_site_uv">
-        你是第 <span id="busuanzi_value_site_uv"></span> 个访问此网站的小伙伴</span>
+        You are the <span id="busuanzi_value_site_uv"></span>th visitor to this site</span>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
       	</div>
@@ -675,6 +675,18 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数学建模</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">优化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Optimization</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
@@ -688,26 +700,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Algorithm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">网络爬虫</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数学建模</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">优化</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Optimization</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -732,6 +724,14 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">machine learning</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">网络爬虫</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
               <li class="article-tag-list-item">
