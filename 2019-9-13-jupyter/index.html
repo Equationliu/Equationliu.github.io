@@ -8,18 +8,20 @@
   <link rel="dns-prefetch" href="https://equationliu.github.io">
   <title>远程服务器上使用 jupyter + matplotlib 绘制动态图 | Equation-Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="目前许多深度学习（炼丹）的服务器大多是远程 Linux 服务器，从而没有图形化界面。动态可视化训练过程有时候可能比仅仅 print 中间输出更有效。 针对 pytorch 也有对应的 TensorboardX，但是更多时候可能想边训练边查看某些特定指标（如 Loss, Accuracy）的变化情况。这时通过 matplotlib 动态更新图层遍好了。为了看到图形化界面，首先需要在服务器上配置 Ju">
-<meta name="keywords" content="machine learning,python">
+  <meta name="description" content="目前许多深度学习（炼丹）的服务器大多是远程 Linux 服务器，从而没有图形化界面。动态可视化训练过程有时候可能比仅仅 print 中间输出更有效。 针对 pytorch 也有对应的 TensorboardX，但是更多时候可能想边训练边查看某些特定指标（如 Loss, Accuracy）的变化情况。这时通过 matplotlib 动态更新图层便好了。为了看到图形化界面，首先需要在服务器上配置 Ju">
+<meta name="keywords" content="python,machine learning">
 <meta property="og:type" content="article">
 <meta property="og:title" content="远程服务器上使用 jupyter + matplotlib 绘制动态图">
 <meta property="og:url" content="https://equationliu.github.io/2019-9-13-jupyter/index.html">
 <meta property="og:site_name" content="Equation-Blog">
-<meta property="og:description" content="目前许多深度学习（炼丹）的服务器大多是远程 Linux 服务器，从而没有图形化界面。动态可视化训练过程有时候可能比仅仅 print 中间输出更有效。 针对 pytorch 也有对应的 TensorboardX，但是更多时候可能想边训练边查看某些特定指标（如 Loss, Accuracy）的变化情况。这时通过 matplotlib 动态更新图层遍好了。为了看到图形化界面，首先需要在服务器上配置 Ju">
+<meta property="og:description" content="目前许多深度学习（炼丹）的服务器大多是远程 Linux 服务器，从而没有图形化界面。动态可视化训练过程有时候可能比仅仅 print 中间输出更有效。 针对 pytorch 也有对应的 TensorboardX，但是更多时候可能想边训练边查看某些特定指标（如 Loss, Accuracy）的变化情况。这时通过 matplotlib 动态更新图层便好了。为了看到图形化界面，首先需要在服务器上配置 Ju">
 <meta property="og:locale" content="en | zh-CN |zh-TW">
-<meta property="og:updated_time" content="2019-09-29T16:36:55.868Z">
+<meta property="og:image" content="https://equationliu.github.io/.io//dynamic.png">
+<meta property="og:updated_time" content="2019-09-30T04:41:19.025Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="远程服务器上使用 jupyter + matplotlib 绘制动态图">
-<meta name="twitter:description" content="目前许多深度学习（炼丹）的服务器大多是远程 Linux 服务器，从而没有图形化界面。动态可视化训练过程有时候可能比仅仅 print 中间输出更有效。 针对 pytorch 也有对应的 TensorboardX，但是更多时候可能想边训练边查看某些特定指标（如 Loss, Accuracy）的变化情况。这时通过 matplotlib 动态更新图层遍好了。为了看到图形化界面，首先需要在服务器上配置 Ju">
+<meta name="twitter:description" content="目前许多深度学习（炼丹）的服务器大多是远程 Linux 服务器，从而没有图形化界面。动态可视化训练过程有时候可能比仅仅 print 中间输出更有效。 针对 pytorch 也有对应的 TensorboardX，但是更多时候可能想边训练边查看某些特定指标（如 Loss, Accuracy）的变化情况。这时通过 matplotlib 动态更新图层便好了。为了看到图形化界面，首先需要在服务器上配置 Ju">
+<meta name="twitter:image" content="https://equationliu.github.io/.io//dynamic.png">
   
     <link rel="alternative" href="/atom.xml" title="Equation-Blog" type="application/atom+xml">
   
@@ -199,7 +201,7 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <p>目前许多深度学习（炼丹）的服务器大多是远程 Linux 服务器，从而没有图形化界面。动态可视化训练过程有时候可能比仅仅 <code>print</code> 中间输出更有效。</p>
-<p>针对 <code>pytorch</code> 也有对应的 <a href="https://github.com/lanpa/tensorboardX" target="_blank" rel="noopener">TensorboardX</a>，但是更多时候可能想<strong>边训练边查看某些特定指标</strong>（如 Loss, Accuracy）的变化情况。这时通过 matplotlib 动态更新图层遍好了。为了看到图形化界面，首先需要在服务器上配置 Jupyter，这个网上教程很多，就不赘述了。</p>
+<p>针对 <code>pytorch</code> 也有对应的 <a href="https://github.com/lanpa/tensorboardX" target="_blank" rel="noopener">TensorboardX</a>，但是更多时候可能想<strong>边训练边查看某些特定指标</strong>（如 Loss, Accuracy）的变化情况。这时通过 matplotlib 动态更新图层便好了。为了看到图形化界面，首先需要在服务器上配置 Jupyter，这个网上教程很多，就不赘述了。</p>
 <a id="more"></a>
 <h2 id="开始绘图"><a href="#开始绘图" class="headerlink" title="开始绘图"></a>开始绘图</h2><p>开始找了很多教程，在 Jupyter 总是出现各种问题，最后参考下面链接得以解决</p>
 <blockquote>
@@ -207,6 +209,7 @@ var _hmt = _hmt || [];
 </blockquote>
 <p>下面放上我的代码，针对网络训练过程中的 Loss 和 Acc</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Recording training process</span></span><br><span class="line">Loss_list = []</span><br><span class="line">acc_list = []</span><br><span class="line"></span><br><span class="line">%matplotlib notebook</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line">fig = plt.figure(figsize=(<span class="number">10</span>, <span class="number">4.8</span>))</span><br><span class="line">ax_loss = fig.add_subplot(<span class="number">121</span>)</span><br><span class="line">ax_acc = fig.add_subplot(<span class="number">122</span>)</span><br><span class="line"></span><br><span class="line">plt.ion()</span><br><span class="line">fig.show()</span><br><span class="line">fig.canvas.draw()</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> epoch <span class="keyword">in</span> range(<span class="number">0</span>,<span class="number">100</span>):</span><br><span class="line">    Loss_list.append(math.exp(-epoch) + <span class="number">0.1</span> * np.random.rand(<span class="number">1</span>).item())</span><br><span class="line">    acc_list.append(<span class="number">1</span> - math.exp(-epoch) + <span class="number">0.1</span>* np.random.rand(<span class="number">1</span>).item())</span><br><span class="line">    </span><br><span class="line">    ax_loss.clear()</span><br><span class="line">    ax_loss.plot(Loss_list)</span><br><span class="line">    <span class="comment"># ax_loss.set_title()</span></span><br><span class="line">    ax_loss.set_xlabel(<span class="string">'Iterations'</span>)</span><br><span class="line">    ax_loss.set_ylabel(<span class="string">'Loss'</span>)</span><br><span class="line">        </span><br><span class="line">    ax_acc.clear()</span><br><span class="line">    ax_acc.plot(acc_list)</span><br><span class="line">    <span class="comment"># ax_acc.set_title()</span></span><br><span class="line">    ax_acc.set_xlabel(<span class="string">'Iterations'</span>)</span><br><span class="line">    ax_acc.set_ylabel(<span class="string">'Accuracy'</span>)</span><br><span class="line">    fig.canvas.draw()</span><br><span class="line">    </span><br><span class="line">    time.sleep(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="/.io//dynamic.png" alt></p>
 
       
 
@@ -220,11 +223,11 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">machine learning</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">machine learning</a>
         		</li>
       		
 		</ul>
@@ -365,7 +368,7 @@ var _hmt = _hmt || [];
   
   <div id="gitment-ctn"></div> 
 <link rel="stylesheet" href="https://jjeejj.github.io/css/gitment.css">
-<script src="https://jjeejj.github.io/js/gitment.js"></script>
+<script src="https://www.wenjunjiang.win/js/gitment.js"></script>
 <script>
 var gitment = new Gitment({
   id: "https://equationliu.github.io/2019-9-13-jupyter/",
@@ -492,6 +495,22 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Data Structure</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Algorithm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数学建模</a>
               </li>
              
@@ -501,6 +520,14 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Optimization</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">网络爬虫</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -525,30 +552,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">machine learning</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">网络爬虫</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Data Structure</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Algorithm</a>
               </li>
              
               <li class="article-tag-list-item">
