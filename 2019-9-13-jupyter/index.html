@@ -17,7 +17,7 @@
 <meta property="og:description" content="目前许多深度学习（炼丹）的服务器大多是远程 Linux 服务器，从而没有图形化界面。动态可视化训练过程有时候可能比仅仅 print 中间输出更有效。 针对 pytorch 也有对应的 TensorboardX，但是更多时候可能想边训练边查看某些特定指标（如 Loss, Accuracy）的变化情况。这时通过 matplotlib 动态更新图层便好了。为了看到图形化界面，首先需要在服务器上配置 Ju">
 <meta property="og:locale" content="en | zh-CN |zh-TW">
 <meta property="og:image" content="https://equationliu.github.io/.io//dynamic.png">
-<meta property="og:updated_time" content="2019-09-30T04:41:19.025Z">
+<meta property="og:updated_time" content="2019-09-30T06:07:03.171Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="远程服务器上使用 jupyter + matplotlib 绘制动态图">
 <meta name="twitter:description" content="目前许多深度学习（炼丹）的服务器大多是远程 Linux 服务器，从而没有图形化界面。动态可视化训练过程有时候可能比仅仅 print 中间输出更有效。 针对 pytorch 也有对应的 TensorboardX，但是更多时候可能想边训练边查看某些特定指标（如 Loss, Accuracy）的变化情况。这时通过 matplotlib 动态更新图层便好了。为了看到图形化界面，首先需要在服务器上配置 Ju">
@@ -87,6 +87,8 @@ var _hmt = _hmt || [];
 	        
 				<li><a href="/tags/随笔/">随笔</a></li>
 	        
+				<li><a href="/about/">关于</a></li>
+	        
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
@@ -100,7 +102,7 @@ var _hmt = _hmt || [];
     			
             
     			
-    			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">关于我</a>
+    			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">座右铭</a>
     			
             
 		</nav>
@@ -143,6 +145,8 @@ var _hmt = _hmt || [];
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -160,12 +164,14 @@ var _hmt = _hmt || [];
 			</nav>
 
 			<nav class="header-menu js-header-menu">
-				<ul style="width: 50%">
+				<ul style="width: 70%">
 				
 				
-					<li style="width: 50%"><a href="/">主页</a></li>
+					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
 		        
-					<li style="width: 50%"><a href="/tags/随笔/">随笔</a></li>
+					<li style="width: 33.333333333333336%"><a href="/tags/随笔/">随笔</a></li>
+		        
+					<li style="width: 33.333333333333336%"><a href="/about/">关于</a></li>
 		        
 				</ul>
 			</nav>
@@ -474,7 +480,7 @@ MathJax.Hub.Queue(function() {
       
         
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">座右铭</a></li>
       
         
     </ul>
@@ -511,14 +517,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">网络爬虫</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数学建模</a>
               </li>
              
@@ -528,6 +526,14 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Optimization</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">网络爬虫</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -630,7 +636,7 @@ MathJax.Hub.Queue(function() {
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;只做了一点微小的工作&lt;br&gt;谢谢大家</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">张爱玲&lt;br&gt;&lt;br&gt;人总是在接近幸福时&lt;br&gt;倍感幸福&lt;br&gt;在幸福进行时却&lt;br&gt;患得患失</div>
   	  	
     	</section>
     
