@@ -24,7 +24,7 @@
     }
   </style>
   <meta name="description" content="目前许多深度学习（炼丹）的服务器大多是远程 Linux 服务器，从而没有图形化界面。动态可视化训练过程有时候可能比仅仅 print 中间输出更有效。 针对 pytorch 也有对应的 TensorboardX，但是更多时候可能想边训练边查看某些特定指标（如 Loss, Accuracy）的变化情况。这时通过 matplotlib 动态更新图层便好了。为了看到图形化界面，首先需要在服务器上配置 Ju">
-<meta name="keywords" content="machine learning,python">
+<meta name="keywords" content="python,machine learning">
 <meta property="og:type" content="article">
 <meta property="og:title" content="远程服务器上使用 jupyter + matplotlib 绘制动态图">
 <meta property="og:url" content="https://equationliu.github.io/2019-9-13-jupyter/index.html">
@@ -32,7 +32,7 @@
 <meta property="og:description" content="目前许多深度学习（炼丹）的服务器大多是远程 Linux 服务器，从而没有图形化界面。动态可视化训练过程有时候可能比仅仅 print 中间输出更有效。 针对 pytorch 也有对应的 TensorboardX，但是更多时候可能想边训练边查看某些特定指标（如 Loss, Accuracy）的变化情况。这时通过 matplotlib 动态更新图层便好了。为了看到图形化界面，首先需要在服务器上配置 Ju">
 <meta property="og:locale" content="en | zh-CN |zh-TW">
 <meta property="og:image" content="https://i.loli.net/2019/09/30/whHdFgLyY7Klbo2.png">
-<meta property="og:updated_time" content="2019-09-30T09:15:29.197Z">
+<meta property="og:updated_time" content="2019-10-01T09:13:33.078Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="远程服务器上使用 jupyter + matplotlib 绘制动态图">
 <meta name="twitter:description" content="目前许多深度学习（炼丹）的服务器大多是远程 Linux 服务器，从而没有图形化界面。动态可视化训练过程有时候可能比仅仅 print 中间输出更有效。 针对 pytorch 也有对应的 TensorboardX，但是更多时候可能想边训练边查看某些特定指标（如 Loss, Accuracy）的变化情况。这时通过 matplotlib 动态更新图层便好了。为了看到图形化界面，首先需要在服务器上配置 Ju">
@@ -230,7 +230,7 @@ var _hmt = _hmt || [];
         <p>目前许多深度学习（炼丹）的服务器大多是远程 Linux 服务器，从而没有图形化界面。动态可视化训练过程有时候可能比仅仅 <code>print</code> 中间输出更有效。</p>
 <p>针对 <code>pytorch</code> 也有对应的 <a href="https://github.com/lanpa/tensorboardX" target="_blank" rel="noopener">TensorboardX</a>，但是更多时候可能想<strong>边训练边查看某些特定指标</strong>（如 Loss, Accuracy）的变化情况。这时通过 matplotlib 动态更新图层便好了。为了看到图形化界面，首先需要在服务器上配置 Jupyter，这个网上教程很多，就不赘述了。</p>
 <a id="more"></a>
-<h1 id="开始绘图"><a href="#开始绘图" class="headerlink" title="开始绘图"></a>开始绘图</h1><p>开始找了很多教程，在 Jupyter 总是出现各种问题，最后参考下面链接得以解决</p>
+<h2 id="开始绘图"><a href="#开始绘图" class="headerlink" title="开始绘图"></a>开始绘图</h2><p>开始找了很多教程，在 Jupyter 总是出现各种问题，最后参考下面链接得以解决</p>
 <blockquote>
 <p><a href="https://github.com/anujgupta82/Musings/blob/master/Dynamic%20or%20Live%20update%20of%20a%20Plot.ipynb" target="_blank" rel="noopener">Dynamic or Live update of a Plot in Python</a></p>
 </blockquote>
@@ -251,11 +251,11 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">machine learning</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">machine learning</a>
         		</li>
       		
 		</ul>
@@ -330,9 +330,18 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
+    <a href="/2019-10-1-summer/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          夏令营游记
+        
+      </div>
+    </a>
   
-    <a href="/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">New Start</div>
+  
+    <a href="/2019-6-28-lianxu/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">浅谈连续函数</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -359,7 +368,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#开始绘图"><span class="toc-number">1.</span> <span class="toc-text">开始绘图</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#开始绘图"><span class="toc-number">1.</span> <span class="toc-text">开始绘图</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -534,50 +543,6 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数学建模</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">优化</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Optimization</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">数学</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">math</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">machine learning</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">统计</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Statistics</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">网络爬虫</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
@@ -594,7 +559,51 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color5">网络爬虫</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数学建模</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">优化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Optimization</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">-随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">数学</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">统计</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">math</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Statistics</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">machine learning</a>
               </li>
             
             <div class="clearfix"></div>
