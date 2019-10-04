@@ -1,28 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://equationliu.github.io/2019-10-1-summer/</loc>
-    <lastmod>2019-10-01</lastmod>
-  </url>  <url>
     <loc>https://equationliu.github.io/2019-9-13-jupyter/</loc>
-    <lastmod>2019-10-01</lastmod>
+    <lastmod>2019-10-02</lastmod>
   </url>  <url>
     <loc>https://equationliu.github.io/2019-6-28-lianxu/</loc>
-    <lastmod>2019-10-01</lastmod>
+    <lastmod>2019-10-02</lastmod>
   </url>  <url>
     <loc>https://equationliu.github.io/2019-6-25-rmu/</loc>
-    <lastmod>2019-10-01</lastmod>
+    <lastmod>2019-10-02</lastmod>
   </url>  <url>
     <loc>https://equationliu.github.io/2019-6-25-exp/</loc>
-    <lastmod>2019-10-01</lastmod>
-  </url>  <url>
-    <loc>https://equationliu.github.io/2017-11-24-horse/</loc>
-    <lastmod>2019-10-01</lastmod>
+    <lastmod>2019-10-02</lastmod>
   </url>  <url>
     <loc>https://equationliu.github.io/2018-12-9-chargebar/</loc>
-    <lastmod>2019-09-30</lastmod>
+    <lastmod>2019-10-02</lastmod>
   </url>  <url>
     <loc>https://equationliu.github.io/2018-04-01-xuanke/</loc>
-    <lastmod>2019-09-30</lastmod>
+    <lastmod>2019-10-02</lastmod>
+  </url>  <url>
+    <loc>https://equationliu.github.io/2017-11-24-horse/</loc>
+    <lastmod>2019-10-02</lastmod>
   </url>
 </urlset>
