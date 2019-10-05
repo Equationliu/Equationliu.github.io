@@ -6,7 +6,7 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://equationliu.github.io">
-  <title>指数族分布：充分统计量？无偏估计？相合估计？ | Equation-Blog</title>
+  <title>新的起点：	每个人都有一个觉醒的过程，但是这个过程的早晚会决定一生 | Equation-Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
   <link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
@@ -23,18 +23,20 @@
         border-left-color: #6d6d6d;    /*左边框颜色*/
     }
   </style>
-  <meta name="description" content="考察给定参数 $\boldsymbol{\eta} $ 的指数族分布  p_{X}(\mathbf{x} | \boldsymbol{\eta})=h(\mathbf{x}) g(\boldsymbol{\eta}) \exp \left\{\boldsymbol{\eta}^{\mathrm{T}} \mathbf{u}(\mathbf{x})\right\}试证明  参数 $\boldsymb">
-<meta name="keywords" content="统计,machine learning">
+  <meta name="description" content="焦虑的开始保研正式结束了，以后可以去燕园培养人文情怀了。六月拿到北大信科优秀营员后，老师安排了我和师兄做科研，方向我也很喜欢。  当时得知拿到优营后，便在酒店激动的放飞了自我！  但是整个暑假和开学返校后，内心一直很焦虑  这真的是最优的选择吗？（周围有直博和出国的大佬） 我适合科研还是工作呢？ 我真的适合 ML 方向吗？  现在想想，连这些都没想通，怎么可能不焦虑！这是必然的，因为我一直以来都想">
+<meta name="keywords" content="-随笔">
 <meta property="og:type" content="article">
-<meta property="og:title" content="指数族分布：充分统计量？无偏估计？相合估计？">
-<meta property="og:url" content="https://equationliu.github.io/2019-6-25-exp/index.html">
+<meta property="og:title" content="新的起点：	每个人都有一个觉醒的过程，但是这个过程的早晚会决定一生">
+<meta property="og:url" content="https://equationliu.github.io/2019-10-5-start/index.html">
 <meta property="og:site_name" content="Equation-Blog">
-<meta property="og:description" content="考察给定参数 $\boldsymbol{\eta} $ 的指数族分布  p_{X}(\mathbf{x} | \boldsymbol{\eta})=h(\mathbf{x}) g(\boldsymbol{\eta}) \exp \left\{\boldsymbol{\eta}^{\mathrm{T}} \mathbf{u}(\mathbf{x})\right\}试证明  参数 $\boldsymb">
+<meta property="og:description" content="焦虑的开始保研正式结束了，以后可以去燕园培养人文情怀了。六月拿到北大信科优秀营员后，老师安排了我和师兄做科研，方向我也很喜欢。  当时得知拿到优营后，便在酒店激动的放飞了自我！  但是整个暑假和开学返校后，内心一直很焦虑  这真的是最优的选择吗？（周围有直博和出国的大佬） 我适合科研还是工作呢？ 我真的适合 ML 方向吗？  现在想想，连这些都没想通，怎么可能不焦虑！这是必然的，因为我一直以来都想">
 <meta property="og:locale" content="en | zh-CN |zh-TW">
-<meta property="og:updated_time" content="2019-10-02T01:53:59.063Z">
+<meta property="og:image" content="https://i.loli.net/2019/10/06/W7O1z4ZoCGyD2mf.jpg">
+<meta property="og:updated_time" content="2019-10-05T17:15:11.869Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="指数族分布：充分统计量？无偏估计？相合估计？">
-<meta name="twitter:description" content="考察给定参数 $\boldsymbol{\eta} $ 的指数族分布  p_{X}(\mathbf{x} | \boldsymbol{\eta})=h(\mathbf{x}) g(\boldsymbol{\eta}) \exp \left\{\boldsymbol{\eta}^{\mathrm{T}} \mathbf{u}(\mathbf{x})\right\}试证明  参数 $\boldsymb">
+<meta name="twitter:title" content="新的起点：	每个人都有一个觉醒的过程，但是这个过程的早晚会决定一生">
+<meta name="twitter:description" content="焦虑的开始保研正式结束了，以后可以去燕园培养人文情怀了。六月拿到北大信科优秀营员后，老师安排了我和师兄做科研，方向我也很喜欢。  当时得知拿到优营后，便在酒店激动的放飞了自我！  但是整个暑假和开学返校后，内心一直很焦虑  这真的是最优的选择吗？（周围有直博和出国的大佬） 我适合科研还是工作呢？ 我真的适合 ML 方向吗？  现在想想，连这些都没想通，怎么可能不焦虑！这是必然的，因为我一直以来都想">
+<meta name="twitter:image" content="https://i.loli.net/2019/10/06/W7O1z4ZoCGyD2mf.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Equation-Blog" type="application/atom+xml">
   
@@ -193,84 +195,96 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-2019-6-25-exp" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-2019-10-5-start" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      指数族分布：充分统计量？无偏估计？相合估计？
+      新的起点：	每个人都有一个觉醒的过程，但是这个过程的早晚会决定一生
     </h1>
   
 
 		<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 		<!--显示阅读次数-->
 
-  <br/>
-  <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
-  <span class="icon-sort"></span>
-  <span id="busuanzi_container_page_pv" style="color:gray;font-size:14px;">
-            阅读数: <span id="busuanzi_value_page_pv"></span> 次 &nbsp;&nbsp;
-  </span>
-  </a>
-
 <!--显示阅读次数完毕-->
         
-        <a href="/2019-6-25-exp/" class="archive-article-date">
-  	<time datetime="2019-06-25T05:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-25</time>
+        <a href="/2019-10-5-start/" class="archive-article-date">
+  	<time datetime="2019-10-05T15:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-05</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>考察给定参数 $\boldsymbol{\eta} $ 的指数族分布</p>
-<script type="math/tex; mode=display">
-p_{X}(\mathbf{x} | \boldsymbol{\eta})=h(\mathbf{x}) g(\boldsymbol{\eta}) \exp \left\{\boldsymbol{\eta}^{\mathrm{T}} \mathbf{u}(\mathbf{x})\right\}</script><p>试证明</p>
-<ol>
-<li>参数 $\boldsymbol{\eta}$ 的极大似然估计量（$\boldsymbol{\eta}_{\mathrm{ML}}$）也是一个充分统计量。</li>
-<li>$-\nabla \ln g\left(\boldsymbol{\eta}_{\mathrm{ML}}\right)$ 是一个<strong>相合估计量</strong>。</li>
-</ol>
+        <h2 id="焦虑的开始"><a href="#焦虑的开始" class="headerlink" title="焦虑的开始"></a>焦虑的开始</h2><p>保研正式结束了，以后可以去燕园培养人文情怀了。六月拿到北大信科优秀营员后，老师安排了我和师兄做科研，方向我也很喜欢。</p>
 <blockquote>
-<p>事实上，由充分统计量可以唯一构造出一个无偏估计量，进而是 UMVUE （一致最小方差无偏估计）</p>
+<p>当时得知拿到优营后，便在酒店激动的放飞了自我！</p>
 </blockquote>
+<p>但是整个暑假和开学返校后，内心一直很<strong>焦虑</strong></p>
+<ul>
+<li>这真的是最优的选择吗？（周围有直博和出国的大佬）</li>
+<li>我适合科研还是工作呢？</li>
+<li>我真的适合 ML 方向吗？</li>
+</ul>
+<p>现在想想，连这些都没想通，怎么可能不焦虑！这是必然的，因为我一直以来都<strong>想的不够多</strong>。保研群一群友给我画了个饼：出国镶金回来找教职。不过说不定硕士毕业就直接工作了，who knows。<a href="https://book.douban.com/subject/6709809/" target="_blank" rel="noopener">暗时间</a> 中说：<strong>善于利用思维时间的人，可以无形中比别人多出很多时间，从而实际意义上能比别人多活很多年</strong>。</p>
 <a id="more"></a>
-<h2 id="引理：指数族分布的充分统计量"><a href="#引理：指数族分布的充分统计量" class="headerlink" title="引理：指数族分布的充分统计量"></a>引理：指数族分布的充分统计量</h2><p>设随机变量 $X$ 具有单参数指数族分布</p>
-<script type="math/tex; mode=display">
-p_{X}(\mathbf{x} | \boldsymbol{\eta})=h(\mathbf{x}) g(\boldsymbol{\eta}) \exp \left\{\boldsymbol{\eta}^{\mathrm{T}} \mathbf{u}(\mathbf{x})\right\}</script><p>$X_1,X_2,\cdots,X_N$ 为取自母体 $X $ 的一个子样，则统计量 </p>
-<script type="math/tex; mode=display">
-\sum_{n=1}^{N}\mathbf{u}(x_n)</script><p>是参数 $\boldsymbol{\eta} $ 的充分统计量。</p>
-<h2 id="证明"><a href="#证明" class="headerlink" title="证明"></a>证明</h2><blockquote>
-<p><strong>部分</strong>解答过程参考于 <a href="https://www.microsoft.com/en-us/research/people/cmbishop/#!prml-book" target="_blank" rel="noopener">PRML</a></p>
+<blockquote>
+<p>如果要说什么相见恨晚的书，这应该算一本。这本书应该比较适合大学入学甚至高中，准备推荐给表妹。想想高中除了知道好好学习之外，脑子应该没想过太多有意义的东西了。</p>
 </blockquote>
+<h2 id="脑子开始清醒"><a href="#脑子开始清醒" class="headerlink" title="脑子开始清醒"></a>脑子开始清醒</h2><p>担心不是最优选择可能是考虑相对直博和出国 phd 的时间成本吧，但是对于我来说不找个新的 <strong>跳板</strong> 的话将来能跳的高吗？毕竟<strong>平台、资源和眼界</strong>确实很重要！</p>
+<p>夏令营已经暴露了自己有多菜~，C9 除了北大一个都没入营（人大其实是和老师争取的，然后自费，，），可以说<strong>北大是真的包容</strong>。靠着北大老师的推荐进了 lamda 复试，然后和我竞争一个老师的西工大 Acmer 两块金牌，而我面试也表现平平。现在想来大学花了那么多时间参加<strong>那么水的数模</strong>真是 interesting 呢 （大概是被美一可以保研的捷径给迷晕了头吧）。</p>
+<blockquote>
+<p>Lamda 团面的时候，老师根据我的简历问到了 SVM 的问题，为什么要研究原问题的对偶问题？我说对偶问题要好解一点。老师继续追问为什么？我当时完全蒙了，竟然说转化为对偶问题后是一个凸问题，，，</p>
+<p>后来看笔记并和其他人讨论后想答案应该是：</p>
 <ol>
-<li><p>样本的似然函数</p>
-<script type="math/tex; mode=display">
-p(\mathbf{X} | \boldsymbol{\eta})=\left(\prod_{n=1}^{N} h\left(\mathbf{x}_{n}\right)\right) g(\boldsymbol{\eta})^{N} \exp \left\{\boldsymbol{\eta}^{\mathrm{T}} \sum_{n=1}^{N} \mathbf{u}\left(\mathbf{x}_{n}\right)\right\}</script><p>令其<strong>对数似然函数</strong>对参数 $\boldsymbol{\eta} $ 的梯度为零，得到其极大似然估计 $\boldsymbol{\eta} _{ML} $ 满足</p>
-<script type="math/tex; mode=display">
--\nabla \ln g\left(\boldsymbol{\eta}_{\mathrm{ML}}\right)=\frac{1}{N} \sum_{n=1}^{N} \mathbf{u}\left(\mathbf{x}_{n}\right)</script><p>从而 $\boldsymbol{\eta} _{ML} $ 仅由 $\sum_{n=1}^{N} \mathbf{u}\left(\mathbf{x}_{n}\right)$ 决定。由引理知其 $\boldsymbol{\eta} _{ML} $ 是一个充分统计量。</p>
+<li><strong>对偶化前后的优化问题都是凸的</strong>。</li>
+<li>对偶化（对 SVM 来说就是消去了 $w,b$）之后变量少了（只有乘子系数 $\alpha$），约束条件变简单了，进而可以用 SMO 进行迭代优化。</li>
+</ol>
+</blockquote>
+<p>夏令营另一个天真的尝试算是清华叉院吧，尴尬的是足足花了一个多星期的时间而未果。当时想着提前联系老师套磁，看了 <a href="https://iiis.tsinghua.edu.cn/zh/yuanyang/" target="_blank" rel="noopener">袁洋老师</a> 主页顿时来了兴趣，研究方向很喜欢并且是 MIT 海龟！</p>
+<blockquote>
+<p>关于这位大佬可以了解他的系列专栏：<a href="https://zhuanlan.zhihu.com/p/36624193" target="_blank" rel="noopener">SGD在两层神经网络上是怎么收敛的？</a>，这种年轻的大牛实在是太吸引人了~</p>
+</blockquote>
+<p>他主页上有套题，于是我花了几天查文献、证明、排版，然后兴致勃勃的一封邮件过去，得到了以下的回复：</p>
+<blockquote>
+<p>去年的选拔试题你做得很好，但是我把题目放到网上只是给大家参考使用的；今年报名截止之后会给大家发一套新的题目</p>
+</blockquote>
+<p><strong>当时离去世可能真的只有三秒</strong>，，。然后就又做了一套题，，</p>
+<blockquote>
+<p>你的算法其实是很聪明的，可以得到更好的结果，只是你没有提供具体的分析，比较可惜。 </p>
+</blockquote>
+<p>怎么说呢，<strong>无怨无悔</strong>吧。老师给的题目还是挺有趣的，而且自己理论功底确实不扎实。后来在计算机保研群看到有老哥说给袁老师发过去邮件都没回复，，想想我还不是太惨，哈哈。</p>
+<p>至于科研还是工作<strong>当然得试一下</strong>才知道了，但我目前的编程底子想找算法岗怕是有点痴人说梦。</p>
+<h2 id="确认了眼神，非-ML-莫属"><a href="#确认了眼神，非-ML-莫属" class="headerlink" title="确认了眼神，非 ML 莫属"></a>确认了眼神，非 ML 莫属</h2><p>我真的适合 ML 方向吗？我也一直再想我为什么会选择 ML 方向（大多人都清一色的 CV，NLP），应该还是数模时接触的模型导致的。</p>
+<blockquote>
+<p>数模也不是一无是处嘛，，</p>
+</blockquote>
+<p>我应该是喜欢<strong>机器学习的统计基础</strong>部分，能够直接得到<strong>应用</strong>数学的快感和<strong>反馈</strong>。对于我这样一个<strong>无心研究基础数学</strong>的来说，研究生读统计相关似乎是一个较好的选择。最近看到的 <a href="https://blog.csdn.net/xiangz_csdn/article/details/60865980" target="_blank" rel="noopener">北京大学王立威教授：机器学习理论的回顾与展望</a> 更让我坚定了 ML 方向。先摘录一些很认同的观点：</p>
+<ol>
+<li><p><strong>奥卡姆剃刀理论</strong>：Everything should be made as simple as possible but no simpler</p>
 </li>
-<li><p>单参数指数族分布中的 $g(\boldsymbol{\eta}) $ 实际上是概率分布的归一项，即</p>
-<script type="math/tex; mode=display">
-g(\boldsymbol{\eta}) \int h(\mathbf{x}) \exp \left\{\boldsymbol{\eta}^{\mathrm{T}} \mathbf{u}(\mathbf{x})\right\} \mathrm{d} \mathbf{x}=1</script><p>上式两边对参数 $\boldsymbol{\eta}$ 求梯度，有</p>
-<script type="math/tex; mode=display">
-\nabla g(\eta) \int h(\mathbf{x}) \exp \left\{\eta^{\mathrm{T}} \mathbf{u}(\mathbf{x})\right\} \mathrm{d} \mathbf{x}{+g(\boldsymbol{\eta}) \int h(\mathbf{x}) \exp \left\{\boldsymbol{\eta}^{\mathrm{T}} \mathbf{u}(\mathbf{x})\right\} \mathbf{u}(\mathbf{x}) \mathrm{d} \mathbf{x}=0}</script><p>再将 $\int h(\mathbf{x}) \exp \left\{\eta^{\mathrm{T}} \mathbf{u}(\mathbf{x})\right\} \mathrm{d} \mathbf{x} = 1 /g(\boldsymbol{\eta})  $ 代入可得</p>
-<script type="math/tex; mode=display">
--\frac{1}{g(\boldsymbol{\eta})} \nabla g(\boldsymbol{\eta})=g(\boldsymbol{\eta}) \int h(\mathbf{x}) \exp \left\{\boldsymbol{\eta}^{\mathrm{T}} \mathbf{u}(\mathbf{x})\right\} \mathbf{u}(\mathbf{x}) \mathrm{d} \mathbf{x}=\mathbb{E}[\mathbf{u}(\mathbf{x})]</script><p>即</p>
-<script type="math/tex; mode=display">
--\nabla \ln g(\boldsymbol{\eta})=\mathbb{E}[\mathbf{u}(\mathbf{x})]</script><p>从而由<strong>辛钦大数定律</strong> $\forall  \varepsilon &gt;0$，有</p>
-<script type="math/tex; mode=display">
-\begin{align}
-& \lim_{N\rightarrow + \infty} P\left\{|-\nabla \ln g\left(\boldsymbol{\eta}_{\mathrm{ML}}\right)  + \nabla \ln g\left(\boldsymbol{\eta}_{\mathrm{ML}}\right)| \le \varepsilon\right\}  \\
-=&   \lim_{N\rightarrow + \infty} P\left\{\left|\frac{1}{N} \sum_{n=1}^{N} \mathbf{u}\left(\mathbf{x}_{n}\right) - \mathbb{E}[\mathbf{u}(\mathbf{x})]\right| < \varepsilon\right\} \\
-= & 1
-\end{align}</script><p>从而 $-\nabla \ln g\left(\boldsymbol{\eta}_{\mathrm{ML}}\right)$ 是一个<strong>相合估计量</strong>。</p>
+<li><p>机器学习建立在<strong>概率统计</strong>的基础上</p>
+</li>
+<li><p>随着深度学习近几年的发展，大家认为防止过拟合这件事情越来越重要</p>
+</li>
+<li><p>VC理论、Margin Theory，还有算法稳定性等等都不能很完美地解释深度学习</p>
+<blockquote>
+<p>算法稳定性有一部分解释了，也一直是近几年研究的热点，比如 <a href="https://zhuanlan.zhihu.com/p/27609238" target="_blank" rel="noopener">为什么说随机最速下降法(SGD)是一个很好的方法？</a>。学术圈这么小的嘛，这一块袁洋老师做的非常前沿！</p>
+</blockquote>
 </li>
 </ol>
-<h2 id="注记"><a href="#注记" class="headerlink" title="注记"></a>注记</h2><p>指数族分布统一了大部分<a href="https://en.wikipedia.org/wiki/Generalized_linear_model" target="_blank" rel="noopener">广义线性模型</a>（GLM）。以伯努利分布（参数为 $\mu$）为例，此时 $\eta = \ln (\frac{\mu}{1-\mu})$，从而</p>
-<script type="math/tex; mode=display">
-\mu = \sigma(\eta)=\frac{1}{1+\exp (-\eta)}</script><p>这便是 logistic sigmoid 函数。参数 $\eta$ 作为一个回归项便将线性回归推广到了二分类问题。</p>
+<p>王教授也指出，也许有一天，深度学习可能不是最好的方法。而这正是 Lamda 周 boss 组正在做的东西吧：<a href="http://blog.itpub.net/29829936/viewspace-2654078/" target="_blank" rel="noopener">周志华IJCAI2019演讲：「深」为什么重要，以及还有什么深的网络</a>。当然，更巧的是最终都无缘这两个地方。不过还要装作淡定：<strong>一切都是最好的安排，相信目前就是最好的选择</strong>！</p>
+<h2 id="路漫漫其修远兮"><a href="#路漫漫其修远兮" class="headerlink" title="路漫漫其修远兮"></a>路漫漫其修远兮</h2><p>前路漫长，既然已经做出了选择，那就该开始行动了。之前一直有一个误区，认为咱数学系出身搞 ML 算法应该不要代码能力超群吧？算法工程师可不是码农！只能说 sometimes naive. 代码能力不行怎么实现 idea，造轮子的时候就没得复制粘贴了吧。而且拿着这种情怀去找工作怕不是一面都过不了，话不多说，开始干！</p>
+<p>希望接下来能持续更新两个系列学习笔记：</p>
+<ol>
+<li><a href="https://bloomberg.github.io/foml/#home" target="_blank" rel="noopener">FOUNDATIONS OF MACHINE LEARNING</a></li>
+<li>菜鸡的 Python 挣扎之路</li>
+</ol>
+<p>希望能坚持下去！另外关于时间管理最近发现 Google 日历是个好东西，导入课表后剩下的空余时间可以根据自己的需求自动安排时间（应该是个会<strong>自我改进的机器学习算法</strong>），放张图：</p>
+<p><img src="https://i.loli.net/2019/10/06/W7O1z4ZoCGyD2mf.jpg" alt></p>
 
       
 
@@ -284,11 +298,7 @@ g(\boldsymbol{\eta}) \int h(\mathbf{x}) \exp \left\{\boldsymbol{\eta}^{\mathrm{T
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">统计</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">machine learning</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">-随笔</a>
         		</li>
       		
 		</ul>
@@ -344,7 +354,7 @@ g(\boldsymbol{\eta}) \int h(\mathbf{x}) \exp \left\{\boldsymbol{\eta}^{\mathrm{T
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://equationliu.github.io/2019-6-25-exp/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://equationliu.github.io/2019-10-5-start/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -360,18 +370,9 @@ g(\boldsymbol{\eta}) \int h(\mathbf{x}) \exp \left\{\boldsymbol{\eta}^{\mathrm{T
   
 <nav id="article-nav">
   
-    <a href="/2019-6-28-lianxu/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          浅谈连续函数
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019-6-25-rmu/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">二次型极值与 PCA ？</div>
+    <a href="/2019-9-13-jupyter/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">远程服务器上使用 jupyter + matplotlib 绘制动态图</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -398,7 +399,7 @@ g(\boldsymbol{\eta}) \int h(\mathbf{x}) \exp \left\{\boldsymbol{\eta}^{\mathrm{T
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#引理：指数族分布的充分统计量"><span class="toc-number">1.</span> <span class="toc-text">引理：指数族分布的充分统计量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#证明"><span class="toc-number">2.</span> <span class="toc-text">证明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#注记"><span class="toc-number">3.</span> <span class="toc-text">注记</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#焦虑的开始"><span class="toc-number">1.</span> <span class="toc-text">焦虑的开始</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#脑子开始清醒"><span class="toc-number">2.</span> <span class="toc-text">脑子开始清醒</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#确认了眼神，非-ML-莫属"><span class="toc-number">3.</span> <span class="toc-text">确认了眼神，非 ML 莫属</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#路漫漫其修远兮"><span class="toc-number">4.</span> <span class="toc-text">路漫漫其修远兮</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -408,52 +409,6 @@ g(\boldsymbol{\eta}) \int h(\mathbf{x}) \exp \left\{\boldsymbol{\eta}^{\mathrm{T
 </aside>
 
 
-
-  
-  <div class="duoshuo">
-	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="2019-6-25-exp" data-title="指数族分布：充分统计量？无偏估计？相合估计？" data-url="https://equationliu.github.io/2019-6-25-exp/"></div>
-	<!-- 多说评论框 end -->
-	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-	<script type="text/javascript">
-	var duoshuoQuery = {short_name:"true"};
-	(function() {
-		var ds = document.createElement('script');
-		ds.type = 'text/javascript';ds.async = true;
-		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-		ds.charset = 'UTF-8';
-		(document.getElementsByTagName('head')[0] 
-		 || document.getElementsByTagName('body')[0]).appendChild(ds);
-	})();
-	</script>
-	<!-- 多说公共JS代码 end -->
-</div>
-
-  
-  
-  
-
-  
-
-  
-
-  
-  <div id="gitment-ctn"></div> 
-<link rel="stylesheet" href="https://billts.site/extra_css/gitment.css">
-<script src="https://billts.site/js/gitment.js"></script>
-<script>
-var gitment = new Gitment({
-  id: "https://equationliu.github.io/2019-6-25-exp/",
-  owner: 'Equationliu',
-  repo: 'equationliu.github.io',
-  oauth: {
-    client_id: '4a8635dd78f8cd4fd997',
-    client_secret: 'd4421278eb872d5b507540ce8a64aeb952d9dbc1',
-  },
-})
-gitment.render('gitment-ctn')
-</script>
-  
 
 
           </div>
