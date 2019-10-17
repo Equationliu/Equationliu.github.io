@@ -6,7 +6,7 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://equationliu.github.io">
-  <title>Tag: 数学 | Equation-Blog</title>
+  <title>阅读分享：机器学习理论的回顾与展望——北大王立威教授 | Equation-Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
   <link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
@@ -23,17 +23,21 @@
         border-left-color: #6d6d6d;    /*左边框颜色*/
     }
   </style>
-  <meta name="description" content="关于个人的学习、研究与感悟 | 方程，目标：Math，Machine Learning，Computer Vision | 这里是 @equation的个人博客，与你一起发现更大的世界。">
-<meta name="keywords" content="equation, equation的博客, 个人网站, 互联网, CS, 机器学习 , Machine Learning, Math, 数学">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Equation-Blog">
-<meta property="og:url" content="https://equationliu.github.io/tags/数学/index.html">
+  <meta name="description" content="这篇文章是王立威教授在中国人工智能学会 AIDL 第二期人工智能前沿讲习班：机器学习前沿所作报告， slides 可以关注 AIDL 公众号后台回复关键字获取。演讲内容可以阅读 CSDN 转载整理版。 当初看到这篇文章是很激动的，现在回想一开始吸引我走进 ML 这个坑的就是像 VC theory 和 Margin theory 这种有很漂亮数学理论的传统机器学习理论与算法。就像王教授在报告最后提出">
+<meta name="keywords" content="统计,machine learning">
+<meta property="og:type" content="article">
+<meta property="og:title" content="阅读分享：机器学习理论的回顾与展望——北大王立威教授">
+<meta property="og:url" content="https://equationliu.github.io/2019-10-17-read/index.html">
 <meta property="og:site_name" content="Equation-Blog">
-<meta property="og:description" content="关于个人的学习、研究与感悟 | 方程，目标：Math，Machine Learning，Computer Vision | 这里是 @equation的个人博客，与你一起发现更大的世界。">
+<meta property="og:description" content="这篇文章是王立威教授在中国人工智能学会 AIDL 第二期人工智能前沿讲习班：机器学习前沿所作报告， slides 可以关注 AIDL 公众号后台回复关键字获取。演讲内容可以阅读 CSDN 转载整理版。 当初看到这篇文章是很激动的，现在回想一开始吸引我走进 ML 这个坑的就是像 VC theory 和 Margin theory 这种有很漂亮数学理论的传统机器学习理论与算法。就像王教授在报告最后提出">
 <meta property="og:locale" content="en | zh-CN |zh-TW">
+<meta property="og:image" content="http://static.leiphone.com/uploads/new/article/740_740/201703/58bd2ad7c6abe.png?imageMogr2/format/jpg/quality/90">
+<meta property="og:image" content="https://i.loli.net/2019/10/17/v1pXTxR95G2ly7V.png">
+<meta property="og:updated_time" content="2019-10-17T11:34:46.552Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Equation-Blog">
-<meta name="twitter:description" content="关于个人的学习、研究与感悟 | 方程，目标：Math，Machine Learning，Computer Vision | 这里是 @equation的个人博客，与你一起发现更大的世界。">
+<meta name="twitter:title" content="阅读分享：机器学习理论的回顾与展望——北大王立威教授">
+<meta name="twitter:description" content="这篇文章是王立威教授在中国人工智能学会 AIDL 第二期人工智能前沿讲习班：机器学习前沿所作报告， slides 可以关注 AIDL 公众号后台回复关键字获取。演讲内容可以阅读 CSDN 转载整理版。 当初看到这篇文章是很激动的，现在回想一开始吸引我走进 ML 这个坑的就是像 VC theory 和 Margin theory 这种有很漂亮数学理论的传统机器学习理论与算法。就像王教授在报告最后提出">
+<meta name="twitter:image" content="http://static.leiphone.com/uploads/new/article/740_740/201703/58bd2ad7c6abe.png?imageMogr2/format/jpg/quality/90">
   
     <link rel="alternative" href="/atom.xml" title="Equation-Blog" type="application/atom+xml">
   
@@ -192,60 +196,250 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-2019-10-17-read" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019-6-28-lianxu/" class="archive-article-date">
-  	<time datetime="2019-06-28T05:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-28</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019-6-28-lianxu/">浅谈连续函数</a>
+    <h1 class="article-title" itemprop="name">
+      阅读分享：机器学习理论的回顾与展望——北大王立威教授
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+		<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+		<!--显示阅读次数-->
+
+  <br/>
+  <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
+  <span class="icon-sort"></span>
+  <span id="busuanzi_container_page_pv" style="color:gray;font-size:14px;">
+            阅读数: <span id="busuanzi_value_page_pv"></span> 次 &nbsp;&nbsp;
+  </span>
+  </a>
+
+<!--显示阅读次数完毕-->
+        
+        <a href="/2019-10-17-read/" class="archive-article-date">
+  	<time datetime="2019-10-17T04:15:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>这篇文章是王立威教授在中国人工智能学会 <a href="https://aidl.caai.cn/2" target="_blank" rel="noopener">AIDL</a> 第二期<strong>人工智能前沿讲习班：机器学习前沿</strong>所作报告， slides 可以关注 <a href="https://aidl.caai.cn/2" target="_blank" rel="noopener">AIDL</a> 公众号后台回复关键字获取。演讲内容可以阅读 <a href="https://blog.csdn.net/xiangz_csdn/article/details/60865980" target="_blank" rel="noopener">CSDN <strong>转载</strong>整理版</a>。</p>
+<p>当初看到这篇文章是很激动的，现在回想一开始吸引我走进 ML 这个坑的就是像 VC theory 和 Margin theory 这种有<strong>很漂亮数学理论</strong>的传统机器学习理论与算法。就像王教授在报告最后提出的：<strong>这两个理论确实很难用来解释深度学习</strong>。但是学习这些基础显然还是很必要的，因此在这里 mark 一下。最后是一些个人的理解和想法，并尝试从仿真的角度直观理解其中提到的几个不等式。</p>
+<p><img src="http://static.leiphone.com/uploads/new/article/740_740/201703/58bd2ad7c6abe.png?imageMogr2/format/jpg/quality/90" alt="北京大学王立威教授：机器学习理论的回顾与展望（四）"><br><a id="more"></a></p>
+<p>不等式对于一些很难计算的量十分有用，它也常用于<strong>收敛定理</strong>。但是一直挺好奇的是大多数不等式都只有<strong>在某一个点</strong>取得到等号，而大多数证明又是很多不等式累积的结果，这样结果真的能很 tight 吗？当然这个问题本身就是有问题的， tight 本就是一个需要比较的概念，只能说某一个 bound 比另一个<strong>更紧</strong>，讨论单独一个界的紧意义不大。参考 <a href="https://en.wikipedia.org/wiki/Upper_and_lower_bounds#Tight_bounds" target="_blank" rel="noopener">wiki</a> 上的定义</p>
+<blockquote>
+<p>An upper bound is said to be a <em>tight upper bound</em>, a <em>least upper bound</em>, or a <em>supremum</em> if no smaller value is an upper bound</p>
+</blockquote>
+<h2 id="Chebyshev’s-inequality"><a href="#Chebyshev’s-inequality" class="headerlink" title="Chebyshev’s inequality"></a>Chebyshev’s inequality</h2><p>先证明 <strong>Markov’s inequality</strong>。令 $X$ 为一非负随机变量，假设 $\mathbb{E}[X]$ 存在，则对任意的 $t&gt;0$ ，有</p>
+<script type="math/tex; mode=display">
+\begin{align}
+\mathbb{E}[X] =& \int_{0}^{\infty}xp(x)dx = \int_{0}^txp(x)dx + \int_t^{\infty}xp(x)dx \\
+\ge&\int_t^{\infty}xp(x)dx \ge t\cdot \int_{t}^{\infty}p(x)dx \\
+\ge& t\cdot\mathbb{P}\{X>t\} 
+\end{align}</script><p>即 </p>
+<script type="math/tex; mode=display">
+\mathbb{P}(X \geqslant t )\leqslant \frac{\mathbb{E}[X]}{t}</script><p>利用此不等式易得<strong>切比雪夫不等式</strong></p>
+<script type="math/tex; mode=display">
+\mathbb{P}(X -\mathbb{E}[X]\geqslant t )\leqslant \frac{\mathbb{V}[X]}{t^2}</script><h2 id="Chernoff-inequality"><a href="#Chernoff-inequality" class="headerlink" title="Chernoff inequality"></a>Chernoff inequality</h2><p>这里仅考虑随机变量 $X_i,i=1,2,\cdots,X_n$ 服从参数为 $p$ 的伯努利分布的情形，则有：</p>
+<script type="math/tex; mode=display">
+\mathbb{P}\left(\left|\overline_{\boldsymbol{n}}-p\right|>\varepsilon\right) \leqslant 2 {e}^{-2 n \varepsilon^{2}}</script><p>事实上这种情况下 Chernoff inequality  是霍夫丁不等式的一个直接应用。</p>
+<blockquote>
+<p>报告中给出了 Hoeffding’s inequality 不等式的证明，这里略去证明细节，给出另一个版本的结论：令 $Y_{1}, \cdots, Y_{n}$ 为<strong>独立</strong>观察值，满足 $\mathbb{E}(Y_i) = 0$，且 $a_{i} \leqslant Y_{i} \leqslant b_{i}$ ， 则对任意的 $t &gt; 0$</p>
+<script type="math/tex; mode=display">
+\mathbb{P}\left(\sum_{i=1}^{n} Y_{i} \geqslant \varepsilon\right) \leqslant \mathrm{e}^{-t \varepsilon} \prod_{i=1}^{n} \mathrm{e}^{t^{2}\left(b_{i}-a_{i}\right)^{2} / 8}</script></blockquote>
+<p>令 $Y_{i}=(1 / n)\left(X_{i}-p\right)$，则 $\mathbb{E}(Y_i) = 0$，令 $a = -p / n, b = (1-p)/ n$，则 $a \leqslant Y_{i} \leqslant b $ 且 $ (b-a)^{2}=1 / n^{2}$。再取 $t = 4n\epsilon$ 即得：</p>
+<script type="math/tex; mode=display">
+\mathbb{P}\left(\left|\overline_{\boldsymbol{n}}-p\right|>\varepsilon\right) \leqslant 2 {e}^{-2 n \varepsilon^{2}}</script><blockquote>
+<p>以上证明参考：<a href="https://link.springer.com/book/10.1007/978-0-387-21736-9" target="_blank" rel="noopener">All of Statistics：统计学完全教程</a></p>
+</blockquote>
+<h2 id="仿真结果"><a href="#仿真结果" class="headerlink" title="仿真结果"></a>仿真结果</h2><p>令 $X_1,X_2,\cdots,X_n$ 服从参数为 $p$ 的伯努利分布，令 $n = 100, \epsilon = 0.2$，由<strong>切比雪夫不等式</strong>可得</p>
+<script type="math/tex; mode=display">
+\mathbb{P}\left(\left|\bar{X}_{n}-p\right|>\varepsilon\right) \leqslant \frac{\mathbb{V}\left(\bar{X}_{n}\right)}{\varepsilon^{2}}=\frac{p(1-p)}{n \varepsilon^{2}} \leqslant \frac{1}{4 n \varepsilon^{2}}= 0.0625</script><p>而若是使用 <strong>Chernoff bound</strong>，则</p>
+<script type="math/tex; mode=display">
+\mathbb{P}\left(\left|\bar{X}_{n}-p\right|>\varepsilon\right) \leqslant 2 \mathrm{e}^{-2 n \varepsilon^{2}} = 0.00067</script><p>这个的仿真结果基本为 0，因为上界已经很小了。主要代码如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">generate_prob</span><span class="params">(n = <span class="number">100</span>, p = <span class="number">0.8</span>, eps = <span class="number">0.2</span>)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    @param: n (int): 子样个数</span></span><br><span class="line"><span class="string">    @param: p (float): 伯努利分布成功概率</span></span><br><span class="line"><span class="string">    @param: eps (float): 容忍偏差, bias</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    sample = [np.abs(np.random.binomial(n=<span class="number">1</span>, p=p, size=n).mean() - p) <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10000</span>)] <span class="comment"># 10000 仿真次数</span></span><br><span class="line">    Prob = (np.array(sample) &gt;= eps).mean()</span><br><span class="line">    <span class="keyword">return</span> Prob</span><br><span class="line"></span><br><span class="line">generate_prob(n = <span class="number">100</span>, p = <span class="number">0.8</span>, eps = <span class="number">0.2</span>)</span><br></pre></td></tr></table></figure>
+<p>下面分析一下不同参数对 Chebyshev’ bound 和 Chernoff  bound 的影响。这其实从不等式已经可以看出来了，Chernoff  已经把 Chebyshev 的收敛率从 $O\left(\frac{1}{n}\right)$ 提升到了 $O\left(e^{-n}\right)$  。</p>
+<p><img src="https://i.loli.net/2019/10/17/v1pXTxR95G2ly7V.png" alt></p>
+<p>从 Markov 不等式的证明过程可以看出 $\epsilon$ 取得越小，bound 越 tight（仅仅指 bound 和真实值的偏差程度）。仿真也验证了这一点。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数学</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">统计</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">machine learning</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://equationliu.github.io/2019-10-17-read/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
+	<div>
+</div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2019-10-5-start/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">新的起点：	每个人都有一个觉醒的过程，但是这个过程的早晚会决定一生</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Chebyshev’s-inequality"><span class="toc-number">1.</span> <span class="toc-text">Chebyshev’s inequality</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Chernoff-inequality"><span class="toc-number">2.</span> <span class="toc-text">Chernoff inequality</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#仿真结果"><span class="toc-number">3.</span> <span class="toc-text">仿真结果</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="2019-10-17-read" data-title="阅读分享：机器学习理论的回顾与展望——北大王立威教授" data-url="https://equationliu.github.io/2019-10-17-read/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+  
+  
   
 
-    
+  
+
+  
+
+  
+  <div id="gitment-ctn"></div> 
+<link rel="stylesheet" href="https://billts.site/extra_css/gitment.css">
+<script src="https://billts.site/js/gitment.js"></script>
+<script>
+var gitment = new Gitment({
+  id: "https://equationliu.github.io/2019-10-17-read/",
+  owner: 'Equationliu',
+  repo: 'equationliu.github.io',
+  oauth: {
+    client_id: '4a8635dd78f8cd4fd997',
+    client_secret: 'd4421278eb872d5b507540ce8a64aeb952d9dbc1',
+  },
+})
+gitment.render('gitment-ctn')
+</script>
+  
 
 
           </div>
@@ -271,9 +465,9 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

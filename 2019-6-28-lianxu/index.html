@@ -34,7 +34,7 @@
 <meta property="og:image" content="https://i.loli.net/2019/09/01/xRyKUMNrhfvpqZF.jpg">
 <meta property="og:image" content="https://i.loli.net/2019/08/30/rYOhzXW1PtpGAVk.png">
 <meta property="og:image" content="https://i.loli.net/2019/09/01/o46MI51S3rcPpKd.png">
-<meta property="og:updated_time" content="2019-10-02T01:54:25.109Z">
+<meta property="og:updated_time" content="2019-10-17T05:44:39.686Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浅谈连续函数">
 <meta name="twitter:description" content="数学分析的学习过程中上来便是极限，连续的概念，而课本中的连续概念却恰恰是用极限定义的。如果细究数学史的话，连续概念是要先于极限的概念提出的。 以下内容旨在粗略介绍我眼中连续概念的前世今生。 闭区间上连续函数的性质为了先直观凸显连续函数的威力，我们从一个例题开始。 设实值函数 $f(x)$ 在 $[0,n]$（$n$ 为自然数，$n\ge 2$）上连续，$f(0) = f(n)$，证明存在 $\xi">
@@ -235,6 +235,7 @@ var _hmt = _hmt || [];
 <p>设实值函数 $f(x)$ 在 $[0,n]$（$n$ 为自然数，$n\ge 2$）上连续，$f(0) = f(n)$，证明存在 $\xi,\xi+1\in[0,n]$ ，使得 $f(\xi) = f(\xi+1)$ 。</p>
 <p>题目说的就是下面这个图的意思：</p>
 <p><img src="https://i.loli.net/2019/09/01/xRyKUMNrhfvpqZF.jpg" alt></p>
+<a id="more"></a>
 <blockquote>
 <p>显然这个比仅仅要求存在 $\xi_1,\xi_2 \in [0,n]$，使得 $f(\xi_1) = f(\xi_2)$ 要更强，证明如下：</p>
 <p>构造函数 $g(x) = f(x) - f(x+1)$，易知 $g(x) $ 连续。令 $x$ <strong>遍历</strong> $[0,n-1]$ 内所有<strong>整数</strong>有</p>
@@ -248,7 +249,6 @@ m_{n}&\le f(n-1) - f(n) \le M_{n} \\
 <script type="math/tex; mode=display">
 nm \le 0 \le nM</script><p>再由<strong>介值定理</strong>可得必 $\exists \; \xi \in [0,n]$ 有 $g(\xi) = 0$，即 $f(\xi) = f(\xi+1)$。</p>
 </blockquote>
-<a id="more"></a>
 <h1 id="连续初印象"><a href="#连续初印象" class="headerlink" title="连续初印象"></a>连续初印象</h1><ol>
 <li><p>从定义来说，连续就是函数在点 $x_0$ 处有 $\lim \limits_{x \rightarrow x_0}f(x) = f(x_0)$</p>
 </li>
@@ -635,6 +635,14 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">统计</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">machine learning</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数学建模</a>
               </li>
              
@@ -656,14 +664,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">-随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">统计</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">machine learning</a>
               </li>
              
               <li class="article-tag-list-item">
