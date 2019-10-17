@@ -33,7 +33,7 @@
 <meta property="og:locale" content="en | zh-CN |zh-TW">
 <meta property="og:image" content="http://static.leiphone.com/uploads/new/article/740_740/201703/58bd2ad7c6abe.png?imageMogr2/format/jpg/quality/90">
 <meta property="og:image" content="https://i.loli.net/2019/10/17/v1pXTxR95G2ly7V.png">
-<meta property="og:updated_time" content="2019-10-17T11:34:46.552Z">
+<meta property="og:updated_time" content="2019-10-17T11:40:14.340Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="阅读分享：机器学习理论的回顾与展望——北大王立威教授">
 <meta name="twitter:description" content="这篇文章是王立威教授在中国人工智能学会 AIDL 第二期人工智能前沿讲习班：机器学习前沿所作报告， slides 可以关注 AIDL 公众号后台回复关键字获取。演讲内容可以阅读 CSDN 转载整理版。 当初看到这篇文章是很激动的，现在回想一开始吸引我走进 ML 这个坑的就是像 VC theory 和 Margin theory 这种有很漂亮数学理论的传统机器学习理论与算法。就像王教授在报告最后提出">
@@ -247,14 +247,14 @@ var _hmt = _hmt || [];
 <script type="math/tex; mode=display">
 \mathbb{P}(X -\mathbb{E}[X]\geqslant t )\leqslant \frac{\mathbb{V}[X]}{t^2}</script><h2 id="Chernoff-inequality"><a href="#Chernoff-inequality" class="headerlink" title="Chernoff inequality"></a>Chernoff inequality</h2><p>这里仅考虑随机变量 $X_i,i=1,2,\cdots,X_n$ 服从参数为 $p$ 的伯努利分布的情形，则有：</p>
 <script type="math/tex; mode=display">
-\mathbb{P}\left(\left|\overline_{\boldsymbol{n}}-p\right|>\varepsilon\right) \leqslant 2 {e}^{-2 n \varepsilon^{2}}</script><p>事实上这种情况下 Chernoff inequality  是霍夫丁不等式的一个直接应用。</p>
+\mathbb{P}\left(\left|\overline{X}_{n}-p\right|>\varepsilon\right) \le 2 {e}^{-2 n \varepsilon^{2}}</script><p>事实上这种情况下 Chernoff inequality  是霍夫丁不等式的一个直接应用。</p>
 <blockquote>
 <p>报告中给出了 Hoeffding’s inequality 不等式的证明，这里略去证明细节，给出另一个版本的结论：令 $Y_{1}, \cdots, Y_{n}$ 为<strong>独立</strong>观察值，满足 $\mathbb{E}(Y_i) = 0$，且 $a_{i} \leqslant Y_{i} \leqslant b_{i}$ ， 则对任意的 $t &gt; 0$</p>
 <script type="math/tex; mode=display">
 \mathbb{P}\left(\sum_{i=1}^{n} Y_{i} \geqslant \varepsilon\right) \leqslant \mathrm{e}^{-t \varepsilon} \prod_{i=1}^{n} \mathrm{e}^{t^{2}\left(b_{i}-a_{i}\right)^{2} / 8}</script></blockquote>
 <p>令 $Y_{i}=(1 / n)\left(X_{i}-p\right)$，则 $\mathbb{E}(Y_i) = 0$，令 $a = -p / n, b = (1-p)/ n$，则 $a \leqslant Y_{i} \leqslant b $ 且 $ (b-a)^{2}=1 / n^{2}$。再取 $t = 4n\epsilon$ 即得：</p>
 <script type="math/tex; mode=display">
-\mathbb{P}\left(\left|\overline_{\boldsymbol{n}}-p\right|>\varepsilon\right) \leqslant 2 {e}^{-2 n \varepsilon^{2}}</script><blockquote>
+\mathbb{P}\left(\left|\overline{X}_{n}-p\right|>\varepsilon\right) \le 2 {e}^{-2 n \varepsilon^{2}}</script><blockquote>
 <p>以上证明参考：<a href="https://link.springer.com/book/10.1007/978-0-387-21736-9" target="_blank" rel="noopener">All of Statistics：统计学完全教程</a></p>
 </blockquote>
 <h2 id="仿真结果"><a href="#仿真结果" class="headerlink" title="仿真结果"></a>仿真结果</h2><p>令 $X_1,X_2,\cdots,X_n$ 服从参数为 $p$ 的伯努利分布，令 $n = 100, \epsilon = 0.2$，由<strong>切比雪夫不等式</strong>可得</p>
@@ -567,11 +567,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">统计</a>
+                <a href="javascript:void(0)" class="js-tag color5">网络爬虫</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">machine learning</a>
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -587,11 +587,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">网络爬虫</a>
+                <a href="javascript:void(0)" class="js-tag color3">统计</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
+                <a href="javascript:void(0)" class="js-tag color2">machine learning</a>
               </li>
              
               <li class="article-tag-list-item">
