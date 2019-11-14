@@ -194,180 +194,6 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-2019-9-13-jupyter" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019-9-13-jupyter/">远程服务器上使用 jupyter + matplotlib 绘制动态图</a>
-    </h1>
-  
-
-		<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-		<!--显示阅读次数-->
-
-<!--显示阅读次数完毕-->
-        
-        <a href="/2019-9-13-jupyter/" class="archive-article-date">
-  	<time datetime="2019-09-13T05:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>目前许多深度学习（炼丹）的服务器大多是远程 Linux 服务器，从而没有图形化界面。动态可视化训练过程有时候可能比仅仅 <code>print</code> 中间输出更有效。</p>
-<p>针对 <code>pytorch</code> 也有对应的 <a href="https://github.com/lanpa/tensorboardX" target="_blank" rel="noopener">TensorboardX</a>，但是更多时候可能想<strong>边训练边查看某些特定指标</strong>（如 Loss, Accuracy）的变化情况。这时通过 matplotlib 动态更新图层便好了。为了看到图形化界面，首先需要在服务器上配置 Jupyter，这个网上教程很多，就不赘述了。</p>
-        
-          <a class="article-more-a" href="/2019-9-13-jupyter/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">machine learning</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019-9-13-jupyter/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-	<div>
-</div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-2019-6-28-lianxu" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019-6-28-lianxu/">浅谈连续函数</a>
-    </h1>
-  
-
-		<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-		<!--显示阅读次数-->
-
-<!--显示阅读次数完毕-->
-        
-        <a href="/2019-6-28-lianxu/" class="archive-article-date">
-  	<time datetime="2019-06-28T05:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>数学分析的学习过程中上来便是极限，连续的概念，而课本中的连续概念却恰恰是用极限定义的。如果细究数学史的话，连续概念是要先于极限的概念提出的。</p>
-<p>以下内容旨在粗略介绍我眼中连续概念的前世今生。</p>
-<h1 id="闭区间上连续函数的性质"><a href="#闭区间上连续函数的性质" class="headerlink" title="闭区间上连续函数的性质"></a>闭区间上连续函数的性质</h1><p>为了先直观<strong>凸显</strong>连续函数的威力，我们从一个例题开始。</p>
-<p>设实值函数 $f(x)$ 在 $[0,n]$（$n$ 为自然数，$n\ge 2$）上连续，$f(0) = f(n)$，证明存在 $\xi,\xi+1\in[0,n]$ ，使得 $f(\xi) = f(\xi+1)$ 。</p>
-<p>题目说的就是下面这个图的意思：</p>
-<p><img src="https://i.loli.net/2019/09/01/xRyKUMNrhfvpqZF.jpg" alt></p>
-        
-          <a class="article-more-a" href="/2019-6-28-lianxu/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数学</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019-6-28-lianxu/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-	<div>
-</div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-2019-6-25-exp" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -514,11 +340,11 @@ S : \sum_{i=1}^{n} x_{i}^{2}=1</script><p>上的最大值、最小值。</p>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">machine learning</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">优化</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">优化</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">machine learning</a>
         		</li>
       		
 		</ul>
@@ -655,9 +481,195 @@ S : \sum_{i=1}^{n} x_{i}^{2}=1</script><p>上的最大值、最小值。</p>
 
 
   
+    <article id="post-2018-04-01-xuanke" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018-04-01-xuanke/">选课策略——0-1整数规划</a>
+    </h1>
+  
+
+		<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+		<!--显示阅读次数-->
+
+<!--显示阅读次数完毕-->
+        
+        <a href="/2018-04-01-xuanke/" class="archive-article-date">
+  	<time datetime="2018-04-01T04:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="问题重述"><a href="#问题重述" class="headerlink" title="问题重述"></a>问题重述</h1><p>已知某年<strong>数学与统计学院</strong>课程结构如图所示。要求至少选两门数学课、三门运筹学课和两门计算机课。    </p>
+<p><img src="https://i.loli.net/2019/08/28/6kLRgdWcbZzYqJ2.png"></p>
+<ol>
+<li>为了选修课程总数最少，应学习哪些课程？                </li>
+<li>选修课程最少，且学分尽量多，应学习哪些课程？        </li>
+</ol>
+        
+          <a class="article-more-a" href="/2018-04-01-xuanke/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数学建模</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">优化</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Optimization</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018-04-01-xuanke/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+	<div>
+</div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-2017-11-24-horse" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017-11-24-horse/">基于贪心算法的马踏棋盘哈密顿回路问题</a>
+    </h1>
+  
+
+		<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+		<!--显示阅读次数-->
+
+<!--显示阅读次数完毕-->
+        
+        <a href="/2017-11-24-horse/" class="archive-article-date">
+  	<time datetime="2017-11-24T04:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-24</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h2><p>马踏棋盘其实相当于一个解空间的搜索问题，而遍历到每一个节点并要求最后可以回到起点本质上是一个<strong>哈密顿回路问题</strong></p>
+<blockquote>
+<p>目前大部分马踏棋盘的相关问题并不要求回到起点，然后实际上在<strong>不重复</strong>的走完全盘的可行解中寻找最后可以回到起点的最优解更为困难。</p>
+</blockquote>
+<p>问题在于，这个搜索空间十分的庞大，倘若不考虑棋盘位置约束与遍历次数限制，解空间大小将达到指数级的庞大规模。但是即便在这些解中加上棋盘限制与单次访问等的剪枝条件，为了在<strong>可行解</strong>（64 个节点仅各访问一次）中搜寻到可以回到起点的<strong>最优解</strong>仍然是非常困难的。倘若仅仅固定八个可行方向的顺序，使用深度优先的递归来实施搜索，效率将会非常低下。</p>
+<p>这是因为对于靠近边界的四个顶点的区域来说，如果不能尽快的遍历完这些区域，而是按照固定的顺序来遍历会十分容易造成“<strong>死节点</strong>”，将来不可能再次访问。而与此同时，程序还在徒劳的往更深的方向搜索，极大的影响搜索效率。</p>
+        
+          <a class="article-more-a" href="/2017-11-24-horse/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Algorithm</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017-11-24-horse/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+	<div>
+</div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
     </nav>
   
 
@@ -779,18 +791,6 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">统计</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">machine learning</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Ubuntu</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
@@ -811,19 +811,31 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">-随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">数学</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">网络爬虫</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">统计</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">machine learning</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Ubuntu</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">-随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">数学</a>
               </li>
             
             <div class="clearfix"></div>

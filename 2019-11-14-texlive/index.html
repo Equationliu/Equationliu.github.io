@@ -31,7 +31,7 @@
 <meta property="og:site_name" content="Equation-Blog">
 <meta property="og:description" content="这篇文章主要记录在服务器上安装 texlive 的步骤， 此时通常用户是没有 Root 权限的。先到镜像站下载源码 1wget https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/Images/texlive.iso 下面就是解压镜像了，但是常用的挂载命令 mount 是需要 root 权限的，通常使用 p7zip 加以解决。  p7">
 <meta property="og:locale" content="en | zh-CN |zh-TW">
-<meta property="og:updated_time" content="2019-11-14T03:13:43.814Z">
+<meta property="og:updated_time" content="2019-11-14T03:20:13.977Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ubuntu 下非 Root 用户安装 texlive">
 <meta name="twitter:description" content="这篇文章主要记录在服务器上安装 texlive 的步骤， 此时通常用户是没有 Root 权限的。先到镜像站下载源码 1wget https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/Images/texlive.iso 下面就是解压镜像了，但是常用的挂载命令 mount 是需要 root 权限的，通常使用 p7zip 加以解决。  p7">
@@ -231,6 +231,7 @@ var _hmt = _hmt || [];
 <blockquote>
 <p>p7zip是7-zip的linux版</p>
 </blockquote>
+<a id="more"></a>
 <h2 id="源码安装-p7zip"><a href="#源码安装-p7zip" class="headerlink" title="源码安装 p7zip"></a>源码安装 p7zip</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">wget http://sourceforge.net/projects/p7zip/files/p7zip/9.20.1/p7zip_9.20.1_src_all.tar.bz2</span><br><span class="line">tar xvf p7zip_9.20.1_src_all.tar.bz2</span><br><span class="line"><span class="built_in">cd</span> p7zip_9.20.1</span><br><span class="line">make all3</span><br></pre></td></tr></table></figure>
 <p>下面一步比较关键，直接 <code>make install</code> 会默认安装到 <code>/usr/local</code> ，因此需要修改 <code>install.sh</code> 中的第 20 行</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> global install</span></span><br><span class="line">DEST_HOME=YOUR/PATH # 你有读写权利的目录</span><br></pre></td></tr></table></figure>
@@ -334,8 +335,8 @@ var _hmt = _hmt || [];
 <nav id="article-nav">
   
   
-    <a href="/2019-10-17-read/zd423 - Google 搜索_files/saved_resource/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title"></div>
+    <a href="/2019-10-17-read/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">阅读分享：机器学习理论的回顾与展望——北大王立威教授</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -537,18 +538,6 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">统计</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">machine learning</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Ubuntu</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
@@ -569,19 +558,31 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">-随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">数学</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">网络爬虫</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">统计</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">machine learning</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Ubuntu</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">-随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">数学</a>
               </li>
             
             <div class="clearfix"></div>
