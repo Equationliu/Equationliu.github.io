@@ -6,7 +6,7 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://equationliu.github.io">
-  <title>Tag: machine learning | Equation-Blog</title>
+  <title>写在前面：机器学习系列笔记 | Equation-Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
   <link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
@@ -23,17 +23,18 @@
         border-left-color: #6d6d6d;    /*左边框颜色*/
     }
   </style>
-  <meta name="description" content="关于个人的学习、研究与感悟 | 方程，目标：Math，Machine Learning，Computer Vision | 这里是 @equation的个人博客，与你一起发现更大的世界。">
-<meta name="keywords" content="equation, equation的博客, 个人网站, 互联网, CS, 机器学习 , Machine Learning, Math, 数学">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Equation-Blog">
-<meta property="og:url" content="https://equationliu.github.io/tags/machine-learning/index.html">
+  <meta name="description" content="这是一个机器学习系列的学习笔记，课程由彭博社发布， David Rosenberg 教授主讲。看到这个系列资料是吃了知乎的安利：机器学习最好的课程是什么？ 食用之后发现味道极佳，其中的作业部分有答案，部分没有。因此想通过这个系列实现其中的作业，并对课程内容做一些总结。如果你也正在学这项课程，欢迎一起交流呀！ 地址传送：  课程主页 授课视频 全部资料 Gtihub仓库">
+<meta name="keywords" content="Optimization,machine learning,数学">
+<meta property="og:type" content="article">
+<meta property="og:title" content="写在前面：机器学习系列笔记">
+<meta property="og:url" content="https://equationliu.github.io/2019-11-14-ML/index.html">
 <meta property="og:site_name" content="Equation-Blog">
-<meta property="og:description" content="关于个人的学习、研究与感悟 | 方程，目标：Math，Machine Learning，Computer Vision | 这里是 @equation的个人博客，与你一起发现更大的世界。">
+<meta property="og:description" content="这是一个机器学习系列的学习笔记，课程由彭博社发布， David Rosenberg 教授主讲。看到这个系列资料是吃了知乎的安利：机器学习最好的课程是什么？ 食用之后发现味道极佳，其中的作业部分有答案，部分没有。因此想通过这个系列实现其中的作业，并对课程内容做一些总结。如果你也正在学这项课程，欢迎一起交流呀！ 地址传送：  课程主页 授课视频 全部资料 Gtihub仓库">
 <meta property="og:locale" content="en | zh-CN |zh-TW">
+<meta property="og:updated_time" content="2019-11-14T10:56:26.780Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Equation-Blog">
-<meta name="twitter:description" content="关于个人的学习、研究与感悟 | 方程，目标：Math，Machine Learning，Computer Vision | 这里是 @equation的个人博客，与你一起发现更大的世界。">
+<meta name="twitter:title" content="写在前面：机器学习系列笔记">
+<meta name="twitter:description" content="这是一个机器学习系列的学习笔记，课程由彭博社发布， David Rosenberg 教授主讲。看到这个系列资料是吃了知乎的安利：机器学习最好的课程是什么？ 食用之后发现味道极佳，其中的作业部分有答案，部分没有。因此想通过这个系列实现其中的作业，并对课程内容做一些总结。如果你也正在学这项课程，欢迎一起交流呀！ 地址传送：  课程主页 授课视频 全部资料 Gtihub仓库">
   
     <link rel="alternative" href="/atom.xml" title="Equation-Blog" type="application/atom+xml">
   
@@ -192,36 +193,55 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-2019-11-14-ML" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019-11-14-ML/" class="archive-article-date">
-  	<time datetime="2019-11-14T10:37:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-14</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019-11-14-ML/">写在前面：机器学习系列笔记</a>
+    <h1 class="article-title" itemprop="name">
+      写在前面：机器学习系列笔记
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+		<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+		<!--显示阅读次数-->
+
+  <br/>
+  <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
+  <span class="icon-sort"></span>
+  <span id="busuanzi_container_page_pv" style="color:gray;font-size:14px;">
+            阅读数: <span id="busuanzi_value_page_pv"></span> 次 &nbsp;&nbsp;
+  </span>
+  </a>
+
+<!--显示阅读次数完毕-->
+        
+        <a href="/2019-11-14-ML/" class="archive-article-date">
+  	<time datetime="2019-11-14T10:37:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>这是一个机器学习系列的学习笔记，课程由彭博社发布， David Rosenberg 教授主讲。看到这个系列资料是吃了知乎的安利：<a href="https://www.zhihu.com/question/37031588/answer/776053153?utm_source=qq&amp;utm_medium=social&amp;utm_oi=714265267206631424" target="_blank" rel="noopener">机器学习最好的课程是什么？</a></p>
+<p>食用之后发现味道极佳，其中的作业部分有答案，部分没有。因此想通过这个系列实现其中的作业，并对课程内容做一些总结。如果你也正在学这项课程，欢迎一起交流呀！</p>
+<p>地址传送：</p>
+<ol>
+<li><a href="https://davidrosenberg.github.io/ml2019/#home" target="_blank" rel="noopener">课程主页</a></li>
+<li><a href="https://bloomberg.github.io/foml/#home" target="_blank" rel="noopener">授课视频</a></li>
+<li><a href="https://github.com/davidrosenberg/mlcourse" target="_blank" rel="noopener">全部资料 Gtihub仓库</a></li>
+</ol>
+<a id="more"></a>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -241,187 +261,157 @@ var _hmt = _hmt || [];
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://equationliu.github.io/2019-11-14-ML/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
+	<div>
+</div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019-10-17-read/" class="archive-article-date">
-  	<time datetime="2019-10-17T04:15:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-17</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019-11-14-texlive/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Ubuntu 下非 Root 用户安装 texlive</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019-10-17-read/">阅读分享：机器学习理论的回顾与展望——北大王立威教授</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">machine learning</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">统计</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    目录，不存在的…
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019-9-13-jupyter/" class="archive-article-date">
-  	<time datetime="2019-09-13T05:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-13</time>
-</a>
-        </div>
-    	 
+  <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="2019-11-14-ML" data-title="写在前面：机器学习系列笔记" data-url="https://equationliu.github.io/2019-11-14-ML/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019-9-13-jupyter/">远程服务器上使用 jupyter + matplotlib 绘制动态图</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">machine learning</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019-6-25-exp/" class="archive-article-date">
-  	<time datetime="2019-06-25T05:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019-6-25-exp/">指数族分布：充分统计量？无偏估计？相合估计？</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">machine learning</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">统计</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019-6-25-rmu/" class="archive-article-date">
-  	<time datetime="2019-06-25T04:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019-6-25-rmu/">二次型极值与 PCA ？</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">优化</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">machine learning</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
+  <div id="gitment-ctn"></div> 
+<link rel="stylesheet" href="https://billts.site/extra_css/gitment.css">
+<script src="https://billts.site/js/gitment.js"></script>
+<script>
+var gitment = new Gitment({
+  id: "https://equationliu.github.io/2019-11-14-ML/",
+  owner: 'Equationliu',
+  repo: 'equationliu.github.io',
+  oauth: {
+    client_id: '4a8635dd78f8cd4fd997',
+    client_secret: 'd4421278eb872d5b507540ce8a64aeb952d9dbc1',
+  },
+})
+gitment.render('gitment-ctn')
+</script>
   
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -447,9 +437,9 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
