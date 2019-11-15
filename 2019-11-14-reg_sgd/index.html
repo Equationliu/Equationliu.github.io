@@ -31,7 +31,7 @@
 <meta property="og:site_name" content="Equation-Blog">
 <meta property="og:description" content="Bayes 风险机器学习的理论目标自然是要实现最小化期望风险 $f^{*} \in \underset{f}{\arg \min } R(f)$ ，其中 $R(f)=\mathbb{E} \ell(f(x), y)$。那么选择不同的损失函数会有什么影响呢？ 绝对值损失当 $\ell(f(x), y)=|f(x)-y|$ 时呢？从定义出发 $f^*(x) = \underset{f}{\arg \m">
 <meta property="og:locale" content="en | zh-CN |zh-TW">
-<meta property="og:updated_time" content="2019-11-15T02:24:40.743Z">
+<meta property="og:updated_time" content="2019-11-15T07:04:08.373Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器学习笔记一：贝叶斯风险、岭回归和随机梯度下降">
 <meta name="twitter:description" content="Bayes 风险机器学习的理论目标自然是要实现最小化期望风险 $f^{*} \in \underset{f}{\arg \min } R(f)$ ，其中 $R(f)=\mathbb{E} \ell(f(x), y)$。那么选择不同的损失函数会有什么影响呢？ 绝对值损失当 $\ell(f(x), y)=|f(x)-y|$ 时呢？从定义出发 $f^*(x) = \underset{f}{\arg \m">
@@ -243,9 +243,47 @@ f^*(x)=\underset{y}{\arg \max } P(Y=y | X=x)</script><blockquote>
 <li>实际中因为 0-1 不可微，通常使用交叉熵损失</li>
 </ol>
 </blockquote>
-<h3 id="平方损失"><a href="#平方损失" class="headerlink" title="平方损失"></a>平方损失</h3><p>这种情况比较简单但也用的最多。由方差定义</p>
+<h3 id="平方损失"><a href="#平方损失" class="headerlink" title="平方损失"></a>平方损失</h3><p>这种情况比较简单但也用的最多。同样使用上述方法，导数变得更好计算（仍是一个凸问题）</p>
 <script type="math/tex; mode=display">
-\mathbb{E}\left(a-y\right)^{2} = Var(a - y) + [\mathbb{E}(a - y)]^2 = Var(y) + (a - \mathbb{E}y)^2</script>
+\int_{-\infty}^{\infty}2(f(x) - y) p(y \mid x) d y = 0</script><p>从而 $f(x) = \int y p(y \mid x)dy =\mathbb{E}[Y \mid X=x]$。这里将主要讨论<strong>方差的一些结论</strong>和<strong>决定系数</strong> $R^2$</p>
+<blockquote>
+<p>以前只知道 $R^2$ 越大越好，，，</p>
+</blockquote>
+<p>先来看当 $f(x)$ 取贝叶斯最优 $\mathbb{E}[Y \mid X=x]$ 时贝叶斯风险</p>
+<script type="math/tex; mode=display">
+\mathbb{E}\left[\left(f^{*}(X)-Y\right)^{2}\right]=\mathbb{E}\left[(\mathbb{E}[Y | X]-Y)^{2}\right]=\mathbb{E}\left[\mathbb{E}\left[(\mathbb{E}[Y | X]-Y)^{2} | X\right]\right]=\mathbb{E}[\operatorname{Var}(Y | X)]</script><blockquote>
+<ol>
+<li>其中第二个等式用到了<strong>条件期望的期望等于无条件期望</strong></li>
+<li>理解 $\mathbb{E}\left[(\mathbb{E}[Y | X]-Y)^{2} | X\right] = \operatorname{Var}(Y | X)$ 只需要将 $Y \mid X$ 看成一个变量为 $y$ ，密度函数为 $p(y\mid X=x)$ 的随机变量。因为 $X$ 已经取定了某一个值 $x$。</li>
+</ol>
+</blockquote>
+<p>另一方面，<a href="https://en.wikipedia.org/wiki/Law_of_total_variance" target="_blank" rel="noopener">The law of total variance</a> 表明</p>
+<script type="math/tex; mode=display">
+\operatorname{Var}(Y)=\mathbb{E}[\operatorname{Var}(Y | X)]+\operatorname{Var}(\mathbb{E}[Y | X])</script><p>统计学家称这两项为未解释的方差（unexplained）和解释了的（在 $X$ 条件下）方差。先看两个平凡的例子：</p>
+<ol>
+<li>$Y = X$，显然 $X$ <strong>完全解释了</strong> $Y$ 。此时 $\mathbb{E}[\operatorname{Var}(Y | X)] = 0$，因为任意给定一个 $x$ ，$y$  没有其它取值。但是此时 $\mathbb{E}[Y | X] = Y = f^*(X)$。</li>
+<li>若 $X,Y$ 相互独立， 则 $\mathbb{E}[\operatorname{Var}(Y | X)] = \operatorname{Var}(Y), f^<em>(X) = \mathbb{E}[Y]$，也就是说<em>*没有自变量时猜均值就好</em></em>。</li>
+</ol>
+<p>显然若贝叶斯风险 $\mathbb{E}[\operatorname{Var}(Y | X)] = 0$ ，称之为自变量完全解释了因变量，故而前者称之为未解释的方差（unexplained variance）。现在来看决定系数的定义一目了然：</p>
+<blockquote>
+<p>In a general form, $R^2$ can be seen to be related to the <strong>fraction of variance unexplained</strong> (FVU)</p>
+</blockquote>
+<script type="math/tex; mode=display">
+R^{2}=1-\mathrm{FVU} = 1 - \frac{\mathbb{E}[\operatorname{Var}(Y | X)]}{\operatorname{Var}(Y)} = \frac{\operatorname{Var}(\mathbb{E}[Y | X])}{\operatorname{Var}(Y)}</script><p>以上讨论都是理论上的，如何<strong>利用样本来近似</strong>呢？分母很容易计算，使用<strong>总平方和</strong>（不考虑前面的系数）</p>
+<script type="math/tex; mode=display">
+S S_{\mathrm{tot}}=\sum_{i}\left(y_{i}-\bar{y}\right)^{2}</script><p>如果模型最后选择的预测函数达到了贝叶斯最优，则 $\mathbb{E}[Y | X] = f(X)$ ，使用 $f(x_i)$ 来近似计算就行，而期望呢？$\mathbb{E}[\mathbb{E}[Y | X]] = \mathbb{E}[Y] \approx\bar{y} $，于是就有了以下的<strong>回归平方和</strong>（<a href="https://en.wikipedia.org/wiki/Explained_sum_of_squares" target="_blank" rel="noopener">explained sum of squares</a>:）的计算</p>
+<script type="math/tex; mode=display">
+S S_{\mathrm{reg}}=\sum_{i}\left(f_{i}-\bar{y}\right)^{2}</script><p>那么只能用（<a href="https://en.wikipedia.org/wiki/Total_sum_of_squares" target="_blank" rel="noopener">Total sum of squares</a>）</p>
+<script type="math/tex; mode=display">
+S S_{\mathrm{tot}} - S S_{\mathrm{reg}} = S S_{\mathrm{res}}=\sum_{i}\left(y_{i}-f_{i}\right)^{2}=\sum_{i} e_{i}^{2}</script><p>得到的<strong>残差平方和</strong>来近似 $\mathbb{E}[\operatorname{Var}(Y | X)]$ 了，<strong>这很合理，因为一个是经验风险，一个是期望风险</strong>。也就说实际计算的</p>
+<script type="math/tex; mode=display">
+R^{2} \equiv 1-\frac{S S_{\mathrm{res}}}{S S_{\mathrm{tot}}}</script><blockquote>
+<ol>
+<li>不要被平方这个符号迷惑，<strong>决定系数可以是负的</strong>。这是因为实际上并不一定达到贝叶斯最优，比如令 $f =9999999999$，这时残差平方和会巨大！</li>
+<li>调整决定系数（Adjusted $R^2$）把<strong>特征数目</strong>也考虑在内。</li>
+</ol>
+</blockquote>
+<h2 id="岭回归"><a href="#岭回归" class="headerlink" title="岭回归"></a>岭回归</h2>
       
 
       
@@ -367,7 +405,7 @@ f^*(x)=\underset{y}{\arg \max } P(Y=y | X=x)</script><blockquote>
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Bayes-风险"><span class="toc-number">1.</span> <span class="toc-text">Bayes 风险</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#绝对值损失"><span class="toc-number">1.1.</span> <span class="toc-text">绝对值损失</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0-1-损失"><span class="toc-number">1.2.</span> <span class="toc-text">0-1 损失</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#平方损失"><span class="toc-number">1.3.</span> <span class="toc-text">平方损失</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Bayes-风险"><span class="toc-number">1.</span> <span class="toc-text">Bayes 风险</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#绝对值损失"><span class="toc-number">1.1.</span> <span class="toc-text">绝对值损失</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0-1-损失"><span class="toc-number">1.2.</span> <span class="toc-text">0-1 损失</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#平方损失"><span class="toc-number">1.3.</span> <span class="toc-text">平方损失</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#岭回归"><span class="toc-number">2.</span> <span class="toc-text">岭回归</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -562,19 +600,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">统计</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">machine learning</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">网络爬虫</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">统计</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">machine learning</a>
               </li>
              
               <li class="article-tag-list-item">
