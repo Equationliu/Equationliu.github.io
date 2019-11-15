@@ -218,9 +218,7 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Bayes-风险"><a href="#Bayes-风险" class="headerlink" title="Bayes 风险"></a>Bayes 风险</h2><p>机器学习的<strong>理论</strong>目标自然是要实现最小化<strong>期望风险</strong></p>
-<script type="math/tex; mode=display">
-f^{*} \in \underset{f}{\arg \min } R(f)</script><p>其中 $R(f)=\mathbb{E} \ell(f(x), y)$, $f^{<em>}(x)$ 称为贝叶斯预测函数。那么选择不同的损失函数对 $f^</em>$ 有什么影响呢？</p>
+        <h2 id="Bayes-风险"><a href="#Bayes-风险" class="headerlink" title="Bayes 风险"></a>Bayes 风险</h2><p>机器学习的<strong>理论</strong>目标自然是要实现最小化<strong>期望风险</strong> $f^{<em>} \in \underset{f}{\arg \min } R(f)$ ，其中 $R(f)=\mathbb{E} \ell(f(x), y)$。那么选择不同的损失函数对 $f^</em>$ 有什么影响呢？</p>
 <h3 id="绝对值损失"><a href="#绝对值损失" class="headerlink" title="绝对值损失"></a>绝对值损失</h3><p>当 $\ell(f(x), y)=|f(x)-y|$ 时呢？从定义出发 $f^*(x) = \underset{f}{\arg \min } \;\mathbb{E}|f(x) - y|$，即最小化以下问题</p>
 <script type="math/tex; mode=display">
 \int_{\mathbb{R}}|y-f(x)| \cdot p(y \mid x) d y =  \int_{-\infty}^{f(x)}(f(x) - y)p(y \mid x) d y + \int^{\infty}_{f(x)}(y - f(x))p(y \mid x) d y</script><p>右式对 $f(x)$ 求导并令导数为零得到</p>
@@ -518,11 +516,11 @@ f^{*} \in \underset{f}{\arg \min } R(f)</script><p>其中 $R(f)=\mathbb{E} \ell(
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">machine learning</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">统计</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">统计</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">machine learning</a>
         		</li>
       		
 		</ul>
@@ -788,14 +786,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">网络爬虫</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数学建模</a>
               </li>
              
@@ -808,11 +798,23 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">-随笔</a>
+                <a href="javascript:void(0)" class="js-tag color5">网络爬虫</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">统计</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">machine learning</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">-随笔</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -821,10 +823,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Ubuntu</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">统计</a>
               </li>
             
             <div class="clearfix"></div>
