@@ -23,18 +23,18 @@
         border-left-color: #6d6d6d;    /*左边框颜色*/
     }
   </style>
-  <meta name="description" content="Bayes 风险机器学习的理论目标自然是要实现最小化期望风险  f^{*} \in \underset{f}{\arg \min } R(f)其中 $R(f)=\mathbb{E} \ell(f(x), y)$，$f^$ 称为贝叶斯预测函数。那么选择不同的损失函数对 $f^$ 有什么影响呢？ 绝对值损失当 $\ell(f(x), y)=|f(x)-y|$ 时呢？从定义出发 $f^*(x) = \u">
+  <meta name="description" content="Bayes 风险机器学习的理论目标自然是要实现最小化期望风险  f^{*} \in \underset{f}{\arg \min } R(f)其中 $R(f)=\mathbb{E} \ell(f(x), y)$, $f^{}(x)$ 称为贝叶斯预测函数。那么选择不同的损失函数对 $f^$ 有什么影响呢？ 绝对值损失当 $\ell(f(x), y)=|f(x)-y|$ 时呢？从定义出发 $f^*(x">
 <meta name="keywords" content="Optimization,machine learning,数学">
 <meta property="og:type" content="article">
 <meta property="og:title" content="机器学习笔记一：贝叶斯风险、岭回归和随机梯度下降">
 <meta property="og:url" content="https://equationliu.github.io/2019-11-14-reg_sgd/index.html">
 <meta property="og:site_name" content="Equation-Blog">
-<meta property="og:description" content="Bayes 风险机器学习的理论目标自然是要实现最小化期望风险  f^{*} \in \underset{f}{\arg \min } R(f)其中 $R(f)=\mathbb{E} \ell(f(x), y)$，$f^$ 称为贝叶斯预测函数。那么选择不同的损失函数对 $f^$ 有什么影响呢？ 绝对值损失当 $\ell(f(x), y)=|f(x)-y|$ 时呢？从定义出发 $f^*(x) = \u">
+<meta property="og:description" content="Bayes 风险机器学习的理论目标自然是要实现最小化期望风险  f^{*} \in \underset{f}{\arg \min } R(f)其中 $R(f)=\mathbb{E} \ell(f(x), y)$, $f^{}(x)$ 称为贝叶斯预测函数。那么选择不同的损失函数对 $f^$ 有什么影响呢？ 绝对值损失当 $\ell(f(x), y)=|f(x)-y|$ 时呢？从定义出发 $f^*(x">
 <meta property="og:locale" content="en | zh-CN |zh-TW">
-<meta property="og:updated_time" content="2019-11-15T02:13:29.429Z">
+<meta property="og:updated_time" content="2019-11-15T02:19:07.833Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器学习笔记一：贝叶斯风险、岭回归和随机梯度下降">
-<meta name="twitter:description" content="Bayes 风险机器学习的理论目标自然是要实现最小化期望风险  f^{*} \in \underset{f}{\arg \min } R(f)其中 $R(f)=\mathbb{E} \ell(f(x), y)$，$f^$ 称为贝叶斯预测函数。那么选择不同的损失函数对 $f^$ 有什么影响呢？ 绝对值损失当 $\ell(f(x), y)=|f(x)-y|$ 时呢？从定义出发 $f^*(x) = \u">
+<meta name="twitter:description" content="Bayes 风险机器学习的理论目标自然是要实现最小化期望风险  f^{*} \in \underset{f}{\arg \min } R(f)其中 $R(f)=\mathbb{E} \ell(f(x), y)$, $f^{}(x)$ 称为贝叶斯预测函数。那么选择不同的损失函数对 $f^$ 有什么影响呢？ 绝对值损失当 $\ell(f(x), y)=|f(x)-y|$ 时呢？从定义出发 $f^*(x">
   
     <link rel="alternative" href="/atom.xml" title="Equation-Blog" type="application/atom+xml">
   
@@ -227,7 +227,7 @@ var _hmt = _hmt || [];
       
         <h2 id="Bayes-风险"><a href="#Bayes-风险" class="headerlink" title="Bayes 风险"></a>Bayes 风险</h2><p>机器学习的<strong>理论</strong>目标自然是要实现最小化<strong>期望风险</strong></p>
 <script type="math/tex; mode=display">
-f^{*} \in \underset{f}{\arg \min } R(f)</script><p>其中 $R(f)=\mathbb{E} \ell(f(x), y)$，$f^<em>$ 称为贝叶斯预测函数。那么选择不同的损失函数对 $f^</em>$ 有什么影响呢？</p>
+f^{*} \in \underset{f}{\arg \min } R(f)</script><p>其中 $R(f)=\mathbb{E} \ell(f(x), y)$, $f^{<em>}(x)$ 称为贝叶斯预测函数。那么选择不同的损失函数对 $f^</em>$ 有什么影响呢？</p>
 <h3 id="绝对值损失"><a href="#绝对值损失" class="headerlink" title="绝对值损失"></a>绝对值损失</h3><p>当 $\ell(f(x), y)=|f(x)-y|$ 时呢？从定义出发 $f^*(x) = \underset{f}{\arg \min } \;\mathbb{E}|f(x) - y|$，即最小化以下问题</p>
 <script type="math/tex; mode=display">
 \int_{\mathbb{R}}|y-f(x)| \cdot p(y \mid x) d y =  \int_{-\infty}^{f(x)}(f(x) - y)p(y \mid x) d y + \int^{\infty}_{f(x)}(y - f(x))p(y \mid x) d y</script><p>右式对 $f(x)$ 求导并令导数为零得到</p>
@@ -245,6 +245,7 @@ f^*(x)=\underset{y}{\arg \max } P(Y=y | X=x)</script><blockquote>
 <li>实际中因为 0-1 不可微，通常使用交叉熵损失</li>
 </ol>
 </blockquote>
+<h3 id="平方损失"><a href="#平方损失" class="headerlink" title="平方损失"></a>平方损失</h3><p>这种情况比较简单但也用的最多。</p>
 
       
 
@@ -367,7 +368,7 @@ f^*(x)=\underset{y}{\arg \max } P(Y=y | X=x)</script><blockquote>
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Bayes-风险"><span class="toc-number">1.</span> <span class="toc-text">Bayes 风险</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#绝对值损失"><span class="toc-number">1.1.</span> <span class="toc-text">绝对值损失</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0-1-损失"><span class="toc-number">1.2.</span> <span class="toc-text">0-1 损失</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Bayes-风险"><span class="toc-number">1.</span> <span class="toc-text">Bayes 风险</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#绝对值损失"><span class="toc-number">1.1.</span> <span class="toc-text">绝对值损失</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0-1-损失"><span class="toc-number">1.2.</span> <span class="toc-text">0-1 损失</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#平方损失"><span class="toc-number">1.3.</span> <span class="toc-text">平方损失</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -550,6 +551,14 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">网络爬虫</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数学建模</a>
               </li>
              
@@ -562,11 +571,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">网络爬虫</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
+                <a href="javascript:void(0)" class="js-tag color4">-随笔</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -578,15 +583,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">统计</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Ubuntu</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">-随笔</a>
+                <a href="javascript:void(0)" class="js-tag color3">统计</a>
               </li>
             
             <div class="clearfix"></div>
