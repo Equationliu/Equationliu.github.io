@@ -1,5 +1,5 @@
-https://equationliu.github.io/2019-11-14-reg_sgd/
+https://equationliu.github.io/2019-11-14-ridge/
+https://equationliu.github.io/2019-11-16-python/
 https://equationliu.github.io/2019-11-14-ML/
 https://equationliu.github.io/2019-11-14-texlive/
 https://equationliu.github.io/2019-10-17-read/
-https://equationliu.github.io/2019-10-5-start/

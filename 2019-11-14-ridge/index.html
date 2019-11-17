@@ -6,7 +6,7 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://equationliu.github.io">
-  <title>机器学习笔记一：贝叶斯风险、岭回归和随机梯度下降 | Equation-Blog</title>
+  <title>机器学习笔记一：贝叶斯风险和岭回归（Ridge Regression） | Equation-Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
   <link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
@@ -26,15 +26,17 @@
   <meta name="description" content="Bayes 风险机器学习的理论目标自然是要实现最小化期望风险 $f^{*} \in \underset{f}{\arg \min } R(f)$ ，其中 $R(f)=\mathbb{E} \ell(f(x), y)$。那么选择不同的损失函数 $\ell(f(x), y)$ 会有什么影响呢？ 绝对值损失当 $\ell(f(x), y)=|f(x)-y|$ 时，从定义出发 $f^*(x) = \und">
 <meta name="keywords" content="Optimization,machine learning,数学">
 <meta property="og:type" content="article">
-<meta property="og:title" content="机器学习笔记一：贝叶斯风险、岭回归和随机梯度下降">
-<meta property="og:url" content="https://equationliu.github.io/2019-11-14-reg_sgd/index.html">
+<meta property="og:title" content="机器学习笔记一：贝叶斯风险和岭回归（Ridge Regression）">
+<meta property="og:url" content="https://equationliu.github.io/2019-11-14-ridge/index.html">
 <meta property="og:site_name" content="Equation-Blog">
 <meta property="og:description" content="Bayes 风险机器学习的理论目标自然是要实现最小化期望风险 $f^{*} \in \underset{f}{\arg \min } R(f)$ ，其中 $R(f)=\mathbb{E} \ell(f(x), y)$。那么选择不同的损失函数 $\ell(f(x), y)$ 会有什么影响呢？ 绝对值损失当 $\ell(f(x), y)=|f(x)-y|$ 时，从定义出发 $f^*(x) = \und">
 <meta property="og:locale" content="en | zh-CN |zh-TW">
-<meta property="og:updated_time" content="2019-11-15T12:30:46.908Z">
+<meta property="og:image" content="https://i.loli.net/2019/11/17/nPx7FQciR59WhVp.jpg">
+<meta property="og:updated_time" content="2019-11-17T07:44:01.833Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="机器学习笔记一：贝叶斯风险、岭回归和随机梯度下降">
+<meta name="twitter:title" content="机器学习笔记一：贝叶斯风险和岭回归（Ridge Regression）">
 <meta name="twitter:description" content="Bayes 风险机器学习的理论目标自然是要实现最小化期望风险 $f^{*} \in \underset{f}{\arg \min } R(f)$ ，其中 $R(f)=\mathbb{E} \ell(f(x), y)$。那么选择不同的损失函数 $\ell(f(x), y)$ 会有什么影响呢？ 绝对值损失当 $\ell(f(x), y)=|f(x)-y|$ 时，从定义出发 $f^*(x) = \und">
+<meta name="twitter:image" content="https://i.loli.net/2019/11/17/nPx7FQciR59WhVp.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Equation-Blog" type="application/atom+xml">
   
@@ -193,14 +195,14 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-2019-11-14-reg_sgd" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-2019-11-14-ridge" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      机器学习笔记一：贝叶斯风险、岭回归和随机梯度下降
+      机器学习笔记一：贝叶斯风险和岭回归（Ridge Regression）
     </h1>
   
 
@@ -217,7 +219,7 @@ var _hmt = _hmt || [];
 
 <!--显示阅读次数完毕-->
         
-        <a href="/2019-11-14-reg_sgd/" class="archive-article-date">
+        <a href="/2019-11-14-ridge/" class="archive-article-date">
   	<time datetime="2019-11-14T11:37:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-14</time>
 </a>
         
@@ -285,11 +287,8 @@ R^{2} \equiv 1-\frac{S S_{\mathrm{res}}}{S S_{\mathrm{tot}}}</script><blockquote
 </blockquote>
 <h2 id="岭回归"><a href="#岭回归" class="headerlink" title="岭回归"></a>岭回归</h2><p>先上优化目标</p>
 <script type="math/tex; mode=display">
-J(\theta)=\sum_{i=1}^{m}\left(h_{\theta}(x_{i})-y_{i}\right)^{2}+\lambda\theta^{T}\theta</script><p>注意这里采取的 $h_{\theta}(x)=\theta^{T}x$ ，也就是说每个样本会增加一个常量维度（作为截距： intercept），$\theta \in \mathbb{R^{d+1}} , x = (1,x_1,x_2,\cdots,x_n)$。</p>
+J(\theta)=\sum_{i=1}^{m}\left(h_{\theta}(x_{i})-y_{i}\right)^{2}+\lambda\theta^{T}\theta</script><p>注意这里采取的 $h_{\theta}(x)=\theta^{T}x$ ，也就是说每个样本会增加一个常量维度（作为截距： intercept），$\theta \in \mathbb{R^{d+1}} , x = (x_1,x_2,\cdots,x_n, b)^T$。</p>
 <h3 id="正规方程"><a href="#正规方程" class="headerlink" title="正规方程"></a>正规方程</h3><p>很多教程上都是直接对上式进行求导，然后再组成矩阵的形式，略微有些繁琐。这里直接使用<strong>矩阵微积分</strong>推导。</p>
-<blockquote>
-<p>其实利用代数中的<strong>内积</strong>和<strong>正交投影</strong>也能很快得到正规方程的闭式解</p>
-</blockquote>
 <p>首先改写损失函数（$X \in \mathbb{R}^{m \times (d+1)}$）</p>
 <script type="math/tex; mode=display">
 J(\theta) =\| X\theta - y \|_2^2 + \lambda\|\theta\|_2^2</script><p><strong>引理：</strong> 设 $f(x)$ 是向量 $x = (x_1,x_2,\cdots,x_n)^T$ 的函数，而 $x_{i}=x_{i}(u), i=1,2, \cdots, n, u=(u_1,u_2,\cdots,u_n)^T$。则 </p>
@@ -303,10 +302,18 @@ J(\theta) =\| X\theta - y \|_2^2 + \lambda\|\theta\|_2^2</script><p><strong>引�
 <blockquote>
 <ol>
 <li>首先 $X^TX$ 是<strong>半正定</strong>的，故而特征值非负。再加上 $\lambda I$ 后特征值全部都是正的，故而<strong>一定可逆</strong></li>
-<li>$X^TX$ 可逆需要 $X$ <strong>列满秩</strong>，这在机器学习通常 $m &gt;&gt; d$ 情形下是容易满足的，但是仍需要验证！</li>
+<li>$X^TX$ 可逆需要 $X$ <strong>列满秩</strong>，虽然机器学习通常 $m &gt;&gt; d$ ，但是 $X$ 通常不是列满秩的，此时正则化就显得尤为重要。</li>
 </ol>
 </blockquote>
-<p>这里主要探讨正规方程计算机实现的问题，对比<a href="https://www.zhihu.com/question/62482926/answer/526304253" target="_blank" rel="noopener">面试官如何判断面试者的机器学习水平？</a> 中列举的三种方法并使用 $R^2$ 进行对比。</p>
+<h3 id="补充列常数的选择"><a href="#补充列常数的选择" class="headerlink" title="补充列常数的选择"></a>补充列常数的选择</h3><p>上述 Ridge 回归的设定中，设计矩阵（design matrix） $X$ 新增了最后一列常数 $b$， 其对应的参数 $\theta_{d+1}$ 也就会被<strong>一起正则化</strong>，但是可能通常不需要其被正则化。注意到 $\theta_{d+1}$ 绝对值不会太大（受到<strong>正则约束</strong>）。当 $b$ 比较大的时候， 可以使用较小的截距 $\theta_{d+1}$ 来对预测值进行调整；当 $b$ 比较小的时候，需要较大的 $\theta_{d+1}$，此时便受到了较大的正则约束。也就是说 $b$ 越大，施加在 $\theta_{d+1}$ 上的正则化强度越低。下面通过实验验证。先加载数据集</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">from</span> numpy <span class="keyword">import</span> linalg</span><br><span class="line"><span class="comment"># Loading the dataset</span></span><br><span class="line">df = pd.read_csv(<span class="string">'data.csv'</span>, delimiter=<span class="string">','</span>)</span><br><span class="line">X = df.values[:, :<span class="number">-1</span>]</span><br><span class="line">y = df.values[:, <span class="number">-1</span>]</span><br><span class="line">X_train, X_test, y_train, y_test = train_test_split(</span><br><span class="line">    X, y, test_size=<span class="number">100</span>, random_state=<span class="number">10</span>)</span><br><span class="line">X_train, X_test = feature_normalization(X_train, X_test)</span><br><span class="line">print(X_train.shape, y_train.shape)</span><br><span class="line">print(X_test.shape, y_test.shape)</span><br><span class="line">print(<span class="string">"Rank of design matrix: "</span> + str(linalg.matrix_rank(X_train)))</span><br><span class="line"></span><br><span class="line"><span class="string">"""Output</span></span><br><span class="line"><span class="string">(100, 48) (100,)</span></span><br><span class="line"><span class="string">(100, 48) (100,)</span></span><br><span class="line"><span class="string">Rank of design matrix: 27</span></span><br><span class="line"><span class="string">"""</span></span><br></pre></td></tr></table></figure>
+<p>也就是说 $X$ 不是列满秩的！此时如果直接用线性回归的闭式解的话很有可能会得不到正确的解。比如使用 <code>sklearn.linear_model.LinearRegression()</code> 将会得到发散的解。下面使用 sklearn 中的 ridge 回归做为 baseline：（实验发现取 $\lambda = 2$ 时效果较好）</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> Ridge</span><br><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> mean_squared_error, r2_score</span><br><span class="line">clf = Ridge(alpha=<span class="number">2</span>)</span><br><span class="line">clf.fit(X_train, y_train)</span><br><span class="line"><span class="comment"># Make predictions using the testing set</span></span><br><span class="line">diabetes_y_pred = clf.predict(X_test)</span><br><span class="line"><span class="comment"># The mean squared error</span></span><br><span class="line">print(<span class="string">"Mean squared error: %.6f"</span></span><br><span class="line">      % mean_squared_error(y_test, diabetes_y_pred))</span><br><span class="line"><span class="comment"># Explained variance score: 1 is perfect prediction</span></span><br><span class="line">print(<span class="string">'Variance score: %.6f'</span> % r2_score(y_test, diabetes_y_pred))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="string">"""Output</span></span><br><span class="line"><span class="string">Mean squared error: 2.491629</span></span><br><span class="line"><span class="string">Variance score: 0.505755</span></span><br><span class="line"><span class="string">"""</span></span><br></pre></td></tr></table></figure>
+<p>得到的结果和使用<strong>梯度下降</strong>的结果基本吻合。进一步比较之前，先利用前一节介绍内容从头实现 sklearn 中的两个度量准则 <code>mean_squared_error</code>、<code>r2_score</code>。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">compute_square_loss</span><span class="params">(X, y, theta)</span>:</span></span><br><span class="line">    num_instances, num_features = X.shape[<span class="number">0</span>], X.shape[<span class="number">1</span>]</span><br><span class="line">    bias = np.dot(X, theta.reshape([num_features, <span class="number">1</span>])) - y.reshape(num_instances, <span class="number">1</span>)</span><br><span class="line">    loss = np.sum(bias ** <span class="number">2</span>) / num_instances</span><br><span class="line">    <span class="keyword">return</span> loss.item()</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">R_square</span><span class="params">(y, pred)</span>:</span></span><br><span class="line">    y = y.reshape([len(y), <span class="number">1</span>])</span><br><span class="line">    pred = pred.reshape([len(pred), <span class="number">1</span>])</span><br><span class="line">    SS_tol = (y ** <span class="number">2</span>).mean() - (y.mean()) ** <span class="number">2</span></span><br><span class="line">    SS_res = sum((y - pred) ** <span class="number">2</span>) / y.shape[<span class="number">0</span>]</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span> - SS_res / SS_tol</span><br><span class="line"></span><br><span class="line">R_square(y_test, diabetes_y_pred).item()</span><br><span class="line"></span><br><span class="line"><span class="string">"""Output</span></span><br><span class="line"><span class="string">0.5057552774647271</span></span><br><span class="line"><span class="string">"""</span></span><br></pre></td></tr></table></figure>
+<p>测试结果与 <code>r2_score</code> 相同。下面使用正规方程求解（暂时取 $b = 1$）:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">b = <span class="number">1</span></span><br><span class="line">X_train = np.hstack((X_train, b * np.ones((X_train.shape[<span class="number">0</span>], <span class="number">1</span>))))</span><br><span class="line">X_test = np.hstack((X_test, b * np.ones((X_test.shape[<span class="number">0</span>], <span class="number">1</span>))))</span><br><span class="line"></span><br><span class="line">lamda = <span class="number">2</span></span><br><span class="line">A = np.dot(X_train.T, X_train) + lamda * np.eye(X_train.shape[<span class="number">1</span>])</span><br><span class="line">print(<span class="string">"Rank of A: "</span> + str(linalg.matrix_rank(A)))</span><br><span class="line">theta = linalg.solve(A, np.dot(X_train.T, y_train))</span><br><span class="line">print(<span class="string">"Mean squared error: %.6f"</span></span><br><span class="line">      % compute_square_loss(X_test, y_test, theta))</span><br><span class="line">pred = np.dot(X_test,theta)</span><br><span class="line">print(<span class="string">'Variance score: %.6f'</span> % R_square(y_test, pred).item())</span><br><span class="line"></span><br><span class="line"><span class="string">"""Output</span></span><br><span class="line"><span class="string">Rank of A: 49</span></span><br><span class="line"><span class="string">Mean squared error: 2.451190</span></span><br><span class="line"><span class="string">Variance score: 0.513777</span></span><br><span class="line"><span class="string">"""</span></span><br></pre></td></tr></table></figure></p>
+<p>可以发现矩阵 $A$ 满秩了，故而可逆！对比 baseline 发现性能还略微有所提升。下面取不同的值进行对比<br><img src="https://i.loli.net/2019/11/17/nPx7FQciR59WhVp.jpg" alt></p>
+<p>当 $b$ 很大的时候，结果和 sklearn 保持一致！而后者正是没有对截距做正则化。上图也说明对截距进行一定的正则化可能是有好处的，此处取 $b = 0.01$ 就是一个不错的选择。</p>
 
       
 
@@ -384,7 +391,7 @@ J(\theta) =\| X\theta - y \|_2^2 + \lambda\|\theta\|_2^2</script><p><strong>引�
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://equationliu.github.io/2019-11-14-reg_sgd/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://equationliu.github.io/2019-11-14-ridge/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -401,8 +408,8 @@ J(\theta) =\| X\theta - y \|_2^2 + \lambda\|\theta\|_2^2</script><p><strong>引�
 <nav id="article-nav">
   
   
-    <a href="/2019-11-14-ML/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">写在前面：机器学习系列笔记</div>
+    <a href="/2019-11-16-python/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Python 编程踩坑记</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -429,7 +436,7 @@ J(\theta) =\| X\theta - y \|_2^2 + \lambda\|\theta\|_2^2</script><p><strong>引�
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Bayes-风险"><span class="toc-number">1.</span> <span class="toc-text">Bayes 风险</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#绝对值损失"><span class="toc-number">1.1.</span> <span class="toc-text">绝对值损失</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0-1-损失"><span class="toc-number">1.2.</span> <span class="toc-text">0-1 损失</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#平方损失"><span class="toc-number">1.3.</span> <span class="toc-text">平方损失</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#岭回归"><span class="toc-number">2.</span> <span class="toc-text">岭回归</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#正规方程"><span class="toc-number">2.1.</span> <span class="toc-text">正规方程</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Bayes-风险"><span class="toc-number">1.</span> <span class="toc-text">Bayes 风险</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#绝对值损失"><span class="toc-number">1.1.</span> <span class="toc-text">绝对值损失</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0-1-损失"><span class="toc-number">1.2.</span> <span class="toc-text">0-1 损失</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#平方损失"><span class="toc-number">1.3.</span> <span class="toc-text">平方损失</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#岭回归"><span class="toc-number">2.</span> <span class="toc-text">岭回归</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#正规方程"><span class="toc-number">2.1.</span> <span class="toc-text">正规方程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#补充列常数的选择"><span class="toc-number">2.2.</span> <span class="toc-text">补充列常数的选择</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -443,7 +450,7 @@ J(\theta) =\| X\theta - y \|_2^2 + \lambda\|\theta\|_2^2</script><p><strong>引�
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="2019-11-14-reg_sgd" data-title="机器学习笔记一：贝叶斯风险、岭回归和随机梯度下降" data-url="https://equationliu.github.io/2019-11-14-reg_sgd/"></div>
+	<div class="ds-thread" data-thread-key="2019-11-14-ridge" data-title="机器学习笔记一：贝叶斯风险和岭回归（Ridge Regression）" data-url="https://equationliu.github.io/2019-11-14-ridge/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -474,7 +481,7 @@ J(\theta) =\| X\theta - y \|_2^2 + \lambda\|\theta\|_2^2</script><p><strong>引�
 <script src="https://billts.site/js/gitment.js"></script>
 <script>
 var gitment = new Gitment({
-  id: "https://equationliu.github.io/2019-11-14-reg_sgd/",
+  id: "https://equationliu.github.io/2019-11-14-ridge/",
   owner: 'Equationliu',
   repo: 'equationliu.github.io',
   oauth: {
@@ -624,11 +631,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">machine learning</a>
+                <a href="javascript:void(0)" class="js-tag color5">网络爬虫</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">数学</a>
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -636,15 +643,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">machine learning</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">-随笔</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">网络爬虫</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
+                <a href="javascript:void(0)" class="js-tag color3">数学</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -2,9 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://equationliu.github.io/2019-11-14-reg_sgd/</loc>
+    <loc>https://equationliu.github.io/2019-11-14-ridge/</loc>
     
-    <lastmod>2019-11-15T12:30:46.908Z</lastmod>
+    <lastmod>2019-11-17T07:44:01.833Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://equationliu.github.io/2019-11-16-python/</loc>
+    
+    <lastmod>2019-11-16T14:52:07.723Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://equationliu.github.io/2019-11-14-texlive/</loc>
+    
+    <lastmod>2019-11-16T09:58:19.098Z</lastmod>
     
   </url>
   
@@ -12,13 +26,6 @@
     <loc>https://equationliu.github.io/2019-11-14-ML/</loc>
     
     <lastmod>2019-11-14T11:06:50.973Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://equationliu.github.io/2019-11-14-texlive/</loc>
-    
-    <lastmod>2019-11-14T03:20:13.977Z</lastmod>
     
   </url>
   
