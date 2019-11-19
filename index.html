@@ -220,7 +220,7 @@ var _hmt = _hmt || [];
       
         <p>上节笔记 <a href="https://equationliu.github.io/2019-11-14-ridge/">机器学习笔记一：贝叶斯风险和岭回归</a> 详细探讨了 Ridge 回归</p>
 <script type="math/tex; mode=display">
-J(w)=\sum_{i=1}^{m}\left(h_{w}(x_{i})-y_{i}\right)^{2}+\lambda w^{T}w</script><p>的求解与实现。但是加上一个惩罚项 $ w^{T}w$ 为实现了怎样的<strong>正则</strong>呢？从统计学习的角度就是对假设空间进行约束，降低模型的复杂度。现在假设 $|w|_2 \le r$，那么</p>
+J(w)=\sum_{i=1}^{m}\left(h_{w}(x_{i})-y_{i}\right)^{2}+\lambda w^{T}w</script><p>的求解与实现。但是加上一个惩罚项 $ w^{T}w$ 到底实现了怎样的<strong>正则</strong>呢？从统计学习的角度就是对假设空间进行约束，降低模型的复杂度。现在假设 $||w||_2 \le r$，那么</p>
 <script type="math/tex; mode=display">
 |h_{w}(x + h) - h_{w}(x)| = |w^Th| \le \|w\|_2\|h\|_2\le r\|h\|_2</script><p>从而 $h_{w}(x)$ 是 $r$ <strong>李普希兹连续</strong>（r-Lipschitz）的。变量是一维时也就是限制了直线的斜率。而李普希兹这一性质广泛应用于机器学习理论的证明。</p>
 <h2 id="Lasso-回归诱导稀疏解"><a href="#Lasso-回归诱导稀疏解" class="headerlink" title="Lasso 回归诱导稀疏解"></a>Lasso 回归诱导稀疏解</h2><p>为什么 $\ell_1$ 正则可以得到稀疏的解而 $\ell_2$ 不能呢？其实这是有很多前提条件的！<br></p>
@@ -810,11 +810,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">-随笔</a>
+                <a href="javascript:void(0)" class="js-tag color3">数学</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">数学</a>
+                <a href="javascript:void(0)" class="js-tag color4">-随笔</a>
               </li>
              
               <li class="article-tag-list-item">

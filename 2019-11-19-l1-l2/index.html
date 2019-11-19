@@ -23,19 +23,19 @@
         border-left-color: #6d6d6d;    /*左边框颜色*/
     }
   </style>
-  <meta name="description" content="上节笔记 机器学习笔记一：贝叶斯风险和岭回归 详细探讨了 Ridge 回归  J(w)=\sum_{i=1}^{m}\left(h_{w}(x_{i})-y_{i}\right)^{2}+\lambda w^{T}w的求解与实现。但是加上一个惩罚项 $ w^{T}w$ 为实现了怎样的正则呢？从统计学习的角度就是对假设空间进行约束，降低模型的复杂度。现在假设 $|w|_2 \le r$，那么  |h">
+  <meta name="description" content="上节笔记 机器学习笔记一：贝叶斯风险和岭回归 详细探讨了 Ridge 回归  J(w)=\sum_{i=1}^{m}\left(h_{w}(x_{i})-y_{i}\right)^{2}+\lambda w^{T}w的求解与实现。但是加上一个惩罚项 $ w^{T}w$ 到底实现了怎样的正则呢？从统计学习的角度就是对假设空间进行约束，降低模型的复杂度。现在假设 $||w||_2 \le r$，那么">
 <meta name="keywords" content="Optimization,machine learning,数学">
 <meta property="og:type" content="article">
 <meta property="og:title" content="机器学习笔记二：Lasso 回归与 Coordinate decent">
 <meta property="og:url" content="https://equationliu.github.io/2019-11-19-l1-l2/index.html">
 <meta property="og:site_name" content="Equation-Blog">
-<meta property="og:description" content="上节笔记 机器学习笔记一：贝叶斯风险和岭回归 详细探讨了 Ridge 回归  J(w)=\sum_{i=1}^{m}\left(h_{w}(x_{i})-y_{i}\right)^{2}+\lambda w^{T}w的求解与实现。但是加上一个惩罚项 $ w^{T}w$ 为实现了怎样的正则呢？从统计学习的角度就是对假设空间进行约束，降低模型的复杂度。现在假设 $|w|_2 \le r$，那么  |h">
+<meta property="og:description" content="上节笔记 机器学习笔记一：贝叶斯风险和岭回归 详细探讨了 Ridge 回归  J(w)=\sum_{i=1}^{m}\left(h_{w}(x_{i})-y_{i}\right)^{2}+\lambda w^{T}w的求解与实现。但是加上一个惩罚项 $ w^{T}w$ 到底实现了怎样的正则呢？从统计学习的角度就是对假设空间进行约束，降低模型的复杂度。现在假设 $||w||_2 \le r$，那么">
 <meta property="og:locale" content="en | zh-CN |zh-TW">
 <meta property="og:image" content="https://i.loli.net/2019/11/19/agoGqnphX9kyK1L.jpg">
-<meta property="og:updated_time" content="2019-11-19T08:26:21.489Z">
+<meta property="og:updated_time" content="2019-11-19T09:11:13.105Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器学习笔记二：Lasso 回归与 Coordinate decent">
-<meta name="twitter:description" content="上节笔记 机器学习笔记一：贝叶斯风险和岭回归 详细探讨了 Ridge 回归  J(w)=\sum_{i=1}^{m}\left(h_{w}(x_{i})-y_{i}\right)^{2}+\lambda w^{T}w的求解与实现。但是加上一个惩罚项 $ w^{T}w$ 为实现了怎样的正则呢？从统计学习的角度就是对假设空间进行约束，降低模型的复杂度。现在假设 $|w|_2 \le r$，那么  |h">
+<meta name="twitter:description" content="上节笔记 机器学习笔记一：贝叶斯风险和岭回归 详细探讨了 Ridge 回归  J(w)=\sum_{i=1}^{m}\left(h_{w}(x_{i})-y_{i}\right)^{2}+\lambda w^{T}w的求解与实现。但是加上一个惩罚项 $ w^{T}w$ 到底实现了怎样的正则呢？从统计学习的角度就是对假设空间进行约束，降低模型的复杂度。现在假设 $||w||_2 \le r$，那么">
 <meta name="twitter:image" content="https://i.loli.net/2019/11/19/agoGqnphX9kyK1L.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Equation-Blog" type="application/atom+xml">
@@ -229,13 +229,13 @@ var _hmt = _hmt || [];
       
         <p>上节笔记 <a href="https://equationliu.github.io/2019-11-14-ridge/">机器学习笔记一：贝叶斯风险和岭回归</a> 详细探讨了 Ridge 回归</p>
 <script type="math/tex; mode=display">
-J(w)=\sum_{i=1}^{m}\left(h_{w}(x_{i})-y_{i}\right)^{2}+\lambda w^{T}w</script><p>的求解与实现。但是加上一个惩罚项 $ w^{T}w$ 为实现了怎样的<strong>正则</strong>呢？从统计学习的角度就是对假设空间进行约束，降低模型的复杂度。现在假设 $|w|_2 \le r$，那么</p>
+J(w)=\sum_{i=1}^{m}\left(h_{w}(x_{i})-y_{i}\right)^{2}+\lambda w^{T}w</script><p>的求解与实现。但是加上一个惩罚项 $ w^{T}w$ 到底实现了怎样的<strong>正则</strong>呢？从统计学习的角度就是对假设空间进行约束，降低模型的复杂度。现在假设 $||w||_2 \le r$，那么</p>
 <script type="math/tex; mode=display">
 |h_{w}(x + h) - h_{w}(x)| = |w^Th| \le \|w\|_2\|h\|_2\le r\|h\|_2</script><p>从而 $h_{w}(x)$ 是 $r$ <strong>李普希兹连续</strong>（r-Lipschitz）的。变量是一维时也就是限制了直线的斜率。而李普希兹这一性质广泛应用于机器学习理论的证明。</p>
 <h2 id="Lasso-回归诱导稀疏解"><a href="#Lasso-回归诱导稀疏解" class="headerlink" title="Lasso 回归诱导稀疏解"></a>Lasso 回归诱导稀疏解</h2><p>为什么 $\ell_1$ 正则可以得到稀疏的解而 $\ell_2$ 不能呢？其实这是有很多前提条件的！<br><a id="more"></a></p>
 <p>首先损失需要是<strong>平方损失</strong>，也就是考虑以下 Lasso 回归问题：</p>
 <script type="math/tex; mode=display">
-\hat{w}=\underset{w \in \mathbb{R}^{d}}{\arg \min } \frac{1}{n} \sum_{i=1}^{n}\left\{w^{T} x_{i}-y_{i}\right\}^{2}+\lambda\|w\|_{1}</script><p>首先上述优化问题（Penalized ERM：<a href="https://en.wikipedia.org/wiki/Tikhonov_regularization" target="_blank" rel="noopener">Tikhonov regularization</a>）等价于 Constrained ERM （Ivanov regularization）：</p>
+\hat{w}=\underset{w \in \mathbb{R}^{d}}{\arg \min } \frac{1}{n} \sum_{i=1}^{n}\left\{w^{T} x_{i}-y_{i}\right\}^{2}+\lambda\|w\|_{1}</script><p>而上述优化问题（Penalized ERM：<a href="https://en.wikipedia.org/wiki/Tikhonov_regularization" target="_blank" rel="noopener">Tikhonov regularization</a>）等价于 Constrained ERM （Ivanov regularization）：</p>
 <script type="math/tex; mode=display">
 \hat{w}=\underset{\|w\|_{1} \leqslant r}{\arg \min } \frac{1}{n} \sum_{i=1}^{n}\left\{w^{T} x_{i}-y_{i}\right\}^{2}</script><blockquote>
 <p>等价性证明需要用到凸优化以及对偶理论，证明见后续笔记</p>
@@ -247,9 +247,26 @@ J(w)=\sum_{i=1}^{m}\left(h_{w}(x_{i})-y_{i}\right)^{2}+\lambda w^{T}w</script><p
 </ol>
 <p>$\ell_2$ 正则和 $\ell_1$ 正则对应的可行域结构如下图（参见：<a href="https://davidrosenberg.github.io/mlcourse/Lectures/02c.L1L2-regularization.pdf" target="_blank" rel="noopener">L1 and L2 regularization</a>）。下面推导损失函数的等高线。</p>
 <p><img src="https://i.loli.net/2019/11/19/agoGqnphX9kyK1L.jpg" alt></p>
-<h3 id="损失函数等高线"><a href="#损失函数等高线" class="headerlink" title="损失函数等高线"></a>损失函数等高线</h3><p>考虑平方损失（已将惩罚项作为约束）</p>
+<h3 id="损失函数等高线"><a href="#损失函数等高线" class="headerlink" title="损失函数等高线"></a>损失函数等高线</h3><p>考虑平方损失（没有惩罚项）</p>
 <script type="math/tex; mode=display">
-\hat{R}_{n}(w)=\frac{1}{n}\|X w-y\|^{2}</script><p>由正规方程可得闭式解 $\hat{w}=\left(X^{T} X\right)^{-1} X^{T} y$（假设 $X$ 列满秩）。 </p>
+\hat{R}_{n}(w)=\frac{1}{n}\|X w-y\|^{2}</script><p>由正规方程可得闭式解 $\hat{w}=\left(X^{T} X\right)^{-1} X^{T} y$（假设 $X$ <strong>列满秩</strong>）。 将 $\hat{w}$ 带入上式化简可得</p>
+<script type="math/tex; mode=display">
+\hat{R}_{n}(\hat{w}) = \frac{1}{n}(y^Ty - y^TX\hat{w})</script><blockquote>
+<p><strong>引理</strong>（<a href="https://davidrosenberg.github.io/mlcourse/Notes/completing-the-square.pdf" target="_blank" rel="noopener">completing-the-square</a>）：对于任意给定的向量 $x, b \in \mathbf{R}^{d}$ 以及<strong>对称可逆矩阵</strong> $M \in \mathbb{R}^{d \times d}$。有</p>
+<script type="math/tex; mode=display">
+x^{T} M x-2 b^{T} x=\left(x-M^{-1} b\right)^{T} M\left(x-M^{-1} b\right)-b^{T} M^{-1} b</script></blockquote>
+<p>那么 </p>
+<script type="math/tex; mode=display">
+\begin{align}
+\hat{R}_{n}(w)&=\frac{1}{n}\|X w-y\|^{2} \\
+& = \frac{1}{n}\left(w^{T} X^{T}-y^{T}\right)(X w-y) \\
+& = \frac{1}{n}\left(w^{T} X^{T} X w-w^{T} X^{T} y-y^{T} X w+y^{T} y\right) \\
+& = \frac{1}{n}\left(w^{T} X^{T} X w-2 y^{T} X w+y^{T} y\right)
+\end{align}</script><p>令 $M = X^TX, b = X^Ty$ ， 由引理有</p>
+<script type="math/tex; mode=display">
+\hat{R}_{n}(w)=\frac{1}{n}(w-\hat{w})^{T} X^{T} X(w-\hat{w})+\hat{R}_{n}(\hat{w})</script><p>故而以 $\hat{w}$ 为中心的等高线有如下形式</p>
+<script type="math/tex; mode=display">
+\left\{w \mid \hat{R}_{n}(w)=c+\hat{R}_{n}(\hat{w})\right\}=\left\{w\mid(w-\hat{w})^{T} X^{T} X(w-\hat{w})=n c\right\}</script><p>注意到假设了 $X$ 列满秩，从而矩阵 $M = X^TX$ <strong>正定</strong>。</p>
 
       
 
@@ -583,11 +600,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">-随笔</a>
+                <a href="javascript:void(0)" class="js-tag color3">数学</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">数学</a>
+                <a href="javascript:void(0)" class="js-tag color4">-随笔</a>
               </li>
              
               <li class="article-tag-list-item">
