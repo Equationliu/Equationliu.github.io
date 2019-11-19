@@ -6,7 +6,7 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://equationliu.github.io">
-  <title>Lasso 回归与 Coordinate decent | Equation-Blog</title>
+  <title>机器学习笔记二：Lasso 回归与 Coordinate decent | Equation-Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
   <link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
@@ -23,18 +23,20 @@
         border-left-color: #6d6d6d;    /*左边框颜色*/
     }
   </style>
-  <meta name="description" content="关于个人的学习、研究与感悟 | 方程，目标：Math，Machine Learning，Computer Vision | 这里是 @equation的个人博客，与你一起发现更大的世界。">
+  <meta name="description" content="上节笔记 机器学习笔记一：贝叶斯风险和岭回归 详细探讨了 Ridge 回归  J(w)=\sum_{i=1}^{m}\left(h_{w}(x_{i})-y_{i}\right)^{2}+\lambda w^{T}w的求解与实现。但是加上一个惩罚项 $ w^{T}w$ 为实现了怎样的正则呢？从统计学习的角度就是对假设空间进行约束，降低模型的复杂度。现在假设 $|w|_2 \le r$，那么  |h">
 <meta name="keywords" content="Optimization,machine learning,数学">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Lasso 回归与 Coordinate decent">
+<meta property="og:title" content="机器学习笔记二：Lasso 回归与 Coordinate decent">
 <meta property="og:url" content="https://equationliu.github.io/2019-11-19-l1-l2/index.html">
 <meta property="og:site_name" content="Equation-Blog">
-<meta property="og:description" content="关于个人的学习、研究与感悟 | 方程，目标：Math，Machine Learning，Computer Vision | 这里是 @equation的个人博客，与你一起发现更大的世界。">
+<meta property="og:description" content="上节笔记 机器学习笔记一：贝叶斯风险和岭回归 详细探讨了 Ridge 回归  J(w)=\sum_{i=1}^{m}\left(h_{w}(x_{i})-y_{i}\right)^{2}+\lambda w^{T}w的求解与实现。但是加上一个惩罚项 $ w^{T}w$ 为实现了怎样的正则呢？从统计学习的角度就是对假设空间进行约束，降低模型的复杂度。现在假设 $|w|_2 \le r$，那么  |h">
 <meta property="og:locale" content="en | zh-CN |zh-TW">
-<meta property="og:updated_time" content="2019-11-19T06:24:35.114Z">
+<meta property="og:image" content="https://i.loli.net/2019/11/19/agoGqnphX9kyK1L.jpg">
+<meta property="og:updated_time" content="2019-11-19T08:26:21.489Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Lasso 回归与 Coordinate decent">
-<meta name="twitter:description" content="关于个人的学习、研究与感悟 | 方程，目标：Math，Machine Learning，Computer Vision | 这里是 @equation的个人博客，与你一起发现更大的世界。">
+<meta name="twitter:title" content="机器学习笔记二：Lasso 回归与 Coordinate decent">
+<meta name="twitter:description" content="上节笔记 机器学习笔记一：贝叶斯风险和岭回归 详细探讨了 Ridge 回归  J(w)=\sum_{i=1}^{m}\left(h_{w}(x_{i})-y_{i}\right)^{2}+\lambda w^{T}w的求解与实现。但是加上一个惩罚项 $ w^{T}w$ 为实现了怎样的正则呢？从统计学习的角度就是对假设空间进行约束，降低模型的复杂度。现在假设 $|w|_2 \le r$，那么  |h">
+<meta name="twitter:image" content="https://i.loli.net/2019/11/19/agoGqnphX9kyK1L.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Equation-Blog" type="application/atom+xml">
   
@@ -200,7 +202,7 @@ var _hmt = _hmt || [];
         
   
     <h1 class="article-title" itemprop="name">
-      Lasso 回归与 Coordinate decent
+      机器学习笔记二：Lasso 回归与 Coordinate decent
     </h1>
   
 
@@ -225,7 +227,30 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>上节笔记 <a href="https://equationliu.github.io/2019-11-14-ridge/">机器学习笔记一：贝叶斯风险和岭回归</a> 详细探讨了 Ridge 回归</p>
+<script type="math/tex; mode=display">
+J(w)=\sum_{i=1}^{m}\left(h_{w}(x_{i})-y_{i}\right)^{2}+\lambda w^{T}w</script><p>的求解与实现。但是加上一个惩罚项 $ w^{T}w$ 为实现了怎样的<strong>正则</strong>呢？从统计学习的角度就是对假设空间进行约束，降低模型的复杂度。现在假设 $|w|_2 \le r$，那么</p>
+<script type="math/tex; mode=display">
+|h_{w}(x + h) - h_{w}(x)| = |w^Th| \le \|w\|_2\|h\|_2\le r\|h\|_2</script><p>从而 $h_{w}(x)$ 是 $r$ <strong>李普希兹连续</strong>（r-Lipschitz）的。变量是一维时也就是限制了直线的斜率。而李普希兹这一性质广泛应用于机器学习理论的证明。</p>
+<h2 id="Lasso-回归诱导稀疏解"><a href="#Lasso-回归诱导稀疏解" class="headerlink" title="Lasso 回归诱导稀疏解"></a>Lasso 回归诱导稀疏解</h2><p>为什么 $\ell_1$ 正则可以得到稀疏的解而 $\ell_2$ 不能呢？其实这是有很多前提条件的！<br><a id="more"></a></p>
+<p>首先损失需要是<strong>平方损失</strong>，也就是考虑以下 Lasso 回归问题：</p>
+<script type="math/tex; mode=display">
+\hat{w}=\underset{w \in \mathbb{R}^{d}}{\arg \min } \frac{1}{n} \sum_{i=1}^{n}\left\{w^{T} x_{i}-y_{i}\right\}^{2}+\lambda\|w\|_{1}</script><p>首先上述优化问题（Penalized ERM：<a href="https://en.wikipedia.org/wiki/Tikhonov_regularization" target="_blank" rel="noopener">Tikhonov regularization</a>）等价于 Constrained ERM （Ivanov regularization）：</p>
+<script type="math/tex; mode=display">
+\hat{w}=\underset{\|w\|_{1} \leqslant r}{\arg \min } \frac{1}{n} \sum_{i=1}^{n}\left\{w^{T} x_{i}-y_{i}\right\}^{2}</script><blockquote>
+<p>等价性证明需要用到凸优化以及对偶理论，证明见后续笔记</p>
+</blockquote>
+<p>此时讨论解的稀疏性需要关注两个事情：</p>
+<ol>
+<li>可以域的几何结构</li>
+<li>损失函数等高线的几何结构</li>
+</ol>
+<p>$\ell_2$ 正则和 $\ell_1$ 正则对应的可行域结构如下图（参见：<a href="https://davidrosenberg.github.io/mlcourse/Lectures/02c.L1L2-regularization.pdf" target="_blank" rel="noopener">L1 and L2 regularization</a>）。下面推导损失函数的等高线。</p>
+<p><img src="https://i.loli.net/2019/11/19/agoGqnphX9kyK1L.jpg" alt></p>
+<h3 id="损失函数等高线"><a href="#损失函数等高线" class="headerlink" title="损失函数等高线"></a>损失函数等高线</h3><p>考虑平方损失（已将惩罚项作为约束）</p>
+<script type="math/tex; mode=display">
+\hat{R}_{n}(w)=\frac{1}{n}\|X w-y\|^{2}</script><p>由正规方程可得闭式解 $\hat{w}=\left(X^{T} X\right)^{-1} X^{T} y$（假设 $X$ 列满秩）。 </p>
+
       
 
       
@@ -347,7 +372,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Lasso-回归诱导稀疏解"><span class="toc-number">1.</span> <span class="toc-text">Lasso 回归诱导稀疏解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#损失函数等高线"><span class="toc-number">1.1.</span> <span class="toc-text">损失函数等高线</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -361,7 +386,7 @@ var _hmt = _hmt || [];
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="2019-11-19-l1-l2" data-title="Lasso 回归与 Coordinate decent" data-url="https://equationliu.github.io/2019-11-19-l1-l2/"></div>
+	<div class="ds-thread" data-thread-key="2019-11-19-l1-l2" data-title="机器学习笔记二：Lasso 回归与 Coordinate decent" data-url="https://equationliu.github.io/2019-11-19-l1-l2/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
