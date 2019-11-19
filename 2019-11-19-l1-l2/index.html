@@ -32,7 +32,10 @@
 <meta property="og:description" content="上节笔记 机器学习笔记一：贝叶斯风险和岭回归 详细探讨了 Ridge 回归  J(w)=\sum_{i=1}^{m}\left(h_{w}(x_{i})-y_{i}\right)^{2}+\lambda w^{T}w的求解与实现。但是加上一个惩罚项 $ w^{T}w$ 到底实现了怎样的正则呢？从统计学习的角度就是对假设空间进行约束，降低模型的复杂度。现在假设 $||w||_2 \le r$，那么">
 <meta property="og:locale" content="en | zh-CN |zh-TW">
 <meta property="og:image" content="https://i.loli.net/2019/11/19/agoGqnphX9kyK1L.jpg">
-<meta property="og:updated_time" content="2019-11-19T09:26:42.945Z">
+<meta property="og:image" content="https://i.loli.net/2019/11/20/DxX4iWYeO8FASfT.png">
+<meta property="og:image" content="https://i.loli.net/2019/11/20/QSGsyDoMw64KWuJ.jpg">
+<meta property="og:image" content="https://i.loli.net/2019/11/20/scUENSbFA1krRPV.png">
+<meta property="og:updated_time" content="2019-11-19T19:13:23.104Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器学习笔记二：Lasso 回归与 Coordinate decent">
 <meta name="twitter:description" content="上节笔记 机器学习笔记一：贝叶斯风险和岭回归 详细探讨了 Ridge 回归  J(w)=\sum_{i=1}^{m}\left(h_{w}(x_{i})-y_{i}\right)^{2}+\lambda w^{T}w的求解与实现。但是加上一个惩罚项 $ w^{T}w$ 到底实现了怎样的正则呢？从统计学习的角度就是对假设空间进行约束，降低模型的复杂度。现在假设 $||w||_2 \le r$，那么">
@@ -272,7 +275,44 @@ x^{T} M x-2 b^{T} x=\left(x-M^{-1} b\right)^{T} M\left(x-M^{-1} b\right)-b^{T} M
 <script type="math/tex; mode=display">
 (\mathbf{x}-\mathbf{v})^{\mathrm{T}} A(\mathbf{x}-\mathbf{v})=1</script><p>where $A$ is a <strong>positive definite matrix</strong> and $\mathbf{x, v}$ are vectors.</p>
 </blockquote>
-<p>也就是说等高线是一簇椭圆。并且 $A$ 的特征向量定义了椭圆的主轴方向，特征值是该方向半轴长度平方的倒数， 即 $\lambda = (a^{-2}, b^{-2}, \cdots)$。如果用一张图来可视化就是</p>
+<p>也就是说等高线是一簇椭圆。并且 $A$ 的特征向量定义了椭圆的主轴方向，特征值是该方向半轴长度平方的倒数， 即 $\lambda = (a^{-2}, b^{-2}, \cdots)$。下面举一个二维的例子：</p>
+<p>考虑二维的一簇椭圆</p>
+<script type="math/tex; mode=display">
+\left\{w \in \mathbb{R}^{2} \mid (w - \hat{w})^{T}\left(\begin{array}{cc}{2} & {2} \\ {0} & {2}\end{array}\right)^T\left(\begin{array}{cc}{2} & {2} \\ {0} & {2}\end{array}\right) (w - \hat{w})=2c\right\}</script><p>不妨设 $y = (6, 4)^T$，则 $w = (1,2)^T$。此时的平方损失</p>
+<script type="math/tex; mode=display">
+\hat{R}_{n}(w)=2w_1^2 + 4w_1w_2-12w_1+4w_2^2-20w_2+26</script><p>先放上可视化结果</p>
+<p><img src="https://i.loli.net/2019/11/20/DxX4iWYeO8FASfT.png" alt></p>
+<p>其中 $v_1,v_2$ 是 $X^TX$ 的特征向量。可以直观看出 Lasso 会得到稀疏的解。附上实现上述图片的代码：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> mpl_toolkits.axisartist <span class="keyword">as</span> axisartist</span><br><span class="line"><span class="comment"># axis</span></span><br><span class="line">fig = plt.figure(figsize=(<span class="number">10</span>, <span class="number">10</span>))</span><br><span class="line">ax = axisartist.Subplot(fig, <span class="number">111</span>)  </span><br><span class="line">fig.add_axes(ax)</span><br><span class="line">ax.axis[:].set_visible(<span class="literal">False</span>)</span><br><span class="line">ax.axis[<span class="string">"x"</span>] = ax.new_floating_axis(<span class="number">0</span>,<span class="number">0</span>)</span><br><span class="line">ax.axis[<span class="string">"x"</span>].set_axisline_style(<span class="string">"-|&gt;"</span>, size = <span class="number">1.0</span>)</span><br><span class="line">ax.axis[<span class="string">"y"</span>] = ax.new_floating_axis(<span class="number">1</span>,<span class="number">0</span>)</span><br><span class="line">ax.axis[<span class="string">"y"</span>].set_axisline_style(<span class="string">"-|&gt;"</span>, size = <span class="number">1.0</span>)</span><br><span class="line">ax.axis[<span class="string">"x"</span>].set_axis_direction(<span class="string">"bottom"</span>)</span><br><span class="line">ax.axis[<span class="string">"y"</span>].set_axis_direction(<span class="string">"left"</span>)</span><br><span class="line"><span class="comment"># vectors</span></span><br><span class="line">X = np.array([[<span class="number">2</span>,<span class="number">2</span>],[<span class="number">0</span>,<span class="number">2</span>]])</span><br><span class="line">[eigen_value, vectors] = linalg.eig(X.T.dot(X))</span><br><span class="line"><span class="comment"># the column ``v[:,i]`` is the eigenvector corresponding to the eigenvalue ``w[i]``.</span></span><br><span class="line">plt.annotate(<span class="string">'$v_1$'</span>,xy=np.array([<span class="number">1</span>,<span class="number">2</span>]),xytext=np.array([<span class="number">1</span>,<span class="number">2</span>]) + vectors[:,<span class="number">0</span>],arrowprops=dict(arrowstyle=<span class="string">"&lt;-"</span>,connectionstyle=<span class="string">"arc3"</span>, color=<span class="string">'b'</span>), fontsize = <span class="number">14</span>)</span><br><span class="line">plt.annotate(<span class="string">'$v_2$'</span>,xy=np.array([<span class="number">1</span>,<span class="number">2</span>]),xytext=np.array([<span class="number">1</span>,<span class="number">2</span>]) + vectors[:,<span class="number">1</span>],arrowprops=dict(arrowstyle=<span class="string">"&lt;-"</span>,connectionstyle=<span class="string">"arc3"</span>, color=<span class="string">'b'</span>), fontsize = <span class="number">14</span>)</span><br><span class="line"><span class="comment"># Ellipsoid</span></span><br><span class="line">step = <span class="number">0.005</span></span><br><span class="line">x = np.arange(<span class="number">-3</span>, <span class="number">6</span>, step)</span><br><span class="line">y = np.arange(<span class="number">-3</span>, <span class="number">7</span>, step)</span><br><span class="line">X, Y = np.meshgrid(x, y)</span><br><span class="line">Z = <span class="number">2</span> * X**<span class="number">2</span> + <span class="number">4</span>*X*Y - <span class="number">12</span> * X + <span class="number">4</span> * Y**<span class="number">2</span> - <span class="number">20</span> * Y + <span class="number">26</span></span><br><span class="line">contour = plt.contour(X, Y, Z, [<span class="number">1</span>,<span class="number">2</span>,<span class="number">4</span>], colors=<span class="string">'r'</span>, linewidths=<span class="number">2.0</span>)</span><br><span class="line">plt.clabel(contour, fontsize=<span class="number">10</span>, colors=<span class="string">"k"</span>)</span><br><span class="line">plt.xlim([<span class="number">-1.5</span>, <span class="number">3.3</span>])</span><br><span class="line">plt.ylim([<span class="number">-1.8</span>, <span class="number">3.6</span>])</span><br><span class="line"><span class="comment"># center</span></span><br><span class="line">plt.scatter(<span class="number">1</span>,<span class="number">2</span>, c=<span class="string">"k"</span>)</span><br><span class="line">plt.annotate(<span class="string">"$\hat&#123;w&#125;$"</span>, [<span class="number">1.1</span>,<span class="number">1.8</span>], fontsize = <span class="number">14</span>)</span><br><span class="line"><span class="comment">#region</span></span><br><span class="line">plt.plot(<span class="number">0</span>,<span class="number">0</span>, c=<span class="string">"y"</span>, marker=<span class="string">"D"</span>, markersize=<span class="number">230</span>, markeredgecolor = <span class="string">'0.75'</span>)</span><br><span class="line">plt.title(<span class="string">"The Famous Picture for $\ell_1$ Regularization "</span>, fontsize=<span class="number">16</span>)</span><br><span class="line">plt.savefig(<span class="string">"lasso.pdf"</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure></p>
+<h3 id="特征重复"><a href="#特征重复" class="headerlink" title="特征重复"></a>特征重复</h3><p>仍以二维为例， 但是当 $x_1 = x_2$ 时， $X$ 不再列满秩。故而这里仅假设 $x_1,x_2$ 高度相关。此时等高线对应的椭圆将会变得特别<strong>扁</strong>， 有向平行线退化的趋势。此时 lasso 的边界可能都将是最优解！也就是说此时 lasso 不一定还能得到稀疏的解。</p>
+<h2 id="坐标下降"><a href="#坐标下降" class="headerlink" title="坐标下降"></a>坐标下降</h2><p>由于 $\ell_1$ 正则项不可微，故而无法直接使用梯度下降（事实上可以使用 subgradient，见之后笔记）。而 $Lasso$ 回归的目标函数满足坐标下降的收敛条件， 并且其坐标下降的迭代算法有<strong>闭式解</strong>！一般来说，坐标下降适用于形如</p>
+<script type="math/tex; mode=display">
+f\left(w_{1}, \ldots, w_{d}\right)=g\left(w_{1}, \ldots, w_{d}\right)+\sum_{j=1}^{d} h_{j}\left(w_{j}\right)</script><p>的目标函数。其中 $g$ 是一个可微凸函数， $h_j$ 仅仅要求是凸函数就行！</p>
+<blockquote>
+<p>Tseng P. Convergence of a block coordinate descent method for nondifferentiable minimization[J]. Journal of optimization theory and applications, 2001, 109(3): 475-494.</p>
+</blockquote>
+<h3 id="迭代过程向量化"><a href="#迭代过程向量化" class="headerlink" title="迭代过程向量化"></a>迭代过程向量化</h3><p>具体的迭代算法就不推导了， 目标函数关于每一个参数是凸的。算法流程图为</p>
+<p><img src="https://i.loli.net/2019/11/20/QSGsyDoMw64KWuJ.jpg" alt></p>
+<blockquote>
+<p>Source: Murphy, Kevin P. Machine learning: a probabilistic perspective. MIT press, 2012</p>
+</blockquote>
+<p>其中内部循环可以通过向量化来加速，即</p>
+<script type="math/tex; mode=display">a_j = 2 X_{\cdot j}^TX_{\cdot j}</script><script type="math/tex; mode=display">c_j = 2X_{\cdot j}^T(y - Xw + w_jX_{\cdot j})</script><h3 id="lambda-max-的推导"><a href="#lambda-max-的推导" class="headerlink" title="$\lambda_{max}$ 的推导"></a>$\lambda_{max}$ 的推导</h3><p>正则化系数如果很大，那么所有的回归系数都会被惩罚为零。那么达到多大就可以了呢？注意到目标函数在原点不可微，但是他是一个凸函数！所以要想原点达到最小值， 只需要原点的<strong>方向导数全部非负</strong>！任取方向 $v$，原点的方向导数为</p>
+<script type="math/tex; mode=display">
+J^{\prime}(0 ; v)=\lim _{h \downarrow 0} \frac{f(h v)-f(0)}{h} =\lim _{h \downarrow 0} \frac{\|x \cdot h v-y\|_{2}^{2}+\lambda h\|v\|_{1}-\|y\|_{2}^{2}}{h} = \lambda\|v\|_{1}-2 v^{\top} x^{\top} y</script><p>下面只需要证明 $\lambda \ge 2||X^Ty||_{\infty}$ 是 $\lambda \ge \frac{2v^TX^Ty}{||v||_1}$ 的充要条件。证明如下，记 $A = X^Ty$</p>
+<ol>
+<li>充分性。<script type="math/tex; mode=display">
+  \frac{2v^TX^Ty}{||v||_1} = \frac{2\sum A_iv_i}{\sum |v_i|} \le \frac{2 \max_i |A_i|\sum |v_i|}{\sum |v_i|}  = 2||X^Ty||_{\infty}</script></li>
+<li>必要性。令 $j = \arg \max_i |A_i|$。构造向量 $v$，其只有第 $j$ 个位置 $v_j = sign(A_j)$，其余均为零。则<script type="math/tex; mode=display">
+  \frac{2v^TX^Ty}{||v||_1}  = 2A_j sign(A_j) = 2 |A_j| =  2||X^Ty||_{\infty}</script></li>
+</ol>
+<p>即如果 $\lambda \ge  2||X^Ty||_{\infty}$，回归系数几乎都是零（没有截距 $b$ 的情形）！</p>
+<h3 id="测试实例"><a href="#测试实例" class="headerlink" title="测试实例"></a>测试实例</h3><p><img src="https://i.loli.net/2019/11/20/scUENSbFA1krRPV.png" alt></p>
+<blockquote>
+<p>数据来自课程作业</p>
+</blockquote>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ol>
+<li><a href="https://github.com/davidrosenberg/mlcourse/tree/gh-pages/Homework" target="_blank" rel="noopener">作业地址</a></li>
+</ol>
 
       
 
@@ -395,7 +435,7 @@ x^{T} M x-2 b^{T} x=\left(x-M^{-1} b\right)^{T} M\left(x-M^{-1} b\right)-b^{T} M
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Lasso-回归诱导稀疏解"><span class="toc-number">1.</span> <span class="toc-text">Lasso 回归诱导稀疏解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#损失函数等高线"><span class="toc-number">1.1.</span> <span class="toc-text">损失函数等高线</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Lasso-回归诱导稀疏解"><span class="toc-number">1.</span> <span class="toc-text">Lasso 回归诱导稀疏解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#损失函数等高线"><span class="toc-number">1.1.</span> <span class="toc-text">损失函数等高线</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#特征重复"><span class="toc-number">1.2.</span> <span class="toc-text">特征重复</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#坐标下降"><span class="toc-number">2.</span> <span class="toc-text">坐标下降</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#迭代过程向量化"><span class="toc-number">2.1.</span> <span class="toc-text">迭代过程向量化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#lambda-max-的推导"><span class="toc-number">2.2.</span> <span class="toc-text">$\lambda_{max}$ 的推导</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#测试实例"><span class="toc-number">2.3.</span> <span class="toc-text">测试实例</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Reference"><span class="toc-number">3.</span> <span class="toc-text">Reference</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -590,6 +630,18 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">-随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">machine learning</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">数学</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">网络爬虫</a>
               </li>
              
@@ -599,18 +651,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">统计</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">machine learning</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">-随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">数学</a>
               </li>
              
               <li class="article-tag-list-item">
