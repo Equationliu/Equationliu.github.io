@@ -6,7 +6,7 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://equationliu.github.io">
-  <title>Tag: -随笔 | Equation-Blog</title>
+  <title>Lasso 回归与 Coordinate decent | Equation-Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
   <link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
@@ -24,15 +24,16 @@
     }
   </style>
   <meta name="description" content="关于个人的学习、研究与感悟 | 方程，目标：Math，Machine Learning，Computer Vision | 这里是 @equation的个人博客，与你一起发现更大的世界。">
-<meta name="keywords" content="equation, equation的博客, 个人网站, 互联网, CS, 机器学习 , Machine Learning, Math, 数学">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Equation-Blog">
-<meta property="og:url" content="https://equationliu.github.io/tags/随笔/index.html">
+<meta name="keywords" content="Optimization,machine learning,数学">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Lasso 回归与 Coordinate decent">
+<meta property="og:url" content="https://equationliu.github.io/2019-11-19-l1-l2/index.html">
 <meta property="og:site_name" content="Equation-Blog">
 <meta property="og:description" content="关于个人的学习、研究与感悟 | 方程，目标：Math，Machine Learning，Computer Vision | 这里是 @equation的个人博客，与你一起发现更大的世界。">
 <meta property="og:locale" content="en | zh-CN |zh-TW">
+<meta property="og:updated_time" content="2019-11-19T06:24:35.114Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Equation-Blog">
+<meta name="twitter:title" content="Lasso 回归与 Coordinate decent">
 <meta name="twitter:description" content="关于个人的学习、研究与感悟 | 方程，目标：Math，Machine Learning，Computer Vision | 这里是 @equation的个人博客，与你一起发现更大的世界。">
   
     <link rel="alternative" href="/atom.xml" title="Equation-Blog" type="application/atom+xml">
@@ -192,60 +193,216 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-2019-11-19-l1-l2" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019-10-5-start/" class="archive-article-date">
-  	<time datetime="2019-10-05T15:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-05</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019-10-5-start/">新的起点：	每个人都有一个觉醒的过程，但是这个过程的早晚会决定一生</a>
+    <h1 class="article-title" itemprop="name">
+      Lasso 回归与 Coordinate decent
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+		<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+		<!--显示阅读次数-->
+
+  <br/>
+  <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
+  <span class="icon-sort"></span>
+  <span id="busuanzi_container_page_pv" style="color:gray;font-size:14px;">
+            阅读数: <span id="busuanzi_value_page_pv"></span> 次 &nbsp;&nbsp;
+  </span>
+  </a>
+
+<!--显示阅读次数完毕-->
+        
+        <a href="/2019-11-19-l1-l2/" class="archive-article-date">
+  	<time datetime="2019-11-19T06:16:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">-随笔</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Optimization</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">machine learning</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数学</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://equationliu.github.io/2019-11-19-l1-l2/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
+	<div>
+</div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2019-11-14-ridge/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">机器学习笔记一：贝叶斯风险和岭回归（Ridge Regression）</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    目录，不存在的…
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="2019-11-19-l1-l2" data-title="Lasso 回归与 Coordinate decent" data-url="https://equationliu.github.io/2019-11-19-l1-l2/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+  
+  
   
 
-    
+  
+
+  
+
+  
+  <div id="gitment-ctn"></div> 
+<link rel="stylesheet" href="https://billts.site/extra_css/gitment.css">
+<script src="https://billts.site/js/gitment.js"></script>
+<script>
+var gitment = new Gitment({
+  id: "https://equationliu.github.io/2019-11-19-l1-l2/",
+  owner: 'Equationliu',
+  repo: 'equationliu.github.io',
+  oauth: {
+    client_id: '4a8635dd78f8cd4fd997',
+    client_secret: 'd4421278eb872d5b507540ce8a64aeb952d9dbc1',
+  },
+})
+gitment.render('gitment-ctn')
+</script>
+  
 
 
           </div>
@@ -271,9 +428,9 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

@@ -32,7 +32,7 @@
 <meta property="og:description" content="Bayes 风险机器学习的理论目标自然是要实现最小化期望风险 $f^{*} \in \underset{f}{\arg \min } R(f)$ ，其中 $R(f)=\mathbb{E} \ell(f(x), y)$。那么选择不同的损失函数 $\ell(f(x), y)$ 会有什么影响呢？ 绝对值损失当 $\ell(f(x), y)=|f(x)-y|$ 时，从定义出发 $f^*(x) = \und">
 <meta property="og:locale" content="en | zh-CN |zh-TW">
 <meta property="og:image" content="https://i.loli.net/2019/11/17/nPx7FQciR59WhVp.jpg">
-<meta property="og:updated_time" content="2019-11-19T06:11:27.662Z">
+<meta property="og:updated_time" content="2019-11-19T06:15:40.608Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器学习笔记一：贝叶斯风险和岭回归（Ridge Regression）">
 <meta name="twitter:description" content="Bayes 风险机器学习的理论目标自然是要实现最小化期望风险 $f^{*} \in \underset{f}{\arg \min } R(f)$ ，其中 $R(f)=\mathbb{E} \ell(f(x), y)$。那么选择不同的损失函数 $\ell(f(x), y)$ 会有什么影响呢？ 绝对值损失当 $\ell(f(x), y)=|f(x)-y|$ 时，从定义出发 $f^*(x) = \und">
@@ -316,6 +316,7 @@ J(\theta) =\| X\theta - y \|_2^2 + \lambda\|\theta\|_2^2</script><p><strong>引�
 <p>当 $b$ 很大的时候，结果和 sklearn 保持一致！而后者正是没有对截距做正则化。上图也说明对截距进行一定的正则化可能是有好处的，此处取 $b = 0.01$ 就是一个不错的选择。</p>
 <h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ol>
 <li><a href="https://github.com/davidrosenberg/mlcourse/tree/gh-pages/Homework" target="_blank" rel="noopener">作业地址</a></li>
+<li><a href="https://equationliu.github.io/2019-11-14-ridge/hw1.pdf">自制作业解答</a>：如有错误还望指正交流！</li>
 </ol>
 
       
@@ -409,6 +410,15 @@ J(\theta) =\| X\theta - y \|_2^2 + \lambda\|\theta\|_2^2</script><p><strong>引�
 
   
 <nav id="article-nav">
+  
+    <a href="/2019-11-19-l1-l2/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Lasso 回归与 Coordinate decent
+        
+      </div>
+    </a>
   
   
     <a href="/2019-11-16-python/" id="article-nav-older" class="article-nav-link-wrap">
@@ -614,6 +624,14 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Algorithm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数学建模</a>
               </li>
              
@@ -623,14 +641,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Optimization</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Algorithm</a>
               </li>
              
               <li class="article-tag-list-item">

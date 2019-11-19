@@ -194,6 +194,94 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-2019-10-17-read" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019-10-17-read/">阅读分享：机器学习理论的回顾与展望——北大王立威教授</a>
+    </h1>
+  
+
+		<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+		<!--显示阅读次数-->
+
+<!--显示阅读次数完毕-->
+        
+        <a href="/2019-10-17-read/" class="archive-article-date">
+  	<time datetime="2019-10-17T04:15:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>这篇文章是王立威教授在中国人工智能学会 <a href="https://aidl.caai.cn/2" target="_blank" rel="noopener">AIDL</a> 第二期<strong>人工智能前沿讲习班：机器学习前沿</strong>所作报告， slides 可以关注 <a href="https://aidl.caai.cn/2" target="_blank" rel="noopener">AIDL</a> 公众号后台回复关键字获取。演讲内容可以阅读 <a href="https://blog.csdn.net/xiangz_csdn/article/details/60865980" target="_blank" rel="noopener">CSDN <strong>转载</strong>整理版</a>。</p>
+<p>当初看到这篇文章是很激动的，现在回想一开始吸引我走进 ML 这个坑的就是像 VC theory 和 Margin theory 这种有<strong>很漂亮数学理论</strong>的传统机器学习理论与算法。就像王教授在报告最后提出的：<strong>这两个理论确实很难用来解释深度学习</strong>。但是学习这些基础显然还是很必要的，因此在这里 mark 一下。最后是一些个人的理解和想法，并尝试从仿真的角度直观理解其中提到的几个不等式。</p>
+<p><img src="http://static.leiphone.com/uploads/new/article/740_740/201703/58bd2ad7c6abe.png?imageMogr2/format/jpg/quality/90" alt="北京大学王立威教授：机器学习理论的回顾与展望（四）"><br></p>
+        
+          <a class="article-more-a" href="/2019-10-17-read/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">统计</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">machine learning</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019-10-17-read/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+	<div>
+</div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-2019-10-5-start" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -555,103 +643,6 @@ p_{X}(\mathbf{x} | \boldsymbol{\eta})=h(\mathbf{x}) g(\boldsymbol{\eta}) \exp \l
 
 
   
-    <article id="post-2019-6-25-rmu" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019-6-25-rmu/">二次型极值与 PCA ？</a>
-    </h1>
-  
-
-		<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-		<!--显示阅读次数-->
-
-<!--显示阅读次数完毕-->
-        
-        <a href="/2019-6-25-rmu/" class="archive-article-date">
-  	<time datetime="2019-06-25T04:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>协方差矩阵 $\mathbf{S}$ 本身是一个特殊的实对称矩阵，而以下两个问题背后的数学本质其实是相通的。</p>
-<blockquote>
-<p>二次型极值问题的<strong>拉格朗日函数</strong>和 PCA 中使用的是一样的！</p>
-</blockquote>
-<h1 id="二次型在单位球面上的极值"><a href="#二次型在单位球面上的极值" class="headerlink" title="二次型在单位球面上的极值"></a>二次型在单位球面上的极值</h1><p><strong>问题：</strong>设 $A=\left(a_{i j}\right)_{n \times n}$  是 $n$ 阶实对称矩阵，求二次型：</p>
-<script type="math/tex; mode=display">
-f(X)=f\left(x_{1}, x_{2}, \cdots, x_{n}\right)=\sum_{i, j=1}^{n} a_{i j} x_{i} x_{j}=X^{T} A X</script><p>在单位球面上 </p>
-<script type="math/tex; mode=display">
-S : \sum_{i=1}^{n} x_{i}^{2}=1</script><p>上的最大值、最小值。</p>
-<blockquote>
-<p>题目来源：杨柳, 罗成新. 高等代数与数学分析相互渗透溶合应用研究[J]. 应用数学进展, 2017, 6(3): 238-242. </p>
-</blockquote>
-        
-          <a class="article-more-a" href="/2019-6-25-rmu/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">优化</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">machine learning</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019-6-25-rmu/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-	<div>
-</div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
@@ -776,6 +767,14 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Algorithm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数学建模</a>
               </li>
              
@@ -785,14 +784,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Optimization</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Algorithm</a>
               </li>
              
               <li class="article-tag-list-item">
