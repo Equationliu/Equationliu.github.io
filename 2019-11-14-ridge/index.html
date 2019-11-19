@@ -32,7 +32,7 @@
 <meta property="og:description" content="Bayes 风险机器学习的理论目标自然是要实现最小化期望风险 $f^{*} \in \underset{f}{\arg \min } R(f)$ ，其中 $R(f)=\mathbb{E} \ell(f(x), y)$。那么选择不同的损失函数 $\ell(f(x), y)$ 会有什么影响呢？ 绝对值损失当 $\ell(f(x), y)=|f(x)-y|$ 时，从定义出发 $f^*(x) = \und">
 <meta property="og:locale" content="en | zh-CN |zh-TW">
 <meta property="og:image" content="https://i.loli.net/2019/11/17/nPx7FQciR59WhVp.jpg">
-<meta property="og:updated_time" content="2019-11-17T07:44:01.833Z">
+<meta property="og:updated_time" content="2019-11-19T06:11:27.662Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器学习笔记一：贝叶斯风险和岭回归（Ridge Regression）">
 <meta name="twitter:description" content="Bayes 风险机器学习的理论目标自然是要实现最小化期望风险 $f^{*} \in \underset{f}{\arg \min } R(f)$ ，其中 $R(f)=\mathbb{E} \ell(f(x), y)$。那么选择不同的损失函数 $\ell(f(x), y)$ 会有什么影响呢？ 绝对值损失当 $\ell(f(x), y)=|f(x)-y|$ 时，从定义出发 $f^*(x) = \und">
@@ -314,6 +314,9 @@ J(\theta) =\| X\theta - y \|_2^2 + \lambda\|\theta\|_2^2</script><p><strong>引�
 <p>测试结果与 <code>r2_score</code> 相同。下面使用正规方程求解（暂时取 $b = 1$）:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">b = <span class="number">1</span></span><br><span class="line">X_train = np.hstack((X_train, b * np.ones((X_train.shape[<span class="number">0</span>], <span class="number">1</span>))))</span><br><span class="line">X_test = np.hstack((X_test, b * np.ones((X_test.shape[<span class="number">0</span>], <span class="number">1</span>))))</span><br><span class="line"></span><br><span class="line">lamda = <span class="number">2</span></span><br><span class="line">A = np.dot(X_train.T, X_train) + lamda * np.eye(X_train.shape[<span class="number">1</span>])</span><br><span class="line">print(<span class="string">"Rank of A: "</span> + str(linalg.matrix_rank(A)))</span><br><span class="line">theta = linalg.solve(A, np.dot(X_train.T, y_train))</span><br><span class="line">print(<span class="string">"Mean squared error: %.6f"</span></span><br><span class="line">      % compute_square_loss(X_test, y_test, theta))</span><br><span class="line">pred = np.dot(X_test,theta)</span><br><span class="line">print(<span class="string">'Variance score: %.6f'</span> % R_square(y_test, pred).item())</span><br><span class="line"></span><br><span class="line"><span class="string">"""Output</span></span><br><span class="line"><span class="string">Rank of A: 49</span></span><br><span class="line"><span class="string">Mean squared error: 2.451190</span></span><br><span class="line"><span class="string">Variance score: 0.513777</span></span><br><span class="line"><span class="string">"""</span></span><br></pre></td></tr></table></figure></p>
 <p>可以发现矩阵 $A$ 满秩了，故而可逆！对比 baseline 发现性能还略微有所提升。下面取不同的值进行对比<br><img src="https://i.loli.net/2019/11/17/nPx7FQciR59WhVp.jpg" alt></p>
 <p>当 $b$ 很大的时候，结果和 sklearn 保持一致！而后者正是没有对截距做正则化。上图也说明对截距进行一定的正则化可能是有好处的，此处取 $b = 0.01$ 就是一个不错的选择。</p>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ol>
+<li><a href="https://github.com/davidrosenberg/mlcourse/tree/gh-pages/Homework" target="_blank" rel="noopener">作业地址</a></li>
+</ol>
 
       
 
@@ -436,7 +439,7 @@ J(\theta) =\| X\theta - y \|_2^2 + \lambda\|\theta\|_2^2</script><p><strong>引�
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Bayes-风险"><span class="toc-number">1.</span> <span class="toc-text">Bayes 风险</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#绝对值损失"><span class="toc-number">1.1.</span> <span class="toc-text">绝对值损失</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0-1-损失"><span class="toc-number">1.2.</span> <span class="toc-text">0-1 损失</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#平方损失"><span class="toc-number">1.3.</span> <span class="toc-text">平方损失</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#岭回归"><span class="toc-number">2.</span> <span class="toc-text">岭回归</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#正规方程"><span class="toc-number">2.1.</span> <span class="toc-text">正规方程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#补充列常数的选择"><span class="toc-number">2.2.</span> <span class="toc-text">补充列常数的选择</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Bayes-风险"><span class="toc-number">1.</span> <span class="toc-text">Bayes 风险</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#绝对值损失"><span class="toc-number">1.1.</span> <span class="toc-text">绝对值损失</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0-1-损失"><span class="toc-number">1.2.</span> <span class="toc-text">0-1 损失</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#平方损失"><span class="toc-number">1.3.</span> <span class="toc-text">平方损失</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#岭回归"><span class="toc-number">2.</span> <span class="toc-text">岭回归</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#正规方程"><span class="toc-number">2.1.</span> <span class="toc-text">正规方程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#补充列常数的选择"><span class="toc-number">2.2.</span> <span class="toc-text">补充列常数的选择</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Reference"><span class="toc-number">3.</span> <span class="toc-text">Reference</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -611,14 +614,6 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Algorithm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数学建模</a>
               </li>
              
@@ -628,6 +623,14 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Optimization</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Algorithm</a>
               </li>
              
               <li class="article-tag-list-item">
