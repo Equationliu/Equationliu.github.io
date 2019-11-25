@@ -6,7 +6,7 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://equationliu.github.io">
-  <title>风险分解、方差分解、泛化上界以及偏差-方差分解的关系 | Equation-Blog</title>
+  <title>机器学习笔记三：风险分解、方差分解、泛化上界以及偏差-方差分解的关系 | Equation-Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
   <link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
@@ -23,18 +23,20 @@
         border-left-color: #6d6d6d;    /*左边框颜色*/
     }
   </style>
-  <meta name="description" content="这篇文章旨在深入理解一些概念并理清楚他们之间的关系。比如：  风险分解：Excess Risk Decomposition 方差分解: Variance Decomposition 泛化上界。统计学理论中有许多的 upper bound 偏差-方差分解：bias-variance decomposition">
+  <meta name="description" content="这篇文章旨在深入理解一些概念并理清楚他们之间的关系。比如：  风险分解：Excess Risk Decomposition 方差分解: Variance Decomposition 泛化上界。统计学习理论中有许多的 upper bound 偏差-方差分解：bias-variance decomposition">
 <meta name="keywords" content="Optimization,machine learning,数学">
 <meta property="og:type" content="article">
-<meta property="og:title" content="风险分解、方差分解、泛化上界以及偏差-方差分解的关系">
+<meta property="og:title" content="机器学习笔记三：风险分解、方差分解、泛化上界以及偏差-方差分解的关系">
 <meta property="og:url" content="https://equationliu.github.io/2019-11-25-risk-decom/index.html">
 <meta property="og:site_name" content="Equation-Blog">
-<meta property="og:description" content="这篇文章旨在深入理解一些概念并理清楚他们之间的关系。比如：  风险分解：Excess Risk Decomposition 方差分解: Variance Decomposition 泛化上界。统计学理论中有许多的 upper bound 偏差-方差分解：bias-variance decomposition">
+<meta property="og:description" content="这篇文章旨在深入理解一些概念并理清楚他们之间的关系。比如：  风险分解：Excess Risk Decomposition 方差分解: Variance Decomposition 泛化上界。统计学习理论中有许多的 upper bound 偏差-方差分解：bias-variance decomposition">
 <meta property="og:locale" content="en | zh-CN |zh-TW">
-<meta property="og:updated_time" content="2019-11-25T13:18:20.039Z">
+<meta property="og:image" content="https://i.loli.net/2019/11/25/t4nmcOu7lIWaKqo.png">
+<meta property="og:updated_time" content="2019-11-25T14:25:32.481Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="风险分解、方差分解、泛化上界以及偏差-方差分解的关系">
-<meta name="twitter:description" content="这篇文章旨在深入理解一些概念并理清楚他们之间的关系。比如：  风险分解：Excess Risk Decomposition 方差分解: Variance Decomposition 泛化上界。统计学理论中有许多的 upper bound 偏差-方差分解：bias-variance decomposition">
+<meta name="twitter:title" content="机器学习笔记三：风险分解、方差分解、泛化上界以及偏差-方差分解的关系">
+<meta name="twitter:description" content="这篇文章旨在深入理解一些概念并理清楚他们之间的关系。比如：  风险分解：Excess Risk Decomposition 方差分解: Variance Decomposition 泛化上界。统计学习理论中有许多的 upper bound 偏差-方差分解：bias-variance decomposition">
+<meta name="twitter:image" content="https://i.loli.net/2019/11/25/t4nmcOu7lIWaKqo.png">
   
     <link rel="alternative" href="/atom.xml" title="Equation-Blog" type="application/atom+xml">
   
@@ -200,7 +202,7 @@ var _hmt = _hmt || [];
         
   
     <h1 class="article-title" itemprop="name">
-      风险分解、方差分解、泛化上界以及偏差-方差分解的关系
+      机器学习笔记三：风险分解、方差分解、泛化上界以及偏差-方差分解的关系
     </h1>
   
 
@@ -229,10 +231,31 @@ var _hmt = _hmt || [];
 <ol>
 <li>风险分解：<a href="https://davidrosenberg.github.io/mlcourse/Lectures/01c.excess-risk-decomposition.pdf" target="_blank" rel="noopener">Excess Risk Decomposition</a></li>
 <li>方差分解: Variance Decomposition</li>
-<li>泛化上界。统计学理论中有许多的 upper bound</li>
+<li>泛化上界。统计学习理论中有许多的 upper bound</li>
 <li>偏差-方差分解：bias-variance decomposition</li>
 </ol>
 <a id="more"></a>
+<h2 id="Excess-Risk-Decomposition"><a href="#Excess-Risk-Decomposition" class="headerlink" title="Excess Risk Decomposition"></a>Excess Risk Decomposition</h2><p><a href="https://equationliu.github.io/2019-11-14-ridge/">机器学习笔记一：贝叶斯风险和岭回归</a> 中提到了贝叶斯决策函数</p>
+<script type="math/tex; mode=display">
+f^{*}=\underset{f}{\arg \min } R(f) =  \underset{f}{\arg \min } \;\mathbb{E} \ell(f(x), y)</script><p>其中 $f$ 选自假设空间 $\mathcal{F}$。</p>
+<blockquote>
+<p>例如 $\mathcal{F}$ 可以是所有的 2 阶多项式中系数满足 $|w|_2 \le r$ 的函数。</p>
+</blockquote>
+<p>对应的也就有了假设空间 $\mathcal{F}$ 中的最优决策函数</p>
+<script type="math/tex; mode=display">
+f_{\mathcal{F}}=\underset{f \in \mathcal{F}}{\arg \min } \mathbb{E} \;\ell \left(f(x), y)\right)</script><p>由于假设空间选取的不同导致的误差称之为<strong>逼近误差</strong>（Approximation Error）：$R(f_{\mathcal{F}}) - R(f^<em>)$。显然这个误差是非负的。并且只要 $\mathcal{F}$ 足够大，这个误差就可以达到零。但是实际求解的时候只能使用<strong>经验风险</strong>最小化（ERM），由此导致的误差称之为<em>*估计误差</em></em>（Estimation error）：$R(\hat{f}_n) -R(f_{\mathcal{F}})$。其中</p>
+<script type="math/tex; mode=display">
+\hat{f}_{n}=\underset{f \in \mathcal{F}}{\arg \min } \frac{1}{n} \sum_{i=1}^{n} \ell\left(f\left(x_{i}\right), y_{i}\right) = \underset{f \in \mathcal{F}}{\arg \min } \;\hat{R}(f)</script><p>如果上述 ERM 问题是一个凸问题，我们很容易找到最优的参数得到 $\hat{f}_n$，但是通常只能得到极小值（如非凸的神经网络），那么由于优化问题的性质以及优化算法导致的误差称之为<strong>优化误差</strong>（Optimization Error）：</p>
+<script type="math/tex; mode=display">
+R(\tilde{f}_{n})-R(\hat{f}_{n})</script><p>上述三种误差可以用下图直观的解释：</p>
+<p><img src="https://i.loli.net/2019/11/25/t4nmcOu7lIWaKqo.png" alt></p>
+<p>那么对于我们的实际算法返回的函数 $\tilde{f}_{n}$，我们有其误差分解</p>
+<script type="math/tex; mode=display">
+\begin{aligned} \text { Excess Risk }\left(\tilde{f}_{n}\right) &=R\left(\tilde{f}_{n}\right)-R\left(f^{*}\right) \\ &=\underbrace{R\left(\tilde{f}_{n}\right)-R\left(\hat{f}_{n}\right)}_{\text {optimization estror }}+\underbrace{R\left(\hat{f}_{n}\right)-R\left(f_{\mathcal{F}}\right)}_{\text {estimation error }}+\underbrace{R\left(f_{\mathcal{F}}\right)-R\left(f^{*}\right)}_{\text {approximation error }} \end{aligned}</script><p>关于上述定义有以下几点讨论：</p>
+<ol>
+<li>逼近误差不是随机的，而估计误差是一个随机变量。因为前者只与 $\mathcal{F}$ 有关，而后者依赖于有限的样本，而样本是随机的。</li>
+<li><strong>优化误差可以是负数</strong>！因为优化误差是按照期望分险定义的，但是 $\tilde{f}_{n}$ 是按照经验风险求解的，不过<script type="math/tex; mode=display">\hat{R}\left(\tilde{f}_{n}\right)-\hat{R}\left(\hat{f}_{n}\right) \geqslant 0</script> 始终成立。</li>
+</ol>
 
       
 
@@ -355,7 +378,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Excess-Risk-Decomposition"><span class="toc-number">1.</span> <span class="toc-text">Excess Risk Decomposition</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -369,7 +392,7 @@ var _hmt = _hmt || [];
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="2019-11-25-risk-decom" data-title="风险分解、方差分解、泛化上界以及偏差-方差分解的关系" data-url="https://equationliu.github.io/2019-11-25-risk-decom/"></div>
+	<div class="ds-thread" data-thread-key="2019-11-25-risk-decom" data-title="机器学习笔记三：风险分解、方差分解、泛化上界以及偏差-方差分解的关系" data-url="https://equationliu.github.io/2019-11-25-risk-decom/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -550,6 +573,14 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">统计</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">machine learning</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">网络爬虫</a>
               </li>
              
@@ -558,15 +589,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">machine learning</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">数学</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">统计</a>
               </li>
              
               <li class="article-tag-list-item">
