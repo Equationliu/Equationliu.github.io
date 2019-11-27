@@ -32,7 +32,7 @@
 <meta property="og:description" content="Bayes 风险机器学习的理论目标自然是要实现最小化期望风险 $f^{*} \in \underset{f}{\arg \min } R(f)$ ，其中 $R(f)=\mathbb{E} \ell(f(x), y)$。那么选择不同的损失函数 $\ell(f(x), y)$ 会有什么影响呢？ 绝对值损失当 $\ell(f(x), y)=|f(x)-y|$ 时，从定义出发 $f^*(x) = \und">
 <meta property="og:locale" content="en | zh-CN |zh-TW">
 <meta property="og:image" content="https://i.loli.net/2019/11/17/nPx7FQciR59WhVp.jpg">
-<meta property="og:updated_time" content="2019-11-19T09:28:37.938Z">
+<meta property="og:updated_time" content="2019-11-27T12:17:24.925Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器学习笔记一：贝叶斯风险和岭回归（Ridge Regression）">
 <meta name="twitter:description" content="Bayes 风险机器学习的理论目标自然是要实现最小化期望风险 $f^{*} \in \underset{f}{\arg \min } R(f)$ ，其中 $R(f)=\mathbb{E} \ell(f(x), y)$。那么选择不同的损失函数 $\ell(f(x), y)$ 会有什么影响呢？ 绝对值损失当 $\ell(f(x), y)=|f(x)-y|$ 时，从定义出发 $f^*(x) = \und">
@@ -291,7 +291,7 @@ J(\theta)=\sum_{i=1}^{m}\left(h_{\theta}(x_{i})-y_{i}\right)^{2}+\lambda\theta^{
 <h3 id="正规方程"><a href="#正规方程" class="headerlink" title="正规方程"></a>正规方程</h3><p>很多教程上都是直接对上式进行求导，然后再组成矩阵的形式，略微有些繁琐。这里直接使用<strong>矩阵微积分</strong>推导。</p>
 <p>首先改写损失函数（$X \in \mathbb{R}^{m \times (d+1)}$）</p>
 <script type="math/tex; mode=display">
-J(\theta) =\| X\theta - y \|_2^2 + \lambda\|\theta\|_2^2</script><p><strong>引理：</strong> 设 $f(x)$ 是向量 $x = (x_1,x_2,\cdots,x_n)^T$ 的函数，而 $x_{i}=x_{i}(u), i=1,2, \cdots, n, u=(u_1,u_2,\cdots,u_n)^T$。则 </p>
+J(\theta) =\| X\theta - y \|_2^2 + \lambda\|\theta\|_2^2</script><p><strong>引理（链式法则向量形式）：</strong> 设 $f(x)$ 是向量 $x = (x_1,x_2,\cdots,x_n)^T$ 的函数，而 $x_{i}=x_{i}(u), i=1,2, \cdots, n, u=(u_1,u_2,\cdots,u_n)^T$。则 </p>
 <script type="math/tex; mode=display">
 \frac{\mathrm{d} f}{\mathrm{d} u}=\frac{\mathrm{d} x^{\mathrm{T}}}{\mathrm{d} u} \frac{\mathrm{d} f}{\mathrm{d} x}</script><blockquote>
 <p>见矩阵论第2版 [方保镕，周继东，李医民 编著] </p>
@@ -411,18 +411,18 @@ J(\theta) =\| X\theta - y \|_2^2 + \lambda\|\theta\|_2^2</script><p><strong>引�
   
 <nav id="article-nav">
   
-    <a href="/2019-11-16-python/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019-11-19-l1-l2/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Python 编程踩坑记
+          机器学习笔记二：Lasso 回归与 Coordinate decent
         
       </div>
     </a>
   
   
-    <a href="/2019-11-14-ML/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">写在前面：机器学习系列笔记</div>
+    <a href="/2019-11-16-python/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Python 编程踩坑记</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -624,14 +624,6 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Algorithm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数学建模</a>
               </li>
              
@@ -641,6 +633,14 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Optimization</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Algorithm</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -660,11 +660,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">-随笔</a>
+                <a href="javascript:void(0)" class="js-tag color3">数学</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">数学</a>
+                <a href="javascript:void(0)" class="js-tag color4">-随笔</a>
               </li>
              
               <li class="article-tag-list-item">

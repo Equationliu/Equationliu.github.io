@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://equationliu.github.io/2019-11-25-risk-decom/</loc>
+    <loc>https://equationliu.github.io/2019-11-25-decom/</loc>
     
-    <lastmod>2019-11-27T04:41:16.620Z</lastmod>
+    <lastmod>2019-11-27T14:43:11.837Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://equationliu.github.io/2019-11-14-ridge/</loc>
+    
+    <lastmod>2019-11-27T12:17:24.925Z</lastmod>
     
   </url>
   
@@ -12,13 +19,6 @@
     <loc>https://equationliu.github.io/2019-11-19-l1-l2/</loc>
     
     <lastmod>2019-11-19T19:13:23.104Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://equationliu.github.io/2019-11-14-ridge/</loc>
-    
-    <lastmod>2019-11-19T09:28:37.938Z</lastmod>
     
   </url>
   
