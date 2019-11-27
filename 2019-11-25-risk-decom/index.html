@@ -32,7 +32,7 @@
 <meta property="og:description" content="这篇文章旨在深入理解一些概念并理清楚他们之间的关系。比如：  风险分解：Excess Risk Decomposition 方差分解: Variance Decomposition 泛化上界。统计学习理论中有许多的 upper bound 偏差-方差分解：bias-variance decomposition">
 <meta property="og:locale" content="en | zh-CN |zh-TW">
 <meta property="og:image" content="https://i.loli.net/2019/11/25/t4nmcOu7lIWaKqo.png">
-<meta property="og:updated_time" content="2019-11-25T14:25:32.481Z">
+<meta property="og:updated_time" content="2019-11-27T04:41:16.620Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器学习笔记三：风险分解、方差分解、泛化上界以及偏差-方差分解的关系">
 <meta name="twitter:description" content="这篇文章旨在深入理解一些概念并理清楚他们之间的关系。比如：  风险分解：Excess Risk Decomposition 方差分解: Variance Decomposition 泛化上界。统计学习理论中有许多的 upper bound 偏差-方差分解：bias-variance decomposition">
@@ -243,7 +243,10 @@ f^{*}=\underset{f}{\arg \min } R(f) =  \underset{f}{\arg \min } \;\mathbb{E} \el
 </blockquote>
 <p>对应的也就有了假设空间 $\mathcal{F}$ 中的最优决策函数</p>
 <script type="math/tex; mode=display">
-f_{\mathcal{F}}=\underset{f \in \mathcal{F}}{\arg \min } \mathbb{E} \;\ell \left(f(x), y)\right)</script><p>由于假设空间选取的不同导致的误差称之为<strong>逼近误差</strong>（Approximation Error）：$R(f_{\mathcal{F}}) - R(f^<em>)$。显然这个误差是非负的。并且只要 $\mathcal{F}$ 足够大，这个误差就可以达到零。但是实际求解的时候只能使用<strong>经验风险</strong>最小化（ERM），由此导致的误差称之为<em>*估计误差</em></em>（Estimation error）：$R(\hat{f}_n) -R(f_{\mathcal{F}})$。其中</p>
+f_{\mathcal{F}}=\underset{f \in \mathcal{F}}{\arg \min } \mathbb{E} \;\ell \left(f(x), y)\right)</script><p>由于假设空间选取的不同导致的误差称之为<strong>逼近误差</strong>（Approximation Error）：</p>
+<script type="math/tex; mode=display">
+R(f_{\mathcal{F}}) - R(f^*)</script><p>显然这个误差是非负的。并且只要 $\mathcal{F}$ 足够大，这个误差就可以达到零。但是实际求解的时候只能使用<strong>经验风险</strong>最小化（ERM），由此导致的误差称之为<strong>估计误差</strong>（Estimation error）：</p>
+<script type="math/tex; mode=display">R(\hat{f}_n) -R(f_{\mathcal{F}})</script><p>其中</p>
 <script type="math/tex; mode=display">
 \hat{f}_{n}=\underset{f \in \mathcal{F}}{\arg \min } \frac{1}{n} \sum_{i=1}^{n} \ell\left(f\left(x_{i}\right), y_{i}\right) = \underset{f \in \mathcal{F}}{\arg \min } \;\hat{R}(f)</script><p>如果上述 ERM 问题是一个凸问题，我们很容易找到最优的参数得到 $\hat{f}_n$，但是通常只能得到极小值（如非凸的神经网络），那么由于优化问题的性质以及优化算法导致的误差称之为<strong>优化误差</strong>（Optimization Error）：</p>
 <script type="math/tex; mode=display">
@@ -573,14 +576,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">统计</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">machine learning</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">网络爬虫</a>
               </li>
              
@@ -589,11 +584,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">数学</a>
+                <a href="javascript:void(0)" class="js-tag color3">统计</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">machine learning</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">-随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">数学</a>
               </li>
              
               <li class="article-tag-list-item">
