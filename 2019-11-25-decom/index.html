@@ -32,7 +32,10 @@
 <meta property="og:description" content="这篇文章旨在深入理解一些概念并理清楚他们之间的关系。比如：  风险分解：Excess Risk Decomposition 方差分解: Variance Decomposition 偏差-方差分解：bias-variance decomposition 泛化上界。统计学习理论中有许多的 upper bound">
 <meta property="og:locale" content="en | zh-CN |zh-TW">
 <meta property="og:image" content="https://i.loli.net/2019/11/25/t4nmcOu7lIWaKqo.png">
-<meta property="og:updated_time" content="2019-11-27T14:43:11.837Z">
+<meta property="og:image" content="https://i.loli.net/2019/11/28/mLQz8FfX9S5VDKg.jpg">
+<meta property="og:image" content="https://i.loli.net/2019/11/28/YmeAElMkIaZfc85.jpg">
+<meta property="og:image" content="https://i.loli.net/2019/11/28/tSwbNLk97hx26VD.jpg">
+<meta property="og:updated_time" content="2019-11-28T04:42:37.969Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器学习笔记三：风险分解、方差划分、偏差-方差分解以及泛化上界的关系">
 <meta name="twitter:description" content="这篇文章旨在深入理解一些概念并理清楚他们之间的关系。比如：  风险分解：Excess Risk Decomposition 方差分解: Variance Decomposition 偏差-方差分解：bias-variance decomposition 泛化上界。统计学习理论中有许多的 upper bound">
@@ -283,7 +286,29 @@ R(\tilde{f}_{n})-R(\hat{f}_{n})</script><p>上述三种误差可以用下图直�
 <script type="math/tex; mode=display">
 E(f ; D)=\operatorname{bias}^{2}(\boldsymbol{x})+\operatorname{var}(\boldsymbol{x})+\varepsilon^{2}</script><p>也就是说，单一个点在不同数据集下的期望误差可分解为偏差、方差与噪声之和。而真正的泛化误差应该是</p>
 <script type="math/tex; mode=display">
-\mathbb{E}_{x \sim \mathbb{P}_{\mathcal{X}}}[E(f(x) ; D)]</script><p>但是这和一般的泛化误差定义仍有出入。</p>
+\mathbb{E}_{x \sim \mathbb{P}_{\mathcal{X}}}[E(f(x) ; D)]</script><p>但是这和一般的泛化误差定义仍有出入。对于 bias 和 variance 的解释如下</p>
+<ol>
+<li>bias 刻画了学习算法本身的拟合能力。这由假设空间决定，故而对应了<strong>逼近误差</strong>。</li>
+<li>variance 度量了同样大小的训练集的变动所导致的学习性能的变化，即刻画了数据扰动所造成的影响。这由样本决定，故而对应了<strong>估计误差</strong>。</li>
+</ol>
+<p>用一个图来表示就是</p>
+<p><img src="https://i.loli.net/2019/11/28/mLQz8FfX9S5VDKg.jpg" alt></p>
+<blockquote>
+<p>图片来自：<a href="http://scott.fortmann-roe.com/docs/BiasVariance.html" target="_blank" rel="noopener">Understanding the Bias-Variance Tradeoff</a>。其中有更详尽的讨论与例子。比如 KNN 中 $k = 1$ 的时候模型复杂度最高，bias 最小，variance 最大。即仅仅依靠一个样本来预测对样本的扰动异常敏感。</p>
+</blockquote>
+<p>下面这个图更能说明 bias-variance 与逼近误差和估计误差的关系</p>
+<p><img src="https://i.loli.net/2019/11/28/YmeAElMkIaZfc85.jpg" alt></p>
+<blockquote>
+<p>图片来自：Learning from Data: A Short Course</p>
+</blockquote>
+<h2 id="泛化上界"><a href="#泛化上界" class="headerlink" title="泛化上界"></a>泛化上界</h2><p>以 <a href="https://en.wikipedia.org/wiki/Vapnik%E2%80%93Chervonenkis_dimension" target="_blank" rel="noopener">VC 维为例</a>。考虑分类任务，此时损失函数为 $\ell(f(x), y) = \mathbb{I}(f(x) \neq y)$ 统计学习理论中的泛化误差结论为：以 $1- \delta$ 的概率，对任意的 $f \in \mathcal{F}$，当样本数 $m &gt; \text{VC}(\mathcal{F}) $ 时</p>
+<script type="math/tex; mode=display">
+\begin{aligned}|R(f)-\hat{R}(f)| & \leq \sqrt{\frac{8}{m}\left(\mathrm{VC}(\mathcal{F}) \log \frac{2 \mathrm{em}}{\mathrm{VC}(\mathcal{F})}+\log \frac{4}{\delta}\right)} \\ &=\tilde{\mathcal{O}}(\sqrt{\left.\frac{\mathrm{VC}(\mathcal{F})}{m}\right)}\end{aligned}</script><p>这其实和 Bias-Variance 一起给出了泛化误差的<strong>两种解释</strong>。</p>
+<p><img src="https://i.loli.net/2019/11/28/tSwbNLk97hx26VD.jpg" alt></p>
+<blockquote>
+<p>图片来自：Learning from Data: A Short Course</p>
+</blockquote>
+<h2 id="VC-Analysis-和-Bias-Variance-Tradeoff-的应用"><a href="#VC-Analysis-和-Bias-Variance-Tradeoff-的应用" class="headerlink" title="VC Analysis 和 Bias-Variance Tradeoff 的应用"></a>VC Analysis 和 Bias-Variance Tradeoff 的应用</h2><p>未完待续，等实现常用机器学习算法后统一总结！</p>
 
       
 
@@ -406,7 +431,7 @@ E(f ; D)=\operatorname{bias}^{2}(\boldsymbol{x})+\operatorname{var}(\boldsymbol{
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Excess-Risk-Decomposition"><span class="toc-number">1.</span> <span class="toc-text">Excess Risk Decomposition</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#方差划分"><span class="toc-number">2.</span> <span class="toc-text">方差划分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#偏差-方差分解"><span class="toc-number">3.</span> <span class="toc-text">偏差-方差分解</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Excess-Risk-Decomposition"><span class="toc-number">1.</span> <span class="toc-text">Excess Risk Decomposition</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#方差划分"><span class="toc-number">2.</span> <span class="toc-text">方差划分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#偏差-方差分解"><span class="toc-number">3.</span> <span class="toc-text">偏差-方差分解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#泛化上界"><span class="toc-number">4.</span> <span class="toc-text">泛化上界</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#VC-Analysis-和-Bias-Variance-Tradeoff-的应用"><span class="toc-number">5.</span> <span class="toc-text">VC Analysis 和 Bias-Variance Tradeoff 的应用</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -581,6 +606,14 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Algorithm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数学建模</a>
               </li>
              
@@ -593,11 +626,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+                <a href="javascript:void(0)" class="js-tag color3">统计</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Algorithm</a>
+                <a href="javascript:void(0)" class="js-tag color2">machine learning</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -606,14 +639,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">统计</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">machine learning</a>
               </li>
              
               <li class="article-tag-list-item">
