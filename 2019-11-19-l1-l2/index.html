@@ -35,7 +35,7 @@
 <meta property="og:image" content="https://i.loli.net/2019/11/20/DxX4iWYeO8FASfT.png">
 <meta property="og:image" content="https://i.loli.net/2019/11/20/QSGsyDoMw64KWuJ.jpg">
 <meta property="og:image" content="https://i.loli.net/2019/11/20/scUENSbFA1krRPV.png">
-<meta property="og:updated_time" content="2019-11-19T19:13:23.104Z">
+<meta property="og:updated_time" content="2019-12-06T13:51:05.081Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器学习笔记二：Lasso 回归与 Coordinate decent">
 <meta name="twitter:description" content="上节笔记 机器学习笔记一：贝叶斯风险和岭回归 详细探讨了 Ridge 回归  J(w)=\sum_{i=1}^{m}\left(h_{w}(x_{i})-y_{i}\right)^{2}+\lambda w^{T}w的求解与实现。但是加上一个惩罚项 $ w^{T}w$ 到底实现了怎样的正则呢？从统计学习的角度就是对假设空间进行约束，降低模型的复杂度。现在假设 $||w||_2 \le r$，那么">
@@ -235,8 +235,8 @@ var _hmt = _hmt || [];
 J(w)=\sum_{i=1}^{m}\left(h_{w}(x_{i})-y_{i}\right)^{2}+\lambda w^{T}w</script><p>的求解与实现。但是加上一个惩罚项 $ w^{T}w$ 到底实现了怎样的<strong>正则</strong>呢？从统计学习的角度就是对假设空间进行约束，降低模型的复杂度。现在假设 $||w||_2 \le r$，那么</p>
 <script type="math/tex; mode=display">
 |h_{w}(x + h) - h_{w}(x)| = |w^Th| \le \|w\|_2\|h\|_2\le r\|h\|_2</script><p>从而 $h_{w}(x)$ 是 $r$ <strong>李普希兹连续</strong>（r-Lipschitz）的。变量是一维时也就是限制了直线的斜率。而李普希兹这一性质广泛应用于机器学习理论的证明。</p>
-<h2 id="Lasso-回归诱导稀疏解"><a href="#Lasso-回归诱导稀疏解" class="headerlink" title="Lasso 回归诱导稀疏解"></a>Lasso 回归诱导稀疏解</h2><p>为什么 $\ell_1$ 正则可以得到稀疏的解而 $\ell_2$ 不能呢？其实这是有很多前提条件的！<br><a id="more"></a></p>
-<p>首先损失需要是<strong>平方损失</strong>，也就是考虑以下 Lasso 回归问题：</p>
+<h2 id="Lasso-回归诱导稀疏解"><a href="#Lasso-回归诱导稀疏解" class="headerlink" title="Lasso 回归诱导稀疏解"></a>Lasso 回归诱导稀疏解</h2><p>为什么 $\ell_1$ 正则可以得到稀疏的解而 $\ell_2$ 不能呢？其实这是需要一些前提条件的！<br><a id="more"></a></p>
+<p>这里仅仅考虑以下 Lasso 回归问题：</p>
 <script type="math/tex; mode=display">
 \hat{w}=\underset{w \in \mathbb{R}^{d}}{\arg \min } \frac{1}{n} \sum_{i=1}^{n}\left\{w^{T} x_{i}-y_{i}\right\}^{2}+\lambda\|w\|_{1}</script><p>而上述优化问题（Penalized ERM：<a href="https://en.wikipedia.org/wiki/Tikhonov_regularization" target="_blank" rel="noopener">Tikhonov regularization</a>）等价于 Constrained ERM （Ivanov regularization）：</p>
 <script type="math/tex; mode=display">
@@ -639,19 +639,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">统计</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">machine learning</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">网络爬虫</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">统计</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">machine learning</a>
               </li>
              
               <li class="article-tag-list-item">
