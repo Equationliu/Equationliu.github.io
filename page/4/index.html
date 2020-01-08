@@ -6,7 +6,7 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://equationliu.github.io">
-  <title>Archives: 2019/10 | Equation-Blog</title>
+  <title>Equation-Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
   <link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
@@ -27,7 +27,7 @@
 <meta name="keywords" content="equation, equation的博客, 个人网站, 互联网, CS, 机器学习 , Machine Learning, Math, 数学">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Equation-Blog">
-<meta property="og:url" content="https://equationliu.github.io/archives/2019/10/index.html">
+<meta property="og:url" content="https://equationliu.github.io/page/4/index.html">
 <meta property="og:site_name" content="Equation-Blog">
 <meta property="og:description" content="关于个人的学习、研究与感悟 | 方程，目标：Math，Machine Learning，Computer Vision | 这里是 @equation的个人博客，与你一起发现更大的世界。">
 <meta property="og:locale" content="en | zh-CN |zh-TW">
@@ -194,100 +194,102 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
-  
+    <article id="post-2017-11-24-horse" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019-10-17-read/" class="archive-article-date">
-  	<time datetime="2019-10-17T04:15:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-17</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019-10-17-read/">阅读分享：机器学习理论的回顾与展望——北大王立威教授</a>
+      <a class="article-title" href="/2017-11-24-horse/">基于贪心算法的马踏棋盘哈密顿回路问题</a>
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+		<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+		<!--显示阅读次数-->
+
+<!--显示阅读次数完毕-->
+        
+        <a href="/2017-11-24-horse/" class="archive-article-date">
+  	<time datetime="2017-11-24T04:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-24</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h2><p>马踏棋盘其实相当于一个解空间的搜索问题，而遍历到每一个节点并要求最后可以回到起点本质上是一个<strong>哈密顿回路问题</strong></p>
+<blockquote>
+<p>目前大部分马踏棋盘的相关问题并不要求回到起点，然后实际上在<strong>不重复</strong>的走完全盘的可行解中寻找最后可以回到起点的最优解更为困难。</p>
+</blockquote>
+<p>问题在于，这个搜索空间十分的庞大，倘若不考虑棋盘位置约束与遍历次数限制，解空间大小将达到指数级的庞大规模。但是即便在这些解中加上棋盘限制与单次访问等的剪枝条件，为了在<strong>可行解</strong>（64 个节点仅各访问一次）中搜寻到可以回到起点的<strong>最优解</strong>仍然是非常困难的。倘若仅仅固定八个可行方向的顺序，使用深度优先的递归来实施搜索，效率将会非常低下。</p>
+<p>这是因为对于靠近边界的四个顶点的区域来说，如果不能尽快的遍历完这些区域，而是按照固定的顺序来遍历会十分容易造成“<strong>死节点</strong>”，将来不可能再次访问。而与此同时，程序还在徒劳的往更深的方向搜索，极大的影响搜索效率。</p>
+        
+          <a class="article-more-a" href="/2017-11-24-horse/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">machine learning</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">统计</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Algorithm</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017-11-24-horse/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+	<div>
+</div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019-10-5-start/" class="archive-article-date">
-  	<time datetime="2019-10-05T15:23:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-05</time>
-</a>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019-10-5-start/">新的起点：	每个人都有一个觉醒的过程，但是这个过程的早晚会决定一生</a>
-    </h1>
-  
+        
+        
+    </div>
+</aside>
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">-随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+
   
   
-    </div></section>
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
+    </nav>
   
-
-    
 
 
           </div>
@@ -312,9 +314,9 @@ var _hmt = _hmt || [];
     <script>
 	var yiliaConfig = {
 		mathjax: true,
-		isHome: false,
+		isHome: true,
 		isPost: false,
-		isArchive: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
